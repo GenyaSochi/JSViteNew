@@ -8,26 +8,26 @@ import './style.css'
 //1. Запрсить у пользователя его возраст и определить, кем он яляется:
 //ребенком(0-2), подростком(12-18), взрослым(18-60), пенсионеом(60-...)
 
-//let age = 120
-//console.log('Введите сколько Вам лет ', '')
-//if (age < 11){
-//console.log('ты ребенок')
-//} else if(age < 18){
-//console.log('ты подросток')
-//} else if(age < 59){
-//console.log('вы взрослый')
-//} else if(age < 100){
-//console.log('вы пенсионер')
-//} else if(age < 200){
-//console.log('вы долгожитель')
-//}
+// let age = 120
+// console.log('Введите сколько Вам лет ', '')
+// if (age < 11) {
+//   console.log('ты ребенок')
+// } else if (age < 18) {
+//   console.log('ты подросток')
+// } else if (age < 59) {
+//   console.log('вы взрослый')
+// } else if (age < 100) {
+//   console.log('вы пенсионер')
+// } else if (age < 200) {
+//   console.log('вы долгожитель')
+// }
 
 //2. Запросить у пользователя число от 0 до 9 и вывести ему спецсимвол, который расположен
 //на той клавише.
 
-//let num = 5
-//console.log('Введите число от 0 до 9 ')
-//if (num == 0) {
+// let num = 5
+// console.log('Введите число от 0 до 9 ')
+// if (num == 0) {
 //   console.log(')')
 // } else if (num == 1) {
 //   console.log('!')
@@ -55,7 +55,7 @@ import './style.css'
 // let num2 = 1
 // let num3 = 2
 // console.log('Введите трехзначное число', num1, num2, num3)
-// if (num1 == num2 || num1 == num3 || num2 == num3){
+// if (num1 == num2 || num1 == num3 || num2 == num3) {
 //   console.log('В числе есть одинаковые цифры')
 // } else {
 //   console.log('В числе нет одинаковых цифр')
@@ -65,7 +65,7 @@ import './style.css'
 //либо кратен 4 и при этом не кратен 100.
 // let year = 2024
 // console.log('Введите год', year)
-// if (year%400 == 0 || year%4 == 0 || year%100 == 0) {
+// if (year % 400 == 0 || year % 4 == 0 || year % 100 == 0) {
 //   console.log('Год високосный')
 // } else console.log('Год не високосный')
 
@@ -77,7 +77,7 @@ import './style.css'
 // let num4 = 3
 // let num5 = 6
 // console.log('Введите пятизначное число', num1, num2, num3, num4, num5)
-// if (num1 == num5 && num2 == num4){
+// if (num1 == num5 && num2 == num4) {
 //   console.log('Число является палиндромом')
 // } else console.log('Число не является палиндромом')
 
@@ -89,9 +89,9 @@ import './style.css'
 // const UAN = 7.20
 // const AZN = 0.59
 // console.log('Введите количество USD и валюту, в которую вы хотите сделать перевод', EUR, UAN, AZN)
-// if (EUR){
-//   console.log(USD*EUR, USD*UAN, USD*AZN)
-// } 
+// if (EUR) {
+//   console.log(USD * EUR, USD * UAN, USD * AZN)
+// }
 
 
 //7. Запросить у пользователя сумму покупки, вывести сумму к оплате со скидкой: от 200-300 скидка 3%,
@@ -99,12 +99,12 @@ import './style.css'
 
 // let cost = 800
 // console.log('Введите стоимость покупки', cost)
-// if(cost >= 200 && cost <= 300){
-//   console.log('Ваша скидка составляет 3% от суммы покупки', (cost/100)*3)
-// } else if(cost >= 301 && cost <= 500){
-//   console.log('Ваша скидка составляет 5% от суммы покупки', (cost/100)*5)
-// } else if(cost >=501){
-//   console.log('Ваша скидка составляет 7% от суммы покупки', (cost/100)*7)
+// if (cost >= 200 && cost <= 300) {
+//   console.log('Ваша скидка составляет 3% от суммы покупки', (cost / 100) * 3)
+// } else if (cost >= 301 && cost <= 500) {
+//   console.log('Ваша скидка составляет 5% от суммы покупки', (cost / 100) * 5)
+// } else if (cost >= 501) {
+//   console.log('Ваша скидка составляет 7% от суммы покупки', (cost / 100) * 7)
 // } else console.log('Скидка на покупку не распространяется')
 
 //8. Запросить у пользователя длину окружности и периметр квадрата. Определить, может ли такая окружность поместиться
@@ -113,7 +113,7 @@ import './style.css'
 // let L = 12
 // let P = 40
 // console.log('Введите длину окружнсти и периметр квадрата', L, P)
-// if(P/4 >= L){
+// if (P / 4 >= L) {
 //   console.log('Окружность поместится в квадрат')
 // } else console.log('Окружность не поместится в квадрат')
 
@@ -124,23 +124,23 @@ import './style.css'
 // answer1 = 1
 // answer2 = 2
 // answer3 = 3
-// let rightMark =2
+// let rightMark = 2
 // let yes = 1
 // let no = 2
 // let dontKnow = 3
 // let result = 0
 // console.log('Земля круглая? Выберите вариант ответа.', 'yes = ' + yes, 'no = ' + no, 'dontKnow = ' + dontKnow)
-// if(answer1 == yes){
+// if (answer1 == yes) {
 //   console.log(rightMark)
 //   result += rightMark
 // }
 // console.log('Россия самая большая страна? Выберите вариант ответа.', 'yes', 'no', 'dontKnow')
-// if(answer2 == yes){
+// if (answer2 == yes) {
 //   console.log(rightMark)
 //   result += rightMark
 // }
 // console.log('В сутках 24 часа? Выберите вариант ответа.', 'yes', 'no', 'dontKnow')
-// if(answer3 == yes){
+// if (answer3 == yes) {
 //   console.log(rightMark)
 //   result += rightMark
 // }
@@ -149,57 +149,75 @@ import './style.css'
 //10. Запросить дату (день, месяц, год) и вывести следующую за ней дату. Учтите возмжность перехода на следующий месяц,
 //год, а также високосный год.
 
-let DD = 30
-let MM = 10
-let YY = 2023
-console.log('Введите дату в формате', DD, MM,  YY)
-if(MM == 2 && YY%100 == 0 || YY%400 == 0 || YY%4 == 0){
-  if(DD < 29){
-    console.log((DD + 1) + '.' + MM + '.' + YY)
-  }
-  else{
-    console.log('1.' + (MM + 1) + '.' + YY)
-  }
-}
-else {
-  if(MM == 4 || MM == 6 || MM == 9 || MM ==11){
-    if(DD < 30){
-      console.log((DD + 1) + '.'+ MM + '.' + YY)
-    }
-    else{
-      console.log('1.' + (MM + 1) + '.' + YY)
-    }
-  }
-  else if(MM == 2){
-    if(DD < 28){
-      console.log((DD + 1) + '.' + MM + '.' + YY)
-    }
-    else{
-      console.log('1.' + (MM + 1) + '.' + YY)
-    }
-  }
-  else {
-    if(MM == 12 && DD == 31){
-      console.log('1.' + '1.'+ (YY + 1))
-    }
-    else if(DD < 31){
-      console.log((DD + 1) + '.' + MM + '.' + YY)
-    }
-    else{
-      console.log('1.' + (MM + 1) + '.' + YY)
-    }
-  }
-}
-
-
+// let DD = 30
+// let MM = 10
+// let YY = 2023
+// console.log('Введите дату в формате', DD, MM, YY)
+// if (MM == 2 && YY % 100 == 0 || YY % 400 == 0 || YY % 4 == 0) {
+//   if (DD < 29) {
+//     console.log((DD + 1) + '.' + MM + '.' + YY)
+//   } else {
+//     console.log('1.' + (MM + 1) + '.' + YY)
+//   }
+// } else {
+//   if (MM == 4 || MM == 6 || MM == 9 || MM == 11) {
+//     if (DD < 30) {
+//       console.log((DD + 1) + '.' + MM + '.' + YY)
+//     } else {
+//       console.log('1.' + (MM + 1) + '.' + YY)
+//     }
+//   } else if (MM == 2) {
+//     if (DD < 28) {
+//       console.log((DD + 1) + '.' + MM + '.' + YY)
+//     } else {
+//       console.log('1.' + (MM + 1) + '.' + YY)
+//     }
+//   } else {
+//     if (MM == 12 && DD == 31) {
+//       console.log('1.' + '1.' + (YY + 1))
+//     } else if (DD < 31) {
+//       console.log((DD + 1) + '.' + MM + '.' + YY)
+//     } else {
+//       console.log('1.' + (MM + 1) + '.' + YY)
+//     }
+//   }
+// }
 
 
 //Pz2.
+
 //1. Запросить число и определить оно положительное, отрицательное или ноль.
 
-//2. Запросить у пользователя возраст и проверить корректность введенных данных (0-120 лет)
+// let num = 0
+// console.log('Введите любое число', num)
+// if (num == 0) {
+//   console.log('Вы ввели ноль')
+// } else if (num > 0) {
+//   console.log('Вы ввели положительное число')
+// } else {
+//   console.log('Вы ввели отрицательное число')
+// }
 
-//3. Запросить число и вывести его модуль(|7| = 7, |-7| = 7).
+//2. Запросить у пользователя возраст и проверить корректность введенных данных (0-120 лет).
+
+// let age = 140
+// console.log('Введите свой возраст', age)
+// if (age > 0 && age < 120) {
+//   console.log('Данные введены корректно')
+// } else {
+//   console.log('Данные введены не корректно. Повторите ввод данных.')
+// }
+
+//3. Запросить число и вывести его модуль (растояние от нуля до данного числа)(|7| = 7, |-7| = 7).
+
+// let num = 10
+// console.log('введите любое число', num)
+// if (num < 0) {
+//   console.log('Модуль отрицательного числа', num * (-1))
+// } else {
+//   console.log('Модуль положительного числа')
+// }
+
 
 //4. (часы, минуты, секунды) и проверитькорректнсть ввденных данных.
 
