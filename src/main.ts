@@ -120,38 +120,40 @@ import './style.css'
 //9. Задать подьзоателю 3 вопроса, в каждом по 3 варианта ответа. За каждый правилный ответ начисляется 2 балла.
 //После вопросов выводиться набранное количество баллов.
 
-let answer1, answer2, answer3
-answer1 = 1
-answer2 = 2
-answer3 = 1
-let rightMark =2
-let yes = 1
-let no = 2
-let dontKnow = 3
-let result = 0
-console.log('Земля круглая? Выберите вариант ответа.', 'yes = ' + yes, 'no = ' + no, 'dontKnow = ' + dontKnow)
-if(answer1 == yes){
-  console.log(rightMark)
-  result += rightMark
-}
-console.log('Россия самая большая страна? Выберите вариант ответа.', 'yes', 'no', 'dontKnow')
-if(answer2 == yes){
-  console.log(rightMark)
-  result += rightMark
-}
-console.log('В сутках 24 часа? Выберите вариант ответа.', 'yes', 'no', 'dontKnow')
-if(answer3 == yes){
-  console.log(rightMark)
-  result += rightMark
-}
-console.log('Ваш результат: ' + result)
+// let answer1, answer2, answer3
+// answer1 = 1
+// answer2 = 2
+// answer3 = 3
+// let rightMark =2
+// let yes = 1
+// let no = 2
+// let dontKnow = 3
+// let result = 0
+// console.log('Земля круглая? Выберите вариант ответа.', 'yes = ' + yes, 'no = ' + no, 'dontKnow = ' + dontKnow)
+// if(answer1 == yes){
+//   console.log(rightMark)
+//   result += rightMark
+// }
+// console.log('Россия самая большая страна? Выберите вариант ответа.', 'yes', 'no', 'dontKnow')
+// if(answer2 == yes){
+//   console.log(rightMark)
+//   result += rightMark
+// }
+// console.log('В сутках 24 часа? Выберите вариант ответа.', 'yes', 'no', 'dontKnow')
+// if(answer3 == yes){
+//   console.log(rightMark)
+//   result += rightMark
+// }
+// console.log('Ваш результат: ' + result)
 
-
-
-
-//10. Запросить дату (день, месяц, год) и вывести следующую за ней дату.Учтите возмжность перехода на следующий месяц,
+//10. Запросить дату (день, месяц, год) и вывести следующую за ней дату. Учтите возмжность перехода на следующий месяц,
 //год, а также високосный год.
 
+YYYY = 2021
+MM = 12
+DD = 12
+console.log()
 
 
 //Pz2.
+
