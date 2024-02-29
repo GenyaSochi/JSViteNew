@@ -247,14 +247,24 @@ import './style.css'
 
 //2. Проверка логина.
 
-let user = 'admin'
-let pass = '11'
-console.log('Введите name', user)
-if (user == 'admin') {
-  console.log('Введите пароль')
-  if(pass == '') {
-    console.log('')
-  }}
+// let user = prompt('Кто там?','')
+// if (user === 'admin') {
+//   let pass = prompt('Введите пароль', '')
+//   if (pass === 'Я главный') {
+//     console.log('Здравствуйте!')
+//   }
+//   else if (pass === '' || pass == null) {
+//     console.log('Отменено')
+//   }
+//   else {
+//     console.log('Неверный пароль')
+//   }
+// }
+// else if(user === '' || user === null) {
+//   console.log('Отмена')
+// } 
+// else console.log('Я вас не знаю')
+
 
 
 
