@@ -376,3 +376,68 @@ import './style.css'
 // let planet = 'Марс'
 // console.log(planet == 'Земля' || planet == 'земля' ? 'Привет, землянин!' : 'Привет, инопланетянин!')
 
+
+//Dz3.
+//1. Посчитать сумму всех чисел в заданном паользователем диапазоне.
+
+// let start = 0
+// let end = 0
+
+
+//Pz3.
+//1. Вывести # столько раз, сколько указал пользователь.
+
+// let i = 0
+// let userInput = 5
+// let text = ''
+// while(i < userInput) {
+//   text +='#'
+//   i++
+// }
+// console.log(text)
+
+//2. Пользователь ввел число, а на экран вывелись все числа от введеного до нуля.
+
+let userInput = 10
+let text = ''
+while (userInput) {
+  text = text + userInput + '_'
+  userInput--
+}
+console.log(text)
+
+
+// //3.
+let num = 10
+let count = 3
+let result = 1
+while (count) {
+  result *= num
+  count--
+}
+console.log(result)
+
+//4.
+let num1 = 410
+let num2 = 820
+text = ''
+let min = num1 < num2 ? num1 : num2
+while (min) {
+  if (num1 % min == 0 && num2 % min == 0) {
+    text += min + ''
+  }
+  min--
+}
+console.log(text)
+
+
+//5. Посчитать факториал введенного пользователем числа.
+let i = 1
+num = 5
+result = 1
+while (i <= num) {
+  result *= i
+  i++
+}
+console.log(result)
+
