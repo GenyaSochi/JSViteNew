@@ -221,8 +221,8 @@ import './style.css'
 
 //4. (часы, минуты, секунды) и проверить корректность ввденных данных.
 
-let hour = 30
-let min = 10
+let hour = 23
+let min = 12
 let sec = 10
 
 if (hour <= 24 && min <= 60 && sec <= 60){
