@@ -486,13 +486,10 @@ for (i = min + 3; i <= max; i+=4) {
 //Не имеют других делителей, кроме 1 и самих себя.
 //
 
-num = 5
-text = ''
-for (i = 2; i < num; i++){
-if(num%1 == num || num%num == 1){
-  console.log(num + '_')
-}
+num = 8
+for (i = 2; i <= num /2; i++){
+  console.log(`не простое число`)}
 
-}
+
 
 // console.log(`результат: ${num1 + 1}`)
