@@ -271,23 +271,23 @@ if (age < 14 || age > 90) {
 
 //2. Проверка логина.
 
-let user = prompt('Кто там?', '')
-if (user === 'admin') {
-  let pass = prompt('Введите пароль', '')
-  if (pass === 'Я главный') {
-    console.log('Здравствуйте!')
-  }
-  else if (pass === '' || pass == null) {
-    console.log('Отменено')
-  }
-  else {
-    console.log('Неверный пароль')
-  }
-}
-else if (user === '' || user === null) {
-  console.log('Отмена')
-}
-else console.log('Я вас не знаю')
+// let user = prompt('Кто там?', '')
+// if (user === 'admin') {
+//   let pass = prompt('Введите пароль', '')
+//   if (pass === 'Я главный') {
+//     console.log('Здравствуйте!')
+//   }
+//   else if (pass === '' || pass == null) {
+//     console.log('Отменено')
+//   }
+//   else {
+//     console.log('Неверный пароль')
+//   }
+// }
+// else if (user === '' || user === null) {
+//   console.log('Отмена')
+// }
+// else console.log('Я вас не знаю')
 
 
 //6. SWITCH
@@ -529,13 +529,74 @@ while (num != 0) {
 console.log(count)
 
 //PZ4.1
-//Написать функцию, которая принимает два числа и возвращает меньшее из них.
+//1.Написать функцию, которая принимает два числа и возвращает меньшее из них.
 
 function getMin(num1:number, num2:number) {
-  alert( 'Введите два числа');
-  if(num1 > num2)
-  return num1
+
+  return num1 < num2 ? num1 : num2
 }
+num1 =19
+num2 = 20
+console.log(getMin(num1, num2))
+
+//2.Написать функцию, которая возводит переданное число в указанную степень.
+
+function pow(num1:number, num2:number){
+  return num1**num2
+}
+num1 = 2
+num2 = 2
+console.log(pow(num1,num2))
+
+//3.Написать функцию, которая принимает 2 числа и знак (+ - * /), считает примет и возвращает результат.
+
+function receiveNum(num1:number, num2:number, operator:string){
+  switch (operator) {
+  case '+':
+    return num1 + num2
+  case '-':
+    return num1 - num2
+  case '*':
+    return num1 * num2
+  case '/':
+    return num1 / num2
+  default:
+    return 'Я не понимаю.'
+}
+}
+
+console.log(receiveNum(1,2,'='))
+
+//4.Написать функцию, которая проверяет, является ли переданное ей чило простым.
+
+function simpleNum(num:number){
+  for (i = 2; i <= num !/2; i++) {
+    if (num % i !== 0)
+    return num
+}
+}
+num = 13
+console.log(simpleNum(num))
+
+
+//5.Написать функцию, которая принимает 2 числа от 2 до 9 и выводит таблицу умножения.
+
+function showTable(a:number){
+let result = ''
+  for(let i = 1; i <10; i++){
+    result += i +'*' + a + '=' + i * a + '\n'
+  }
+  return result
+  }
+  console.log(showTable(2))
+  console.log(showTable(3))
+  console.log(showTable(4))
+  console.log(showTable(5))
+  console.log(showTable(6))
+  console.log(showTable(7))
+  console.log(showTable(8))
+  console.log(showTable(9))
+ 
 
 
 
