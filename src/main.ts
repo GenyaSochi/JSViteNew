@@ -599,8 +599,19 @@ let result = ''
 
   //6.Написать функцию, которая возвращает остаток от деления, принимая 2 параметра, (+-*/) % не использовать.
 
+  // function remains(a:number, b:number, q:number, r:number)
+ 
+
 
   //7.Написать функцию, которая принимает от 1 до 5 чисел и возвращает их сумму.
+
+  function sumNum(a:number, b:number, c:number, d:number,e:number){    
+    for(i = 0; a >= 0; i++){
+      sum = a+b+c+d+e         
+      return sum
+    }
+  }
+  console.log(sumNum(4,5,6,1,10))
 
   //8.Написать функцию, которая принимает от 1 до 5 чисел и возвращает большее из них.
 
