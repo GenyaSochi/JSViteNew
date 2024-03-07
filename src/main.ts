@@ -599,36 +599,43 @@ let result = ''
 
   //6.Написать функцию, которая возвращает остаток от деления, принимая 2 параметра, (+-*/) % не использовать.
 
-  // function remains(a:number, b:number, q:number, r:number)
+  // function remainsFloat(a:number, b:number, q:number, r:number)
  
 
 
   //7.Написать функцию, которая принимает от 1 до 5 чисел и возвращает их сумму.
 
-  function sumNum(a:number, b:number, c:number, d:number,e:number){    
-    for(i = 0; a >= 0; i++){
-      sum = a+b+c+d+e         
-      return sum
+  function sumNum(num:number){   
+    for(i = 1; i >= 5; i++){
+      console.log('Введите число') 
     }
+    return sum += num
   }
-  console.log(sumNum(4,5,6,1,10))
+  console.log(sumNum(7 ))
 
   //8.Написать функцию, которая принимает от 1 до 5 чисел и возвращает большее из них.
 
+  function getMax(num1:number, num2:number) {
+    return num1 > num2 ? num1 : num2
+  }
+  num1 = 6
+  num2 = 12
+  console.log(getMax(num1, num2))
+  
+
   //9.Написать функцию, которая выводит все четные и нечетные числа, в указанном пользователем диапазоне.Использовать true, false.
+  
+  function evenNum(num1:number, num2:number){
+    for ( i = num1; i < num2; i += 1) {
+      if (i % 2 !== 0) {
+        console.log(i);
+      }
+    }
+  }
+    console.log(evenNum(2,7))
 
   //10.Написать функцию, которая принимает дату(день. месяц, год) и возвращает дату следующего дня в виде стрки дд.мм.гггг.
   //Проверку на високосный год написать отдельной функцией.
- 
-
-
-
-
-
-
-
-
-
 
 
 
