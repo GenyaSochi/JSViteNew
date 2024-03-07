@@ -628,11 +628,13 @@ let result = ''
   function evenNum(num1:number, num2:number){
     for ( i = num1; i < num2; i += 1) {
       if (i % 2 !== 0) {
-        console.log(i);
+       true
       }
+      else false
     }
+    return
   }
-    console.log(evenNum(2,7))
+    console.log(evenNum(2,6))
 
   //10.Написать функцию, которая принимает дату(день. месяц, год) и возвращает дату следующего дня в виде стрки дд.мм.гггг.
   //Проверку на високосный год написать отдельной функцией.
