@@ -605,11 +605,8 @@ let result = ''
 
   //7.Написать функцию, которая принимает от 1 до 5 чисел и возвращает их сумму.
 
-  function sumNum(num:number){   
-    for(i = 1; i >= 5; i++){
-      console.log('Введите число') 
-    }
-    return sum += num
+  function sumNum(n1:number, n2=0, n3=0, n4=0, n5=0){   
+    return n1+n2+n3+n4+n5
   }
   console.log(sumNum(7 ))
 
@@ -625,21 +622,95 @@ let result = ''
 
   //9.Написать функцию, которая выводит все четные и нечетные числа, в указанном пользователем диапазоне.Использовать true, false.
   
-  function evenNum(num1:number, num2:number){
-    for ( i = num1; i < num2; i += 1) {
-      if (i % 2 !== 0) {
-       true
+  function printEvenNum(num1:number, num2:number){
+    let odd = ''
+    let even = ''
+    const max = Math.max(num1, num2)
+    const min = Math.min(num1, num2)
+    for (let i = min; i < max; i += 1) {
+      if (i % 2 == 0) {
+        even += !even ? i : ', '+i
+      } else {
+        odd += !odd ? i : ', '+i
       }
-      else false
     }
-    return
+    console.log(`Even ${even} \nOdd ${odd}`)
   }
-    console.log(evenNum(2,6))
+  printEvenNum(98,85)
 
   //10.Написать функцию, которая принимает дату(день. месяц, год) и возвращает дату следующего дня в виде стрки дд.мм.гггг.
   //Проверку на високосный год написать отдельной функцией.
 
+//Pz5.
+//1.Написать функцию, котораявычисляет факториал заданного числа.
 
+function getFactorialNum(num: number): number{
+  if(num==1){
+    return num
+  }else {
+    return num *(getFactorialNum(num-1))
+  }  
+}
+console.log(getFactorialNum(5))
+
+//2.Написать функцию, которая выводит все числа из заданного пользователем диапазона в прямом порядке. И еще одну
+//функцию – для вывода в обратном порядке.
+
+function PrintNumForvard(num1: number, num2: number): void{ 
+  if (num1 > num2){
+    return 
+  }
+  console.log (num1)
+  PrintNumForvard(num1+1, num2)
+}
+   PrintNumForvard(1,5)
+
+
+   function PrintNumBacward(num1: number, num2: number): void{ 
+    if (num1 < num2){
+      return 
+    }
+    console.log (num1)
+    PrintNumBacward(num1-1, num2)
+  }
+     PrintNumBacward(5,1)
+
+//3.Написать функцию, которая выводит переданное ей число задом наперед. Например: число 1234 вывести как 4321
+
+function getReversNumber(n: number):number{
+  if(n < 10){
+    return n 
+  }else {
+    return +(n%10+''+getReversNumber(Math.floor(n/10)))
+  }
+}
+console.log(getReversNumber(1234))
+
+//4.Написать функцию, которая считает сумму цифр числа. Например: число 1357, сумма 1 + 3 + 5 + 7 = 16
+function getSumOfDigits(n: number):number{
+  if(n < 10){
+    return n 
+  }else {
+    return n % 10 + getSumOfDigits(Math.floor(n/10))
+  }
+}
+console.log(getSumOfDigits(1234))
+
+//5.Написать функцию, которая принимает число и выводит соответствующее количество вложенных пар круглых скобок.
+//Например: число 4 – (((()))).
+
+function getBracketsPairsByNum(n: number):string{
+  if(!n) {
+    return ''
+  }else {
+    return'(' +getBracketsPairsByNum(n-1) +')'
+  }
+}
+//getBracketsPairsByNum(4) ='(' + getBracketsPairsByNum(3) +')' = (((())))
+//getBracketsPairsByNum(3) ='(' + getBracketsPairsByNum(2) +')' = ((()))
+//getBracketsPairsByNum(2) ='(' + getBracketsPairsByNum(1) +')' = (())
+//getBracketsPairsByNum(1) ='(' + getBracketsPairsByNum(0) +')' = ()
+console.log(getBracketsPairsByNum(4))
 
 
 
