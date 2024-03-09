@@ -535,7 +535,7 @@ function getMin(num1:number, num2:number) {
 
   return num1 < num2 ? num1 : num2
 }
-num1 =19
+num1 = 19
 num2 = 20
 console.log(getMin(num1, num2))
 
@@ -716,9 +716,29 @@ console.log(getBracketsPairsByNum(4))
 //Dz5
 //1.Написать функцию возведения числа в степень.
 
+function powNum(x:number, n:number):number{
+  if(n==1){
+    return x    
+  }else {
+    return x* pow(x, n-1)
+  }  
+}
+console.log(powNum(2,5))
+
 //2.Написать функцию поиска наибольшего общего делителя.
 
+function largestCommonDivisor(max:number, min:number):number{
+if(max % min == 0){
+  return min
+}else {
+  return max%(min-1)
+}
+}
+console.log(largestCommonDivisor(2,4))
+
+
 //3.Написать функцию для поиска максимальной цифры в числе.
+
 
 //4.Написать функцию, которая определяет простое ли переданное число.
 
