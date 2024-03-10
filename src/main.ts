@@ -531,7 +531,7 @@ console.log(count)
 //PZ4.1
 //1.Написать функцию, которая принимает два числа и возвращает меньшее из них.
 
-function getMin(num1:number, num2:number) {
+function getMin(num1: number, num2: number) {
 
   return num1 < num2 ? num1 : num2
 }
@@ -541,39 +541,39 @@ console.log(getMin(num1, num2))
 
 //2.Написать функцию, которая возводит переданное число в указанную степень.
 
-function pow(num1:number, num2:number){
-  return num1**num2
+function pow(num1: number, num2: number) {
+  return num1 ** num2
 }
 num1 = 2
 num2 = 2
-console.log(pow(num1,num2))
+console.log(pow(num1, num2))
 
 //3.Написать функцию, которая принимает 2 числа и знак (+ - * /), считает примет и возвращает результат.
 
-function receiveNum(num1:number, num2:number, operator:string){
+function receiveNum(num1: number, num2: number, operator: string) {
   switch (operator) {
-  case '+':
-    return num1 + num2
-  case '-':
-    return num1 - num2
-  case '*':
-    return num1 * num2
-  case '/':
-    return num1 / num2
-  default:
-    return 'Я не понимаю.'
-}
+    case '+':
+      return num1 + num2
+    case '-':
+      return num1 - num2
+    case '*':
+      return num1 * num2
+    case '/':
+      return num1 / num2
+    default:
+      return 'Я не понимаю.'
+  }
 }
 
-console.log(receiveNum(1,2,'='))
+console.log(receiveNum(1, 2, '='))
 
 //4.Написать функцию, которая проверяет, является ли переданное ей чило простым.
 
-function simpleNum(num:number){
-  for (i = 2; i <= num !/2; i++) {
+function simpleNum(num: number) {
+  for (i = 2; i <= num! / 2; i++) {
     if (num % i !== 0)
-    return num
-}
+      return num
+  }
 }
 num = 13
 console.log(simpleNum(num))
@@ -581,117 +581,117 @@ console.log(simpleNum(num))
 
 //5.Написать функцию, которая принимает 2 числа от 2 до 9 и выводит таблицу умножения.
 
-function showTable(a:number){
-let result = ''
-  for(let i = 1; i <10; i++){
-    result += i +'*' + a + '=' + i * a + '\n'
+function showTable(a: number) {
+  let result = ''
+  for (let i = 1; i < 10; i++) {
+    result += i + '*' + a + '=' + i * a + '\n'
   }
   return result
-  }
-  console.log(showTable(2))
-  console.log(showTable(3))
-  console.log(showTable(4))
-  console.log(showTable(5))
-  console.log(showTable(6))
-  console.log(showTable(7))
-  console.log(showTable(8))
-  console.log(showTable(9))
+}
+console.log(showTable(2))
+console.log(showTable(3))
+console.log(showTable(4))
+console.log(showTable(5))
+console.log(showTable(6))
+console.log(showTable(7))
+console.log(showTable(8))
+console.log(showTable(9))
 
-  //6.Написать функцию, которая возвращает остаток от деления, принимая 2 параметра, (+-*/) % не использовать.
+//6.Написать функцию, которая возвращает остаток от деления, принимая 2 параметра, (+-*/) % не использовать.
 
-  // function remainsFloat(a:number, b:number, q:number, r:number)
- 
+// function remainsFloat(a:number, b:number, q:number, r:number)
 
 
-  //7.Написать функцию, которая принимает от 1 до 5 чисел и возвращает их сумму.
 
-  function sumNum(n1:number, n2=0, n3=0, n4=0, n5=0){   
-    return n1+n2+n3+n4+n5
-  }
-  console.log(sumNum(7 ))
+//7.Написать функцию, которая принимает от 1 до 5 чисел и возвращает их сумму.
 
-  //8.Написать функцию, которая принимает от 1 до 5 чисел и возвращает большее из них.
+function sumNum(n1: number, n2 = 0, n3 = 0, n4 = 0, n5 = 0) {
+  return n1 + n2 + n3 + n4 + n5
+}
+console.log(sumNum(7))
 
-  function getMax(num1:number, num2:number) {
-    return num1 > num2 ? num1 : num2
-  }
-  num1 = 6
-  num2 = 12
-  console.log(getMax(num1, num2))
-  
+//8.Написать функцию, которая принимает от 1 до 5 чисел и возвращает большее из них.
 
-  //9.Написать функцию, которая выводит все четные и нечетные числа, в указанном пользователем диапазоне.Использовать true, false.
-  
-  function printEvenNum(num1:number, num2:number){
-    let odd = ''
-    let even = ''
-    const max = Math.max(num1, num2)
-    const min = Math.min(num1, num2)
-    for (let i = min; i < max; i += 1) {
-      if (i % 2 == 0) {
-        even += !even ? i : ', '+i
-      } else {
-        odd += !odd ? i : ', '+i
-      }
+function getMax(num1: number, num2: number) {
+  return num1 > num2 ? num1 : num2
+}
+num1 = 6
+num2 = 12
+console.log(getMax(num1, num2))
+
+
+//9.Написать функцию, которая выводит все четные и нечетные числа, в указанном пользователем диапазоне.Использовать true, false.
+
+function printEvenNum(num1: number, num2: number) {
+  let odd = ''
+  let even = ''
+  const max = Math.max(num1, num2)
+  const min = Math.min(num1, num2)
+  for (let i = min; i < max; i += 1) {
+    if (i % 2 == 0) {
+      even += !even ? i : ', ' + i
+    } else {
+      odd += !odd ? i : ', ' + i
     }
-    console.log(`Even ${even} \nOdd ${odd}`)
   }
-  printEvenNum(98,85)
+  console.log(`Even ${even} \nOdd ${odd}`)
+}
+printEvenNum(98, 85)
 
-  //10.Написать функцию, которая принимает дату(день. месяц, год) и возвращает дату следующего дня в виде стрки дд.мм.гггг.
-  //Проверку на високосный год написать отдельной функцией.
+//10.Написать функцию, которая принимает дату(день. месяц, год) и возвращает дату следующего дня в виде стрки дд.мм.гггг.
+//Проверку на високосный год написать отдельной функцией.
 
 //Pz5.
 //1.Написать функцию, котораявычисляет факториал заданного числа.
 
-function getFactorialNum(num: number): number{
-  if(num==1){
+function getFactorialNum(num: number): number {
+  if (num == 1) {
     return num
-  }else {
-    return num *(getFactorialNum(num-1))
-  }  
+  } else {
+    return num * (getFactorialNum(num - 1))
+  }
 }
 console.log(getFactorialNum(5))
 
 //2.Написать функцию, которая выводит все числа из заданного пользователем диапазона в прямом порядке. И еще одну
 //функцию – для вывода в обратном порядке.
 
-function PrintNumForvard(num1: number, num2: number): void{ 
-  if (num1 > num2){
-    return 
+function PrintNumForvard(num1: number, num2: number): void {
+  if (num1 > num2) {
+    return
   }
-  console.log (num1)
-  PrintNumForvard(num1+1, num2)
+  console.log(num1)
+  PrintNumForvard(num1 + 1, num2)
 }
-   PrintNumForvard(1,5)
+PrintNumForvard(1, 5)
 
 
-   function PrintNumBacward(num1: number, num2: number): void{ 
-    if (num1 < num2){
-      return 
-    }
-    console.log (num1)
-    PrintNumBacward(num1-1, num2)
+function PrintNumBacward(num1: number, num2: number): void {
+  if (num1 < num2) {
+    return
   }
-     PrintNumBacward(5,1)
+  console.log(num1)
+  PrintNumBacward(num1 - 1, num2)
+}
+PrintNumBacward(5, 1)
 
 //3.Написать функцию, которая выводит переданное ей число задом наперед. Например: число 1234 вывести как 4321
 
-function getReversNumber(n: number):number{
-  if(n < 10){
-    return n 
-  }else {
-    return +(n%10+''+getReversNumber(Math.floor(n/10)))
+function getReversNumber(n: number): number {
+  if (n < 10) {
+    return n
+  } else {
+    return +(n % 10 + '' + getReversNumber(Math.floor(n / 10)))
   }
 }
 console.log(getReversNumber(1234))
 
 //4.Написать функцию, которая считает сумму цифр числа. Например: число 1357, сумма 1 + 3 + 5 + 7 = 16
-function getSumOfDigits(n: number):number{
-  if(n < 10){
-    return n 
-  }else {
-    return n % 10 + getSumOfDigits(Math.floor(n/10))
+function getSumOfDigits(n: number): number {
+  if (n < 10) {
+    return n
+  } else {
+    return n % 10 + getSumOfDigits(Math.floor(n / 10))
   }
 }
 console.log(getSumOfDigits(1234))
@@ -699,11 +699,11 @@ console.log(getSumOfDigits(1234))
 //5.Написать функцию, которая принимает число и выводит соответствующее количество вложенных пар круглых скобок.
 //Например: число 4 – (((()))).
 
-function getBracketsPairsByNum(n: number):string{
-  if(!n) {
+function getBracketsPairsByNum(n: number): string {
+  if (!n) {
     return ''
-  }else {
-    return'(' +getBracketsPairsByNum(n-1) +')'
+  } else {
+    return '(' + getBracketsPairsByNum(n - 1) + ')'
   }
 }
 //getBracketsPairsByNum(4) ='(' + getBracketsPairsByNum(3) +')' = (((())))
@@ -716,30 +716,30 @@ console.log(getBracketsPairsByNum(4))
 //Dz5
 //1.Написать функцию возведения числа в степень.
 
-function powNum(x:number, n:number):number{
-  if(n==1){
-    return x    
-  }else {
-    return x* pow(x, n-1)
-  }  
+function powNum(x: number, n: number): number {
+  if (n == 1) {
+    return x
+  } else {
+    return x * pow(x, n - 1)
+  }
 }
-console.log(powNum(2,5))
+console.log(powNum(2, 5))
 
 //2.Написать функцию поиска наибольшего общего делителя.
 
-function nod(min:number, max:number):number{
-if(max % min == 0){
-  return min
-}else {
-  min > max ? min %= max : max %= min;
-  min += max;
+function nod(min: number, max: number): number {
+  if (max % min == 0) {
+    return min
+  } else {
+    min > max ? min %= max : max %= min;
+    min += max;
+  }
+  return max
 }
-return max
-}
-console.log(nod(6,12))
+console.log(nod(6, 12))
 
 
-function NOD(x:number, y:number):number {
+function NOD(x: number, y: number): number {
   for (x = arguments[0], i = 1; i < arguments.length; i++) {
     y = arguments[i];
     while (x && y) {
@@ -749,32 +749,62 @@ function NOD(x:number, y:number):number {
   }
   return x;
 }
-console.log(NOD(2,8))
+console.log(NOD(2, 8))
 
 //3.Написать функцию для поиска максимальной цифры в числе.
 
-function maxNum(num1:number, num2=0, num3=0 ):number{
-if(num1>num2 || num1>num3){
-  return num1
-} else if(num2>num1 || num2 >num3){
-  return num2
-}else(num3>num1 || num3>num2);{
-  return num3
+function maxNum(num: number): number {
+  if (num == 0) {
+    return 0
+  } else {
+    return Math.max(num % 10, maxNum(Math.floor(num / 10)))
+  }
 }
-}
-console.log(maxNum(123))
-
+console.log(maxNum(163))
 
 //4.Написать функцию, которая определяет простое ли переданное число.
 
+function simpNum(num: number){
+  if (num % 2 !== 0){
+    return true
+  }else (num % 2 == 0)
+  return false
+}
+console.log(simpNum(13))
+
 //5.Написать функцию для вывода всех множителей переданного числа в возрастающем порядке.
 //Например: число 18 – множители 2 * 3 * 3
+
+// function multiplier(num:number):number{
+//   if(num==0){
+//     return num
+//   }
+// }
+// console.log(multiplier(5))
+
+
 
 //6.Написать функцию, которая возвращает число Фибоначчи по переданному порядковому номеру.
 //Числа Фибоначчи: 1, 1, 2, 3, 5, 8, 13… Ряд основывается натом, что каждое число равно сумме двух предыдущих чисел.
 //Например: порядковый номер 3 – число 2, порядковый номер 6 – число 8
 
+function fibonacci(num1:number, num2:number, nextNum:number, element:number):number{
+  console.log(`Введите количество элементов последовательности `, element)
+  for(i = 1; i <= element; ++i){
+    if(i == 1){
+      return num1
+    }
+    if(i==2){
+      return num2
+    }
+    else(nextNum = num1 + num2);{
+      num1=num2
+      num2=nextNum
+      return nextNum
+    }
+  }
+}
+console.log(fibonacci(1,5,6,7))
 
 
 
-// console.log(`результат: ${num1 + 1}`)
