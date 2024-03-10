@@ -727,17 +727,42 @@ console.log(powNum(2,5))
 
 //2.Написать функцию поиска наибольшего общего делителя.
 
-function largestCommonDivisor(max:number, min:number):number{
+function nod(min:number, max:number):number{
 if(max % min == 0){
   return min
 }else {
-  return max%(min-1)
+  min > max ? min %= max : max %= min;
+  min += max;
 }
+return max
 }
-console.log(largestCommonDivisor(2,4))
+console.log(nod(6,12))
 
+
+function NOD(x:number, y:number):number {
+  for (x = arguments[0], i = 1; i < arguments.length; i++) {
+    y = arguments[i];
+    while (x && y) {
+      x > y ? x %= y : y %= x;
+    }
+    x += y;
+  }
+  return x;
+}
+console.log(NOD(2,8))
 
 //3.Написать функцию для поиска максимальной цифры в числе.
+
+function maxNum(num1:number, num2=0, num3=0 ):number{
+if(num1>num2 || num1>num3){
+  return num1
+} else if(num2>num1 || num2 >num3){
+  return num2
+}else(num3>num1 || num3>num2);{
+  return num3
+}
+}
+console.log(maxNum(123))
 
 
 //4.Написать функцию, которая определяет простое ли переданное число.
