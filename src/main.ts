@@ -788,7 +788,7 @@ console.log(simpNum(13))
 //Числа Фибоначчи: 1, 1, 2, 3, 5, 8, 13… Ряд основывается натом, что каждое число равно сумме двух предыдущих чисел.
 //Например: порядковый номер 3 – число 2, порядковый номер 6 – число 8
 
-function fibonacci(num1:number, num2:number, nextNum:number, element:number):number{
+function fibonacci(num1:number, num2:number, nextNum:number, element:number){
   console.log(`Введите количество элементов последовательности `, element)
   for(i = 1; i <= element; ++i){
     if(i == 1){
