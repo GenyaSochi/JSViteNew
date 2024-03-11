@@ -775,36 +775,23 @@ console.log(simpNum(13))
 //5.Написать функцию для вывода всех множителей переданного числа в возрастающем порядке.
 //Например: число 18 – множители 2 * 3 * 3
 
-// function multiplier(num:number):number{
-//   if(num==0){
-//     return num
-//   }
-// }
-// console.log(multiplier(5))
-
+function multiplier(num:number){
+  if(num / 1 && num % 2){    
+    return result
+  }else if(num % 2 == 0){
+    return result
+  }else if(num % 3 == 0){
+    return result
+  }
+}
+console.log(multiplier(6))
 
 
 //6.Написать функцию, которая возвращает число Фибоначчи по переданному порядковому номеру.
 //Числа Фибоначчи: 1, 1, 2, 3, 5, 8, 13… Ряд основывается натом, что каждое число равно сумме двух предыдущих чисел.
 //Например: порядковый номер 3 – число 2, порядковый номер 6 – число 8
 
-function fibonacci(num1:number, num2:number, nextNum:number, element:number){
-  console.log(`Введите количество элементов последовательности `, element)
-  for(i = 1; i <= element; ++i){
-    if(i == 1){
-      return num1
-    }
-    if(i==2){
-      return num2
-    }
-    else(nextNum = num1 + num2);{
-      num1=num2
-      num2=nextNum
-      return nextNum
-    }
-  }
+function fibonacci(num:number):number{
+  return num <= 1 ? num : fibonacci(num - 1) + fibonacci(num - 2);
 }
-console.log(fibonacci(1,5,6,7))
-
-
-
+console.log(fibonacci(3))
