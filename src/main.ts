@@ -1,3 +1,4 @@
+import { render } from 'sass'
 import './style.css'
 //console.log('Привет!')
 //console.log(100) 
@@ -775,16 +776,18 @@ console.log(simpNum(13))
 //5.Написать функцию для вывода всех множителей переданного числа в возрастающем порядке.
 //Например: число 18 – множители 2 * 3 * 3
 
-function multiplier(num:number){
-  if(num / 1 && num % 2){    
-    return result
-  }else if(num % 2 == 0){
-    return result
-  }else if(num % 3 == 0){
-    return result
+function multiplier(num:number):string{
+  if (num==1) {
+    return ''
   }
+  for (let i=2;i<=num;i++) {
+    if (num%i==0) {
+      return (' '+i +' ' +multiplier(num/i)).trim().replace(/\ /g, '*')
+    }
+  }
+  return ''
 }
-console.log(multiplier(6))
+console.log(multiplier(18))
 
 
 //6.Написать функцию, которая возвращает число Фибоначчи по переданному порядковому номеру.
