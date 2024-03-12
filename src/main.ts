@@ -1,4 +1,3 @@
-import { render } from 'sass'
 import './style.css'
 //console.log('Привет!')
 //console.log(100) 
