@@ -800,4 +800,27 @@ console.log(fibonacci(3))
 
 
 //Dz6.
-//1.
+//1.Функция для вывода на экран информации об автомобиле.
+//2.Функция для подсчета необходимого времени для преодоления переданного расстояния со средней скоростью.
+//Учтите, что через каждые 4 часа дороги водителю необходимо делать перерыв на 1 час.
+
+let car = {
+  name: "Mini cooper",
+  age: 2020,
+  color: "red",
+  mileage: 100,    
+}
+console.log(car.name, car.age, car.color, car.mileage)
+
+function timeDistance(speed:number, distance:number):number{
+if(speed==0){
+  return 0
+}else if(speed/distance == 4){
+  return speed/distance + 1
+}
+else {
+  return speed/distance
+}
+}
+console.log(timeDistance(240,60))
+
