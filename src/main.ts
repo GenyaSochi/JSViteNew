@@ -764,10 +764,10 @@ console.log(maxNum(163))
 
 //4.Написать функцию, которая определяет простое ли переданное число.
 
-function simpNum(num: number){
-  if (num % 2 !== 0){
+function simpNum(num: number) {
+  if (num % 2 !== 0) {
     return true
-  }else (num % 2 == 0)
+  } else (num % 2 == 0)
   return false
 }
 console.log(simpNum(13))
@@ -775,13 +775,13 @@ console.log(simpNum(13))
 //5.Написать функцию для вывода всех множителей переданного числа в возрастающем порядке.
 //Например: число 18 – множители 2 * 3 * 3
 
-function multiplier(num:number):string{
-  if (num==1) {
+function multiplier(num: number): string {
+  if (num == 1) {
     return ''
   }
-  for (let i=2;i<=num;i++) {
-    if (num%i==0) {
-      return (' '+i +' ' +multiplier(num/i)).trim().replace(/\ /g, '*')
+  for (let i = 2; i <= num; i++) {
+    if (num % i == 0) {
+      return (' ' + i + ' ' + multiplier(num / i)).trim().replace(/\ /g, '*')
     }
   }
   return ''
@@ -793,7 +793,7 @@ console.log(multiplier(18))
 //Числа Фибоначчи: 1, 1, 2, 3, 5, 8, 13… Ряд основывается натом, что каждое число равно сумме двух предыдущих чисел.
 //Например: порядковый номер 3 – число 2, порядковый номер 6 – число 8
 
-function fibonacci(num:number):number{
+function fibonacci(num: number): number {
   return num <= 1 ? num : fibonacci(num - 1) + fibonacci(num - 2);
 }
 console.log(fibonacci(3))
@@ -804,25 +804,34 @@ console.log(fibonacci(3))
 //2.Функция для подсчета необходимого времени для преодоления переданного расстояния со средней скоростью.
 //Учтите, что через каждые 4 часа дороги водителю необходимо делать перерыв на 1 час.
 
-let car = {
+type Car = {
+  name:string,
+  age:number,
+  color:string,
+  speed:number,
+  avearage?:number,
+}
+
+let car:Car = {
   name: "Mini cooper",
   age: 2020,
   color: "red",
-  mileage: 100,    
+  speed: 100,
 }
-console.log(car.name, car.age, car.color, car.mileage)
 
-function timeDistance(speed:number, distance:number):number{
-if(speed==0){
-  return 0
-}else if(speed/distance == 4){
-  return speed/distance + 1
+// car.avearage = 321
+
+function getCarInfo(car:Car) {
+  console.log(car.name, car.age, car.color, car.speed)
 }
-else {
-  return speed/distance
+getCarInfo(car)
+
+function timeDistance(car:Car, distance: number) {
+  const time = distance/car.speed
+  const restTime = time%4==0 ? Math.floor((distance/car.speed)/4)-1 : Math.floor((distance/car.speed)/4)
+  return time + restTime
 }
-}
-console.log(timeDistance(120,60))
+console.log(timeDistance(car, 1600))
 
 //2.Создать объект, хранящий в себе отдельно числитель и знаменатель дроби, и следующие функции для работы с этим объектом.
 //1.Функция сложения 2-х объектов-дробей.
@@ -839,22 +848,22 @@ console.log(timeDistance(120,60))
 //3.Функция изменения времени на переданное количество минут.
 //4.Функция изменения времени на переданное количество часов.
 
-let time = {
+type Time = {
+  hour:number,
+  minute: number,
+  second: number,
+}
+
+const time = {
   hour: 10,
   minute: 10,
   second: 20,
 }
-console.log(time.hour, time.minute, time.second)
 
-function timeConclusion(hour:number,minute:number,second:number):number{
-console.log('Введите время в формате', hour, minute, second)
-if(hour >23){
-  return hour +1
-}else if(minute >59){
-  return minute + 1
-}else(second >59);{
-  return second + 1
-}
-}
-console.log(timeConclusion(10,10,59))
+// time.hour++
+// console.log(time)
 
+function timeConclusion(time:Time){
+  console.log(time.hour, time.minute, time.second)
+}
+  
