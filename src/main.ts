@@ -860,10 +860,34 @@ const time = {
   second: 20,
 }
 
-// time.hour++
-// console.log(time)
-
-function timeConclusion(time:Time){
-  console.log(time.hour, time.minute, time.second)
+time.hour++
+time.minute++
+time.second++
+function showTime(time:Time) {
+  const timeStr = time.hour+':'+time.minute+':'+time.second
+  console.log(timeStr)
+  return timeStr
 }
+
+function secondChange(time:Time, seconds:number){
+  const newSeconds = time.second + seconds
+  time.second = newSeconds%60
+  const newMinutes = time.minute + Math.trunc(newSeconds/60)
+  time.minute = newMinutes%60
+  const newHours = time.hour + Math.trunc(newMinutes/60)
+  time.hour = newHours%24
+}
+function minuteChange(time:Time, minutes:number){
+  secondChange(time,minutes*60)
+}
+function hourChange(time:Time, hours:number){
+  secondChange(time,hours*60*60)
+}
+console.log(showTime(time))
+secondChange(time,95)
+console.log(showTime(time))
+minuteChange(time,65)
+console.log(showTime(time))
+hourChange(time,25)
+console.log(showTime(time))
   
