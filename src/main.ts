@@ -848,33 +848,33 @@ console.log(timeDistance(car, 1600))
 //4.Функция изменения времени на переданное количество часов.
 
 type Time = {
-  hour:number,
-  minute: number,
-  second: number,
+  hours:number,
+  minutes: number,
+  seconds: number,
 }
 
 const time = {
-  hour: 10,
-  minute: 10,
-  second: 20,
+  hours: 10,
+  minutes: 10,
+  seconds: 20,
 }
 
-time.hour++
-time.minute++
-time.second++
+time.hours++
+time.minutes++
+time.seconds++
 function showTime(time:Time) {
-  const timeStr = time.hour+':'+time.minute+':'+time.second
+  const timeStr = time.hours+':'+time.minutes+':'+time.seconds
   console.log(timeStr)
   return timeStr
 }
 
 function secondChange(time:Time, seconds:number){
-  const newSeconds = time.second + seconds
-  time.second = newSeconds%60
-  const newMinutes = time.minute + Math.trunc(newSeconds/60)
-  time.minute = newMinutes%60
-  const newHours = time.hour + Math.trunc(newMinutes/60)
-  time.hour = newHours%24
+  const newSeconds = time.seconds + seconds
+  time.seconds = newSeconds%60
+  const newMinutes = time.minutes + Math.trunc(newSeconds/60)
+  time.minutes = newMinutes%60
+  const newHours = time.hours + Math.trunc(newMinutes/60)
+  time.hours = newHours%24
 }
 function minuteChange(time:Time, minutes:number){
   secondChange(time,minutes*60)
