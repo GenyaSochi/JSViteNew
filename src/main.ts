@@ -834,12 +834,89 @@ function timeDistance(car:Car, distance: number) {
 console.log(timeDistance(car, 1600))
 
 //2.Создать объект, хранящий в себе отдельно числитель и знаменатель дроби, и следующие функции для работы с этим объектом.
-//1.Функция сложения 2-х объектов-дробей.
-//2.Функция вычитания 2-х объектов-дробей.
-//3.Функция умножения 2-х объектов-дробей.
-//4.Функция деления 2-х объектов-дробей.
-//5.Функция сокращения объекта-дроби.
 
+type Fraction ={
+  numerator: number,
+  denominator: number,
+}
+const fraction1:Fraction = {
+  numerator: 1,
+  denominator: 2,
+}
+const fraction2:Fraction = {
+  numerator: 3,
+  denominator: 10,
+}
+function transformToCommonDenominator(fr1: Fraction, fr2: Fraction){
+  return{
+    fr1: {
+      numerator: fr1.numerator*fr2.denominator,
+      denominator: fr1.denominator*fr2.denominator
+    },
+    fr2: {
+      numerator: fr2.numerator*fr1.denominator,
+      denominator: fr1.denominator*fr2.denominator
+    }
+  }  
+}
+//1.Функция сложения 2-х объектов-дробей.
+
+function getSumOfFractions(fr1: Fraction, fr2: Fraction){
+  const commonFractions = transformToCommonDenominator(fr1, fr2)
+  console.log(commonFractions)
+  return {
+    numerator: commonFractions.fr1.numerator + commonFractions.fr2.numerator,
+    denominator: commonFractions.fr1.denominator 
+  }
+}
+console.log(getSumOfFractions(fraction1, fraction2))
+
+//2.Функция вычитания 2-х объектов-дробей.
+function getSubOfFractions(fr1: Fraction, fr2: Fraction){
+  const commonFractions = transformToCommonDenominator(fr1, fr2)
+  console.log(commonFractions)
+  const result =  {
+    numerator: commonFractions.fr1.numerator - commonFractions.fr2.numerator,
+    denominator: commonFractions.fr1.denominator 
+  }
+  return getReductionFraction(result)
+}
+console.log(getSubOfFractions(fraction1, fraction2))
+
+
+//3.Функция умножения 2-х объектов-дробей.
+function getMulOfFractions(fr1: Fraction, fr2: Fraction){
+  const result = {
+    numerator: fr1.numerator * fr2.numerator,
+    denominator: fr1.denominator * fr2.denominator
+  }
+  return getReductionFraction(result)
+}
+console.log(getMulOfFractions(fraction1, fraction2))
+
+//4.Функция деления 2-х объектов-дробей.
+function getDivOfFractions(fr1: Fraction, fr2: Fraction){
+  const result = {
+    numerator: fr1.numerator * fr2.denominator,
+    denominator: fr2.numerator * fr1.denominator
+  }
+  return getReductionFraction(result)
+}
+console.log(getDivOfFractions(fraction1, fraction2))
+
+//5.Функция сокращения объекта-дроби.
+function getReductionFraction(fr:Fraction){
+  const max = fr.numerator > fr.denominator ? fr.numerator:fr.denominator
+  const min = fr.numerator < fr.denominator ? fr.numerator:fr.denominator
+  for(i=min;i>1;i--){
+    if(fr.numerator%i && fr.denominator%i){
+      fr.numerator /=i,
+      fr.denominator /=i
+      return getReductionFraction(fr)
+    }
+  }
+  return fr
+}
 
 //3.Создать объект, описывающий время (часы, минуты, секунды), и следующие функции для работы с этим объектом.
 //1.Функция вывода времени на экран.
