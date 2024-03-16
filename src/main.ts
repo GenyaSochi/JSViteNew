@@ -871,6 +871,11 @@ function getSumOfFractions(fr1: Fraction, fr2: Fraction){
 }
 console.log(getSumOfFractions(fraction1, fraction2))
 
+function getReductionSumOfFractions(fr1: Fraction, fr2: Fraction){
+  const result = getSumOfFractions(fr1, fr2)
+  return getReductionFraction(result)
+}
+console.log(getReductionSumOfFractions(fraction1, fraction2))
 //2.Функция вычитания 2-х объектов-дробей.
 function getSubOfFractions(fr1: Fraction, fr2: Fraction){
   const commonFractions = transformToCommonDenominator(fr1, fr2)
