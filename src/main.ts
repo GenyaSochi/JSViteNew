@@ -805,14 +805,14 @@ console.log(fibonacci(3))
 //Учтите, что через каждые 4 часа дороги водителю необходимо делать перерыв на 1 час.
 
 type Car = {
-  name:string,
-  age:number,
-  color:string,
-  speed:number,
-  avearage?:number,
+  name: string,
+  age: number,
+  color: string,
+  speed: number,
+  avearage?: number,
 }
 
-let car:Car = {
+let car: Car = {
   name: "Mini cooper",
   age: 2020,
   color: "red",
@@ -821,68 +821,68 @@ let car:Car = {
 
 // car.avearage = 321
 
-function getCarInfo(car:Car) {
+function getCarInfo(car: Car) {
   console.log(car.name, car.age, car.color, car.speed)
 }
 getCarInfo(car)
 
-function timeDistance(car:Car, distance: number) {
-  const time = distance/car.speed
-  const restTime = time%4==0 ? Math.floor((distance/car.speed)/4)-1 : Math.floor((distance/car.speed)/4)
+function timeDistance(car: Car, distance: number) {
+  const time = distance / car.speed
+  const restTime = time % 4 == 0 ? Math.floor((distance / car.speed) / 4) - 1 : Math.floor((distance / car.speed) / 4)
   return time + restTime
 }
 console.log(timeDistance(car, 1600))
 
 //2.Создать объект, хранящий в себе отдельно числитель и знаменатель дроби, и следующие функции для работы с этим объектом.
 
-type Fraction ={
+type Fraction = {
   numerator: number,
   denominator: number,
 }
-const fraction1:Fraction = {
+const fraction1: Fraction = {
   numerator: 1,
   denominator: 2,
 }
-const fraction2:Fraction = {
+const fraction2: Fraction = {
   numerator: 3,
   denominator: 10,
 }
-function transformToCommonDenominator(fr1: Fraction, fr2: Fraction){
-  return{
+function transformToCommonDenominator(fr1: Fraction, fr2: Fraction) {
+  return {
     fr1: {
-      numerator: fr1.numerator*fr2.denominator,
-      denominator: fr1.denominator*fr2.denominator
+      numerator: fr1.numerator * fr2.denominator,
+      denominator: fr1.denominator * fr2.denominator
     },
     fr2: {
-      numerator: fr2.numerator*fr1.denominator,
-      denominator: fr1.denominator*fr2.denominator
+      numerator: fr2.numerator * fr1.denominator,
+      denominator: fr1.denominator * fr2.denominator
     }
-  }  
+  }
 }
 //1.Функция сложения 2-х объектов-дробей.
 
-function getSumOfFractions(fr1: Fraction, fr2: Fraction){
+function getSumOfFractions(fr1: Fraction, fr2: Fraction) {
   const commonFractions = transformToCommonDenominator(fr1, fr2)
   console.log(commonFractions)
   return {
     numerator: commonFractions.fr1.numerator + commonFractions.fr2.numerator,
-    denominator: commonFractions.fr1.denominator 
+    denominator: commonFractions.fr1.denominator
   }
 }
 console.log(getSumOfFractions(fraction1, fraction2))
 
-function getReductionSumOfFractions(fr1: Fraction, fr2: Fraction){
+function getReductionSumOfFractions(fr1: Fraction, fr2: Fraction) {
   const result = getSumOfFractions(fr1, fr2)
   return getReductionFraction(result)
 }
 console.log(getReductionSumOfFractions(fraction1, fraction2))
 //2.Функция вычитания 2-х объектов-дробей.
-function getSubOfFractions(fr1: Fraction, fr2: Fraction){
+function getSubOfFractions(fr1: Fraction, fr2: Fraction) {
   const commonFractions = transformToCommonDenominator(fr1, fr2)
   console.log(commonFractions)
-  const result =  {
+  const result = {
     numerator: commonFractions.fr1.numerator - commonFractions.fr2.numerator,
-    denominator: commonFractions.fr1.denominator 
+    denominator: commonFractions.fr1.denominator
   }
   return getReductionFraction(result)
 }
@@ -890,7 +890,7 @@ console.log(getSubOfFractions(fraction1, fraction2))
 
 
 //3.Функция умножения 2-х объектов-дробей.
-function getMulOfFractions(fr1: Fraction, fr2: Fraction){
+function getMulOfFractions(fr1: Fraction, fr2: Fraction) {
   const result = {
     numerator: fr1.numerator * fr2.numerator,
     denominator: fr1.denominator * fr2.denominator
@@ -900,7 +900,7 @@ function getMulOfFractions(fr1: Fraction, fr2: Fraction){
 console.log(getMulOfFractions(fraction1, fraction2))
 
 //4.Функция деления 2-х объектов-дробей.
-function getDivOfFractions(fr1: Fraction, fr2: Fraction){
+function getDivOfFractions(fr1: Fraction, fr2: Fraction) {
   const result = {
     numerator: fr1.numerator * fr2.denominator,
     denominator: fr2.numerator * fr1.denominator
@@ -910,13 +910,13 @@ function getDivOfFractions(fr1: Fraction, fr2: Fraction){
 console.log(getDivOfFractions(fraction1, fraction2))
 
 //5.Функция сокращения объекта-дроби.
-function getReductionFraction(fr:Fraction){
-  const max = fr.numerator > fr.denominator ? fr.numerator:fr.denominator
-  const min = fr.numerator < fr.denominator ? fr.numerator:fr.denominator
-  for(i=min;i>1;i--){
-    if(fr.numerator%i && fr.denominator%i){
-      fr.numerator /=i,
-      fr.denominator /=i
+function getReductionFraction(fr: Fraction) {
+  const max = fr.numerator > fr.denominator ? fr.numerator : fr.denominator
+  const min = fr.numerator < fr.denominator ? fr.numerator : fr.denominator
+  for (i = min; i > 1; i--) {
+    if (fr.numerator % i && fr.denominator % i) {
+      fr.numerator /= i,
+        fr.denominator /= i
       return getReductionFraction(fr)
     }
   }
@@ -930,7 +930,7 @@ function getReductionFraction(fr:Fraction){
 //4.Функция изменения времени на переданное количество часов.
 
 type Time = {
-  hours:number,
+  hours: number,
   minutes: number,
   seconds: number,
 }
@@ -944,49 +944,37 @@ const time = {
 time.hours++
 time.minutes++
 time.seconds++
-function showTime(time:Time) {
-  const timeStr = time.hours+':'+time.minutes+':'+time.seconds
+function showTime(time: Time) {
+  const timeStr = time.hours + ':' + time.minutes + ':' + time.seconds
   console.log(timeStr)
   return timeStr
 }
 
-function secondChange(time:Time, seconds:number){
+function secondChange(time: Time, seconds: number) {
   const newSeconds = time.seconds + seconds
-  time.seconds = newSeconds%60
-  const newMinutes = time.minutes + Math.trunc(newSeconds/60)
-  time.minutes = newMinutes%60
-  const newHours = time.hours + Math.trunc(newMinutes/60)
-  time.hours = newHours%24
+  time.seconds = newSeconds % 60
+  const newMinutes = time.minutes + Math.trunc(newSeconds / 60)
+  time.minutes = newMinutes % 60
+  const newHours = time.hours + Math.trunc(newMinutes / 60)
+  time.hours = newHours % 24
 }
-function minuteChange(time:Time, minutes:number){
-  secondChange(time,minutes*60)
+function minuteChange(time: Time, minutes: number) {
+  secondChange(time, minutes * 60)
 }
-function hourChange(time:Time, hours:number){
-  secondChange(time,hours*60*60)
+function hourChange(time: Time, hours: number) {
+  secondChange(time, hours * 60 * 60)
 }
 console.log(showTime(time))
-secondChange(time,95)
+secondChange(time, 95)
 console.log(showTime(time))
-minuteChange(time,65)
+minuteChange(time, 65)
 console.log(showTime(time))
-hourChange(time,25)
+hourChange(time, 25)
 console.log(showTime(time))
-  
+
 
 //Задание.Создать объект, описывающий прямоугольник (хранит координаты левой верхней и правой нижней точек), и написать следу-
 //ющие функции для работы с таким объектом.
-//1.Функция принимает объект-прямоугольник и выводит информацию о нем (где какая точка расположена).
-//2.Функция принимает объект-прямоугольник и возвращает его ширину.
-//3.Функция принимает объект-прямоугольник и возвращает его высоту.
-//4.Функция принимает объект-прямоугольник и возвращает его площадь.
-//5.Функция принимает объект-прямоугольник и возвращает его периметр.
-//6.Функция изменения ширины прямоугольника. Она принимает объект-прямоугольник и на сколько единиц изменить ширину.
-//7.Функция изменения высоты прямоугольника. Она принимает объект-прямоугольник и на сколько единиц изменить высоту.
-//8.Функция изменения ширины и высоты прямоугольника. Она принимает объект-прямоугольник и два значения для изменения ширины и высоты.
-//9.Функция смещения прямоугольника по оси X. Она принимает объект-прямоугольник и на сколько единиц его сдвинуть.
-//10.Функция смещения прямоугольника по оси Y. Она принимает объект-прямоугольник и на сколько единиц его сдвинуть.
-//11.Функция смещения прямоугольника и по оси X и по оси Y. Она принимает объект-прямоугольник и два значения: сдвиг по оси X и сдвиг по оси Y.
-//12.Функция для проверки, находится ли точка внутри прямоугольника. Она принимает объект-прямоугольник и координаты точки.
 
 type Rectangle = {
   x1: number,
@@ -997,18 +985,59 @@ type Rectangle = {
 
 let rectangle = {
   x1: 5,
-  y1: 12,
+  y1: 0,
   x2: 12,
-  y2: 0,
+  y2: 12,
 }
 //1.Функция принимает объект-прямоугольник и выводит информацию о нем (где какая точка расположена).
-function infoRectangle(rectangle:Rectangle){
- console.log(rectangle.x1, rectangle.y1, rectangle.x2, rectangle.y2)
+function infoRectangle(rectangle: Rectangle) {
+  console.log(rectangle.x1, rectangle.y1, rectangle.x2, rectangle.y2)
 }
 infoRectangle(rectangle)
-//2.Функция принимает объект-прямоугольник и возвращает его ширину.
 
-function widthRectangle(){
-  return Math.abs(rectangle.x2)-Math.abs(rectangle.x1)
+//2.Функция принимает объект-прямоугольник и возвращает его ширину.
+function widthRectangle() {
+  return Math.abs(rectangle.x2) - Math.abs(rectangle.x1)
 }
 console.log(widthRectangle())
+
+//3.Функция принимает объект-прямоугольник и возвращает его высоту.
+function heightRectangle() {
+  return Math.abs(rectangle.y2) - Math.abs(rectangle.y1)
+}
+console.log(heightRectangle())
+
+//4.Функция принимает объект-прямоугольник и возвращает его площадь.
+function squareRectangle() {
+  return (Math.abs(rectangle.x2) - Math.abs(rectangle.x1)) * (Math.abs(rectangle.y2) - Math.abs(rectangle.y1))
+}
+console.log(squareRectangle())
+
+//5.Функция принимает объект-прямоугольник и возвращает его периметр.
+function perimeterRectangle() {
+  return ((Math.abs(rectangle.x2) - Math.abs(rectangle.x1)) * 2) + ((Math.abs(rectangle.y2) - Math.abs(rectangle.y1)) * 2)
+}
+console.log(perimeterRectangle())
+
+//6.Функция изменения ширины прямоугольника. Она принимает объект-прямоугольник и на сколько единиц изменить ширину.
+function widthRectangleChange(){
+  return Math.abs(rectangle.x2) + 2
+}
+console.log(widthRectangleChange())
+
+//7.Функция изменения высоты прямоугольника. Она принимает объект-прямоугольник и на сколько единиц изменить высоту.
+function heightRectangleChange(){
+  return Math.abs(rectangle.y2) + 2
+}
+console.log(heightRectangleChange())
+
+//8.Функция изменения ширины и высоты прямоугольника. Она принимает объект-прямоугольник и два значения для изменения ширины и высоты.
+function widthHeightRectangleChange(){
+  return ( Math.abs(rectangle.x2) + 5),(Math.abs(rectangle.y2) + 5)
+}
+console.log(widthHeightRectangleChange())
+
+//9.Функция смещения прямоугольника по оси X. Она принимает объект-прямоугольник и на сколько единиц его сдвинуть.
+//10.Функция смещения прямоугольника по оси Y. Она принимает объект-прямоугольник и на сколько единиц его сдвинуть.
+//11.Функция смещения прямоугольника и по оси X и по оси Y. Она принимает объект-прямоугольник и два значения: сдвиг по оси X и сдвиг по оси Y.
+//12.Функция для проверки, находится ли точка внутри прямоугольника. Она принимает объект-прямоугольник и координаты точки.
