@@ -919,7 +919,7 @@ function getReductionFraction(fr: Fraction) {
         fr.denominator /= i
       return getReductionFraction(fr)
     }
-  }
+  }  
   return fr
 }
 
@@ -1062,8 +1062,11 @@ function moveAxisXY(rectangle: Rectangle, x1: number, y1: number) {
 console.log(moveAxisXY(rectangle, 2, 1))
 
 //12.Функция для проверки, находится ли точка внутри прямоугольника. Она принимает объект-прямоугольник и координаты точки.
-function pointRectangle(rectangle:Rectangle, x1:number, y1:number){
-
+function pointRectangle(rectangle: Rectangle, p:number) {
+if((p>=rectangle.x1 && p <= rectangle.x2)||(p>=rectangle.y1 && p<=rectangle.y2)){
+return p
+} 
 }
+console.log(pointRectangle(rectangle, 2))
 
 
