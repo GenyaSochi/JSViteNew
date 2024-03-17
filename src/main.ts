@@ -976,24 +976,112 @@ console.log(showTime(time))
 //Задание.Создать объект, описывающий прямоугольник (хранит координаты левой верхней и правой нижней точек), и написать следу-
 //ющие функции для работы с таким объектом.
 
+// type Rectangle = {
+//   x1: number,
+//   y1: number,
+//   x2: number,
+//   y2: number,
+// }
+
+// let rectangle = {
+//   x1: 5,
+//   y1: 0,
+//   x2: 12,
+//   y2: 12,
+// }
+// //1.Функция принимает объект-прямоугольник и выводит информацию о нем (где какая точка расположена).
+// function infoRectangle(rectangle: Rectangle) {
+//   console.log(rectangle.x1, rectangle.y1, rectangle.x2, rectangle.y2)
+// }
+// infoRectangle(rectangle)
+
+// //2.Функция принимает объект-прямоугольник и возвращает его ширину.
+// function widthRectangle() {
+//   return Math.abs(rectangle.x2) - Math.abs(rectangle.x1)
+// }
+// console.log(widthRectangle())
+
+// //3.Функция принимает объект-прямоугольник и возвращает его высоту.
+// function heightRectangle() {
+//   return Math.abs(rectangle.y2) - Math.abs(rectangle.y1)
+// }
+// console.log(heightRectangle())
+
+// //4.Функция принимает объект-прямоугольник и возвращает его площадь.
+// function squareRectangle() {
+//   return (Math.abs(rectangle.x2) - Math.abs(rectangle.x1)) * (Math.abs(rectangle.y2) - Math.abs(rectangle.y1))
+// }
+// console.log(squareRectangle())
+
+// //5.Функция принимает объект-прямоугольник и возвращает его периметр.
+// function perimeterRectangle() {
+//   return ((Math.abs(rectangle.x2) - Math.abs(rectangle.x1)) * 2) + ((Math.abs(rectangle.y2) - Math.abs(rectangle.y1)) * 2)
+// }
+// console.log(perimeterRectangle())
+
+// //6.Функция изменения ширины прямоугольника. Она принимает объект-прямоугольник и на сколько единиц изменить ширину.
+// function widthRectangleChange() {
+//   return Math.abs(rectangle.x2) + 2
+// }
+// console.log(widthRectangleChange())
+
+// //7.Функция изменения высоты прямоугольника. Она принимает объект-прямоугольник и на сколько единиц изменить высоту.
+// function heightRectangleChange() {
+//   return Math.abs(rectangle.y2) + 3
+// }
+// console.log(heightRectangleChange())
+
+// //8.Функция изменения ширины и высоты прямоугольника. Она принимает объект-прямоугольник и два значения для изменения ширины и высоты.
+// function widthHeightRectangleChange(x2: number, y2: number) {
+//   const newWidth = x2
+//   const newHeight = y2
+//   return (Math.abs(rectangle.x2) + newWidth) + ',' + (Math.abs(rectangle.y2) + newHeight)
+// }
+// console.log(widthHeightRectangleChange(4, 9))
+
+// //9.Функция смещения прямоугольника по оси X. Она принимает объект-прямоугольник и на сколько единиц его сдвинуть.
+// function moveAxisX(rectangle: Rectangle) {
+//   return Math.abs(rectangle.x1 + 5) + ',' + Math.abs(rectangle.x2 + 5)
+// }
+// console.log(moveAxisX(rectangle))
+
+// //10.Функция смещения прямоугольника по оси Y. Она принимает объект-прямоугольник и на сколько единиц его сдвинуть.
+// function moveAxisY(rectangle: Rectangle, y1: number, y2: number) {
+//   const temp = y1
+//   const temp1 = y2
+//   return Math.abs(rectangle.y1 + temp) + ',' + Math.abs(rectangle.y2 + temp1)
+// }
+// console.log(moveAxisY(rectangle, 10, 10))
+
+// //11.Функция смещения прямоугольника и по оси X и по оси Y. Она принимает объект-прямоугольник и два значения: сдвиг по оси X и сдвиг по оси Y.
+// function moveAxisXY(rectangle: Rectangle, x1: number, y1: number) {
+//   const temp3 = x1
+//   const temp4 = y1
+//   return Math.abs(rectangle.x1 + temp3) + ',' + Math.abs(rectangle.y1 + temp4)
+// }
+// console.log(moveAxisXY(rectangle, 2, 1))
+
+// //12.Функция для проверки, находится ли точка внутри прямоугольника. Она принимает объект-прямоугольник и координаты точки.
+// function pointRectangle(rectangle:Rectangle, x1:number, y1:number){
+
+// }
+
+
 type Rectangle = {
-  x1: number,
-  y1: number,
-  x2: number,
-  y2: number,
+  x: number,
+  y: number, 
 }
 
 let rectangle = {
-  x1: 5,
-  y1: 0,
-  x2: 12,
-  y2: 12,
+topLeft: {x: 0, y: 0},
+bottomRight: {x: 5, y: 5} 
 }
 //1.Функция принимает объект-прямоугольник и выводит информацию о нем (где какая точка расположена).
-function infoRectangle(rectangle: Rectangle) {
-  console.log(rectangle.x1, rectangle.y1, rectangle.x2, rectangle.y2)
+function infoRectangle(rectangle:Rectangle) {
+  console.log(rectangle.x) + ',' + (rectangle.y) 
+  return rectangle.x + ',' + rectangle.y
 }
-infoRectangle(rectangle)
+console.log(infoRectangle)
 
 //2.Функция принимает объект-прямоугольник и возвращает его ширину.
 function widthRectangle() {
@@ -1020,24 +1108,48 @@ function perimeterRectangle() {
 console.log(perimeterRectangle())
 
 //6.Функция изменения ширины прямоугольника. Она принимает объект-прямоугольник и на сколько единиц изменить ширину.
-function widthRectangleChange(){
+function widthRectangleChange() {
   return Math.abs(rectangle.x2) + 2
 }
 console.log(widthRectangleChange())
 
 //7.Функция изменения высоты прямоугольника. Она принимает объект-прямоугольник и на сколько единиц изменить высоту.
-function heightRectangleChange(){
-  return Math.abs(rectangle.y2) + 2
+function heightRectangleChange() {
+  return Math.abs(rectangle.y2) + 3
 }
 console.log(heightRectangleChange())
 
 //8.Функция изменения ширины и высоты прямоугольника. Она принимает объект-прямоугольник и два значения для изменения ширины и высоты.
-function widthHeightRectangleChange(){
-  return ( Math.abs(rectangle.x2) + 5),(Math.abs(rectangle.y2) + 5)
+function widthHeightRectangleChange(x2: number, y2: number) {
+  const newWidth = x2
+  const newHeight = y2
+  return (Math.abs(rectangle.x2) + newWidth) + ',' + (Math.abs(rectangle.y2) + newHeight)
 }
-console.log(widthHeightRectangleChange())
+console.log(widthHeightRectangleChange(4, 9))
 
 //9.Функция смещения прямоугольника по оси X. Она принимает объект-прямоугольник и на сколько единиц его сдвинуть.
+function moveAxisX(rectangle: Rectangle) {
+  return Math.abs(rectangle.x1 + 5) + ',' + Math.abs(rectangle.x2 + 5)
+}
+console.log(moveAxisX(rectangle))
+
 //10.Функция смещения прямоугольника по оси Y. Она принимает объект-прямоугольник и на сколько единиц его сдвинуть.
+function moveAxisY(rectangle: Rectangle, y1: number, y2: number) {
+  const temp = y1
+  const temp1 = y2
+  return Math.abs(rectangle.y1 + temp) + ',' + Math.abs(rectangle.y2 + temp1)
+}
+console.log(moveAxisY(rectangle, 10, 10))
+
 //11.Функция смещения прямоугольника и по оси X и по оси Y. Она принимает объект-прямоугольник и два значения: сдвиг по оси X и сдвиг по оси Y.
+function moveAxisXY(rectangle: Rectangle, x1: number, y1: number) {
+  const temp3 = x1
+  const temp4 = y1
+  return Math.abs(rectangle.x1 + temp3) + ',' + Math.abs(rectangle.y1 + temp4)
+}
+console.log(moveAxisXY(rectangle, 2, 1))
+
 //12.Функция для проверки, находится ли точка внутри прямоугольника. Она принимает объект-прямоугольник и координаты точки.
+function pointRectangle(rectangle:Rectangle, x1:number, y1:number){
+  
+}
