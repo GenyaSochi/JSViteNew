@@ -982,7 +982,6 @@ type Rectangle = {
   x2: number,
   y2: number,
 }
-
 let rectangle = {
   x1: 0,
   x2: 12,
