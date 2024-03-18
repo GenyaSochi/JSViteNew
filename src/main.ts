@@ -990,7 +990,7 @@ let rectangle = {
 }
 // //1.Функция принимает объект-прямоугольник и выводит информацию о нем (где какая точка расположена).
 function infoRectangle(rectangle: Rectangle) {
-  console.log(rectangle.x1, rectangle.y1, rectangle.x2, rectangle.y2)
+  console.log(rectangle.x1, rectangle.x2, rectangle.y1, rectangle.y2)
 }
 infoRectangle(rectangle)
 
