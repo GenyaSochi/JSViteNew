@@ -1068,4 +1068,3 @@ function pointRectangle(rectangle: Rectangle, x3: number, y3:number) {
 console.log(rectangle)
 console.log(pointRectangle(rectangle, 12,15))
 
-
