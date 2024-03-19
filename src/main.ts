@@ -1024,7 +1024,6 @@ function widthRectangleChange(rectangle: Rectangle,x:number) {
 }
 widthRectangleChange(rectangle,5)
 
-
 //7.Функция изменения высоты прямоугольника. Она принимает объект-прямоугольник и на сколько единиц изменить высоту.
 function heightRectangleChange(rectangle: Rectangle,y:number) {
   rectangle.y2+=y
