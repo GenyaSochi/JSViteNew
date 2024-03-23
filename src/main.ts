@@ -1080,7 +1080,6 @@ console.log(infoArr(arr))
 //2.Функция принимает массив и выводит только четные элементы.
 function evenElements(arr:number[]){
 
-
 }
 console.log(evenElements(arr))
 //3.Функция принимает массив и возвращает сумму всех элементов массива.
