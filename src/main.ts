@@ -1071,17 +1071,38 @@ console.log(pointRectangle(rectangle, 12,15))
 //PZ1.Задание 1.Создать массив из 10 случайных чисел и написать несколько функций для работы с ним.
 //1.Функция принимает массив и выводит его на экран.
 
-let arr = [1,6,8,2,4,7,11,90,24,76]
-function infoArr(arr:number[]){
-  console.log(arr) 
+// type NewArr = {
+//   0: number,
+//   1: number,
+//   2: number,
+//   3: number,
+//   4: number,
+//   5: number,
+//   6: number,
+//   7: number,
+//   8: number,
+//   9: number, 
+// }
+let newArr = {
+  0: 1,
+  1: 6,
+  2: 8,
+  3: 2,
+  4: 4,
+  5: 7,
+  6: 11,
+  7: 90,
+  8: 24,
+  9: 76,
 }
-console.log(infoArr(arr))
+
+function infoArr(newArr:number){
+  console.log(newArr) 
+}
+console.log(infoArr(newArr))
 
 //2.Функция принимает массив и выводит только четные элементы.
-function evenElements(arr:number[]){
 
-}
-console.log(evenElements(arr))
 //3.Функция принимает массив и возвращает сумму всех элементов массива.
 //4.Функция принимает массив и возвращает его максимальный элемент.
 //5.Функция добавления нового элемента в массив по указанному индексу.
