@@ -989,7 +989,7 @@ let rectangle = {
 }
 //1.Функция принимает объект-прямоугольник и выводит информацию о нем (где какая точка расположена).
 function infoRectangle(rectangle: Rectangle) {
-  console.log(rectangle.x1, rectangle.y1,rectangle.x2,  rectangle.y2)
+  console.log(rectangle.x1, rectangle.y1, rectangle.x2, rectangle.y2)
 }
 infoRectangle(rectangle)
 
@@ -1018,26 +1018,26 @@ function perimeterRectangle(rectangle: Rectangle) {
 console.log(perimeterRectangle(rectangle))
 
 //6.Функция изменения ширины прямоугольника. Она принимает объект-прямоугольник и на сколько единиц изменить ширину.
-function widthRectangleChange(rectangle: Rectangle,x:number) {
+function widthRectangleChange(rectangle: Rectangle, x: number) {
   rectangle.x2 += x
 }
-widthRectangleChange(rectangle,5)
+widthRectangleChange(rectangle, 5)
 
 //7.Функция изменения высоты прямоугольника. Она принимает объект-прямоугольник и на сколько единиц изменить высоту.
-function heightRectangleChange(rectangle: Rectangle,y:number) {
-  rectangle.y2+=y
+function heightRectangleChange(rectangle: Rectangle, y: number) {
+  rectangle.y2 += y
 }
-heightRectangleChange(rectangle,5)
+heightRectangleChange(rectangle, 5)
 
 //8.Функция изменения ширины и высоты прямоугольника. Она принимает объект-прямоугольник и два значения для изменения ширины и высоты.
 function widthHeightRectangleChange(rectangle: Rectangle, x: number, y: number) {
-  widthRectangleChange(rectangle,x)
-  heightRectangleChange(rectangle,y)
+  widthRectangleChange(rectangle, x)
+  heightRectangleChange(rectangle, y)
 }
-widthHeightRectangleChange(rectangle,4, 9)
+widthHeightRectangleChange(rectangle, 4, 9)
 
 //9.Функция смещения прямоугольника по оси X. Она принимает объект-прямоугольник и на сколько единиц его сдвинуть.
-function moveAxisX(rectangle: Rectangle,x:number) {
+function moveAxisX(rectangle: Rectangle, x: number) {
   rectangle.x1 += x
   rectangle.x2 += x
 }
@@ -1058,52 +1058,62 @@ function moveAxisXY(rectangle: Rectangle, x: number, y: number) {
 moveAxisXY(rectangle, 2, 1)
 
 //12.Функция для проверки, находится ли точка внутри прямоугольника. Она принимает объект-прямоугольник и координаты точки.
-function pointRectangle(rectangle: Rectangle, x3: number, y3:number) {
-  if ((x3>= rectangle.x1 && x3 <= rectangle.x2) && (y3 >= rectangle.y1 && y3 <= rectangle.y2)) {
+function pointRectangle(rectangle: Rectangle, x3: number, y3: number) {
+  if ((x3 >= rectangle.x1 && x3 <= rectangle.x2) && (y3 >= rectangle.y1 && y3 <= rectangle.y2)) {
     return true
   }
   return false
 }
 console.log(rectangle)
-console.log(pointRectangle(rectangle, 12,15))
+console.log(pointRectangle(rectangle, 12, 15))
 
 //Массив
 //PZ1.Задание 1.Создать массив из 10 случайных чисел и написать несколько функций для работы с ним.
 //1.Функция принимает массив и выводит его на экран.
-
-// type NewArr = {
-//   0: number,
-//   1: number,
-//   2: number,
-//   3: number,
-//   4: number,
-//   5: number,
-//   6: number,
-//   7: number,
-//   8: number,
-//   9: number, 
-// }
-let newArr = {
-  0: 1,
-  1: 6,
-  2: 8,
-  3: 2,
-  4: 4,
-  5: 7,
-  6: 11,
-  7: 90,
-  8: 24,
-  9: 76,
+let arr = [2, 4, 6, 12, 90, 48, 52, 14, 76, 1]
+function infoArr(arr: number[]) {
+  console.log(arr)
 }
-
-function infoArr(newArr:number){
-  console.log(newArr) 
-}
-console.log(infoArr(newArr))
+console.log(infoArr(arr))
 
 //2.Функция принимает массив и выводит только четные элементы.
+function outputsArr(arr: number[]) {
+  const arr1 = []
+  for (i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 0) {
+      arr1.push(arr[i])
+    }
+  }
+  console.log(arr1)
+}
+console.log(outputsArr(arr))
 
 //3.Функция принимает массив и возвращает сумму всех элементов массива.
+function sumElem(arr: number[]) {
+  let sum = 0
+  for (i = 0; i < arr.length; i++) {
+    sum += arr[i]
+  }
+  console.log(sum)
+}
+console.log(sumElem(arr))
+
 //4.Функция принимает массив и возвращает его максимальный элемент.
+function maxElem(arr: number[]) {
+  return Math.max(...arr)
+}
+console.log(maxElem(arr))
+
 //5.Функция добавления нового элемента в массив по указанному индексу.
+function newElem(arr: number[]) {
+ arr[10] = 5
+ console.log(arr)
+}
+console.log(newElem(arr))
+
 //6.Функция удаления элемента из массива по указанному индексу.
+function delElem(arr: number[]){
+  delete arr[1]
+  console.log(arr)
+}
+console.log(delElem(arr))
