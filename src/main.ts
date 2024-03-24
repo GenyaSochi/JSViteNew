@@ -1125,15 +1125,12 @@ function unique(arr: number[], arr2: number[]) {
   arr2 = [12, 18, 6, 22, 45]
   // arr3 = [...arr, ...arr2]
   arr3 = arr.concat(arr2)
-  for(i=0; i<arr.length; i++){
-    for(let j = i + 2; j<arr2.length; j++){
-      if(arr[i] === arr2[j]){           
-        arr3.push([i][j])      
-      }
+  for(i=0; i<arr3.length; i++){
+    if(arr3[i] )
     }
   } 
-  console.log(arr3)
-}
+  console.log(arr)
+
 console.log(unique(arr, arr))
 
 //2.Функция принимает 2 массива и возвращает новый массив, в котором собраны общие элементы (то есть элементы,
