@@ -1070,7 +1070,7 @@ console.log(pointRectangle(rectangle, 12, 15))
 //Массив
 //PZ1.Задание 1.Создать массив из 10 случайных чисел и написать несколько функций для работы с ним.
 //1.Функция принимает массив и выводит его на экран.
-let arr = [2, 4, 6, 12, 90, 48, 52, 14, 76, 1]
+let arr = [2, 4, 6, 13, 90, 48, 52, 21, 76, 1]
 function infoArr(arr: number[]) {
   console.log(arr)
 }
@@ -1120,33 +1120,13 @@ console.log(delElem(arr))
 
 //PZ2.Создать еще один массив из 5 случайных чисел и написать следующие функции.
 //1.Функция принимает 2 массива и возвращает новый массив, в котором собраны все элементы из двух массивов без повторений.
-function unique(arr: number[], arr2: number[]) {
-  let arr3 = []
-  arr2 = [12, 18, 6, 22, 45]
-  // arr3 = [...arr, ...arr2]
-  arr3 = arr.concat(arr2)
-  for(i=0; i<arr3.length; i++){
-    if(arr3[i] )
-    }
-  } 
-  console.log(arr)
 
-console.log(unique(arr, arr))
+
+
 
 //2.Функция принимает 2 массива и возвращает новый массив, в котором собраны общие элементы (то есть элементы,
 //которые встречаются и в первом и во втором массивах) без повторений.
-// function generalElem(arr: number[], arr2: number[]) {
-//  let arr3: number[] = []
-//   for(i = 0; i < arr.length; i++){
-//     for(let j = i +1; j <arr2.length; i++){
-//       if(arr[i] === arr2[j] && !arr3.includes(arr[i])){
-//         arr3.push(arr[i])
-//       }
-//     }
-//   }
-//   console.log(arr3.length)
-// }
-// console.log(generalElem)
+
 
 
 //3.Функция принимает 2 массива и возвращает новый массив, в котором собраны все элементы из первого массива,
