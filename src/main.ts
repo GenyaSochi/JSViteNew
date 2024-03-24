@@ -1113,32 +1113,43 @@ console.log(newElem(arr))
 
 //6.Функция удаления элемента из массива по указанному индексу.
 function delElem(arr: number[]) {
-  delete arr[1]
+  arr.splice(1,1)
   console.log(arr)
 }
 console.log(delElem(arr))
 
 //PZ2.Создать еще один массив из 5 случайных чисел и написать следующие функции.
 //1.Функция принимает 2 массива и возвращает новый массив, в котором собраны все элементы из двух массивов без повторений.
-function newArr(arr: number[], arr2: number[]) {
-  arr2 = [13, 18, 21, 22, 45]
-  const arr3 = [...arr, ...arr2]
+function unique(arr: number[], arr2: number[]) {
+  let arr3 = []
+  arr2 = [12, 18, 6, 22, 45]
+  // arr3 = [...arr, ...arr2]
+  arr3 = arr.concat(arr2)
+  for(i=0; i<arr.length; i++){
+    for(let j = i + 2; j<arr2.length; j++){
+      if(arr[i] === arr2[j]){           
+        arr3.push([i][j])      
+      }
+    }
+  } 
   console.log(arr3)
 }
-console.log(newArr(arr, arr))
+console.log(unique(arr, arr))
 
 //2.Функция принимает 2 массива и возвращает новый массив, в котором собраны общие элементы (то есть элементы,
 //которые встречаются и в первом и во втором массивах) без повторений.
-let arr4
-let arr5
-function generalElem(arr4: number[], arr5: number[]) {
-  arr4 = [4, 6, 8]
-  arr5 = [2, 6, 8]
-  for (i = 0; i < arr.length; i++) {
-    const arr6 = [...arr4, ...arr5]
-  }
- 
-}
+// function generalElem(arr: number[], arr2: number[]) {
+//  let arr3: number[] = []
+//   for(i = 0; i < arr.length; i++){
+//     for(let j = i +1; j <arr2.length; i++){
+//       if(arr[i] === arr2[j] && !arr3.includes(arr[i])){
+//         arr3.push(arr[i])
+//       }
+//     }
+//   }
+//   console.log(arr3.length)
+// }
+// console.log(generalElem)
 
 
 //3.Функция принимает 2 массива и возвращает новый массив, в котором собраны все элементы из первого массива,
