@@ -1105,18 +1105,19 @@ function maxElem(arr: number[]) {
 console.log(maxElem(arr))
 
 //5.Функция добавления нового элемента в массив по указанному индексу.
-function newElem(arr: number[]) {
-  arr[10] = 5
+function newElem(arr: number[], el:number, index:number) {
+  arr.splice(index, 0, el)
   console.log(arr)
 }
-console.log(newElem(arr))
+console.log(newElem(arr, 5,2))
+console.log(newElem(arr, 8,4))
 
 //6.Функция удаления элемента из массива по указанному индексу.
-function delElem(arr: number[]) {
-  arr.splice(1,1)
+function delElem(arr: number[], index:number) {
+  arr.splice(index,1)
   console.log(arr)
 }
-console.log(delElem(arr))
+console.log(delElem(arr,1))
 
 //PZ2.Создать еще один массив из 5 случайных чисел и написать следующие функции.
 //1.Функция принимает 2 массива и возвращает новый массив, в котором собраны все элементы из двух массивов без повторений.
