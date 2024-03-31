@@ -1070,11 +1070,14 @@ console.log(pointRectangle(rectangle, 12, 15))
 //Массив
 //PZ1.Задание 1.Создать массив из 10 случайных чисел и написать несколько функций для работы с ним.
 //1.Функция принимает массив и выводит его на экран.
-let arr = [2, 4, 6, 13, 90, 48, 52, 21, 76, 1]
-function infoArr(arr: number[]) {
-  console.log(arr)
+const arr:number[] = []
+function fillArrRandomNumbers(arr:number[], length:number) {
+  for(let i = 0; i < length; i++){
+    arr.push(Math.floor(Math.random()*10))
+  }
 }
-console.log(infoArr(arr))
+fillArrRandomNumbers(arr,10)
+console.log(arr)
 
 //2.Функция принимает массив и выводит только четные элементы.
 function outputsArr(arr: number[]) {
@@ -1105,50 +1108,200 @@ function maxElem(arr: number[]) {
 console.log(maxElem(arr))
 
 //5.Функция добавления нового элемента в массив по указанному индексу.
-function newElem(arr: number[], el:number, index:number) {
+function newElem(arr: number[], el: number, index: number) {
   arr.splice(index, 0, el)
   console.log(arr)
 }
-console.log(newElem(arr, 5,2))
-console.log(newElem(arr, 8,4))
+console.log(newElem(arr, 5, 2))
+console.log(newElem(arr, 8, 4))
 
 //6.Функция удаления элемента из массива по указанному индексу.
-function delElem(arr: number[], index:number) {
-  arr.splice(index,1)
+function delElem(arr: number[], index: number) {
+  arr.splice(index, 1)
   console.log(arr)
 }
-console.log(delElem(arr,1))
+console.log(delElem(arr, 1))
 
 //PZ2.Создать еще один массив из 5 случайных чисел и написать следующие функции.
 //1.Функция принимает 2 массива и возвращает новый массив, в котором собраны все элементы из двух массивов без повторений.
+const arr1:number[] = []
+const arr2:number[] = []
+function arrRandomNumbers(arr1:number[], length:number) {
+  for(let i = 0; i < length; i++){
+    arr1.push(Math.floor(Math.random()*10))
+  }
+}
+arrRandomNumbers(arr1,10)
+arrRandomNumbers(arr2,5)
 
+console.log(arr1)
+console.log(arr2)
 
-
-
+function getUnionArr(arr1:number[], arr2:number[]){
+  const arr:number[] = []
+for(let el of arr1) {
+  if (!arr.includes(el)){
+    arr.push(el)
+  }
+}
+for(let el of arr2) {
+  if (!arr.includes(el)){
+    arr.push(el)
+  }
+}
+return arr
+}
+console.log(getUnionArr(arr1,arr2))
 //2.Функция принимает 2 массива и возвращает новый массив, в котором собраны общие элементы (то есть элементы,
 //которые встречаются и в первом и во втором массивах) без повторений.
-
-
+function getCommonUnionArr(arr1:number[], arr2:number[]){
+  const arr:number[] = []
+for(let el of arr1) {
+  if (arr1.includes(el) && arr2.includes(el)){
+    if (!arr.includes(el)){
+      arr.push(el)
+    }
+  }
+}
+return arr
+}
+console.log(getCommonUnionArr(arr1,arr2))
 
 //3.Функция принимает 2 массива и возвращает новый массив, в котором собраны все элементы из первого массива,
 //которых нет во втором массиве.
-
-
+function getNotCommonUnionArr(arr1:number[], arr2:number[]){
+  const arr:number[] = []
+for(let el of arr1) {
+  if (!arr2.includes(el)){
+    if (!arr.includes(el)){
+      arr.push(el)
+    }
+  }
+}
+return arr
+}
+console.log(getNotCommonUnionArr(arr1,arr2))
 
 //PZ3.Создать массив фруктов и отсортировать его по алфавиту. Написать следующие функции.
 //1.Вывод на экран с помощью document.write() в виде списка(с помощью тегов ul и li).
 //2.Поиск фрукта в массиве. Функция принимает название фрукта и возвращает индекс найденного элемента или -1,
 //если не найден. Поиск должен быть нерегистрозависимым.
 
+type fruits = {
+  name: string,
+}
+const createList: fruits[]= [
+  {name:'яблоко'},
+  {name:'груша'},
+  {name:'апельсин'},
+  {name:'слива'},
+  {name:'персик'},
+  {name:'манго'},
+  {name:'киви'},
+]
+function arrangeFruits(arr:string[],name:string){
+  return arr.sort(arrangeFruits)
+}
+console.log(createList)
 
 
 
 //DZ3.1.Создать массив «Список покупок». Каждый элемент массива является объектом, который содержит название продукта, необ-
 //ходимое количество и куплен или нет. Написать несколько функций для работы с таким массивом.
 //1.Вывод всего списка на экран таким образом, чтобы сначала шли некупленные продукты, а потом – купленные.
+
+type product = {
+  name: string,
+  count: number,
+  isBuyed: boolean,
+}
+
+const toBuyList: product[] = [
+  { name: 'молоко', count: 1, isBuyed: false },
+  { name: 'мука', count: 1, isBuyed: true },
+  { name: 'сахар', count: 1, isBuyed: true },
+  { name: 'картофель', count: 1, isBuyed: false },
+  { name: 'сыр', count: 1, isBuyed: true },
+  { name: 'бекон', count: 1, isBuyed: false },
+  { name: 'конфеты', count: 1, isBuyed: true },
+  { name: 'чай', count: 1, isBuyed: false },
+]
+const toBuyListOL = document.getElementById('toBuyList') as HTMLOListElement
+
+function renderBuyList(arr: product[]) {
+  let html = ''
+  for (let el of arr) {
+    if (!el.isBuyed) {
+      html += `<li style="color:red">${el.name} ${el.count}</li>`
+    }
+  }
+  for (let el of arr) {
+    if (el.isBuyed) {
+      html += `<li style="color:green">${el.name} ${el.count}</li>`
+    }
+  }
+  toBuyListOL.innerHTML = html
+}
+
+renderBuyList(toBuyList)
+
 //2.Добавление покупки в список. Учтите, что при добавлении покупки с уже существующим в списке продуктом, необ-
 //ходимо увеличивать количество в существующей покупке,а не добавлять новую.
+
+const productNameInput = document.getElementById('productName') as HTMLInputElement
+const productCountInput = document.getElementById('productCount') as HTMLInputElement
+const addProductButton = document.getElementById('addProduct') as HTMLButtonElement
+
+function addToBuyList(arr: product[], name: string, count: number) {
+  let inList = false
+  for (let el of arr) {
+    if (el.name == name && !el.isBuyed) {
+      el.count += count
+      inList = true
+    }
+  }
+  if (!inList) {
+    arr.push({ name, count, isBuyed: false })
+  }
+  renderBuyList(arr)
+}
+addToBuyList(toBuyList, 'масло', 1)
+
+addProductButton.addEventListener('click', function () {
+  const count = parseFloat(productCountInput.value.replace(',', '.'))
+  addToBuyList(toBuyList, productNameInput.value, count)
+  productNameInput.value = ''
+  productCountInput.value = ''
+})
+
 //3.Покупка продукта. Функция принимает название продукта и отмечает его как купленный.
+
+const setBuyedButton = document.getElementById('setBuyed') as HTMLButtonElement
+
+function setBuyed(arr: product[], name: string) {
+  for (let el of arr) {
+    if (el.name == name) {
+      el.isBuyed = true
+    }
+  }
+  renderBuyList(arr)
+}
+
+setBuyed(toBuyList, 'макароны')
+
+setBuyedButton.addEventListener('click', function () {
+  setBuyed(toBuyList, productNameInput.value)
+  productNameInput.value = ''
+  productCountInput.value = ''
+})
+
+toBuyListOL.addEventListener('click', function (e) {
+  const target = e.target as HTMLElement
+  if (target.tagName == 'BUTTON' && target.dataset.name) {
+    setBuyed(toBuyList, target.dataset.name)
+  }
+})
+
 
 //2.Создать массив, описывающий чек в магазине. Каждый элемент массива состоит из названия товара, количества и цены за
 //единицу товара. Написать следующие функции.
@@ -1159,7 +1312,7 @@ console.log(delElem(arr,1))
 
 //3.Создать массив css-стилей (цвет, размер шрифта, выравнивание, подчеркивание и т. д.). Каждый элемент массива – это объ-
 //ект, состоящий из двух свойств: название стиля и значение стиля.Написать функцию, которая принимает массив стилей и
-//текст, и выводит этот текст с помощью document.write() в тегах <p></p>, добавив в открывающий тег атрибут style со всеми 
+//текст, и выводит этот текст с помощью document.write() в тегах <p></p>, добавив в открывающий тег атрибут style со всеми
 //стилями, перечисленными в массиве.
 
 
