@@ -1199,10 +1199,7 @@ const createList: fruits[]= [
   {name:'манго'},
   {name:'киви'},
 ]
-function arrangeFruits(arr:string[],name:string){
-  return arr.sort(arrangeFruits)
-}
-console.log(createList)
+
 
 
 
