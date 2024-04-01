@@ -911,7 +911,6 @@ console.log(getDivOfFractions(fraction1, fraction2))
 
 //5.Функция сокращения объекта-дроби.
 function getReductionFraction(fr: Fraction) {
-  const max = fr.numerator > fr.denominator ? fr.numerator : fr.denominator
   const min = fr.numerator < fr.denominator ? fr.numerator : fr.denominator
   for (i = min; i > 1; i--) {
     if (fr.numerator % i && fr.denominator % i) {
@@ -1070,13 +1069,13 @@ console.log(pointRectangle(rectangle, 12, 15))
 //Массив
 //PZ1.Задание 1.Создать массив из 10 случайных чисел и написать несколько функций для работы с ним.
 //1.Функция принимает массив и выводит его на экран.
-const arr:number[] = []
-function fillArrRandomNumbers(arr:number[], length:number) {
-  for(let i = 0; i < length; i++){
-    arr.push(Math.floor(Math.random()*10))
+const arr: number[] = []
+function fillArrRandomNumbers(arr: number[], length: number) {
+  for (let i = 0; i < length; i++) {
+    arr.push(Math.floor(Math.random() * 10))
   }
 }
-fillArrRandomNumbers(arr,10)
+fillArrRandomNumbers(arr, 10)
 console.log(arr)
 
 //2.Функция принимает массив и выводит только четные элементы.
@@ -1124,82 +1123,88 @@ console.log(delElem(arr, 1))
 
 //PZ2.Создать еще один массив из 5 случайных чисел и написать следующие функции.
 //1.Функция принимает 2 массива и возвращает новый массив, в котором собраны все элементы из двух массивов без повторений.
-const arr1:number[] = []
-const arr2:number[] = []
-function arrRandomNumbers(arr1:number[], length:number) {
-  for(let i = 0; i < length; i++){
-    arr1.push(Math.floor(Math.random()*10))
+const arr1: number[] = []
+const arr2: number[] = []
+function arrRandomNumbers(arr1: number[], length: number) {
+  for (let i = 0; i < length; i++) {
+    arr1.push(Math.floor(Math.random() * 10))
   }
 }
-arrRandomNumbers(arr1,10)
-arrRandomNumbers(arr2,5)
+arrRandomNumbers(arr1, 10)
+arrRandomNumbers(arr2, 5)
 
 console.log(arr1)
 console.log(arr2)
 
-function getUnionArr(arr1:number[], arr2:number[]){
-  const arr:number[] = []
-for(let el of arr1) {
-  if (!arr.includes(el)){
-    arr.push(el)
-  }
-}
-for(let el of arr2) {
-  if (!arr.includes(el)){
-    arr.push(el)
-  }
-}
-return arr
-}
-console.log(getUnionArr(arr1,arr2))
-//2.Функция принимает 2 массива и возвращает новый массив, в котором собраны общие элементы (то есть элементы,
-//которые встречаются и в первом и во втором массивах) без повторений.
-function getCommonUnionArr(arr1:number[], arr2:number[]){
-  const arr:number[] = []
-for(let el of arr1) {
-  if (arr1.includes(el) && arr2.includes(el)){
-    if (!arr.includes(el)){
+function getUnionArr(arr1: number[], arr2: number[]) {
+  const arr: number[] = []
+  for (let el of arr1) {
+    if (!arr.includes(el)) {
       arr.push(el)
     }
   }
+  for (let el of arr2) {
+    if (!arr.includes(el)) {
+      arr.push(el)
+    }
+  }
+  return arr
 }
-return arr
+console.log(getUnionArr(arr1, arr2))
+//2.Функция принимает 2 массива и возвращает новый массив, в котором собраны общие элементы (то есть элементы,
+//которые встречаются и в первом и во втором массивах) без повторений.
+function getCommonUnionArr(arr1: number[], arr2: number[]) {
+  const arr: number[] = []
+  for (let el of arr1) {
+    if (arr1.includes(el) && arr2.includes(el)) {
+      if (!arr.includes(el)) {
+        arr.push(el)
+      }
+    }
+  }
+  return arr
 }
-console.log(getCommonUnionArr(arr1,arr2))
+console.log(getCommonUnionArr(arr1, arr2))
 
 //3.Функция принимает 2 массива и возвращает новый массив, в котором собраны все элементы из первого массива,
 //которых нет во втором массиве.
-function getNotCommonUnionArr(arr1:number[], arr2:number[]){
-  const arr:number[] = []
-for(let el of arr1) {
-  if (!arr2.includes(el)){
-    if (!arr.includes(el)){
-      arr.push(el)
+function getNotCommonUnionArr(arr1: number[], arr2: number[]) {
+  const arr: number[] = []
+  for (let el of arr1) {
+    if (!arr2.includes(el)) {
+      if (!arr.includes(el)) {
+        arr.push(el)
+      }
     }
   }
+  return arr
 }
-return arr
-}
-console.log(getNotCommonUnionArr(arr1,arr2))
+console.log(getNotCommonUnionArr(arr1, arr2))
 
 //PZ3.Создать массив фруктов и отсортировать его по алфавиту. Написать следующие функции.
 //1.Вывод на экран с помощью document.write() в виде списка(с помощью тегов ul и li).
-//2.Поиск фрукта в массиве. Функция принимает название фрукта и возвращает индекс найденного элемента или -1,
-//если не найден. Поиск должен быть нерегистрозависимым.
 
 type fruits = {
   name: string,
 }
-const createList: fruits[]= [
-  {name:'яблоко'},
-  {name:'груша'},
-  {name:'апельсин'},
-  {name:'слива'},
-  {name:'персик'},
-  {name:'манго'},
-  {name:'киви'},
+const createList: fruits[] = [
+  { name: 'яблоко' },
+  { name: 'груша' },
+  { name: 'апельсин' },
+  { name: 'слива' },
+  { name: 'персик' },
+  { name: 'манго' },
+  { name: 'киви' },
 ]
+let html = ``
+createList.sort((a, b) => +a - +b).forEach( el =>{
+html +=`<p>${el.name}</P>`
+})
+console.log(createList)
+console.log(html)
 
+//2.Поиск фрукта в массиве. Функция принимает название фрукта и возвращает индекс найденного элемента или -1,
+//если не найден. Поиск должен быть нерегистрозависимым.
 
 
 
