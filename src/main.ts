@@ -1315,20 +1315,40 @@ toBuyListOL.addEventListener('click', function (e) {
 })
 
 
-
-
-// function compareNumeric(a: fruits, b: fruits): number {
-//   throw new Error('Function not implemented.')
-// }
-// function compareNumeric(a: fruits, b: fruits): number {
-//   throw new Error('Function not implemented.')
-// }
 //2.Создать массив, описывающий чек в магазине. Каждый элемент массива состоит из названия товара, количества и цены за
 //единицу товара. Написать следующие функции.
+type check = {
+  name: string,
+  count: number,
+  price: number,
+}
+
+const descriptionCheck: check[] = [
+  { name: 'яйцо', count: 1, price: 100 },
+  { name: 'мука', count: 1, price: 120 },
+  { name: 'сахар', count: 1, price: 80 },
+  { name: 'картофель', count: 1, price: 60 },
+  { name: 'сыр', count: 1, price: 200 },
+]
+
 //1.Распечатка чека на экран.
+
+const escriptionCheck = document.getElementById('escriptionCheck') as HTMLOListElement
+
+function printCheck(arr: check[]) {
+  let html = ''
+  for (let el of arr) {
+    html += `<li style="color:red">${el.name} ${el.count} ${el.price}</li>`    
+  }
+ 
+  toBuyListOL.innerHTML = html
+}
+console.log(printCheck(descriptionCheck))
+renderBuyList(toBuyList)
 //2.Подсчет общей суммы покупки.
 //3.Получение самой дорогой покупки в чеке.
 //4.Подсчет средней стоимости одного товара в чеке.
+
 
 //3.Создать массив css-стилей (цвет, размер шрифта, выравнивание, подчеркивание и т. д.). Каждый элемент массива – это объ-
 //ект, состоящий из двух свойств: название стиля и значение стиля.Написать функцию, которая принимает массив стилей и
