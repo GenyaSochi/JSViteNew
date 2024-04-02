@@ -1187,7 +1187,7 @@ console.log(getNotCommonUnionArr(arr1, arr2))
 type fruits = {
   name: string,
 }
-const createList: fruits[] = [
+const fruitsList: fruits[] = [
   { name: 'яблоко' },
   { name: 'груша' },
   { name: 'апельсин' },
@@ -1197,16 +1197,26 @@ const createList: fruits[] = [
   { name: 'киви' },
 ]
 let html = ``
-createList.sort((a, b) => +a - +b).forEach( el =>{
-html +=`<p>${el.name}</P>`
+fruitsList.sort((a, b) => +a - +b).forEach((el) => {
+  html += `<p>${el.name}</P>`
 })
-console.log(createList)
+console.log(fruitsList.sort())
 console.log(html)
+
 
 //2.Поиск фрукта в массиве. Функция принимает название фрукта и возвращает индекс найденного элемента или -1,
 //если не найден. Поиск должен быть нерегистрозависимым.
 
-
+function searchFruit(name: string, index: number) {
+  for (let i = 0; i < arr.length; i++) {
+    if (name == name) {
+      return index
+    }
+    else (name !== name)
+    return -1
+  }
+}
+console.log(searchFruit('', 0))
 
 //DZ3.1.Создать массив «Список покупок». Каждый элемент массива является объектом, который содержит название продукта, необ-
 //ходимое количество и куплен или нет. Написать несколько функций для работы с таким массивом.
@@ -1305,6 +1315,14 @@ toBuyListOL.addEventListener('click', function (e) {
 })
 
 
+
+
+// function compareNumeric(a: fruits, b: fruits): number {
+//   throw new Error('Function not implemented.')
+// }
+// function compareNumeric(a: fruits, b: fruits): number {
+//   throw new Error('Function not implemented.')
+// }
 //2.Создать массив, описывающий чек в магазине. Каждый элемент массива состоит из названия товара, количества и цены за
 //единицу товара. Написать следующие функции.
 //1.Распечатка чека на экран.
