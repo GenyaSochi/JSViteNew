@@ -1197,26 +1197,25 @@ const fruitsList: fruits[] = [
   { name: 'киви' },
 ]
 let html = ``
+console.log(fruitsList.sort((a, b) => a.name.localeCompare(b.name)))
 fruitsList.sort((a, b) => +a - +b).forEach((el) => {
   html += `<p>${el.name}</P>`
 })
-console.log(fruitsList.sort())
 console.log(html)
 
 
 //2.Поиск фрукта в массиве. Функция принимает название фрукта и возвращает индекс найденного элемента или -1,
 //если не найден. Поиск должен быть нерегистрозависимым.
 
-function searchFruit(name: string, index: number) {
+function searchFruit(name: string, arr: fruits[]) {
   for (let i = 0; i < arr.length; i++) {
-    if (name == name) {
-      return index
+    if (arr[i].name == name) {
+      return i
     }
-    else (name !== name)
-    return -1
   }
+  return -1
 }
-console.log(searchFruit('', 0))
+console.log(searchFruit('киви', fruitsList))
 
 //DZ3.1.Создать массив «Список покупок». Каждый элемент массива является объектом, который содержит название продукта, необ-
 //ходимое количество и куплен или нет. Написать несколько функций для работы с таким массивом.
@@ -1333,18 +1332,18 @@ const descriptionCheck: check[] = [
 
 //1.Распечатка чека на экран.
 
-const escriptionCheck = document.getElementById('escriptionCheck') as HTMLOListElement
+const descriptionCheckOL = document.getElementById('descriptionCheck') as HTMLOListElement
 
 function printCheck(arr: check[]) {
   let html = ''
   for (let el of arr) {
-    html += `<li style="color:red">${el.name} ${el.count} ${el.price}</li>`    
+    html += `<li>${el.name} ${el.count} ${el.price}</li>`
   }
- 
-  toBuyListOL.innerHTML = html
+  descriptionCheckOL.innerHTML = html
 }
-console.log(printCheck(descriptionCheck))
-renderBuyList(toBuyList)
+
+printCheck(descriptionCheck)
+
 //2.Подсчет общей суммы покупки.
 //3.Получение самой дорогой покупки в чеке.
 //4.Подсчет средней стоимости одного товара в чеке.
