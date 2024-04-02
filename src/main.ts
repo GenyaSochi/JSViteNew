@@ -1362,14 +1362,6 @@ console.log(sumCheck(descriptionCheck))
 
 //3.Получение самой дорогой покупки в чеке.
 
-function maxCheck(arr: check[]) {
-  let max = 0
-  for (i = 0; i < arr.length; i++) {
-    if () {
-     max += max
-    }   
-  }
-}
 
 
 //4.Подсчет средней стоимости одного товара в чеке.
