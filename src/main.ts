@@ -1327,7 +1327,7 @@ const descriptionCheck: check[] = [
   { name: 'мука', count: 1, price: 120 },
   { name: 'сахар', count: 1, price: 80 },
   { name: 'картофель', count: 1, price: 60 },
-  { name: 'сыр', count: 1, price: 200 },
+  { name: 'сыр', count: 10, price: 200 },
 ]
 
 //1.Распечатка чека на экран.
@@ -1345,7 +1345,32 @@ function printCheck(arr: check[]) {
 printCheck(descriptionCheck)
 
 //2.Подсчет общей суммы покупки.
+
+function sumCheck(arr: check[]) {
+  let sum = 0
+  for (let el of arr) {
+    console.log(el)
+    sum += el.price * el.count
+  }
+  // for (let i = 0; i < arr.length; i++){
+  //   console.log(arr[i])
+  //   sum += arr[i].price * arr[i].count
+  // }
+  console.log(sum)
+}
+console.log(sumCheck(descriptionCheck))
 //3.Получение самой дорогой покупки в чеке.
+
+function maxCheck(arr: check[]) {
+  let max = 0
+  for (let el of arr) {
+    if (el.count * el.price < max) {
+      return max
+    }
+  }
+}
+console.log(maxCheck)
+
 //4.Подсчет средней стоимости одного товара в чеке.
 
 
@@ -1363,3 +1388,69 @@ printCheck(descriptionCheck)
 //количества студентов и названия факультета.
 //4.Функция сортировки аудиторий по количеству мест.
 //5.Функция сортировки аудиторий по названию (по алфавиту).
+
+
+
+// 1.1.  Написать функцию возвращающюю массив целых чисел от 0 до 10
+function getNum() {
+  const arr: number[] = []
+  for (let i = 0; i < 10; i++) {
+    arr.push(i)
+  }
+  return arr
+}
+
+console.log(getNum())
+
+// 1.2.  Добавить в функцию опциональные параметры начального и конечного значения массива
+//     (если конечный элемент массива не передат, то он больше нечального на 10) . Вызвать функцию несколько раз
+
+function generateArray(start = 0, end = start + 10) {
+  const arr: number[] = []
+  for (let i = 0; i < end-start; i++) {
+    arr.push(i+start)
+  }
+  return arr
+}
+console.log(generateArray())
+console.log(generateArray(20))
+console.log(generateArray(20, 40))
+console.log(generateArray(20, 50))
+
+// 1.3*. Написать функцию возвращающюю массив случайных целых чисел. Функция принимает 1 параметр, количество элементов в будущем массиве
+
+function getRandomArray(num: number){
+let arr = []
+for (let i = 0; i < num; i++) {
+  arr.push(Math.floor(Math.random() * 10))
+}
+return arr
+}
+console.log(getRandomArray(5))
+
+// 2.1. В файле html создать пустой div с произвольным id
+let html= ``
+// 2.2. Получить объект div'а в js при помощи метода document.getElementById(ваш id) as HTMLDivElement
+// 2.3. Вывесли в полученный div текст, "Привет, пользователь"
+// 2.4. Написать функцию, которая возвращает текст "Привет, пользователь" или "Привет, <имяПользователя>" в зависимости от переданных параметров и использовать её в задании 2.3.
+
+// Есть массив объектов
+const employees = [
+  { name: 'Федотова Арина Глебовна', department: 'ads', salary: 2100 },
+  { name: 'Голикова Мария Филипповна', department: 'prog', salary: 3500 },
+  { name: 'Панин Александр Германович', department: 'ads', salary: 2100 },
+  { name: 'Романов Эмиль Макарович', department: 'prog', salary: 3100 },
+  { name: 'Смирнов Никита Александрович', department: 'prog', salary: 3800 },
+  { name: 'Александрова Майя Вячеславовна', department: 'prog', salary: 4500 },
+  { name: 'Крылов Богдан Максимович', department: 'disign', salary: 2100 },
+  { name: 'Мухина Айша Константиновна', department: 'disign', salary: 2100 },
+]
+
+// Все функции вызывать несколько раз с разными параметрами
+// 2.1. Создать функцию, принимающую массив работников, и возвращающую массив уникальных отделов (department)
+// 2.2. Написать функцию, принимающую массив работников и ключ объекта, по которому сделать сортировку массива
+// Учесть, что строковые параметры сортируются при помощи метода localeCompare, а числовые,- вычитанием
+// 2.3. Написать функцию, аналогичную описанной в задании 2.2., но сортирующую в обратном порядке
+// 2.4. Написать функцию, принимающую массив работников и имя, и возвращающую объект сотрудника или undefined
+// 2.5. Написать функцию, принимающую массив работников и название отдела, и возвращающую новый массив, содержащий только сотрудников переданного отдела
+// 2.6. Написать функцию, принимающую массив работников и возвращающую сумму зарплат. Вызвать функцию по каждому отделу и по общему массиву
