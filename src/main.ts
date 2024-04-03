@@ -1324,10 +1324,10 @@ type check = {
 
 const descriptionCheck: check[] = [
   { name: 'яйцо', count: 2, price: 100 },
-  { name: 'мука', count: 1, price: 120 },
+  { name: 'мука', count: 5, price: 120 },
   { name: 'сахар', count: 1, price: 80 },
   { name: 'картофель', count: 1, price: 60 },
-  { name: 'сыр', count: 10, price: 200 },
+  { name: 'сыр', count: 2, price: 200 },
 ]
 
 //1.Распечатка чека на экран.
@@ -1371,7 +1371,15 @@ function expensiveCheck(arr: check[]) {
 console.log(expensiveCheck(descriptionCheck))
 
 //4.Подсчет средней стоимости одного товара в чеке.
+function averageCheck(arr: check[]) {
+  let cost = 0
+  for (i = 0; i < arr.length; i++) {
+    cost += arr[i].price / arr[i].count
+  }
 
+}
+console.log(cost)
+console.log(averageCheck)
 
 //3.Создать массив css-стилей (цвет, размер шрифта, выравнивание, подчеркивание и т. д.). Каждый элемент массива – это объ-
 //ект, состоящий из двух свойств: название стиля и значение стиля.Написать функцию, которая принимает массив стилей и
@@ -1428,10 +1436,13 @@ function getRandomArray(num: number) {
 console.log(getRandomArray(5))
 
 // 2.1. В файле html создать пустой div с произвольным id
-
 // 2.2. Получить объект div'а в js при помощи метода document.getElementById(ваш id) as HTMLDivElement
+const objTest = document.getElementById('test') as HTMLDivElement
+
 // 2.3. Вывесли в полученный div текст, "Привет, пользователь"
-// 2.4. Написать функцию, которая возвращает текст "Привет, пользователь" или "Привет, <имяПользователя>" в зависимости от переданных параметров и использовать её в задании 2.3.
+
+// 2.4. Написать функцию, которая возвращает текст "Привет, пользователь" или "Привет, <имя Пользователя>" в зависимости от переданных
+// параметров и использовать её в задании 2.3.
 
 // Есть массив объектов
 const employees = [
