@@ -1323,7 +1323,7 @@ type check = {
 }
 
 const descriptionCheck: check[] = [
-  { name: 'яйцо', count: 1, price: 100 },
+  { name: 'яйцо', count: 2, price: 100 },
   { name: 'мука', count: 1, price: 120 },
   { name: 'сахар', count: 1, price: 80 },
   { name: 'картофель', count: 1, price: 60 },
@@ -1361,8 +1361,14 @@ function sumCheck(arr: check[]) {
 console.log(sumCheck(descriptionCheck))
 
 //3.Получение самой дорогой покупки в чеке.
-
-
+function expensiveCheck(arr: check[]) {
+  let max = 0
+  for (i = 0; i < arr.length; i++) {
+    max = arr[i].price * arr[i].count
+  }
+  console.log(max)
+}
+console.log(expensiveCheck(descriptionCheck))
 
 //4.Подсчет средней стоимости одного товара в чеке.
 
@@ -1400,8 +1406,8 @@ console.log(getNum())
 
 function generateArray(start = 0, end = start + 10) {
   const arr: number[] = []
-  for (let i = 0; i < end-start; i++) {
-    arr.push(i+start)
+  for (let i = 0; i < end - start; i++) {
+    arr.push(i + start)
   }
   return arr
 }
@@ -1412,12 +1418,12 @@ console.log(generateArray(20, 50))
 
 // 1.3*. Написать функцию возвращающюю массив случайных целых чисел. Функция принимает 1 параметр, количество элементов в будущем массиве
 
-function getRandomArray(num: number){
-let arr = []
-for (let i = 0; i < num; i++) {
-  arr.push(Math.floor(Math.random() * 10))
-}
-return arr
+function getRandomArray(num: number) {
+  let arr = []
+  for (let i = 0; i < num; i++) {
+    arr.push(Math.floor(Math.random() * 10))
+  }
+  return arr
 }
 console.log(getRandomArray(5))
 
