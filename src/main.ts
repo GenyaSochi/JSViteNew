@@ -1356,30 +1356,29 @@ function sumCheck(arr: check[]) {
   //   console.log(arr[i])
   //   sum += arr[i].price * arr[i].count
   // }
-  console.log(sum)
+  return sum
 }
 console.log(sumCheck(descriptionCheck))
 
 //3.Получение самой дорогой покупки в чеке.
-function expensiveCheck(arr: check[]) {
+
+function maxCheck(arr: check[]) {
   let max = 0
   for (i = 0; i < arr.length; i++) {
-    max = arr[i].price * arr[i].count
+    if (arr[i].count * arr[i].price > max) {
+      max = arr[i].count * arr[i].price
+    }
   }
-  console.log(max)
+  return max
 }
-console.log(expensiveCheck(descriptionCheck))
+console.log(maxCheck(descriptionCheck))
 
 //4.Подсчет средней стоимости одного товара в чеке.
-function averageCheck(arr: check[]) {
-  let cost = 0
-  for (i = 0; i < arr.length; i++) {
-    cost += arr[i].price / arr[i].count
-  }
 
+function averageCheck(arr: check[]) {
+  return sumCheck(arr)/arr.length
 }
-console.log(cost)
-console.log(averageCheck)
+console.log(averageCheck(descriptionCheck))
 
 //3.Создать массив css-стилей (цвет, размер шрифта, выравнивание, подчеркивание и т. д.). Каждый элемент массива – это объ-
 //ект, состоящий из двух свойств: название стиля и значение стиля.Написать функцию, которая принимает массив стилей и
@@ -1414,8 +1413,8 @@ console.log(getNum())
 
 function generateArray(start = 0, end = start + 10) {
   const arr: number[] = []
-  for (let i = 0; i < end - start; i++) {
-    arr.push(i + start)
+  for (let i = 0; i < end-start; i++) {
+    arr.push(i+start)
   }
   return arr
 }
@@ -1426,23 +1425,20 @@ console.log(generateArray(20, 50))
 
 // 1.3*. Написать функцию возвращающюю массив случайных целых чисел. Функция принимает 1 параметр, количество элементов в будущем массиве
 
-function getRandomArray(num: number) {
-  let arr = []
-  for (let i = 0; i < num; i++) {
-    arr.push(Math.floor(Math.random() * 10))
-  }
-  return arr
+function getRandomArray(num: number){
+let arr = []
+for (let i = 0; i < num; i++) {
+  arr.push(Math.floor(Math.random() * 10))
+}
+return arr
 }
 console.log(getRandomArray(5))
 
 // 2.1. В файле html создать пустой div с произвольным id
+
 // 2.2. Получить объект div'а в js при помощи метода document.getElementById(ваш id) as HTMLDivElement
-const objTest = document.getElementById('test') as HTMLDivElement
-
 // 2.3. Вывесли в полученный div текст, "Привет, пользователь"
-
-// 2.4. Написать функцию, которая возвращает текст "Привет, пользователь" или "Привет, <имя Пользователя>" в зависимости от переданных
-// параметров и использовать её в задании 2.3.
+// 2.4. Написать функцию, которая возвращает текст "Привет, пользователь" или "Привет, <имяПользователя>" в зависимости от переданных параметров и использовать её в задании 2.3.
 
 // Есть массив объектов
 const employees = [
