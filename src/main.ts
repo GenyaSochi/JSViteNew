@@ -1356,30 +1356,29 @@ function sumCheck(arr: check[]) {
   //   console.log(arr[i])
   //   sum += arr[i].price * arr[i].count
   // }
-  console.log(sum)
+  return sum
 }
 console.log(sumCheck(descriptionCheck))
 
 //3.Получение самой дорогой покупки в чеке.
-function expensiveCheck(arr: check[]) {
+
+function maxCheck(arr: check[]) {
   let max = 0
   for (i = 0; i < arr.length; i++) {
-    max = arr[i].price * arr[i].count
+    if (arr[i].count * arr[i].price > max) {
+      max = arr[i].count * arr[i].price
+    }
   }
-  console.log(max)
+  return max
 }
-console.log(expensiveCheck(descriptionCheck))
+console.log(maxCheck(descriptionCheck))
 
 //4.Подсчет средней стоимости одного товара в чеке.
-function averageCheck(arr: check[]) {
-  let cost = 0
-  for (i = 0; i < arr.length; i++) {
-    cost += arr[i].price / arr[i].count
-  }
 
+function averageCheck(arr: check[]) {
+  return sumCheck(arr)/arr.length
 }
-console.log(cost)
-console.log(averageCheck)
+console.log(averageCheck(descriptionCheck))
 
 //3.Создать массив css-стилей (цвет, размер шрифта, выравнивание, подчеркивание и т. д.). Каждый элемент массива – это объ-
 //ект, состоящий из двух свойств: название стиля и значение стиля.Написать функцию, которая принимает массив стилей и
@@ -1414,8 +1413,8 @@ console.log(getNum())
 
 function generateArray(start = 0, end = start + 10) {
   const arr: number[] = []
-  for (let i = 0; i < end - start; i++) {
-    arr.push(i + start)
+  for (let i = 0; i < end-start; i++) {
+    arr.push(i+start)
   }
   return arr
 }
@@ -1426,23 +1425,20 @@ console.log(generateArray(20, 50))
 
 // 1.3*. Написать функцию возвращающюю массив случайных целых чисел. Функция принимает 1 параметр, количество элементов в будущем массиве
 
-function getRandomArray(num: number) {
-  let arr = []
-  for (let i = 0; i < num; i++) {
-    arr.push(Math.floor(Math.random() * 10))
-  }
-  return arr
+function getRandomArray(num: number){
+let arr = []
+for (let i = 0; i < num; i++) {
+  arr.push(Math.floor(Math.random() * 10))
+}
+return arr
 }
 console.log(getRandomArray(5))
 
 // 2.1. В файле html создать пустой div с произвольным id
+
 // 2.2. Получить объект div'а в js при помощи метода document.getElementById(ваш id) as HTMLDivElement
-const objTest = document.getElementById('test') as HTMLDivElement
-
 // 2.3. Вывесли в полученный div текст, "Привет, пользователь"
-
-// 2.4. Написать функцию, которая возвращает текст "Привет, пользователь" или "Привет, <имя Пользователя>" в зависимости от переданных
-// параметров и использовать её в задании 2.3.
+// 2.4. Написать функцию, которая возвращает текст "Привет, пользователь" или "Привет, <имяПользователя>" в зависимости от переданных параметров и использовать её в задании 2.3.
 
 // Есть массив объектов
 const employees = [
@@ -1465,3 +1461,50 @@ const employees = [
 // 2.5. Написать функцию, принимающую массив работников и название отдела, и возвращающую новый массив, содержащий только сотрудников переданного отдела
 // 2.6. Написать функцию, принимающую массив работников и возвращающую сумму зарплат. Вызвать функцию по каждому отделу и по общему массиву
 
+
+function showElements(arr:Employees[]) {
+  console.log(arr)
+  console.log(arr[0])
+  console.log(arr[0].name)
+  console.log(arr[0].department)
+  console.log(arr[0].salary)
+  for (let i=0;i<arr.length; i++) {
+    console.log(arr[i].name)
+  }
+  for (let empl of arr) {
+    console.log(empl.name)
+  }
+  const newArr = [4,45,6]
+  return newArr
+}
+const вернулаФункция = showElements(employees)
+console.log(вернулаФункция)
+
+
+
+// Все функции вызывать несколько раз с разными параметрами
+// 3.1. Создать функцию, принимающую массив работников, и возвращающую массив уникальных отделов (department)
+// deps.includes
+// [ads, prog, disign]
+// 3.2. Написать функцию, принимающую массив работников и ключ объекта, по которому сделать сортировку массива
+// Учесть, что строковые параметры сортируются при помощи метода localeCompare, а числовые,- вычитанием
+// function sortEmpl(arr, key: 'name' | 'department' |'salary') {
+// }
+// 3.3. Написать функцию, аналогичную описанной в задании 3.2., но сортирующую в обратном порядке
+// 3.4. Написать функцию, принимающую массив работников и имя, и возвращающую объект сотрудника или undefined
+// 3.5. Написать функцию, принимающую массив работников и название отдела, и возвращающую новый массив, содержащий только сотрудников переданного отдела
+// 3.6. Написать функцию, принимающую массив работников и возвращающую сумму зарплат. Вызвать функцию по каждому отделу и по общему массиву
+
+// 3.7. В HTML создать div для кнопок, задать ему id и получить объект div'a в js, аналогично заданию 2.2.
+// 3.8. Так же как в 3.7 создать ul (as HTMLUListElement) для вывода списка и div для вывода суммы зарплат
+
+// 3.9. Используя массив, полученный в 3.1. Вывести кнопки с названиями отделов + кнопку "Все отделы"
+//      использовать data-атрибут (data-dep), в который поместить название отдела. Для кнопки "Все отделы" data-dep="all"
+// 3.10. Используя div, полученный в задании 3.7
+// div37.addEventListener('click', function (e) {
+//   const target = e.target as HTMLElement
+//   if (target.tagName == 'BUTTON' && target.dataset.dep) {
+//      в зависимости от значения dep выводить в список (ul 3.8) тех сотрудников, которые работают в данном отделе, либо всех, если target.dataset.dep=='all'. Используем логическое ветвление и уже написанные функции
+//      в div (3.8) выводить сумму зарплат
+//   }
+// })
