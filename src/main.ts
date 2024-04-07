@@ -1376,7 +1376,7 @@ console.log(maxCheck(descriptionCheck))
 //4.Подсчет средней стоимости одного товара в чеке.
 
 function averageCheck(arr: check[]) {
-  return sumCheck(arr)/arr.length
+  return sumCheck(arr) / arr.length
 }
 console.log(averageCheck(descriptionCheck))
 
@@ -1413,8 +1413,8 @@ console.log(getNum())
 
 function generateArray(start = 0, end = start + 10) {
   const arr: number[] = []
-  for (let i = 0; i < end-start; i++) {
-    arr.push(i+start)
+  for (let i = 0; i < end - start; i++) {
+    arr.push(i + start)
   }
   return arr
 }
@@ -1425,23 +1425,36 @@ console.log(generateArray(20, 50))
 
 // 1.3*. Написать функцию возвращающюю массив случайных целых чисел. Функция принимает 1 параметр, количество элементов в будущем массиве
 
-function getRandomArray(num: number){
-let arr = []
-for (let i = 0; i < num; i++) {
-  arr.push(Math.floor(Math.random() * 10))
-}
-return arr
+function getRandomArray(num: number) {
+  let arr = []
+  for (let i = 0; i < num; i++) {
+    arr.push(Math.floor(Math.random() * 10))
+  }
+  return arr
 }
 console.log(getRandomArray(5))
 
 // 2.1. В файле html создать пустой div с произвольным id
+//______________создан___________________________________
 
 // 2.2. Получить объект div'а в js при помощи метода document.getElementById(ваш id) as HTMLDivElement
-// 2.3. Вывесли в полученный div текст, "Привет, пользователь"
-// 2.4. Написать функцию, которая возвращает текст "Привет, пользователь" или "Привет, <имяПользователя>" в зависимости от переданных параметров и использовать её в задании 2.3.
+
+const myObj = document.getElementById('test') as HTMLDivElement
+console.log(myObj)
+
+// 2.3. Вывести в полученный div текст, "Привет, пользователь"
+
+myObj.innerHTML = 'Привет, пользователь!'
+// 2.4. Написать функцию, которая возвращает текст "Привет, пользователь" или "Привет, <имяПользователя>" в зависимости от переданных параметров
+// и использовать её в задании 2.3.
 
 // Есть массив объектов
-const employees = [
+type Employees = {
+  name: string,
+  department: string,
+  salary: number,
+}
+const employees: Employees[] = [
   { name: 'Федотова Арина Глебовна', department: 'ads', salary: 2100 },
   { name: 'Голикова Мария Филипповна', department: 'prog', salary: 3500 },
   { name: 'Панин Александр Германович', department: 'ads', salary: 2100 },
@@ -1451,17 +1464,107 @@ const employees = [
   { name: 'Крылов Богдан Максимович', department: 'disign', salary: 2100 },
   { name: 'Мухина Айша Константиновна', department: 'disign', salary: 2100 },
 ]
+function showEmployees(arr: Employees[], i = -1) {
+  if (i > -1 && i < arr.length) {
+    myObj.innerHTML = 'Привет, ' + arr[i].name + '!'
+  } else {
+    myObj.innerHTML = 'Привет, пользователь'
+  }
+}
+showEmployees(employees, 4)
+
 
 // Все функции вызывать несколько раз с разными параметрами
 // 2.1. Создать функцию, принимающую массив работников, и возвращающую массив уникальных отделов (department)
+
+function uniqueDepartment(arr: Employees[]) {
+  const unique: string[] = []
+  for (let el of arr) {
+    if (!unique.includes(el.department)) {
+      unique.push(el.department)
+    }
+  }
+  return unique
+}
+console.log(uniqueDepartment(employees))
+
 // 2.2. Написать функцию, принимающую массив работников и ключ объекта, по которому сделать сортировку массива
 // Учесть, что строковые параметры сортируются при помощи метода localeCompare, а числовые,- вычитанием
+
+function sortEmployees(arr: Employees[], key: 'name' | 'department' | 'salary') {
+  return arr.sort((a, b) => {
+    if (a[key] > b[key]) return 1
+    if (a[key] < b[key]) return -1
+    return 0
+  })
+}
+console.log(sortEmployees(employees, 'name'))
+console.log(sortEmployees(employees, 'department'))
+console.log(sortEmployees(employees, 'salary'))
+
 // 2.3. Написать функцию, аналогичную описанной в задании 2.2., но сортирующую в обратном порядке
+function sortReversEmployees(arr: Employees[], key: 'name' | 'department' | 'salary') {
+  return arr.sort((a, b) => {
+    if (a[key] < b[key]) return 1
+    if (a[key] > b[key]) return -1
+    return 0
+  })
+}
+console.log(sortReversEmployees(employees, 'name'))
+console.log(sortReversEmployees(employees, 'department'))
+console.log(sortReversEmployees(employees, 'salary'))
+
 // 2.4. Написать функцию, принимающую массив работников и имя, и возвращающую объект сотрудника или undefined
+
+function listEmployees(arr: Employees[], name: string) {
+  for (let el of arr) {
+    if (el.name == name) {
+      return el
+    }
+  }
+  return undefined
+}
+console.log(listEmployees(employees, 'Крылов Богдан Максимович'))
+
 // 2.5. Написать функцию, принимающую массив работников и название отдела, и возвращающую новый массив, содержащий только сотрудников переданного отдела
+function newArr(arr: Employees[], department: string) {
+  return arr.filter((el) => el.department == department)
+}
+newArr(employees, 'ads')
+console.log(newArr(employees, 'ads'))
 // 2.6. Написать функцию, принимающую массив работников и возвращающую сумму зарплат. Вызвать функцию по каждому отделу и по общему массиву
 
-const arr5:string[] = ['Лена', 'Света']
+function paymentEmployees(arr: Employees[], salary:number){
+  for(let el of arr){
+    if (el.)
+  }
 
-arr5.push('Оля')
-console.log(arr5)
+}
+
+
+// Все функции вызывать несколько раз с разными параметрами
+// 3.1. Создать функцию, принимающую массив работников, и возвращающую массив уникальных отделов (department)
+// deps.includes
+// [ads, prog, disign]
+// 3.2. Написать функцию, принимающую массив работников и ключ объекта, по которому сделать сортировку массива
+// Учесть, что строковые параметры сортируются при помощи метода localeCompare, а числовые,- вычитанием
+// function sortEmpl(arr, key: 'name' | 'department' |'salary') {
+// }
+// 3.3. Написать функцию, аналогичную описанной в задании 3.2., но сортирующую в обратном порядке
+// 3.4. Написать функцию, принимающую массив работников и имя, и возвращающую объект сотрудника или undefined
+// 3.5. Написать функцию, принимающую массив работников и название отдела, и возвращающую новый массив, содержащий только сотрудников переданного отдела
+// 3.6. Написать функцию, принимающую массив работников и возвращающую сумму зарплат. Вызвать функцию по каждому отделу и по общему массиву
+
+// 3.7. В HTML создать div для кнопок, задать ему id и получить объект div'a в js, аналогично заданию 2.2.
+// 3.8. Так же как в 3.7 создать ul (as HTMLUListElement) для вывода списка и div для вывода суммы зарплат
+
+// 3.9. Используя массив, полученный в 3.1. Вывести кнопки с названиями отделов + кнопку "Все отделы"
+//      использовать data-атрибут (data-dep), в который поместить название отдела. Для кнопки "Все отделы" data-dep="all"
+// 3.10. Используя div, полученный в задании 3.7
+// div37.addEventListener('click', function (e) {
+//   const target = e.target as HTMLElement
+//   if (target.tagName == 'BUTTON' && target.dataset.dep) {
+//      в зависимости от значения dep выводить в список (ul 3.8) тех сотрудников, которые работают в данном отделе, либо всех, если target.dataset.dep=='all'. Используем логическое ветвление и уже написанные функции
+//      в div (3.8) выводить сумму зарплат
+//   }
+// })
