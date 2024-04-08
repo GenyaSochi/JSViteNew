@@ -1644,7 +1644,8 @@ const buttonProg = document.getElementById('butProg') as HTMLDivElement
 console.log(buttonProg)
 const buttonDisign = document.getElementById('butDisign') as HTMLDivElement
 console.log(buttonDisign)
-
+const allDepartments = document.getElementById('allDep') as HTMLDivElement
+console.log(allDepartments)
 // 3.10. Используя div, полученный в задании 3.7
 // div37.addEventListener('click', function (e) {
 // const target = e.target as HTMLElement
