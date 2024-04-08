@@ -1569,29 +1569,82 @@ console.log(uniqueDep(employees))//Задание дублируется с 2.1
 // function sortEmpl(arr, key: 'name' | 'department' |'salary') {
 // }
 
-function sortEmpl(arr: Employees[], key: 'name' | 'department' | 'salary') {
-  return arr.sort((a, b) => {
-    if (a[key] < b[key]) return 1
-    if (a[key] > b[key]) return -1
-    return 0
-  })
+function sortEmpl(arr: Employees[], key: 'name' | 'department' | 'salary') {//дубль 2.2 + localeCompare
+  console.log(arr.sort((a, b) => a.name.localeCompare(b.name)))
+  console.log(arr.sort((a, b) => a.department.localeCompare(b.department)))
+  console.log(arr.sort((a, b) => a.salary - b.salary))
 }
-console.log(sortEmpl(employees,'name'))
-console.log(sortEmpl(employees,'department'))
-console.log(sortEmpl(employees,'salary'))
-
-
+sortEmpl(employees, 'name')
+sortEmpl(employees, 'department')
+sortEmpl(employees, 'salary')
 
 // 3.3. Написать функцию, аналогичную описанной в задании 3.2., но сортирующую в обратном порядке
+
+function sortBackEmpl(arr: Employees[], key: 'name' | 'department' | 'salary') {//дубль 2.2 + localeCompare
+  console.log(arr.sort((a, b) => b.name.localeCompare(a.name)))
+  console.log(arr.sort((a, b) => b.department.localeCompare(a.department)))
+  console.log(arr.sort((a, b) => b.salary - a.salary))
+}
+sortBackEmpl(employees, 'name')
+sortBackEmpl(employees, 'department')
+sortBackEmpl(employees, 'salary')
+
 // 3.4. Написать функцию, принимающую массив работников и имя, и возвращающую объект сотрудника или undefined
+
+function listNewEmployees(arr: Employees[], name: string) {//дубль 2.4
+  for (let el of arr) {
+    if (el.name == name) {
+      return el
+    }
+  }
+  return undefined
+}
+console.log(listNewEmployees(employees, 'Крылов Богдан Максимович'))
+
 // 3.5. Написать функцию, принимающую массив работников и название отдела, и возвращающую новый массив, содержащий только сотрудников переданного отдела
+
+function newArrEmp(arr: Employees[], department: string) {//дубль 2.5
+  return arr.filter((el) => el.department == department)
+}
+newArr(employees, 'ads')
+console.log(newArrEmp(employees, 'disign'))
+
 // 3.6. Написать функцию, принимающую массив работников и возвращающую сумму зарплат. Вызвать функцию по каждому отделу и по общему массиву
 
+function paymentNewEmployees(arr: Employees[]) {//дубль 2.6
+  let sum = 0
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i].salary
+  }
+  return sum
+}
+console.log(paymentNewEmployees(employees))
+console.log(paymentNewEmployees(newArr(employees, 'ads')))
+console.log(paymentNewEmployees(newArr(employees, 'prog')))
+console.log(paymentNewEmployees(newArr(employees, 'disign')))
+
 // 3.7. В HTML создать div для кнопок, задать ему id и получить объект div'a в js, аналогично заданию 2.2.
+
+const myButton = document.getElementById('myBut') as HTMLDivElement
+console.log(myButton)
+
 // 3.8. Так же как в 3.7 создать ul (as HTMLUListElement) для вывода списка и div для вывода суммы зарплат
+
+const listEmpl = document.getElementById('employees') as HTMLDivElement//переписать
+console.log(listEmpl)
+const sumSalary = document.getElementById('sumSal') as HTMLDivElement
+console.log(sumSalary)
 
 // 3.9. Используя массив, полученный в 3.1. Вывести кнопки с названиями отделов + кнопку "Все отделы"
 // использовать data-атрибут (data-dep), в который поместить название отдела. Для кнопки "Все отделы" data-dep="all"
+
+const buttonAds = document.getElementById('butAds') as HTMLDivElement
+console.log(buttonAds)
+const buttonProg = document.getElementById('butProg') as HTMLDivElement
+console.log(buttonProg)
+const buttonDisign = document.getElementById('butDisign') as HTMLDivElement
+console.log(buttonDisign)
+
 // 3.10. Используя div, полученный в задании 3.7
 // div37.addEventListener('click', function (e) {
 // const target = e.target as HTMLElement
