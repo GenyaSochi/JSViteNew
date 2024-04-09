@@ -1639,10 +1639,6 @@ function conclusionList(arr: Employees[]){
 }
  console.log(conclusionList(employees))
 
-// const listEmpl = document.getElementById('employeesList') as HTMLDivElement//переписать
-// console.log(listEmpl)
-
-
 // 3.9. Используя массив, полученный в 3.1. Вывести кнопки с названиями отделов + кнопку "Все отделы"
 // использовать data-атрибут (data-dep), в который поместить название отдела. Для кнопки "Все отделы" data-dep="all"
 
