@@ -1629,11 +1629,19 @@ const myButton = document.getElementById('myBut') as HTMLDivElement
 console.log(myButton)
 
 // 3.8. Так же как в 3.7 создать ul (as HTMLUListElement) для вывода списка и div для вывода суммы зарплат
-
-const listEmpl = document.getElementById('employees') as HTMLDivElement//переписать
-console.log(listEmpl)
 const sumSalary = document.getElementById('sumSal') as HTMLDivElement
-console.log(sumSalary)
+function conclusionList(arr: Employees[]){
+  let html =''
+  for (let el of arr){
+    html +=`<ul>${el.salary}</ul>`
+  }
+  sumSalary.innerHTML = html
+}
+ console.log(conclusionList(employees))
+
+// const listEmpl = document.getElementById('employeesList') as HTMLDivElement//переписать
+// console.log(listEmpl)
+
 
 // 3.9. Используя массив, полученный в 3.1. Вывести кнопки с названиями отделов + кнопку "Все отделы"
 // использовать data-атрибут (data-dep), в который поместить название отдела. Для кнопки "Все отделы" data-dep="all"
