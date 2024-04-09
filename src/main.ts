@@ -1463,6 +1463,8 @@ const employees: Employees[] = [
   { name: 'Александрова Майя Вячеславовна', department: 'prog', salary: 4500 },
   { name: 'Крылов Богдан Максимович', department: 'disign', salary: 2100 },
   { name: 'Мухина Айша Константиновна', department: 'disign', salary: 2100 },
+  { name: 'Крыл Богдан Максимович', department: 'buh', salary: 2100 },
+  { name: 'Муха Айша Константиновна', department: 'buh', salary: 2100 },
 ]
 function showEmployees(arr: Employees[], i = -1) {
   if (i > -1 && i < arr.length) {
@@ -1570,28 +1572,29 @@ console.log(uniqueDep(employees))//Задание дублируется с 2.1
 // }
 
 function sortEmpl(arr: Employees[], key: 'name' | 'department' | 'salary') {//дубль 2.2 + localeCompare
-  console.log(arr.sort((a, b) => a.name.localeCompare(b.name)))
-  console.log(arr.sort((a, b) => a.department.localeCompare(b.department)))
-  console.log(arr.sort((a, b) => a.salary - b.salary))
+  if (key=='name' || key=='department') {
+    arr.sort((a, b) => a[key].localeCompare(b[key]))
+  } else {
+    arr.sort((a, b) => a[key] - b[key])
+  }
 }
-sortEmpl(employees, 'name')
+// sortEmpl(employees, 'name')
 sortEmpl(employees, 'department')
-sortEmpl(employees, 'salary')
+// sortEmpl(employees, 'salary')
 
 // 3.3. Написать функцию, аналогичную описанной в задании 3.2., но сортирующую в обратном порядке
 
 function sortBackEmpl(arr: Employees[], key: 'name' | 'department' | 'salary') {//дубль 2.2 + localeCompare
-  console.log(arr.sort((a, b) => b.name.localeCompare(a.name)))
-  console.log(arr.sort((a, b) => b.department.localeCompare(a.department)))
-  console.log(arr.sort((a, b) => b.salary - a.salary))
+  sortEmpl(arr, key)
+  arr.reverse()
 }
-sortBackEmpl(employees, 'name')
-sortBackEmpl(employees, 'department')
-sortBackEmpl(employees, 'salary')
+// sortBackEmpl(employees, 'name')
+// sortBackEmpl(employees, 'department')
+// sortBackEmpl(employees, 'salary')
 
 // 3.4. Написать функцию, принимающую массив работников и имя, и возвращающую объект сотрудника или undefined
 
-function listNewEmployees(arr: Employees[], name: string) {//дубль 2.4
+function listNewEmployees(arr: Employees[], name: string) {
   for (let el of arr) {
     if (el.name == name) {
       return el
@@ -1603,7 +1606,7 @@ console.log(listNewEmployees(employees, 'Крылов Богдан Максим�
 
 // 3.5. Написать функцию, принимающую массив работников и название отдела, и возвращающую новый массив, содержащий только сотрудников переданного отдела
 
-function newArrEmp(arr: Employees[], department: string) {//дубль 2.5
+function newArrEmp(arr: Employees[], department: string) {
   return arr.filter((el) => el.department == department)
 }
 newArr(employees, 'ads')
@@ -1611,7 +1614,7 @@ console.log(newArrEmp(employees, 'disign'))
 
 // 3.6. Написать функцию, принимающую массив работников и возвращающую сумму зарплат. Вызвать функцию по каждому отделу и по общему массиву
 
-function paymentNewEmployees(arr: Employees[]) {//дубль 2.6
+function paymentNewEmployees(arr: Employees[]) {
   let sum = 0
   for (let i = 0; i < arr.length; i++) {
     sum += arr[i].salary
@@ -1630,32 +1633,51 @@ console.log(myButton)
 
 // 3.8. Так же как в 3.7 создать ul (as HTMLUListElement) для вывода списка и div для вывода суммы зарплат
 const sumSalary = document.getElementById('sumSal') as HTMLDivElement
-function conclusionList(arr: Employees[]){
-  let html =''
-  for (let el of arr){
-    html +=`<ul>${el.salary}</ul>`
+function conclusionList(arr: Employees[]) {
+  let html = '<ul>'
+  
+  for (let el of arr) {
+    html += `<li>${el.name} ${el.department} ${el.salary}</li>`
   }
-  sumSalary.innerHTML = html
+  sumSalary.innerHTML = `${html}</ul><div>Sum ${paymentNewEmployees(arr)}</div>`
 }
- console.log(conclusionList(employees))
+console.log(conclusionList(employees))
 
 // 3.9. Используя массив, полученный в 3.1. Вывести кнопки с названиями отделов + кнопку "Все отделы"
 // использовать data-атрибут (data-dep), в который поместить название отдела. Для кнопки "Все отделы" data-dep="all"
-
 const buttonAds = document.getElementById('butAds') as HTMLDivElement
-console.log(buttonAds)
-const buttonProg = document.getElementById('butProg') as HTMLDivElement
-console.log(buttonProg)
-const buttonDisign = document.getElementById('butDisign') as HTMLDivElement
-console.log(buttonDisign)
-const allDepartments = document.getElementById('allDep') as HTMLDivElement
-console.log(allDepartments)
+
+function renderButtons(arr:string[]) {
+  let html = ''
+  for (let dep of arr) {
+    html+=`<button style="background-color: forestgreen; width: 80px; color: white; border-color: blue; border-width: 5px;
+    margin-left: 20px; margin-bottom: 5px;" data-dep="${dep}">${dep.toUpperCase()}</button>`
+  }
+  html+=`<button style="background-color: forestgreen; width: 80px; color: white; border-color: blue; border-width: 5px;
+  margin-left: 20px; margin-bottom: 5px;" data-dep="all">ALL</button>`
+  buttonAds.innerHTML = html
+}
+
+renderButtons(uniqueDep(employees))
+// const buttonProg = document.getElementById('butProg') as HTMLDivElement
+// console.log(buttonProg)
+// const buttonDisign = document.getElementById('butDisign') as HTMLDivElement
+// console.log(buttonDisign)
+// const allDepartments = document.getElementById('allDep') as HTMLDivElement
+// console.log(allDepartments)
+
+
 
 // 3.10. Используя div, полученный в задании 3.7
-// div37.addEventListener('click', function (e) {
-// const target = e.target as HTMLElement
-// if (target.tagName == 'BUTTON' && target.dataset.dep) {
-// в зависимости от значения dep выводить в список (ul 3.8) тех сотрудников, которые работают в данном отделе, либо всех, если target.dataset.dep=='all'. Используем логическое ветвление и уже написанные функции
-// в div (3.8) выводить сумму зарплат
-// }
-// })
+buttonAds.addEventListener('click', function (e) {
+  const target = e.target as HTMLElement
+  if (target.tagName == 'BUTTON' && target.dataset.dep) {
+    if (target.dataset.dep=='all') {
+      conclusionList(employees)
+    } else {
+      conclusionList(newArrEmp(employees, target.dataset.dep))
+    }
+  // в зависимости от значения dep выводить в список (ul 3.8) тех сотрудников, которые работают в данном отделе, либо всех, если target.dataset.dep=='all'. Используем логическое ветвление и уже написанные функции
+  // в div (3.8) выводить сумму зарплат
+  }
+})
