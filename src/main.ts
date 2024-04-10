@@ -1463,8 +1463,8 @@ const employees: Employees[] = [
   { name: 'Александрова Майя Вячеславовна', department: 'prog', salary: 4500 },
   { name: 'Крылов Богдан Максимович', department: 'disign', salary: 2100 },
   { name: 'Мухина Айша Константиновна', department: 'disign', salary: 2100 },
-  { name: 'Крыл Богдан Максимович', department: 'buh', salary: 2100 },
-  { name: 'Муха Айша Константиновна', department: 'buh', salary: 2100 },
+  { name: 'Кошкин Богдан Максимович', department: 'buh', salary: 2200 },
+  { name: 'Муразова Айша Константиновна', department: 'buh', salary: 2300 },
 ]
 function showEmployees(arr: Employees[], i = -1) {
   if (i > -1 && i < arr.length) {
