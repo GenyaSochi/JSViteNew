@@ -1385,6 +1385,24 @@ console.log(averageCheck(descriptionCheck))
 //текст, и выводит этот текст с помощью document.write() в тегах <p></p>, добавив в открывающий тег атрибут style со всеми
 //стилями, перечисленными в массиве.
 
+const mass = [
+  { color: 'red' },
+  { 'font-size': '20px' },
+  { 'text-align': 'left' },
+  { 'margin': '20px' },
+]
+function renderText1(styles: any[], text: string) {
+  let styleText = ''
+  for (let el of styles) {
+    for (let key in el) {
+      styleText += `${key}:${el[key]};`
+    }
+  }
+  const tagString = `<p style="${styleText}"> ${text}</p>`
+  document.body.insertAdjacentHTML('beforeend', tagString)
+}
+renderText1(mass, 'text1')
+
 //4.Создать массив аудиторий академии. Объект-аудитория состоит из названия, количества посадочных мест (от 10 до 20) и
 //названия факультета, для которого она предназначена. Написать несколько функций для работы с ним.
 //1.Вывод на экран всех аудиторий.
@@ -1680,3 +1698,7 @@ buttonAds.addEventListener('click', function (e) {
     // в div (3.8) выводить сумму зарплат
   }
 })
+function renderText(mass: ({ color: string; width?: undefined; height?: undefined; 'font-size'?: undefined; 'text-align'?: undefined } | { width: string; color?: undefined; height?: undefined; 'font-size'?: undefined; 'text-align'?: undefined } | { height: string; color?: undefined; width?: undefined; 'font-size'?: undefined; 'text-align'?: undefined } | { 'font-size': string; color?: undefined; width?: undefined; height?: undefined; 'text-align'?: undefined } | { 'text-align': string; color?: undefined; width?: undefined; height?: undefined; 'font-size'?: undefined })[], arg1: string) {
+  throw new Error('Function not implemented.')
+}
+
