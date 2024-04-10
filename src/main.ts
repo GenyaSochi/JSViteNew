@@ -1385,7 +1385,6 @@ console.log(averageCheck(descriptionCheck))
 //текст, и выводит этот текст с помощью document.write() в тегах <p></p>, добавив в открывающий тег атрибут style со всеми
 //стилями, перечисленными в массиве.
 
-
 //4.Создать массив аудиторий академии. Объект-аудитория состоит из названия, количества посадочных мест (от 10 до 20) и
 //названия факультета, для которого она предназначена. Написать несколько функций для работы с ним.
 //1.Вывод на экран всех аудиторий.
@@ -1572,7 +1571,7 @@ console.log(uniqueDep(employees))//Задание дублируется с 2.1
 // }
 
 function sortEmpl(arr: Employees[], key: 'name' | 'department' | 'salary') {//дубль 2.2 + localeCompare
-  if (key=='name' || key=='department') {
+  if (key == 'name' || key == 'department') {
     arr.sort((a, b) => a[key].localeCompare(b[key]))
   } else {
     arr.sort((a, b) => a[key] - b[key])
@@ -1584,11 +1583,11 @@ sortEmpl(employees, 'department')
 
 // 3.3. Написать функцию, аналогичную описанной в задании 3.2., но сортирующую в обратном порядке
 
-function sortBackEmpl(arr: Employees[], key: 'name' | 'department' | 'salary') {//дубль 2.2 + localeCompare
+function sortBackEmpl(arr: Employees[], key: 'name' | 'department' | 'salary') {
   sortEmpl(arr, key)
   arr.reverse()
 }
-// sortBackEmpl(employees, 'name')
+sortBackEmpl(employees, 'name')
 // sortBackEmpl(employees, 'department')
 // sortBackEmpl(employees, 'salary')
 
@@ -1635,7 +1634,7 @@ console.log(myButton)
 const sumSalary = document.getElementById('sumSal') as HTMLDivElement
 function conclusionList(arr: Employees[]) {
   let html = '<ul>'
-  
+
   for (let el of arr) {
     html += `<li>${el.name} ${el.department} ${el.salary}</li>`
   }
@@ -1647,13 +1646,13 @@ console.log(conclusionList(employees))
 // использовать data-атрибут (data-dep), в который поместить название отдела. Для кнопки "Все отделы" data-dep="all"
 const buttonAds = document.getElementById('butAds') as HTMLDivElement
 
-function renderButtons(arr:string[]) {
+function renderButtons(arr: string[]) {
   let html = ''
   for (let dep of arr) {
-    html+=`<button style="background-color: forestgreen; width: 80px; color: white; border-color: blue; border-width: 5px;
+    html += `<button style="background-color: forestgreen; width: 80px; color: white; border-color: blue; border-width: 5px;
     margin-left: 20px; margin-bottom: 5px;" data-dep="${dep}">${dep.toUpperCase()}</button>`
   }
-  html+=`<button style="background-color: forestgreen; width: 80px; color: white; border-color: blue; border-width: 5px;
+  html += `<button style="background-color: forestgreen; width: 80px; color: white; border-color: blue; border-width: 5px;
   margin-left: 20px; margin-bottom: 5px;" data-dep="all">ALL</button>`
   buttonAds.innerHTML = html
 }
@@ -1672,12 +1671,12 @@ renderButtons(uniqueDep(employees))
 buttonAds.addEventListener('click', function (e) {
   const target = e.target as HTMLElement
   if (target.tagName == 'BUTTON' && target.dataset.dep) {
-    if (target.dataset.dep=='all') {
+    if (target.dataset.dep == 'all') {
       conclusionList(employees)
     } else {
       conclusionList(newArrEmp(employees, target.dataset.dep))
     }
-  // в зависимости от значения dep выводить в список (ul 3.8) тех сотрудников, которые работают в данном отделе, либо всех, если target.dataset.dep=='all'. Используем логическое ветвление и уже написанные функции
-  // в div (3.8) выводить сумму зарплат
+    // в зависимости от значения dep выводить в список (ul 3.8) тех сотрудников, которые работают в данном отделе, либо всех, если target.dataset.dep=='all'. Используем логическое ветвление и уже написанные функции
+    // в div (3.8) выводить сумму зарплат
   }
 })
