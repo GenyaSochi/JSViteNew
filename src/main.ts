@@ -1386,7 +1386,7 @@ console.log(averageCheck(descriptionCheck))
 //стилями, перечисленными в массиве.
 
 const mass = [
-  { color: 'red' },
+  { 'color': 'red' },
   { 'font-size': '20px' },
   { 'text-align': 'left' },
   { 'margin': '20px' },
