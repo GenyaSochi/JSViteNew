@@ -1749,3 +1749,14 @@ console.log(checkSpam('не удаляйте'))
 console.log(checkSpam('только сегодня'))
 console.log(checkSpam('Закрыто'))
 console.log(checkSpam('100% бесплато'))
+
+//5.Написать функцию сокращения строки. Функция принимает строку и ее максимальную длину. Если длина строки
+//больше, чем максимальная, то необходимо отбросить лишние символы, добавив вместо них троеточие.
+//Например: truncate(“Hello, world!”, 8) должна вернуть “Hello...”.
+
+function reductionStr(str:string, maxlength: number){
+if(str.length > maxlength){
+ return str.slice(0, maxlength - 1) + '…' 
+}
+}
+console.log(reductionStr('Здравствуйте', 10))
