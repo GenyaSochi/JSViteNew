@@ -1718,7 +1718,7 @@ function upperString(str: string) {
 }
 console.log(upperString('вася'[0].toUpperCase()))
 
-//Написать функцию, которая считает количество гласных букв в переданной строке.
+//3.Написать функцию, которая считает количество гласных букв в переданной строке.
 let vow = ['a', 'e', 'i', 'o,', 'u', 'y']
 sum = 0
 function quantityVowelsLetters(str: string) {
@@ -1729,4 +1729,21 @@ function quantityVowelsLetters(str: string) {
   }
   return sum
 }
-console.log(quantityVowelsLetters('asasas'))
+console.log(quantityVowelsLetters('AsasAs'))
+
+//4.Написать функцию для проверки спама в переданной строке. Функция возвращает true, если строка содержит
+//спам. Спамом считать следующие слова: 100% бесплатно, увеличение продаж, только сегодня, не удаляйте, ххх.
+//Функция должна быть нечувствительна к регистру.
+// const spam = ['100% бесплато', 'увеличение продаж', 'только сегодня', 'не удаляйте', 'ххх']
+function checkSpam(str: string) {
+  let lowerStr = str.toLowerCase();
+  if (lowerStr.includes('100% бесплато') || lowerStr.includes('увеличение продаж') || lowerStr.includes('только сегодня') ||
+   lowerStr.includes('не удаляйте')|| lowerStr.includes('xxx')){
+    return true
+  }else
+  return false
+}
+
+console.log(checkSpam('hi'))
+console.log(checkSpam('увеличение продаж'))
+console.log(checkSpam('не удаляйте'))
