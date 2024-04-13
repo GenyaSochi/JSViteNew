@@ -1762,9 +1762,9 @@ if(str.length > maxlength){
 console.log(reductionStr('Здравствуйте', 10))
 
 //6.Написать функцию, которая проверяет, является ли переданная строка палиндромом.
-
+let newStr = ''
 function palindromeStr(str: string){
-.revers()
+
 }
 
 
