@@ -1760,3 +1760,26 @@ if(str.length > maxlength){
 }
 }
 console.log(reductionStr('Здравствуйте', 10))
+
+//6.Написать функцию, которая проверяет, является ли переданная строка палиндромом.
+
+function palindromeStr(str3: string, str4: string){
+if (str3 == str4) {
+  return 'palindrome'
+}
+}
+
+console.log(palindromeStr('as','sa'))
+
+
+
+
+// num1 = 2
+// num2 = 3
+// num3 = 5
+// let num4 = 3
+// let num5 = 6
+// console.log('Введите пятизначное число', num1, num2, num3, num4, num5)
+// if (num1 == num5 && num2 == num4) {
+//   console.log('Число является палиндромом')
+// } else console.log('Число не является палиндромом')
