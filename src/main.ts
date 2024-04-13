@@ -1765,7 +1765,7 @@ console.log(reductionStr('Здравствуйте', 10))
 function palindromeStr(str: string){
   return str.split('').reverse().join('') == str;
 }
-console.log(palindromeStr('34543'))
+console.log(palindromeStr('анна'))
 
 //7.Написать функцию, которая считает количество слов в предложении.
 
