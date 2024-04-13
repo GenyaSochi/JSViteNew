@@ -1734,7 +1734,7 @@ console.log(quantityVowelsLetters('AsasAs'))
 //4.Написать функцию для проверки спама в переданной строке. Функция возвращает true, если строка содержит
 //спам. Спамом считать следующие слова: 100% бесплатно, увеличение продаж, только сегодня, не удаляйте, ххх.
 //Функция должна быть нечувствительна к регистру.
-// const spam = ['100% бесплато', 'увеличение продаж', 'только сегодня', 'не удаляйте', 'ххх']
+
 function checkSpam(str: string) {
   let lowerStr = str.toLowerCase();
   if (lowerStr.includes('100% бесплато') || lowerStr.includes('увеличение продаж') || lowerStr.includes('только сегодня') ||
@@ -1743,6 +1743,9 @@ function checkSpam(str: string) {
   }else
   return false
 }
-console.log(checkSpam('hi'))
+console.log(checkSpam('Привет'))
 console.log(checkSpam('увеличение продаж'))
 console.log(checkSpam('не удаляйте'))
+console.log(checkSpam('только сегодня'))
+console.log(checkSpam('Закрыто'))
+console.log(checkSpam('100% бесплато'))
