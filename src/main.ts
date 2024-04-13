@@ -1763,13 +1763,12 @@ console.log(reductionStr('Здравствуйте', 10))
 
 //6.Написать функцию, которая проверяет, является ли переданная строка палиндромом.
 
-function palindromeStr(str3: string, str4: string){
-if (str3 == str4) {
-  return 'palindrome'
-}
+function palindromeStr(str: string){
+.revers()
 }
 
-console.log(palindromeStr('as','sa'))
+
+console.log(palindromeStr('as'))
 
 
 
