@@ -1401,7 +1401,7 @@ function renderText1(styles: any[], text: string) {
   const tagString = `<p style="${styleText}"> ${text}</p>`
   document.body.insertAdjacentHTML('beforeend', tagString)
 }
-renderText1(mass, 'text1')
+renderText1(mass, 'Привет!')
 
 //4.Создать массив аудиторий академии. Объект-аудитория состоит из названия, количества посадочных мест (от 10 до 20) и
 //названия факультета, для которого она предназначена. Написать несколько функций для работы с ним.
@@ -1703,13 +1703,17 @@ function acceptsStr(str1: string, str2: string) {
   for (let i = 0; i < str1.length && str2.length; i++) {
     if (str1.length > str2.length) {
       return 1
-    }else if(str2.length > str1.length){
-      return -1  
-    }else(str1.length == str2.length)
-      return 0        
+    } else if (str2.length > str1.length) {
+      return -1
+    } else (str1.length == str2.length)
+    return 0
   }
 }
-console.log(acceptsStr('привет','пока'))
+console.log(acceptsStr('привет', 'пока'))
 
 //2.Написать функцию, которая переводит в верхний регистр первый символ переданной строки.
-
+function upperString(str3: string) {
+  for (let i = 0; i < str3.length; i++)
+    return str3
+}
+console.log(upperString('вася'[0].toUpperCase()))
