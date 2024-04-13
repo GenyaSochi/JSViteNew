@@ -1712,8 +1712,21 @@ function acceptsStr(str1: string, str2: string) {
 console.log(acceptsStr('привет', 'пока'))
 
 //2.Написать функцию, которая переводит в верхний регистр первый символ переданной строки.
-function upperString(str3: string) {
-  for (let i = 0; i < str3.length; i++)
-    return str3
+function upperString(str: string) {
+  for (let i = 0; i < str.length; i++)
+    return str
 }
 console.log(upperString('вася'[0].toUpperCase()))
+
+//Написать функцию, которая считает количество гласных букв в переданной строке.
+let vow = ['a', 'e', 'i', 'o,', 'u', 'y']
+sum = 0
+function quantityVowelsLetters(str: string) {
+  for (let char of str.toLowerCase()) {
+    if (vow.includes(char)) {
+      sum += 1
+    }
+  }
+  return sum
+}
+console.log(quantityVowelsLetters('asasas'))
