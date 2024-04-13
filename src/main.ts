@@ -1743,7 +1743,6 @@ function checkSpam(str: string) {
   }else
   return false
 }
-
 console.log(checkSpam('hi'))
 console.log(checkSpam('увеличение продаж'))
 console.log(checkSpam('не удаляйте'))
