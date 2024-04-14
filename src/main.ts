@@ -1810,19 +1810,19 @@ console.log(averageLength(`мама моет раму и Тузика`))
 
 //10.Написать функцию, которая принимает строку и символ и выводит индексы, по которым находится этот символ в
 //строке. Также вывести, сколько всего раз встречается этот символ в строке.
-let index
+let index = 0
 let sumIndex = 0
 function indexSymbol(str: string, char: string){
 for(let i = 0; i < str.length; i++){
   index = str.indexOf(char)
   console.log(index)
 }
-if (char.includes(str)){
-  sumIndex += 1
-  console.log(sumIndex)
+if (index == char.indexOf(str)){
+  sumIndex += index
 }
+console.log(sumIndex)
 }
-console.log(indexSymbol('урок', 'у'))
+console.log(indexSymbol('урокк', 'к'))
 
 
 
