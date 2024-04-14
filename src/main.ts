@@ -1720,7 +1720,7 @@ function upperString(str: string) {
 console.log(upperString('вася'[0].toUpperCase()))
 
 //3.Написать функцию, которая считает количество гласных букв в переданной строке.
-let vow = ['a', 'e', 'i', 'o,', 'u', 'y']
+let vow = ['a', 'e', 'i', 'o', 'u', 'y']
 sum = 0
 function quantityVowelsLetters(str: string) {
   for (let char of str.toLowerCase()) {
@@ -1774,12 +1774,12 @@ console.log(palindromeStr('анна'))
 function quantityWords(str: string) {
   return str.split(` `).length
 }
-console.log(quantityWords(`мама моет раму и тузика`))
+console.log(quantityWords(`мама моет раму и Тузика`))
 
 //8.Написать функцию, которая возвращает самое длинное слово из предложения.
 
-function findLongestWord(str:string) {
-  const arrayWords = str.split(" ")
+function findLongestWord(str: string) {
+  const arrayWords = str.split(` `)
 
   let longestWord = arrayWords[0]
 
@@ -1790,11 +1790,22 @@ function findLongestWord(str:string) {
   }
   return longestWord
 }
-
-console.log(findLongestWord("May the force be with you"))
+console.log(findLongestWord(`мама моет раму и Тузика`))
 
 
 //9.Написать функцию, которая считает среднюю длину слова в предложении.
+//!нужно сложить все буквы в предложениии и разделить на количество слов
+let alphabetRussian = ['а','б','в','г','д','е','ё','ж','з','и','к','л','м','н','о','п','р','с','т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я']
+sum = 0
+function averageLength(str: string) {
+  for (let char of str.toLowerCase()) {
+    if (alphabetRussian.includes(char)) {
+      sum += 1
+    }
+  }
+  return sum/str.split(` `).length
+}
+console.log(averageLength(`мама моет раму и Тузика`))
 
 //10.Написать функцию, которая принимает строку и символ и выводит индексы, по которым находится этот символ в
 //строке. Также вывести, сколько всего раз встречается этот символ в строке.
