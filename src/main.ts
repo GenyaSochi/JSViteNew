@@ -1772,14 +1772,50 @@ console.log(palindromeStr('анна'))
 //7.Написать функцию, которая считает количество слов в предложении.
 
 function quantityWords(str: string) {
-return str.split(` `).length    
+  return str.split(` `).length
 }
-console.log(quantityWords( `мама моет раму и тузика`))
+console.log(quantityWords(`мама моет раму и тузика`))
 
 //8.Написать функцию, которая возвращает самое длинное слово из предложения.
 
+let longWord = 0
+let longStr
+sum = 0
+function longWordStr(str: string) {
+  for (let i = 0; i < str.length; i++) {
+    longStr = str.split(' ')
+    return longWord = longStr[i].length
+  }
+  if (longStr[i].length > longWord) {
+    longWord = longStr[i]
+  }
+  return longWord
+}
+console.log(longWordStr('bbb bbbb'))
 
 //9.Написать функцию, которая считает среднюю длину слова в предложении.
 
 //10.Написать функцию, которая принимает строку и символ и выводит индексы, по которым находится этот символ в
 //строке. Также вывести, сколько всего раз встречается этот символ в строке.
+
+const findLongestWord = function (str: string) {
+  let arrStr = str.split(' ');
+  let wordLength = 0;
+  let longestWord;
+
+  for (let i = 0; i < arrStr.length; i += 1) {
+    wordLength = arrStr[1].length;
+
+    if (arrStr[i].length > wordLength) {
+      longestWord = arrStr[i];
+
+      return longestWord;
+    }
+  }
+}
+
+console.log(findLongestWord("The quick brown fox jumped over the lazy dog"))
+
+console.log(findLongestWord("Google do a roll"))
+
+console.log(findLongestWord("May the force be with you"))
