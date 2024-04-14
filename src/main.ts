@@ -1777,7 +1777,7 @@ function quantityWords(str: string) {
 console.log(quantityWords(`мама моет раму и Тузика`))
 
 //8.Написать функцию, которая возвращает самое длинное слово из предложения.
-
+//!порешать подобные задачи
 function findLongestWord(str: string) {
   const arrayWords = str.split(` `)
 
@@ -1795,7 +1795,8 @@ console.log(findLongestWord(`мама моет раму и Тузика`))
 
 //9.Написать функцию, которая считает среднюю длину слова в предложении.
 //!нужно сложить все буквы в предложениии и разделить на количество слов
-let alphabetRussian = ['а','б','в','г','д','е','ё','ж','з','и','к','л','м','н','о','п','р','с','т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я']
+let alphabetRussian = ['а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'к', 'л', 'м', 'н',
+  'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я']
 sum = 0
 function averageLength(str: string) {
   for (let char of str.toLowerCase()) {
@@ -1803,9 +1804,25 @@ function averageLength(str: string) {
       sum += 1
     }
   }
-  return sum/str.split(` `).length
+  return sum / str.split(` `).length
 }
 console.log(averageLength(`мама моет раму и Тузика`))
 
 //10.Написать функцию, которая принимает строку и символ и выводит индексы, по которым находится этот символ в
 //строке. Также вывести, сколько всего раз встречается этот символ в строке.
+let index
+let sumIndex = 0
+function indexSymbol(str: string, char: string){
+for(let i = 0; i < str.length; i++){
+  index = str.indexOf(char)
+  console.log(index)
+}
+if (char.includes(str)){
+  sumIndex += 1
+  console.log(sumIndex)
+}
+}
+console.log(indexSymbol('урок', 'у'))
+
+
+
