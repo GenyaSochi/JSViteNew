@@ -1693,6 +1693,7 @@ buttonAds.addEventListener('click', function (e) {
 function renderText(mass: ({ color: string; width?: undefined; height?: undefined; 'font-size'?: undefined; 'text-align'?: undefined } | { width: string; color?: undefined; height?: undefined; 'font-size'?: undefined; 'text-align'?: undefined } | { height: string; color?: undefined; width?: undefined; 'font-size'?: undefined; 'text-align'?: undefined } | { 'font-size': string; color?: undefined; width?: undefined; height?: undefined; 'text-align'?: undefined } | { 'text-align': string; color?: undefined; width?: undefined; height?: undefined; 'font-size'?: undefined })[], arg1: string) {
   throw new Error('Function not implemented.')
 }
+console.log(renderText)
 
 //PZ.СТРОКИ.
 //1.Написать функцию, которая принимает 2 строки и сравнивает их длину. Функция возвращает 1, если в первой
@@ -1738,10 +1739,10 @@ console.log(quantityVowelsLetters('AsasAs'))
 function checkSpam(str: string) {
   let lowerStr = str.toLowerCase();
   if (lowerStr.includes('100% бесплато') || lowerStr.includes('увеличение продаж') || lowerStr.includes('только сегодня') ||
-   lowerStr.includes('не удаляйте')|| lowerStr.includes('xxx')){
+    lowerStr.includes('не удаляйте') || lowerStr.includes('xxx')) {
     return true
-  }else
-  return false
+  } else
+    return false
 }
 console.log(checkSpam('Привет'))
 console.log(checkSpam('увеличение продаж'))
@@ -1754,23 +1755,29 @@ console.log(checkSpam('100% бесплато'))
 //больше, чем максимальная, то необходимо отбросить лишние символы, добавив вместо них троеточие.
 //Например: truncate(“Hello, world!”, 8) должна вернуть “Hello...”.
 
-function reductionStr(str:string, maxlength: number){
-if(str.length > maxlength){
- return str.slice(0, maxlength - 1) + '…' 
-}
+function reductionStr(str: string, maxlength: number) {
+  if (str.length > maxlength) {
+    return str.slice(0, maxlength - 1) + '…'
+  }
 }
 console.log(reductionStr('Здравствуйте', 10))
 
 //6.Написать функцию, которая проверяет, является ли переданная строка палиндромом.
-function palindromeStr(str: string){
+
+function palindromeStr(str: string) {
   return str.split('').reverse().join('') == str;
 }
 console.log(palindromeStr('анна'))
 
 //7.Написать функцию, которая считает количество слов в предложении.
 
+function quantityWords(str: string) {
+return str.split(` `).length    
+}
+console.log(quantityWords( `мама моет раму и тузика`))
 
 //8.Написать функцию, которая возвращает самое длинное слово из предложения.
+
 
 //9.Написать функцию, которая считает среднюю длину слова в предложении.
 
