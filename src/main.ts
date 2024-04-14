@@ -1811,19 +1811,16 @@ console.log(averageLength(`мама моет раму и Тузика`))
 //10.Написать функцию, которая принимает строку и символ и выводит индексы, по которым находится этот символ в
 //строке. Также вывести, сколько всего раз встречается этот символ в строке.
 let index = 0
-let sumIndex = 0
-function indexSymbol(str: string, char: string){
-for(let i = 0; i < str.length; i++){
-  index = str.indexOf(char)
-  console.log(index)
+let sumChar = 0
+function indexSymbol(str: string, char: string) {
+  for (let i = 0; i < str.length; i++) {
+    index = str.indexOf(char)    
+  }
+  console.log(index) 
 }
-if (index == char.indexOf(str)){
-  sumIndex += index
-}
-console.log(sumIndex)
-console.log(index)
-}
-console.log(indexSymbol('урокк', 'к'))
+console.log(indexSymbol('уроккк', 'к'))
+//!Также вывести, сколько всего раз встречается этот символ в строке.
+
 
 
 //DZ.СТРОКИ
@@ -1859,3 +1856,4 @@ console.log(indexSymbol('урокк', 'к'))
 //которого может использоваться %, после символа % указывается индекс входного параметра. При выводе вместо
 //%индекс необходимо вывести значение соответствующего входного параметра.
 //Например: print(“Today is %1 %2.%3.%4”, “Monday”, 10, 8, 2020) должна вывести “Today is Monday 10.8.2020”.
+
