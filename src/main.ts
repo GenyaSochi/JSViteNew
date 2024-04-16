@@ -1796,10 +1796,10 @@ console.log(findLongestWord(`мама моет раму и Тузика`))
 //9.Написать функцию, которая считает среднюю длину слова в предложении.
 
 // let alphabetRussian = ['а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'к', 'л', 'м', 'н',
-  // 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я']
+// 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я']
 sum = 0
 function averageLength(str: string) {
-  str = str.replaceAll(',','').replaceAll('.','').replaceAll('?','').replaceAll('!','').replaceAll(':','').replaceAll(';','')
+  str = str.replaceAll(',', '').replaceAll('.', '').replaceAll('?', '').replaceAll('!', '').replaceAll(':', '').replaceAll(';', '')
   const words = str.split(` `)
   for (let word of words) {
     sum += word.length
@@ -1817,7 +1817,7 @@ function indexSymbol(str: string, char: string) {
     position: [] as number[]
   }
   for (let i = 0; i < str.length; i++) {
-    if(char==str[i]) {
+    if (char == str[i]) {
       info.position.push(i)
       info.sumChar++
     }
@@ -1827,12 +1827,34 @@ function indexSymbol(str: string, char: string) {
 console.log(indexSymbol('уроккк уроккк', 'у'))
 
 
-
-
 //DZ.СТРОКИ
 //1.Написать функцию, которая принимает строку и выводит статистику о ней: количество букв, количество цифр и
 //количество других знаков.
 
+function newStr(str: string) {
+  const infoStr = {
+    sumLetter: 0,
+    sumFigure: 0,
+    sumSign: 0,
+  }
+  let letters = 'абвгдеёжзийклмнопрстуфхцчэюяabcdefghijklmnopqrstuvwxyz'
+  let figure = '1234567890'
+  let sign = '/.,;:"!&%$#@*-+=\\'
+  let allLetters = letters + letters.toUpperCase()
+  for (let char of str) {
+    if (allLetters.includes(char)) {
+      infoStr.sumLetter++
+    }
+    if (figure.includes(char)) {
+      infoStr.sumFigure++
+    }
+    if (sign.includes(char)) {
+      infoStr.sumSign++
+    }
+  }
+  return infoStr
+}
+console.log(newStr('!56hjk'))
 //2.Написать функцию, которая принимает двузначное число и возвращает его в текстовом виде.
 //Например: 35 – тридцать пять, 89 – восемьдесят девять, 12 – двенадцать.
 
