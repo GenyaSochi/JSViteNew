@@ -1822,7 +1822,7 @@ function indexSymbol(str: string, char: string) {
   console.log(sumChar)
 }
 console.log(indexSymbol('уроккк', 'о'))
-//!Также вывести, сколько всего раз встречается этот символ в строке.
+
 
 
 
