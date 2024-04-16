@@ -1882,14 +1882,14 @@ console.log(doubleNum(88))
 //цифры – на знак нижнего подчеркивания.
 
 function replacingLetters(str: string) {
-  let alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
   for (let char of str) {
-    if(alphabet.includes(char) && char.toLowerCase()){
+    console.log(char)
+    // if(){
     
-    }
+    // }
   }
 }
-console.log(replacingLetters('UURR'))
+console.log(replacingLetters('UUrr876'))
 
 //4.Написать функцию, которая преобразует названия css-стилей с дефисом в название в СamelСase стиле: font-size
 //в fontSize, background-color в backgroundColor, text-align в textAlign.
