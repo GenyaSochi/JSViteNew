@@ -1795,33 +1795,36 @@ console.log(findLongestWord(`мама моет раму и Тузика`))
 
 //9.Написать функцию, которая считает среднюю длину слова в предложении.
 
-let alphabetRussian = ['а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'к', 'л', 'м', 'н',
-  'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я']
+// let alphabetRussian = ['а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'к', 'л', 'м', 'н',
+  // 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я']
 sum = 0
 function averageLength(str: string) {
-  for (let char of str.toLowerCase()) {
-    if (alphabetRussian.includes(char)) {
-      sum += 1
-    }
+  str = str.replaceAll(',','').replaceAll('.','').replaceAll('?','').replaceAll('!','').replaceAll(':','').replaceAll(';','')
+  const words = str.split(` `)
+  for (let word of words) {
+    sum += word.length
   }
-  return sum / str.split(` `).length
+  return sum / words.length
 }
-console.log(averageLength(`мама моет раму и Тузика`))
+console.log(averageLength(`мама, моет! раму: и; Тузика!`))
 
 //10.Написать функцию, которая принимает строку и символ и выводит индексы, по которым находится этот символ в
 //строке. Также вывести, сколько всего раз встречается этот символ в строке.
 
-let sumChar = 0
 function indexSymbol(str: string, char: string) {
+  const info = {
+    sumChar: 0,
+    position: [] as number[]
+  }
   for (let i = 0; i < str.length; i++) {
     if(char==str[i]) {
-      console.log(i)
-      sumChar++
+      info.position.push(i)
+      info.sumChar++
     }
   }
-  console.log(sumChar)
+  return info
 }
-console.log(indexSymbol('уроккк', 'у'))
+console.log(indexSymbol('уроккк уроккк', 'у'))
 
 
 
