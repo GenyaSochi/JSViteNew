@@ -1859,26 +1859,37 @@ console.log(newStr('!56DTgf...!hjk'))
 //2.Написать функцию, которая принимает двузначное число и возвращает его в текстовом виде.
 //Например: 35 – тридцать пять, 89 – восемьдесят девять, 12 – двенадцать.
 
-function doubleNum(num: number){
-  let units = ['ноль','один','два','три','четыре','пять','шесть','семь','восемь','девять']
-  let dozens = ['десять','одинадцать','двенадцать','тринадцать','четырнадцать','пятнадцать','шестнадцать','семнадцать','восемнадцать','девятнадцать']
-  let round = [,,'двадцать','тридцать','сорок','пятьдесят','шестьдесят','семьдесят','восемьдесят','девяносто']
-  if(num >= 0 && num <= 9){
+function doubleNum(num: number) {
+  let units = ['ноль', 'один', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять']
+  let dozens = ['десять', 'одинадцать', 'двенадцать', 'тринадцать', 'четырнадцать', 'пятнадцать', 'шестнадцать', 'семнадцать', 'восемнадцать', 'девятнадцать']
+  let rounds = [, , 'двадцать', 'тридцать', 'сорок', 'пятьдесят', 'шестьдесят', 'семьдесят', 'восемьдесят', 'девяносто']
+  if (num >= 0 && num <= 9) {
     return units[num]
   }
-  if(num >= 10 && num <=20){
+  if (num >= 10 && num <= 20) {
     return dozens[num - 10]
   }
-  if(num >= 20 && num <= 99){
-    if(num%10==0){
-      return round[num/10]
+  if (num >= 20 && num <= 99) {
+    if (num % 10 == 0) {
+      return rounds[num / 10]
     }
-    return round[Math.trunc(num/10)] + ' ' + units[num%10]
+    return rounds[Math.trunc(num / 10)] + ' ' + units[num % 10]
   }
 }
 console.log(doubleNum(88))
+
 //3.Написать функцию, которая заменяет в полученной строке большие буквы на маленькие, маленькие – на большие, а
 //цифры – на знак нижнего подчеркивания.
+
+function replacingLetters(str: string) {
+  let alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+  for (let char of str) {
+    if(alphabet.includes(char) && char.toLowerCase()){
+    
+    }
+  }
+}
+console.log(replacingLetters('UURR'))
 
 //4.Написать функцию, которая преобразует названия css-стилей с дефисом в название в СamelСase стиле: font-size
 //в fontSize, background-color в backgroundColor, text-align в textAlign.
