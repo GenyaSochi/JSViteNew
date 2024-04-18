@@ -1882,17 +1882,43 @@ console.log(doubleNum(88))
 //цифры – на знак нижнего подчеркивания.
 
 function replacingLetters(str: string) {
+  let number = '1234567890';
   for (let char of str) {
-    console.log(char)
-    // if(){
-    
-    // }
+   console.log(char) 
   }
 }
 console.log(replacingLetters('UUrr876'))
+// const str = 'БОЛЬШИЕ БУКВЫ на маленькие, маленькие – НА БОЛЬШИЕ 123456789';
+
+// function changeRegister (str: string) {
+// let upperWord = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ';
+// let lowerWord = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя';
+// let number = '1234567890';
+// let result = [];
+  
+//   for(var i = 0; i < str.length; i++) {
+//     if(upperWord.includes(str[i])) {
+//       result.push(str[i].toLowerCase());
+//     }
+//     else if(lowerWord.includes(str[i])) {
+//       result.push(str[i].toUpperCase());
+//     }
+//     else if(number.includes(str[i])) {
+//       result.push(str[i].replace('_'));
+//     }
+//     else {
+//       result.push(str[i]);
+//     }
+//   }
+//   return result.join('');
+// };
+
+// console.log(str);
+// console.log(changeRegister(str));
 
 //4.Написать функцию, которая преобразует названия css-стилей с дефисом в название в СamelСase стиле: font-size
 //в fontSize, background-color в backgroundColor, text-align в textAlign.
+
 
 //5.Написать функцию, которая принимает словосочетание и превращает его в аббревиатуру.
 //Например: cascading style sheets в CSS, объектно-ориентированное программирование в ООП.
@@ -1918,3 +1944,30 @@ console.log(replacingLetters('UUrr876'))
 
 
 
+const str = 'БОЛЬШИЕ БУКВЫ на маленькие, маленькие – НА БОЛЬШИЕ 123456789';
+
+function changeRegister (str: string) {
+let upperWord = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ';
+let lowerWord = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя';
+let number = '1234567890';
+let result = [];
+  
+  for(var i = 0; i < str.length; i++) {
+    if(upperWord.includes(str[i])) {
+      result.push(str[i].toLowerCase());
+    }
+    else if(lowerWord.includes(str[i])) {
+      result.push(str[i].toUpperCase());
+    }
+    else if(number.includes(str[i])) {
+      result.push(str[i].replace('_'));
+    }
+    else {
+      result.push(str[i]);
+    }
+  }
+  return result.join('');
+};
+
+console.log(str);
+console.log(changeRegister(str));
