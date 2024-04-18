@@ -1888,33 +1888,34 @@ function replacingLetters(str: string) {
   }
 }
 console.log(replacingLetters('UUrr876'))
-// const str = 'БОЛЬШИЕ БУКВЫ на маленькие, маленькие – НА БОЛЬШИЕ 123456789';
 
-// function changeRegister (str: string) {
-// let upperWord = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ';
-// let lowerWord = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя';
-// let number = '1234567890';
-// let result = [];
+
+// function changeRegister(str: string) {
+//   const strLet = 'БОЛЬШИЕ БУКВЫ на маленькие, маленькие – НА БОЛЬШИЕ 123456789'
+//   let upperWord = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ';
+//   let lowerWord = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя';
+//   let number = '1234567890';
+//   let result = [];
   
-//   for(var i = 0; i < str.length; i++) {
+//   for(let i = 0; i < str.length; i++) {
 //     if(upperWord.includes(str[i])) {
-//       result.push(str[i].toLowerCase());
+//       result.push(str[i].toLowerCase())
 //     }
 //     else if(lowerWord.includes(str[i])) {
-//       result.push(str[i].toUpperCase());
+//       result.push(str[i].toUpperCase())
 //     }
 //     else if(number.includes(str[i])) {
-//       result.push(str[i].replace('_'));
+//       result.push(str[i].replace('_'))
 //     }
 //     else {
-//       result.push(str[i]);
+//       result.push(str[i])
 //     }
 //   }
-//   return result.join('');
-// };
+//   return result.join('')
+// }
 
-// console.log(str);
-// console.log(changeRegister(str));
+// console.log(strLet);
+// console.log(changeRegister(strLet))
 
 //4.Написать функцию, которая преобразует названия css-стилей с дефисом в название в СamelСase стиле: font-size
 //в fontSize, background-color в backgroundColor, text-align в textAlign.
@@ -1944,30 +1945,30 @@ console.log(replacingLetters('UUrr876'))
 
 
 
-const str = 'БОЛЬШИЕ БУКВЫ на маленькие, маленькие – НА БОЛЬШИЕ 123456789';
+// const str = 'БОЛЬШИЕ БУКВЫ на маленькие, маленькие – НА БОЛЬШИЕ 123456789';
 
-function changeRegister (str: string) {
-let upperWord = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ';
-let lowerWord = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя';
-let number = '1234567890';
-let result = [];
+// function changeRegister (str: string) {
+// let upperWord = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ';
+// let lowerWord = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя';
+// let number = '1234567890';
+// let result = [];
   
-  for(var i = 0; i < str.length; i++) {
-    if(upperWord.includes(str[i])) {
-      result.push(str[i].toLowerCase());
-    }
-    else if(lowerWord.includes(str[i])) {
-      result.push(str[i].toUpperCase());
-    }
-    else if(number.includes(str[i])) {
-      result.push(str[i].replace('_'));
-    }
-    else {
-      result.push(str[i]);
-    }
-  }
-  return result.join('');
-};
+//   for(var i = 0; i < str.length; i++) {
+//     if(upperWord.includes(str[i])) {
+//       result.push(str[i].toLowerCase());
+//     }
+//     else if(lowerWord.includes(str[i])) {
+//       result.push(str[i].toUpperCase());
+//     }
+//     else if(number.includes(str[i])) {
+//       result.push(str[i].replace('_'));
+//     }
+//     else {
+//       result.push(str[i]);
+//     }
+//   }
+//   return result.join('');
+// };
 
-console.log(str);
-console.log(changeRegister(str));
+// console.log(str);
+// console.log(changeRegister(str));
