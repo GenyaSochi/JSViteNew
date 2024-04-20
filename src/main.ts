@@ -1882,43 +1882,37 @@ console.log(doubleNum(88))
 //цифры – на знак нижнего подчеркивания.
 
 function replacingLetters(str: string) {
-  let number = '1234567890';
   for (let char of str) {
-   console.log(char) 
+    if (char.includes(str[i]) && char == '1234567890') {
+      return '_'
+    }
+    else if (char.includes(str[i]) && char == 'АБВГ') {
+      return (str[i].toLowerCase())
+    }
+    else if (char.includes(str[i]) && char == 'абвг') {
+      return (str[i].toUpperCase())
+    }
+    else
+      return 'Нет совпадений'
   }
 }
-console.log(replacingLetters('UUrr876'))
+console.log(replacingLetters('Ro4'))
 
-
-// function changeRegister(str: string) {
-//   const strLet = 'БОЛЬШИЕ БУКВЫ на маленькие, маленькие – НА БОЛЬШИЕ 123456789'
-//   let upperWord = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ';
-//   let lowerWord = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя';
-//   let number = '1234567890';
-//   let result = [];
-  
-//   for(let i = 0; i < str.length; i++) {
-//     if(upperWord.includes(str[i])) {
-//       result.push(str[i].toLowerCase())
-//     }
-//     else if(lowerWord.includes(str[i])) {
-//       result.push(str[i].toUpperCase())
-//     }
-//     else if(number.includes(str[i])) {
-//       result.push(str[i].replace('_'))
-//     }
-//     else {
-//       result.push(str[i])
-//     }
-//   }
-//   return result.join('')
-// }
-
-// console.log(strLet);
-// console.log(changeRegister(strLet))
 
 //4.Написать функцию, которая преобразует названия css-стилей с дефисом в название в СamelСase стиле: font-size
 //в fontSize, background-color в backgroundColor, text-align в textAlign.
+
+function styleCSS(str: string) {
+  for (let el of str) {
+    if (el == '-') {
+      '-'.toUpperCase()
+      return str.replace(/\-/,'')            
+    } 
+  }
+}
+console.log(styleCSS('font-size'))
+console.log(styleCSS('background-color'))
+console.log(styleCSS('text-align'))
 
 
 //5.Написать функцию, которая принимает словосочетание и превращает его в аббревиатуру.
@@ -1943,32 +1937,3 @@ console.log(replacingLetters('UUrr876'))
 //Например: print(“Today is %1 %2.%3.%4”, “Monday”, 10, 8, 2020) должна вывести “Today is Monday 10.8.2020”.
 
 
-
-
-// const str = 'БОЛЬШИЕ БУКВЫ на маленькие, маленькие – НА БОЛЬШИЕ 123456789';
-
-// function changeRegister (str: string) {
-// let upperWord = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ';
-// let lowerWord = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя';
-// let number = '1234567890';
-// let result = [];
-  
-//   for(var i = 0; i < str.length; i++) {
-//     if(upperWord.includes(str[i])) {
-//       result.push(str[i].toLowerCase());
-//     }
-//     else if(lowerWord.includes(str[i])) {
-//       result.push(str[i].toUpperCase());
-//     }
-//     else if(number.includes(str[i])) {
-//       result.push(str[i].replace('_'));
-//     }
-//     else {
-//       result.push(str[i]);
-//     }
-//   }
-//   return result.join('');
-// };
-
-// console.log(str);
-// console.log(changeRegister(str));
