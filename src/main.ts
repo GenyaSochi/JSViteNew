@@ -1942,7 +1942,7 @@ console.log(abbr('объектно-ориентированное програм
 function concatStr(str: string){
  let info = 'hhh'
   for(let el of str){
-    return el.concat(str, info)
+    return el.concat(str, info,)
   }
 }
 console.log(concatStr('oooo'))
