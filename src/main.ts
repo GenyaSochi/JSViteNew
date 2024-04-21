@@ -1904,8 +1904,8 @@ console.log(replacingLetters('Ro4'))
 
 function styleCSS(str: string) {
   for (let el of str) {
-    if (el == '-') {      
-      return str.replace(/\-/,'')            
+    if (el == '-') {
+      return str.replace(/\-/, '')
     }
   }
 }
@@ -1917,10 +1917,10 @@ console.log(styleCSS('text-align'))
 //5.Написать функцию, которая принимает словосочетание и превращает его в аббревиатуру.
 //Например: cascading style sheets в CSS, объектно-ориентированное программирование в ООП.
 
-function abbr(str: string){
-  for(let el of str){
-    if(el == str[0]){
-      return el.charAt(0).toUpperCase() + str.slice(1,end-2)
+function abbr(str: string) {
+  for (let el of str) {
+    if (el == str[0]) {
+      return el.charAt(0).toUpperCase() + str.slice(1, end - 2)
     }
   }
 }
@@ -1939,9 +1939,9 @@ console.log(abbr('объектно-ориентированное програм
 
 //6.Написать функцию, которая принимает любое количество строк, объединяет их в одну длинную строку и
 //возвращает ее.
-function concatStr(str: string){
- let info = 'hhh'
-  for(let el of str){
+function concatStr(str: string) {
+  let info = 'hhh'
+  for (let el of str) {
     return el.concat(str, info,)
   }
 }
@@ -1949,10 +1949,7 @@ console.log(concatStr('o'))//увеличивает о на 1
 
 //7.Написать функцию – калькулятор. Функция принимает строку с примером, определяет, какое действие необходимо
 //выполнить (+ - * /), переводит операнды в числа, решает пример и возвращает результат.
-function calc(str: string){
 
-}
-console.log(calc('1-1'))
 
 
 
