@@ -1886,10 +1886,10 @@ function replacingLetters(str: string) {
     if (char.includes(str[i]) && char == '1234567890') {
       return '_'
     }
-    else if (char.includes(str[i]) && char == 'АБВГ') {
+    else if (char.includes(str[i]) && char.toUpperCase() == 'АБВГ') {
       return (str[i].toLowerCase())
     }
-    else if (char.includes(str[i]) && char == 'абвг') {
+    else if (char.includes(str[i]) && char.toLowerCase() == 'абвг') {
       return (str[i].toUpperCase())
     }
     else
@@ -1904,10 +1904,9 @@ console.log(replacingLetters('Ro4'))
 
 function styleCSS(str: string) {
   for (let el of str) {
-    if (el == '-') {
-      '-'.toUpperCase()
+    if (el == '-') {      
       return str.replace(/\-/,'')            
-    } 
+    }
   }
 }
 console.log(styleCSS('font-size'))
@@ -1921,15 +1920,31 @@ console.log(styleCSS('text-align'))
 function abbr(str: string){
   for(let el of str){
     if(el == str[0]){
-
       return el.toUpperCase()
     }
   }
 }
-console.log(abbr('hjh ujh'))
+console.log(abbr('cascading style sheets'))
+console.log(abbr('объектно-ориентированное программирование'))
+
+// const str = 'Московский государственный университет ';// пример из интернета
+// const buildAcronym = (str = '') => {
+//   const strArr = str.trim().split(' ');
+//   return strArr.map(el => {
+//     return el.trim() !== '' ? el.trim()[0].toUpperCase() : '';
+//   }).join('');
+// };
+// console.log(buildAcronym(str));
 
 //6.Написать функцию, которая принимает любое количество строк, объединяет их в одну длинную строку и
 //возвращает ее.
+function concatStr(str: string){
+ let info = 'hhh'
+  for(let el of str){
+    return el.concat(str, info)
+  }
+}
+console.log(concatStr('oooo'))
 
 //7.Написать функцию – калькулятор. Функция принимает строку с примером, определяет, какое действие необходимо
 //выполнить (+ - * /), переводит операнды в числа, решает пример и возвращает результат.
