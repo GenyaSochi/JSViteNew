@@ -1882,19 +1882,19 @@ console.log(doubleNum(88))
 //цифры – на знак нижнего подчеркивания.
 
 function replacingLetters(str: string) {
+  let newStr = ''
   for (let char of str) {
-    if (char.includes(str[i]) && char == '1234567890') {
-      return '_'
+    if ('1234567890'.includes(char)) {
+      newStr += '_'
     }
-    else if (char.includes(str[i]) && char.toUpperCase() == 'АБВГ') {
-      return (str[i].toLowerCase())
+    else if (char == char.toUpperCase() ) {
+      newStr += char.toLowerCase()
     }
-    else if (char.includes(str[i]) && char.toLowerCase() == 'абвг') {
-      return (str[i].toUpperCase())
+    else if (char == char.toLowerCase()) {
+      newStr += char.toUpperCase()
     }
-    else
-      return 'Нет совпадений'
   }
+  return newStr
 }
 console.log(replacingLetters('Ro4'))
 
@@ -1903,11 +1903,7 @@ console.log(replacingLetters('Ro4'))
 //в fontSize, background-color в backgroundColor, text-align в textAlign.
 
 function styleCSS(str: string) {
-  for (let el of str) {
-    if (el == '-') {
-      return str.replace(/\-/, '')
-    }
-  }
+  return str.split('-').map((el,i) => i ? el[0].toUpperCase() + el.slice(1) : el).join('')
 }
 console.log(styleCSS('font-size'))
 console.log(styleCSS('background-color'))
@@ -1918,11 +1914,7 @@ console.log(styleCSS('text-align'))
 //Например: cascading style sheets в CSS, объектно-ориентированное программирование в ООП.
 
 function abbr(str: string) {
-  for (let el of str) {
-    if (el == str[0]) {
-      return el.charAt(0).toUpperCase() + str.slice(1, end - 2)      
-    }    
-  }
+  return str.replaceAll('-', ' ').split(' ').map(el=>el[0].toUpperCase()).join('')
 }
 console.log(abbr('cascading style sheets'))
 console.log(abbr('объектно-ориентированное программирование'))
@@ -1930,16 +1922,15 @@ console.log(abbr('объектно-ориентированное програм
 
 //6.Написать функцию, которая принимает любое количество строк, объединяет их в одну длинную строку и
 //возвращает ее.
-function concatStr(str: string) {
-  let info = 'hhh'
-  for (let el of str) {
-    return el.concat(str, info,)
-  }
+function concatStr(...arr:string[]) {
+  return arr.join('; ')
 }
-console.log(concatStr('o'))//увеличивает о на 1
+console.log(concatStr('o','df','dfg'))//увеличивает о на 1
 
 //7.Написать функцию – калькулятор. Функция принимает строку с примером, определяет, какое действие необходимо
 //выполнить (+ - * /), переводит операнды в числа, решает пример и возвращает результат.
+
+'5+7'
 
 //8.Написать функцию, которая получает url и выводит подробную информацию о нем.
 //Например: url “https://itstep.org/ua/about”, информация “протокол: https, домен: itstep.org, путь: /ua/about”.
