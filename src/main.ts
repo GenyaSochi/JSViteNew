@@ -1920,22 +1920,13 @@ console.log(styleCSS('text-align'))
 function abbr(str: string) {
   for (let el of str) {
     if (el == str[0]) {
-      return el.charAt(0).toUpperCase() + str.slice(1, end - 2)
-    }
+      return el.charAt(0).toUpperCase() + str.slice(1, end - 2)      
+    }    
   }
 }
 console.log(abbr('cascading style sheets'))
 console.log(abbr('объектно-ориентированное программирование'))
 
-
-// const str = 'Московский государственный университет ';// пример из интернета
-// const buildAcronym = (str = '') => {
-//   const strArr = str.trim().split(' ');
-//   return strArr.map(el => {
-//     return el.trim() !== '' ? el.trim()[0].toUpperCase() : '';
-//   }).join('');
-// };
-// console.log(buildAcronym(str));
 
 //6.Написать функцию, которая принимает любое количество строк, объединяет их в одну длинную строку и
 //возвращает ее.
