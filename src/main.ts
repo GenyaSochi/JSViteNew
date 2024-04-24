@@ -1964,9 +1964,6 @@ console.log(calculator('88 / 8'))
 console.log(calculator('81 - 9'))
 
 
-
-
-
 //8.Написать функцию, которая получает url и выводит подробную информацию о нем.
 //Например: url “https://itstep.org/ua/about”, информация “протокол: https, домен: itstep.org, путь: /ua/about”.
 
