@@ -1967,6 +1967,32 @@ console.log(calculator('81 - 9'))
 //8.Написать функцию, которая получает url и выводит подробную информацию о нем.
 //Например: url “https://itstep.org/ua/about”, информация “протокол: https, домен: itstep.org, путь: /ua/about”.
 
+function infoUrl(url: string){
+  const informUrl = {
+    protocolInfo: `протокол`,
+    domainInfo: `домейн`,
+    wayInfo: `путь`,
+  }
+  let protocol = `https`
+  let domain = `itstep.org`
+  let way = `/ua/about`
+  for(let el of url){
+    if(protocol.includes(url)){
+      informUrl.protocolInfo.replace('://', ', ')
+    }
+    if(domain.includes(url)){
+      informUrl.domainInfo.replace('://', ', ')
+    }
+    if(way.includes(url)){
+      informUrl.wayInfo.replace('://', ', ')
+    }
+  }
+
+return informUrl
+
+
+}
+console.log(infoUrl(`https://itstep.org/ua/about`))
 //9.Написать функцию, которая принимает строку и разделитель и возвращает массив подстрок, разбитых с помощью
 //указанного разделителя. Например: строка “10/08/2020”, разделитель “/”, результат:“10”, “08”, “2020”.
 //Выполняя задание, не используйте функцию split().
@@ -1975,5 +2001,4 @@ console.log(calculator('81 - 9'))
 //которого может использоваться %, после символа % указывается индекс входного параметра. При выводе вместо
 //%индекс необходимо вывести значение соответствующего входного параметра.
 //Например: print(“Today is %1 %2.%3.%4”, “Monday”, 10, 8, 2020) должна вывести “Today is Monday 10.8.2020”.
-
 
