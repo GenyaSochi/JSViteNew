@@ -1887,7 +1887,7 @@ function replacingLetters(str: string) {
     if ('1234567890'.includes(char)) {
       newStr += '_'
     }
-    else if (char == char.toUpperCase() ) {
+    else if (char == char.toUpperCase()) {
       newStr += char.toLowerCase()
     }
     else if (char == char.toLowerCase()) {
@@ -1903,7 +1903,7 @@ console.log(replacingLetters('Ro4'))
 //в fontSize, background-color в backgroundColor, text-align в textAlign.
 
 function styleCSS(str: string) {
-  return str.split('-').map((el,i) => i ? el[0].toUpperCase() + el.slice(1) : el).join('')
+  return str.split('-').map((el, i) => i ? el[0].toUpperCase() + el.slice(1) : el).join('')
 }
 console.log(styleCSS('font-size'))
 console.log(styleCSS('background-color'))
@@ -1914,7 +1914,7 @@ console.log(styleCSS('text-align'))
 //Например: cascading style sheets в CSS, объектно-ориентированное программирование в ООП.
 
 function abbr(str: string) {
-  return str.replaceAll('-', ' ').split(' ').map(el=>el[0].toUpperCase()).join('')
+  return str.replaceAll('-', ' ').split(' ').map(el => el[0].toUpperCase()).join('')
 }
 console.log(abbr('cascading style sheets'))
 console.log(abbr('объектно-ориентированное программирование'))
@@ -1922,20 +1922,20 @@ console.log(abbr('объектно-ориентированное програм
 
 //6.Написать функцию, которая принимает любое количество строк, объединяет их в одну длинную строку и
 //возвращает ее.
-function concatStr(...arr:string[]) {
+function concatStr(...arr: string[]) {
   return arr.join('; ')
 }
-console.log(concatStr('o','df','dfg'))//увеличивает о на 1
+console.log(concatStr('o', 'df', 'dfg'))//увеличивает о на 1
 
 //7.Написать функцию – калькулятор. Функция принимает строку с примером, определяет, какое действие необходимо
 //выполнить (+ - * /), переводит операнды в числа, решает пример и возвращает результат.
 
-function calculator(str:string):number {
+function calculator(str: string): number {
   str = str.replaceAll(' ', '')
   if (str.includes('+')) {
     const arr = str.split('+')
     let sum = 0
-    arr.forEach(el => sum += +calculator(el))     
+    arr.forEach(el => sum += +calculator(el))
     return sum
   } else if (str.includes('-')) {
     const arr = str.split('-')
@@ -1945,14 +1945,14 @@ function calculator(str:string):number {
     // return +calculator(arr[0]) - (+calculator(arr[1]))
   } else if (str.includes('*')) {
     const arr = str.split('*')
-    let sum = 1 
-    arr.forEach(el => sum *= +calculator(el))     
+    let sum = 1
+    arr.forEach(el => sum *= +calculator(el))
     return sum
     // return +calculator(arr[0]) * (+calculator(arr[1]))
   } else if (str.includes('/')) {
     const arr = str.split('/')
-    let sum = +arr[0] 
-    arr.forEach((el, i) => sum /= i ? +calculator(el): 1)     
+    let sum = +arr[0]
+    arr.forEach((el, i) => sum /= i ? +calculator(el) : 1)
     return sum
     // return +calculator(arr[0]) / (+calculator(arr[1]))
   }
@@ -1967,30 +1967,22 @@ console.log(calculator('81 - 9'))
 //8.Написать функцию, которая получает url и выводит подробную информацию о нем.
 //Например: url “https://itstep.org/ua/about”, информация “протокол: https, домен: itstep.org, путь: /ua/about”.
 
-function infoUrl(str: string, url: string){
-  const informUrl = {
-    protocolInfo: `протокол:`,
-    domainInfo: `домейн:`,
-    wayInfo: `путь:`,
+function infoUrl(url: string) {
+  let protocol
+  let domain
+  let way
+  let arr1 = url.split(`://`)
+  let arr2
+  for (let index = 0; index < arr1.length; index++) {
+    protocol = arr1[0]
+    arr2 = arr1[1].split(`/`)
+    domain = arr2[0]
+    arr2.shift()
+    way = arr2.join(`/`)
   }
-  let protocol = `https`
-  let domain = `itstep.org`
-  let way = `/ua/about`
-  for(let el of url){
-    if(el ==  url){
-      informUrl.protocolInfo.replace('://', ', ') 
-   
-    }
-    if(domain.includes(el)){
-      informUrl.domainInfo.replace('/', ', ')
-    }
-    if(way.includes(el)){
-      informUrl.wayInfo.replace('/', ', ')
-    }
-  }
-return informUrl
+  return "Информация: протокол: " + protocol + "," + " домен: " + domain + "," + " путь: " + way
 }
-console.log(infoUrl('Информация', `https://itstep.org/ua/about` ))
+console.log(infoUrl(`https://itstep.org/ua/about`))
 //9.Написать функцию, которая принимает строку и разделитель и возвращает массив подстрок, разбитых с помощью
 //указанного разделителя. Например: строка “10/08/2020”, разделитель “/”, результат:“10”, “08”, “2020”.
 //Выполняя задание, не используйте функцию split().
@@ -1999,23 +1991,3 @@ console.log(infoUrl('Информация', `https://itstep.org/ua/about` ))
 //которого может использоваться %, после символа % указывается индекс входного параметра. При выводе вместо
 //%индекс необходимо вывести значение соответствующего входного параметра.
 //Например: print(“Today is %1 %2.%3.%4”, “Monday”, 10, 8, 2020) должна вывести “Today is Monday 10.8.2020”.
-function task8(url) {
-  let arr1;
-  let protocol;
-  let domain;
-  let arr2;
-  let way;
-  arr1 = url.split("://");
-  for (let index = 0; index < arr1.length; index++) {
-      protocol = arr1[0];
-      arr2 = arr1[1].split("/"); 
-      domain = arr2[0];
-  }   
-  arr2.shift();
-  way = arr2.join("/");      
-        
-  
-return "Информация\nпротокол: "+ protocol
-      + "\nдомен: " + domain + "\nпуть: " + way;
-}
-
