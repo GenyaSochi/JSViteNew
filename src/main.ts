@@ -1973,7 +1973,7 @@ function infoUrl(url: string) {
   let way
   let arr1 = url.split(`://`)
   let arr2
-  for (let index = 0; index < arr1.length; index++) {
+  for (let i = 0; i < arr1.length; i++) {
     protocol = arr1[0]
     arr2 = arr1[1].split(`/`)
     domain = arr2[0]
@@ -1988,11 +1988,13 @@ console.log(infoUrl(`https://itstep.org/ua/about`))
 //указанного разделителя. Например: строка “10/08/2020”, разделитель “/”, результат:“10”, “08”, “2020”.
 //Выполняя задание, не используйте функцию split().
 
-function dateSplit(str: string){
-  
+function dateSplit(str: string) {
+return  str.replaceAll('/', ':')
 }
+console.log(dateSplit("10/08/2020"))
 
 //10.Написать функцию вывода текста по заданному шаблону. Функция принимает первым параметром шаблон, в тексте
 //которого может использоваться %, после символа % указывается индекс входного параметра. При выводе вместо
 //%индекс необходимо вывести значение соответствующего входного параметра.
 //Например: print(“Today is %1 %2.%3.%4”, “Monday”, 10, 8, 2020) должна вывести “Today is Monday 10.8.2020”.
+
