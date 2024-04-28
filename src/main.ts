@@ -1989,7 +1989,14 @@ console.log(infoUrl(`https://itstep.org/ua/about`))
 //Выполняя задание, не используйте функцию split().
 
 function dateSplit(str: string, separator: string) {
-
+  res
+  for(let el of str){
+    if (el == separator){
+   
+      
+    }
+  }
+  return str.replace(`/`, `:`)
 
 }
 console.log(dateSplit("10/08/2020", "/"))
