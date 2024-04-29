@@ -1988,7 +1988,7 @@ console.log(infoUrl(`https://itstep.org/ua/about`))
 //указанного разделителя. Например: строка “10/08/2020”, разделитель “/”, результат:“10”, “08”, “2020”.
 //Выполняя задание, не используйте функцию split().
 
-function dateSplit(str: string, separator: string) {
+function dateSplit(str: string, separator: any) {
   for (let el of str) {
     if (el == separator) {
       return str.replace('/', ':').split('/').join(':')
