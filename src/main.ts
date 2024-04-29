@@ -2002,3 +2002,7 @@ console.log(dateSplit("10/08/2020", "/"))
 //%индекс необходимо вывести значение соответствующего входного параметра.
 //Например: print(“Today is %1 %2.%3.%4”, “Monday”, 10, 8, 2020) должна вывести “Today is Monday 10.8.2020”.
 
+function outputText(template: string, ...values: any) {
+  return template.replace(/%(\d+)/g, (_str, num) => [...values][num - 1]);
+}
+console.log(outputText("Today is %1 %2.%3.%4", "Monday", 10, 8, 2020));
