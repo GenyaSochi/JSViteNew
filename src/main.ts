@@ -1989,11 +1989,18 @@ console.log(infoUrl(`https://itstep.org/ua/about`))
 //Выполняя задание, не используйте функцию split().
 
 function dateSplit(str: string, separator: any) { 
-  for (let el of str) {
-    if (el == separator) {
-      return str.replace('/', ':').split('/').join(':') //преобразует строку в массив и обратно.
+  let lastContent = 0
+  const arr = []
+  for (let i=0; i<str.length; i++) {
+    if (str[i]==separator) {
+      arr.push(str.slice(lastContent, i))
+      lastContent = i+1
     }
   }
+  if (str.slice(lastContent)) {
+    arr.push(str.slice(lastContent))
+  }
+  return arr
 }
 console.log(dateSplit("10/08/2020", "/"))
 
@@ -2002,7 +2009,9 @@ console.log(dateSplit("10/08/2020", "/"))
 //%индекс необходимо вывести значение соответствующего входного параметра.
 //Например: print(“Today is %1 %2.%3.%4”, “Monday”, 10, 8, 2020) должна вывести “Today is Monday 10.8.2020”.
 
-function outputText(template: string, ...values: any) {
-  return template.replace(/%(\d+)/g, (_str, num) => [...values][num - 1]);
+function outputText(template: string, ...values: any[]) {
+  for(let i = 0; i < template.length; i++){
+    return template + (([i]+1), values)
+  }
 }
 console.log(outputText("Today is %1 %2.%3.%4", "Monday", 10, 8, 2020));
