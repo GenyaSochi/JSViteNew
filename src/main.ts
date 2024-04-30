@@ -2164,9 +2164,16 @@ class Circle {
     console.log('setter worked', val)
     this.#radius = val
   }
+  squareCircle(){ 
+    return Math.PI*this.#radius**2
+  }
+  lengthCircle(){
+    return 2*Math.PI*this.#radius
+  }
 }
-
 const c = new Circle(10)
 console.log(c.radius)
 c.radius = 15
 console.log(c.radius)
+console.log(c.squareCircle())
+console.log(c.lengthCircle())
