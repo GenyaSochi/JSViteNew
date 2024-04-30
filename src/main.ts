@@ -1988,13 +1988,13 @@ console.log(infoUrl(`https://itstep.org/ua/about`))
 //указанного разделителя. Например: строка “10/08/2020”, разделитель “/”, результат:“10”, “08”, “2020”.
 //Выполняя задание, не используйте функцию split().
 
-function dateSplit(str: string, separator: any) { 
+function dateSplit(str: string, separator: any) {
   let lastContent = 0
   const arr = []
-  for (let i=0; i<str.length; i++) {
-    if (str[i]==separator) {
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] == separator) {
       arr.push(str.slice(lastContent, i))
-      lastContent = i+1
+      lastContent = i + 1
     }
   }
   if (str.slice(lastContent)) {
@@ -2010,8 +2010,8 @@ console.log(dateSplit("10/08/2020", "/"))
 //Например: print(“Today is %1 %2.%3.%4”, “Monday”, 10, 8, 2020) должна вывести “Today is Monday 10.8.2020”.
 
 function outputText(template: string, ...values: any[]) {
-  for(let i = 0; i < template.length; i++){
-    return ((template[i]+1), values)
+  for (let i = 0; i < template.length; i++) {
+    return ((template[i] + 1), values)
   }
 }
 console.log(outputText("Today is %1 %2.%3.%4", "Monday", 10, 8, 2020));
@@ -2026,8 +2026,8 @@ console.log(outputText("Today is %1 %2.%3.%4", "Monday", 10, 8, 2020));
 
 const pmDiv = document.getElementById('pm') as HTMLDivElement
 class PrintMachine {
-  tag:string
-  fSize:string
+  tag: string
+  fSize: string
   color: string
   fFamily: string
   constructor(fSize: string, color: string, fFamily: string, tag = 'p') {
@@ -2036,7 +2036,7 @@ class PrintMachine {
     this.color = color
     this.fFamily = fFamily
   }
-  print(text:string) {
+  print(text: string) {
     pmDiv.innerHTML += `<${this.tag} style="font-size:${this.fSize};font-family:${this.fFamily}; color: ${this.color}">${text}</${this.tag}>`
   }
 }
@@ -2075,26 +2075,26 @@ class HtmlElement {
   atributes = [] as any[]
   styles = [] as any[]
   elements = [] as HtmlElement[]
-  constructor(tag: string, text='') {
-    const singleArr = ['area','base','br','col','embed','hr','img','input','keygen','link','meta','param','source','track','wbr']
+  constructor(tag: string, text = '') {
+    const singleArr = ['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'keygen', 'link', 'meta', 'param', 'source', 'track', 'wbr']
     this.tag = tag
     this.text = text
     this.isSingle = singleArr.includes(tag) ? true : false
   }
-  setAtribute(name:string, value:string) {
-    this.atributes.push({name, value})
+  setAtribute(name: string, value: string) {
+    this.atributes.push({ name, value })
   }
-  setStyle(name:string, value:string) {
-    this.styles.push({name, value})
+  setStyle(name: string, value: string) {
+    this.styles.push({ name, value })
   }
-  prepend(el:HtmlElement) {
+  prepend(el: HtmlElement) {
     this.elements.unshift(el)
   }
-  append(el:HtmlElement) {
+  append(el: HtmlElement) {
     this.elements.push(el)
   }
-  getHtml():string {
-    const styles = this.styles.map(el=>el.name+':'+el.value).join(';')
+  getHtml(): string {
+    const styles = this.styles.map(el => el.name + ':' + el.value).join(';')
     const attrCopy = [...this.atributes]
     if (this.styles.length) {
       attrCopy.push({ name: 'style', value: styles })
@@ -2103,11 +2103,11 @@ class HtmlElement {
       if (this.text) {
         attrCopy.push({ name: 'area-label', value: this.text })
       }
-      const atributes = attrCopy.map(el=>el.name+'="'+el.value+'"').join(' ')
+      const atributes = attrCopy.map(el => el.name + '="' + el.value + '"').join(' ')
       return `<${this.tag} ${atributes}>`
     } else {
-      const atributes = attrCopy.map(el=>el.name+'="'+el.value+'"').join(' ')
-      return `<${this.tag} ${atributes}>${this.text}${this.elements.map(el=>el.getHtml()).join('\n')}</${this.tag}>`
+      const atributes = attrCopy.map(el => el.name + '="' + el.value + '"').join(' ')
+      return `<${this.tag} ${atributes}>${this.text}${this.elements.map(el => el.getHtml()).join('\n')}</${this.tag}>`
     }
   }
 }
@@ -2137,3 +2137,35 @@ wrapper.append(div)
 
 const heDiv = document.getElementById('he') as HTMLDivElement
 heDiv.innerHTML = wrapper.getHtml()
+
+//Реализовать класс, описывающий окружность. В классе должны быть следующие компоненты:
+//■ поле, хранящее радиус окружности;
+//■ get-свойство, возвращающее радиус окружности;
+//■ set-свойство, устанавливающее радиус окружности;
+//■ get-свойство, возвращающее диаметр окружности;
+//■ метод, вычисляющий площадь окружности;
+//■ метод, вычисляющий длину окружности.
+//Продемонстрировать работу свойств и методов.
+
+class Circle {
+  #radius: number
+  constructor(radius: number) {
+    this.#radius = radius
+  }
+  get radius() {
+    console.log('getter worked', this.#radius)
+    return this.#radius
+  }
+  set radius(val:number) {
+    if (val<=0) {
+      throw Error('nizza')
+    }
+    console.log('setter worked', val)
+    this.#radius = val
+  }
+}
+
+const c = new Circle(10)
+console.log(c.radius)
+c.radius = 15
+console.log(c.radius)
