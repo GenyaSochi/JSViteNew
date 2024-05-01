@@ -2187,6 +2187,24 @@ console.log(c.lengthCircle())
 
 
 class descriptionCss {
-  styles: string[]
+  styles: any[]
+  constructor(styles: any[]) {
+    this.styles = styles
+  }
+
+  setStyle(name: string, value: string) {
+    this.styles.push({ name, value })
+  }
+
+  removeProperty(name: string, value: string) {
+    this.removeProperty(name, value)
+  }
+
+  getCss(){
+    const styles =  this.styles.map(el => el.name + ':' + el.value).join(';')
+    return `styles="${styles}"`
+  }
 
 }
+
+console.log(descriptionCss)
