@@ -2011,7 +2011,7 @@ console.log(dateSplit("10/08/2020", "/"))
 
 function outputText(template: string, ...values: any[]) {
   for (let i = 0; i < template.length; i++) {
-    template = template.replace('%'+(i+1), values[i])
+    template = template.replace('%' + (i + 1), values[i])
   }
   return template
 }
@@ -2157,18 +2157,18 @@ class Circle {
     console.log('getter worked', this.#radius)
     return this.#radius
   }
-  set radius(val:number) {
-    if (val<=0) {
+  set radius(val: number) {
+    if (val <= 0) {
       throw Error('nizza')
     }
     console.log('setter worked', val)
     this.#radius = val
   }
-  squareCircle(){ 
-    return Math.PI*this.#radius**2
+  squareCircle() {
+    return Math.PI * this.#radius ** 2
   }
-  lengthCircle(){
-    return 2*Math.PI*this.#radius
+  lengthCircle() {
+    return 2 * Math.PI * this.#radius
   }
 }
 const c = new Circle(10)
@@ -2177,3 +2177,16 @@ c.radius = 15
 console.log(c.radius)
 console.log(c.squareCircle())
 console.log(c.lengthCircle())
+
+//Реализовать класс, который описывает css класс. Класс CssClass должен содержать внутри себя:
+//■ название css класса;
+//■ массив стилей;
+//■ метод для установки стиля;
+//■ метод для удаления стиля;
+//■ метод getCss(), который возвращает css код в виде строки.
+
+
+class descriptionCss {
+  styles: string[]
+
+}
