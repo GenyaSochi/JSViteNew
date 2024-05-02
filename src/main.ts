@@ -2236,9 +2236,8 @@ console.log(getWeekDay(date))
 //_________________________________________________________
 
 function getLocalDay(date: Date) {
-  let day = date.getDate()
-  if (day == 0)
-    day = 7
-  return day
+  let day = new Date
+
 }
 console.log(getLocalDay)
+
