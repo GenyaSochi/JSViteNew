@@ -2186,27 +2186,38 @@ console.log(c.lengthCircle())
 //■ метод getCss(), который возвращает css код в виде строки.
 
 
-class DescriptionCss {
-  styles = [] as any
-  constructor(styles: string[]) {
-    this.styles = styles
+class  CssClass{
+  styles = [] as any[]
+  name:string
+  constructor(name:string) {
+    this.name = name
   }
 
   setStyle(name: any, value: any) {
     this.styles.push({ name, value })
   }
 
-  removeProperty(name: string, value: string) {
-    this.removeProperty(name, value)
+  removeProperty(name: string) {
+    const index = this.styles.findIndex(el=>el.name == name)
+    if (index!=-1) this.styles.splice(index,1)
   }
 
   getCss(){
     const styles =  this.styles.map((el: { name: string; value: string }) => el.name + ':' + el.value).join(';')
-    return `styles="${styles}"`
+    return `.${this.name}{${styles}}`
   }
 }
 
 
 const descCss = document.getElementById('st') as HTMLDivElement
-console.log(descCss)
+const bigRed = new CssClass('bigRed')
+bigRed.setStyle("color","red")
+bigRed.setStyle("color","green")
+bigRed.setStyle("font-size","30px")
+bigRed.setStyle("font-family","Arial")
+console.log(bigRed.getCss())
+bigRed.removeProperty("font-family")
+bigRed.removeProperty("color")
+console.log(bigRed.getCss())
 
+descCss.innerHTML += bigRed.getCss()
