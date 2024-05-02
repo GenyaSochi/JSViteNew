@@ -2186,13 +2186,13 @@ console.log(c.lengthCircle())
 //■ метод getCss(), который возвращает css код в виде строки.
 
 
-class descriptionCss {
-  styles: any[]
-  constructor(styles: any[]) {
+class DescriptionCss {
+  styles = [] as any
+  constructor(styles: string[]) {
     this.styles = styles
   }
 
-  setStyle(name: string, value: string) {
+  setStyle(name: any, value: any) {
     this.styles.push({ name, value })
   }
 
@@ -2201,10 +2201,12 @@ class descriptionCss {
   }
 
   getCss(){
-    const styles =  this.styles.map(el => el.name + ':' + el.value).join(';')
+    const styles =  this.styles.map((el: { name: string; value: string }) => el.name + ':' + el.value).join(';')
     return `styles="${styles}"`
   }
-
 }
 
-console.log(descriptionCss)
+
+const descCss = document.getElementById('st') as HTMLDivElement
+console.log(descCss)
+
