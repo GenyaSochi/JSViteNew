@@ -2186,10 +2186,10 @@ console.log(c.lengthCircle())
 //■ метод getCss(), который возвращает css код в виде строки.
 
 
-class  CssClass{
+class CssClass {
   styles = [] as any[]
-  name:string
-  constructor(name:string) {
+  name: string
+  constructor(name: string) {
     this.name = name
   }
 
@@ -2198,12 +2198,12 @@ class  CssClass{
   }
 
   removeProperty(name: string) {
-    const index = this.styles.findIndex(el=>el.name == name)
-    if (index!=-1) this.styles.splice(index,1)
+    const index = this.styles.findIndex(el => el.name == name)
+    if (index != -1) this.styles.splice(index, 1)
   }
 
-  getCss(){
-    const styles =  this.styles.map((el: { name: string; value: string }) => el.name + ':' + el.value).join(';')
+  getCss() {
+    const styles = this.styles.map((el: { name: string; value: string }) => el.name + ':' + el.value).join(';')
     return `.${this.name}{${styles}}`
   }
 }
@@ -2211,13 +2211,34 @@ class  CssClass{
 
 const descCss = document.getElementById('st') as HTMLDivElement
 const bigRed = new CssClass('bigRed')
-bigRed.setStyle("color","red")
-bigRed.setStyle("color","green")
-bigRed.setStyle("font-size","30px")
-bigRed.setStyle("font-family","Arial")
+bigRed.setStyle("color", "red")
+bigRed.setStyle("color", "green")
+bigRed.setStyle("font-size", "30px")
+bigRed.setStyle("font-family", "Arial")
 console.log(bigRed.getCss())
 bigRed.removeProperty("font-family")
 bigRed.removeProperty("color")
 console.log(bigRed.getCss())
 
 descCss.innerHTML += bigRed.getCss()
+
+//02.05.2024 Date
+let now = new Date(2012, 1, 20, 3, 12)
+console.log(now.toLocaleString())
+//_________________________________________________________
+
+function getWeekDay(date: Date) {
+  let dateWeek = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС']
+  return dateWeek[date.getDate() + 1]
+}
+let date = new Date(2018, 7, 4)
+console.log(getWeekDay(date))
+//_________________________________________________________
+
+function getLocalDay(date: Date) {
+  let day = date.getDate()
+  if (day == 0)
+    day = 7
+  return day
+}
+console.log(getLocalDay)
