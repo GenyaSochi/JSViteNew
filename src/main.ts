@@ -2223,21 +2223,54 @@ console.log(bigRed.getCss())
 descCss.innerHTML += bigRed.getCss()
 
 //02.05.2024 Date
+//1.Создайте дату.
+
 let now = new Date(2012, 1, 20, 3, 12)
 console.log(now.toLocaleString())
-//_________________________________________________________
+
+//2.Покажите день недели.
 
 function getWeekDay(date: Date) {
   let dateWeek = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС']
   return dateWeek[date.getDate() + 1]
 }
-let date = new Date(2018, 7, 4)
+let date = new Date(2024, 5, 3)
 console.log(getWeekDay(date))
-//_________________________________________________________
 
-function getLocalDay(date: Date) {
-  let day = new Date
+//3.День недели в европейской нумерации.
 
+function getLocalDay(day: Date) {
+  return day.getDay() == 0 ? 7 : day.getDay()
 }
-console.log(getLocalDay)
+date = new Date(2024, 5, 4)
+console.log(getLocalDay(date))
+
+//4.Какой день месяца был много дней назад?
+
+
+//5.Последнее число месяца?
+
+
+//6.Сколько сегодня прошло секунд?
+
+
+//7.Сколько секунд осталось до завтра?
+
+
+//8.Форматирование относительной даты.  
+
+
+
+
+
+
+
+let naw = new Date("2024-01-02")
+console.log(naw)
+
+let day = new Date()
+console.log(day.toLocaleString())
+//new Date(year, month, date, hours, minutes, seconds, ms)
+
+
 
