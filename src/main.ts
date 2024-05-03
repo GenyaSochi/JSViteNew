@@ -2261,10 +2261,6 @@ console.log(getLocalDay(date))
 
 
 
-
-
-
-
 let naw = new Date("2024-01-02")
 console.log(naw)
 
