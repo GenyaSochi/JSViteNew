@@ -2247,6 +2247,16 @@ console.log(getLocalDay(date))
 
 //4.Какой день месяца был много дней назад?
 
+function getDateAgo(date: Date, days: number) {
+
+  let dateCopy = new Date(date)
+  dateCopy.setDate(date.getDate() - days)
+  return dateCopy.getDate()
+}
+date = new Date(2024, 5, 3)
+
+console.log(getDateAgo(date, 1))
+
 
 //5.Последнее число месяца?
 
