@@ -2222,14 +2222,15 @@ console.log(bigRed.getCss())
 
 descCss.innerHTML += bigRed.getCss()
 
-//02.05.2024 Date
+//02.05.2024 Date.LearnJS.
 //1.Создайте дату.
+//Создайте объект Date для даты: 20 февраля 2012 года, 3 часа 12 минут. Временная зона – местная.
 
 let now = new Date(2012, 1, 20, 3, 12)//Если в скобках ничего не указывать, то мы получим текущую дату со временем.
 console.log(now.toLocaleString())
 
 //2.Покажите день недели.
-
+//Напишите функцию getWeekDay(date), показывающую день недели в коротком формате: «ПН», «ВТ», «СР», «ЧТ», «ПТ», «СБ», «ВС».
 function getWeekDay(date: Date) {
   let dateWeek = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС']
   return dateWeek[date.getDate() + 1]
@@ -2238,6 +2239,8 @@ let date = new Date(2024, 5, 3)
 console.log(getWeekDay(date))
 
 //3.День недели в европейской нумерации.
+//В Европейских странах неделя начинается с понедельника (день номер 1), затем идёт вторник (номер 2)
+// и так до воскресенья (номер 7). Напишите функцию getLocalDay(date), которая возвращает «европейский» день недели для даты date.
 
 function getLocalDay(day: Date) {
   return day.getDay() == 0 ? 7 : day.getDay()
@@ -2246,6 +2249,7 @@ date = new Date(2024, 5, 4)
 console.log(getLocalDay(date))
 
 //4.Какой день месяца был много дней назад?
+//Создайте функцию getDateAgo(date, days), возвращающую число, которое было days дней назад от даты date.
 
 function getDateAgo(date: Date, days: number) {
 
@@ -2257,6 +2261,8 @@ date = new Date(2024, 5, 3)
 console.log(getDateAgo(date, 1))
 
 //5.Последнее число месяца?
+//Напишите функцию getLastDayOfMonth(year, month), возвращающую последнее число месяца.
+//Иногда это 30, 31 или даже февральские 28/29.
 
 function getLastDayOfMonth(year: number, month: number) {
   let date = new Date(year, month + 1, 0)
@@ -2265,6 +2271,7 @@ function getLastDayOfMonth(year: number, month: number) {
 console.log(getLastDayOfMonth(2024, 0))
 
 //6.Сколько сегодня прошло секунд?
+//Напишите функцию getSecondsToday(), возвращающую количество секунд с начала сегодняшнего дня.
 
 function getSecondsToday() {
   let d = new Date()
@@ -2273,8 +2280,9 @@ function getSecondsToday() {
 console.log(getSecondsToday())
 
 //7.Сколько секунд осталось до завтра?
+//Создайте функцию getSecondsToTomorrow(), возвращающую количество секунд до завтрашней даты.
 
-function getSecondsToTomorrow(){
+function getSecondsToTomorrow() {
   let now = new Date()
   let hour = now.getHours()
   let minutes = now.getMinutes()
@@ -2287,7 +2295,44 @@ function getSecondsToTomorrow(){
 console.log(getSecondsToTomorrow())
 
 //8.Форматирование относительной даты.  
+//Напишите функцию formatDate(date), форматирующую date по следующему принципу:
+//Если спустя date прошло менее 1 секунды, вывести "прямо сейчас".
+//В противном случае, если с date прошло меньше 1 минуты, вывести "n сек. назад".
+//В противном случае, если меньше часа, вывести "m мин. назад".
+//В противном случае, полная дата в формате "DD.MM.YY HH:mm". А именно: "день.месяц.год часы:минуты", всё в виде двух цифр, т.е. 31.12.16 10:00.
 
+function formatDate(date: Date) {
+  let dayOfMonth = date.getDate()
+  let month = date.getMonth() + 1
+  let year = date.getFullYear()
+  let hour = date.getHours()
+  let minutes = date.getMinutes()
+  let diffMs = new Date() - date
+  let diffSec = Math.round(diffMs / 1000)
+  let diffMin = diffSec / 60
+  let diffHour = diffMin / 60
+
+  // форматирование
+  // year = year.toString().slice(-2);
+  // month = month < 10 ? '0' + month : month;
+  // dayOfMonth = dayOfMonth < 10 ? '0' + dayOfMonth : dayOfMonth;
+  // hour = hour < 10 ? '0' + hour : hour;
+  // minutes = minutes < 10 ? '0' + minutes : minutes;
+
+  if (diffSec < 1) {
+    return 'прямо сейчас';
+  } else if (diffMin < 1) {
+    return `${diffSec} сек. назад`
+  } else if (diffHour < 1) {
+    return `${diffMin} мин. назад`
+  } else {
+    return `${dayOfMonth}.${month}.${year} ${hour}:${minutes}`
+  }
+}
+console.log(formatDate(new Date(+new Date() - 1)))
+console.log(formatDate(new Date(+new Date - 30 * 1000)))
+console.log(formatDate(new Date(+new Date - 5 * 60 * 1000)))
+console.log(formatDate(new Date(+new Date - 86400 * 1000)))
 
 
 let naw = new Date("2024-01-02")
