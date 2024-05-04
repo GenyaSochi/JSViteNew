@@ -2225,7 +2225,7 @@ descCss.innerHTML += bigRed.getCss()
 //02.05.2024 Date
 //1.Создайте дату.
 
-let now = new Date(2012, 1, 20, 3, 12)
+let now = new Date(2012, 1, 20, 3, 12)//Если в скобках ничего не указывать, то мы получим текущую дату со временем.
 console.log(now.toLocaleString())
 
 //2.Покажите день недели.
@@ -2259,7 +2259,11 @@ console.log(getDateAgo(date, 1))
 
 
 //5.Последнее число месяца?
-
+function getLastDayOfMonth(year:number, month: number){
+  let date = new Date(year, month +1, 0)
+  return date.getDate()
+}
+console.log(getLastDayOfMonth(2024,0))
 
 //6.Сколько сегодня прошло секунд?
 
@@ -2277,6 +2281,9 @@ console.log(naw)
 let day = new Date()
 console.log(day.toLocaleString())
 //new Date(year, month, date, hours, minutes, seconds, ms)
+
+date = new Date(0)
+console.log(date)
 
 
 
