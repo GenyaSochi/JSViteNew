@@ -2307,7 +2307,7 @@ function formatDate(date: Date) {
   let year = date.getFullYear()
   let hour = date.getHours()
   let minutes = date.getMinutes()
-  let diffMs = new Date() - date
+  let diffMs = +new Date() - +date
   let diffSec = Math.round(diffMs / 1000)
   let diffMin = diffSec / 60
   let diffHour = diffMin / 60
