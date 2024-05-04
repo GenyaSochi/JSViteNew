@@ -2254,25 +2254,37 @@ function getDateAgo(date: Date, days: number) {
   return dateCopy.getDate()
 }
 date = new Date(2024, 5, 3)
-
 console.log(getDateAgo(date, 1))
 
-
 //5.Последнее число месяца?
-function getLastDayOfMonth(year:number, month: number){
-  let date = new Date(year, month +1, 0)
+
+function getLastDayOfMonth(year: number, month: number) {
+  let date = new Date(year, month + 1, 0)
   return date.getDate()
 }
-console.log(getLastDayOfMonth(2024,0))
+console.log(getLastDayOfMonth(2024, 0))
 
 //6.Сколько сегодня прошло секунд?
-function getSecondsToday(){
-  let now = new Date()
-}
 
+function getSecondsToday() {
+  let d = new Date()
+  return d.getHours() * 3600 + d.getMinutes() * 60 + d.getSeconds()
+}
+console.log(getSecondsToday())
 
 //7.Сколько секунд осталось до завтра?
 
+function getSecondsToTomorrow(){
+  let now = new Date()
+  let hour = now.getHours()
+  let minutes = now.getMinutes()
+  let seconds = now.getSeconds()
+  let totalSecondsToday = (hour * 60 + minutes) * 60 + seconds
+  let totalSecondsInADay = 86400
+
+  return totalSecondsInADay - totalSecondsToday
+}
+console.log(getSecondsToTomorrow())
 
 //8.Форматирование относительной даты.  
 
