@@ -2266,6 +2266,9 @@ function getLastDayOfMonth(year:number, month: number){
 console.log(getLastDayOfMonth(2024,0))
 
 //6.Сколько сегодня прошло секунд?
+function getSecondsToday(){
+  let now = new Date()
+}
 
 
 //7.Сколько секунд осталось до завтра?
