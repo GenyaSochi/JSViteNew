@@ -2335,6 +2335,8 @@ console.log(formatDate(new Date(+new Date - 5 * 60 * 1000)))
 console.log(formatDate(new Date(+new Date - 86400 * 1000)))
 
 
+
+
 let naw = new Date("2024-01-02")
 console.log(naw)
 
@@ -2343,6 +2345,12 @@ console.log(day.toLocaleString())
 //new Date(year, month, date, hours, minutes, seconds, ms)
 
 date = new Date(0)
+console.log(date)
+
+
+date =  new Date(2024,5,6)
+date.setFullYear(2017)
+
 console.log(date)
 
 
