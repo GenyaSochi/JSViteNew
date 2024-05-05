@@ -2208,7 +2208,6 @@ class CssClass {
   }
 }
 
-
 const descCss = document.getElementById('st') as HTMLDivElement
 const bigRed = new CssClass('bigRed')
 bigRed.setStyle("color", "red")
@@ -2221,6 +2220,31 @@ bigRed.removeProperty("color")
 console.log(bigRed.getCss())
 
 descCss.innerHTML += bigRed.getCss()
+
+//4.Реализовать класс, описывающий блок html документ.Класс HtmlBlock должен содержать внутри себя:
+//■ коллекцию стилей, описанных с помощью класса CssClass;
+//■ корневой элемент, описанный с помощью класса HtmlElement;
+//■ метод getCode(), который возвращает строку с html кодом (сначала теги style с описанием всех классов, а потом
+//все html содержимое из корневого тега и его вложенных элементов).
+//С помощью написанных классов реализовать следующий блок (см. рис. 2) и добавить его на страницу с помощьюdocument.write().
+
+class HtmlBlock {
+  name: string
+  tag: string
+  styles = [] as CssClass[]
+  elements = [] as HtmlElement[]
+  constructor(name: string, tag: string) {
+    this.name = name
+    this.tag = tag
+  }
+  getCode() {
+
+    return `.${this.name}{${this.styles}}{${this.elements}}`
+  }
+}
+const docCss = document.getElementById('st') as HTMLDivElement
+
+docCss.innerHTML
 
 //02.05.2024 Date.LearnJS.
 //1.Создайте дату.
@@ -2336,7 +2360,7 @@ console.log(formatDate(new Date(+new Date - 86400 * 1000)))
 
 
 
-
+//________________________________________________________
 let naw = new Date("2024-01-02")
 console.log(naw)
 
@@ -2347,15 +2371,8 @@ console.log(day.toLocaleString())
 date = new Date(0)
 console.log(date)
 
-
-date =  new Date(2024,5,6)
+date = new Date(2024, 5, 6)
 date.setFullYear(2017)
-
 console.log(date)
+//________________________________________________________
 
-//4.Реализовать класс, описывающий блок html документ.Класс HtmlBlock должен содержать внутри себя:
-//■ коллекцию стилей, описанных с помощью класса CssClass;
-//■ корневой элемент, описанный с помощью класса HtmlElement;
-//■ метод getCode(), который возвращает строку с html кодом (сначала теги style с описанием всех классов, а потом
-//все html содержимое из корневого тега и его вложенных элементов).
-//С помощью написанных классов реализовать следующий блок (см. рис. 2) и добавить его на страницу с помощьюdocument.write().
