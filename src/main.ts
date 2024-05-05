@@ -2307,7 +2307,7 @@ function formatDate(date: Date) {
   let year = date.getFullYear()
   let hour = date.getHours()
   let minutes = date.getMinutes()
-  let diffMs = +new Date() - +date
+  let diffMs = new Date().getTime() - date.getTime()
   let diffSec = Math.round(diffMs / 1000)
   let diffMin = diffSec / 60
   let diffHour = diffMin / 60
@@ -2353,5 +2353,9 @@ date.setFullYear(2017)
 
 console.log(date)
 
-
-
+//4.Реализовать класс, описывающий блок html документ.Класс HtmlBlock должен содержать внутри себя:
+//■ коллекцию стилей, описанных с помощью класса CssClass;
+//■ корневой элемент, описанный с помощью класса HtmlElement;
+//■ метод getCode(), который возвращает строку с html кодом (сначала теги style с описанием всех классов, а потом
+//все html содержимое из корневого тега и его вложенных элементов).
+//С помощью написанных классов реализовать следующий блок (см. рис. 2) и добавить его на страницу с помощьюdocument.write().
