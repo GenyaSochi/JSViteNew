@@ -2226,7 +2226,7 @@ descCss.innerHTML += bigRed.getCss()
 //■ корневой элемент, описанный с помощью класса HtmlElement;
 //■ метод getCode(), который возвращает строку с html кодом (сначала теги style с описанием всех классов, а потом
 //все html содержимое из корневого тега и его вложенных элементов).
-//С помощью написанных классов реализовать следующий блок (см. рис. 2) и добавить его на страницу с помощьюdocument.write().
+//С помощью написанных классов реализовать следующий блок (см. рис. 2) и добавить его на страницу с помощью document.write().
 
 class HtmlBlock {
   name: string
@@ -2235,16 +2235,30 @@ class HtmlBlock {
   elements = [] as HtmlElement[]
   constructor(name: string, tag: string) {
     this.name = name
-    this.tag = tag
+    this.tag = tag 
   }
-  getCode() {
 
+  getCode() {
+    const styles = this.styles.join(';')
+ 
     return `.${this.name}{${this.styles}}{${this.elements}}`
   }
 }
-const docCss = document.getElementById('st') as HTMLDivElement
 
-docCss.innerHTML
+const docCss = document.getElementById('st') as HTMLDivElement
+const bigGreen = new CssClass('bigGreen')
+const docDiv = document.getElementById('he') as HTMLDivElement
+bigGreen.setStyle("color", "pink")
+bigGreen.setStyle("color", "violet")
+bigGreen.setStyle("font-size", "40px")
+bigGreen.setStyle("font-family", "Times New Roman")
+console.log(bigGreen.getCss())
+bigGreen.removeProperty("font-family")
+bigGreen.removeProperty("color")
+console.log(bigGreen.getCss())
+
+docCss.innerHTML += bigGreen.getCss()
+docDiv.innerHTML = wrapper.getHtml()
 
 //02.05.2024 Date.LearnJS.
 //1.Создайте дату.
