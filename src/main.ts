@@ -2229,18 +2229,16 @@ descCss.innerHTML += bigRed.getCss()
 //С помощью написанных классов реализовать следующий блок (см. рис. 2) и добавить его на страницу с помощью document.write().
 
 class HtmlBlock {
-  name: string
-  tag: string
   styles = [] as CssClass[]
-  elements = [] as HtmlElement[]
-  constructor(name: string, tag: string) {
-    this.name = name
-    this.tag = tag 
+  element: HtmlElement
+  constructor(styles: CssClass[], element: HtmlElement) {
+    this.styles = styles
+    this.element = element
   }
 
   getCode() {
-    const styles = this.styles.join(';') 
-    return `.${this.name}{${this.styles}}{${this.elements}}`
+    
+    
   }
 }
 
@@ -2255,6 +2253,8 @@ console.log(bigGreen.getCss())
 bigGreen.removeProperty("font-family")
 bigGreen.removeProperty("color")
 console.log(bigGreen.getCss())
+
+const block = new HtmlBlock([bigGreen,],wrapper)
 
 docCss.innerHTML += bigGreen.getCss()
 docDiv.innerHTML = wrapper.getHtml()
@@ -2349,7 +2349,7 @@ function formatDate(date: Date) {
   let diffMin = diffSec / 60
   let diffHour = diffMin / 60
 
-  // форматирование
+  //форматирование
   // year = year.toString().slice(-2);
   // month = month < 10 ? '0' + month : month;
   // dayOfMonth = dayOfMonth < 10 ? '0' + dayOfMonth : dayOfMonth;
@@ -2363,7 +2363,7 @@ function formatDate(date: Date) {
   } else if (diffHour < 1) {
     return `${diffMin} мин. назад`
   } else {
-    return `${dayOfMonth}.${month}.${year} ${hour}:${minutes}`
+    return `${dayOfMonth.toString().padStart(2,'0')}.${month.toString().padStart(2,'0')}.${year.toString().slice(-2)} ${hour.toString().padStart(2,'0')}:${minutes.toString().padStart(2,'0')}`
   }
 }
 console.log(formatDate(new Date(+new Date() - 1)))
@@ -2388,5 +2388,4 @@ date = new Date(2024, 5, 6)
 date.setFullYear(2017)
 console.log(date)
 //________________________________________________________
-
 
