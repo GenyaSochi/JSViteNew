@@ -2239,8 +2239,7 @@ class HtmlBlock {
   }
 
   getCode() {
-    const styles = this.styles.join(';')
- 
+    const styles = this.styles.join(';') 
     return `.${this.name}{${this.styles}}{${this.elements}}`
   }
 }
@@ -2389,4 +2388,5 @@ date = new Date(2024, 5, 6)
 date.setFullYear(2017)
 console.log(date)
 //________________________________________________________
+
 
