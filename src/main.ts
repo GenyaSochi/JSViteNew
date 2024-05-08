@@ -2389,3 +2389,29 @@ date.setFullYear(2017)
 console.log(date)
 //________________________________________________________
 
+//Повторение -мать учения :)
+age = 23
+console.log(age)
+age = 35
+console.log(age)
+typeof 0//возвращает тип
+console.log(typeof 0)
+typeof true
+console.log(typeof true)
+
+num1 = 4
+num2 = 6
+console.log(num1> num2)
+console.log(num1 == num2)
+console.log(num1 < num2)
+console.log(num1 != num2)
+console.log(Boolean(''))
+console.log(Boolean(' '))// прообел считает за символ
+
+year = 2014
+if( year == 2015){
+  console.log('yes')
+}
+else{
+  console.log('no')
+}
