@@ -2235,9 +2235,10 @@ class HtmlBlock {
     this.styles = styles
     this.element = element
   }
+ 
 
   getCode() {
-    
+   
     
   }
 }
@@ -2389,7 +2390,7 @@ date.setFullYear(2017)
 console.log(date)
 //________________________________________________________
 
-//Повторение -мать учения :)
+//Повторение.
 age = 23
 console.log(age)
 age = 35
@@ -2415,3 +2416,30 @@ if( year == 2015){
 else{
   console.log('no')
 }
+
+function welcome(){
+  let name = 'Вася'
+  
+  console.log("Welcome, " + name)
+}
+welcome()
+
+function sumTwo(a:number, b:number){
+  return a - b
+}
+console.log(sumTwo(10,5))
+
+let userName = 'Вася';
+
+function showMessage() {
+  let message = 'Привет, ' + userName;
+  console.log(message);
+}
+
+showMessage(); 
+
+function ffR(a:number, name:string){
+  return name + a
+}
+console.log(ffR(2, 'Da'))
+
