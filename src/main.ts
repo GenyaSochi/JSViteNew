@@ -2246,11 +2246,9 @@ const bigGreen = new CssClass('bigGreen')
 const docDiv = document.getElementById('he') as HTMLDivElement
 bigGreen.setStyle("color", "pink")
 bigGreen.setStyle("color", "blueviolet")
-bigGreen.setStyle("font-size", "80px")
+bigGreen.setStyle("font-size", "60px")
 bigGreen.setStyle("font-family", "Times New Roman")
-console.log(bigGreen.getCss())
-bigGreen.removeProperty("font-family")
-bigGreen.removeProperty("color")
+bigGreen.setStyle("margin","10px")
 console.log(bigGreen.getCss())
 
 const block = document.getElementById('block') as HTMLDivElement
