@@ -2235,11 +2235,9 @@ class HtmlBlock {
     this.styles = styles
     this.element = element
   }
- 
-
+  
   getCode() {
-   
-    
+    return block.innerHTML += `<p style="${this.styles}"${this.element}></p>`    
   }
 }
 
@@ -2247,18 +2245,20 @@ const docCss = document.getElementById('st') as HTMLDivElement
 const bigGreen = new CssClass('bigGreen')
 const docDiv = document.getElementById('he') as HTMLDivElement
 bigGreen.setStyle("color", "pink")
-bigGreen.setStyle("color", "violet")
-bigGreen.setStyle("font-size", "40px")
+bigGreen.setStyle("color", "blueviolet")
+bigGreen.setStyle("font-size", "80px")
 bigGreen.setStyle("font-family", "Times New Roman")
 console.log(bigGreen.getCss())
 bigGreen.removeProperty("font-family")
 bigGreen.removeProperty("color")
 console.log(bigGreen.getCss())
 
-const block = new HtmlBlock([bigGreen,],wrapper)
+const block = document.getElementById('block') as HTMLDivElement
+// const block = new HtmlBlock([bigGreen,],wrapper)
 
 docCss.innerHTML += bigGreen.getCss()
 docDiv.innerHTML = wrapper.getHtml()
+console.log(HtmlBlock)
 
 //02.05.2024 Date.LearnJS.
 //1.Создайте дату.
@@ -2436,10 +2436,12 @@ function showMessage() {
   console.log(message);
 }
 
+
 showMessage(); 
 
 function ffR(a:number, name:string){
-  return name + a
+  return name.length + a
 }
 console.log(ffR(2, 'Da'))
+
 
