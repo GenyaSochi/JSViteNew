@@ -2115,17 +2115,16 @@ class HtmlElement {
 
 const wrapper = new HtmlElement('div')
 wrapper.setAtribute('id', 'wrapper')
-wrapper.setStyle('display', 'flex')
+wrapper.setAtribute('class', 'wrap')
 const div = new HtmlElement('div')
-div.setStyle('width', '300px')
-div.setStyle('margin', '10px')
+div.setAtribute('class', 'block')
 const h3 = new HtmlElement('h3', 'Lorem')
 const img = new HtmlElement('img')
-img.setStyle('width', '100%')
+img.setAtribute('class', 'img')
 img.setAtribute('src', 'vite.svg')
 img.setAtribute('alt', 'Lorem')
 const p = new HtmlElement('p', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla assumenda inventore voluptas natus obcaecati mollitia ad eos adipisci delectus quia odit, earum culpa sunt, molestiae doloribus in explicabo! Illo, harum!')
-p.setStyle('text-align', 'justify')
+p.setAtribute('class', 'text')
 const a = new HtmlElement('a', 'More...')
 a.setAtribute('href', 'https://www.lipsum.com/')
 a.setAtribute('target', '_blank')
@@ -2237,13 +2236,14 @@ class HtmlBlock {
   }
   
   getCode() {
-    return block.innerHTML += `<p style="${this.styles}"${this.element}></p>`    
+    return {styles:this.styles.map(el=>el.getCss()).join('\n'),
+    html: this.element.getHtml()}
   }
 }
 
 const docCss = document.getElementById('st') as HTMLDivElement
-const bigGreen = new CssClass('bigGreen')
 const docDiv = document.getElementById('he') as HTMLDivElement
+const bigGreen = new CssClass('bigGreen')
 bigGreen.setStyle("color", "pink")
 bigGreen.setStyle("color", "blueviolet")
 bigGreen.setStyle("font-size", "60px")
@@ -2251,12 +2251,27 @@ bigGreen.setStyle("font-family", "Times New Roman")
 bigGreen.setStyle("margin","10px")
 console.log(bigGreen.getCss())
 
-const block = document.getElementById('block') as HTMLDivElement
-// const block = new HtmlBlock([bigGreen,],wrapper)
+const wrapClass = new CssClass('wrap')
+wrapClass.setStyle("display", "flex")
 
-docCss.innerHTML += bigGreen.getCss()
+const blockClass = new CssClass('block')
+blockClass.setStyle("width", "300px")
+blockClass.setStyle("margin", "10px")
+
+const imgClass = new CssClass('img')
+imgClass.setStyle("width", "100%")
+imgClass.setStyle("color", "blueviolet")
+
+const textClass = new CssClass('text')
+textClass.setStyle("text-align", "justify")
+
+const block = new HtmlBlock([wrapClass,blockClass,imgClass,textClass],wrapper)
+
+docCss.innerHTML = bigGreen.getCss()
 docDiv.innerHTML = wrapper.getHtml()
-console.log(HtmlBlock)
+const blockCode =  block.getCode()
+docCss.innerHTML = blockCode.styles
+docDiv.innerHTML = blockCode.html
 
 //02.05.2024 Date.LearnJS.
 //1.Создайте дату.
