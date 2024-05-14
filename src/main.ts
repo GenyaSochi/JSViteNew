@@ -2267,10 +2267,10 @@ textClass.setStyle("text-align", "justify")
 
 const block = new HtmlBlock([wrapClass,blockClass,imgClass,textClass],wrapper)
 
-docCss.innerHTML = bigGreen.getCss()
+docCss.innerHTML += bigGreen.getCss()
 docDiv.innerHTML = wrapper.getHtml()
 const blockCode =  block.getCode()
-docCss.innerHTML = blockCode.styles
+docCss.innerHTML += blockCode.styles
 docDiv.innerHTML = blockCode.html
 
 //02.05.2024 Date.LearnJS.
