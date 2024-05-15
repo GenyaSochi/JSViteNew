@@ -2234,10 +2234,12 @@ class HtmlBlock {
     this.styles = styles
     this.element = element
   }
-  
+
   getCode() {
-    return {styles:this.styles.map(el=>el.getCss()).join('\n'),
-    html: this.element.getHtml()}
+    return {
+      styles: this.styles.map(el => el.getCss()).join('\n'),
+      html: this.element.getHtml()
+    }
   }
 }
 
@@ -2248,7 +2250,7 @@ bigGreen.setStyle("color", "pink")
 bigGreen.setStyle("color", "blueviolet")
 bigGreen.setStyle("font-size", "60px")
 bigGreen.setStyle("font-family", "Times New Roman")
-bigGreen.setStyle("margin","10px")
+bigGreen.setStyle("margin", "10px")
 console.log(bigGreen.getCss())
 
 const wrapClass = new CssClass('wrap')
@@ -2265,11 +2267,11 @@ imgClass.setStyle("color", "blueviolet")
 const textClass = new CssClass('text')
 textClass.setStyle("text-align", "justify")
 
-const block = new HtmlBlock([wrapClass,blockClass,imgClass,textClass],wrapper)
+const block = new HtmlBlock([wrapClass, blockClass, imgClass, textClass], wrapper)
 
 docCss.innerHTML += bigGreen.getCss()
 docDiv.innerHTML = wrapper.getHtml()
-const blockCode =  block.getCode()
+const blockCode = block.getCode()
 docCss.innerHTML += blockCode.styles
 docDiv.innerHTML = blockCode.html
 
@@ -2377,7 +2379,7 @@ function formatDate(date: Date) {
   } else if (diffHour < 1) {
     return `${diffMin} мин. назад`
   } else {
-    return `${dayOfMonth.toString().padStart(2,'0')}.${month.toString().padStart(2,'0')}.${year.toString().slice(-2)} ${hour.toString().padStart(2,'0')}:${minutes.toString().padStart(2,'0')}`
+    return `${dayOfMonth.toString().padStart(2, '0')}.${month.toString().padStart(2, '0')}.${year.toString().slice(-2)} ${hour.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`
   }
 }
 console.log(formatDate(new Date(+new Date() - 1)))
@@ -2402,4 +2404,18 @@ date = new Date(2024, 5, 6)
 date.setFullYear(2017)
 console.log(date)
 //________________________________________________________
+
+//Замыкание.
+let users = [
+  { name: "Иван", age: 20, surname: "Иванов" },
+  { name: "Пётр", age: 18, surname: "Петров" },
+  { name: "Анна", age: 19, surname: "Каренина" }
+]
+console.log(users)
+function byField(fieldName: any){
+users.sort(fieldName.name((a:any,b:any)=>a.name > b.name ?  1 : -1))
+users.sort(fieldName.age((a:any,b:any)=>a.age > b.age ?  1 : -1))
+}
+console.log(byField)
+
 
