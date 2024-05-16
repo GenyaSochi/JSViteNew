@@ -2413,10 +2413,16 @@ let users = [
 ]
 console.log(users)
 
-function byField(fieldName: any) {
-  users.sort(fieldName.name((a: any, b: any) => a.name.localeCompare > b.name.localeCompare ? 1 : -1))
-  users.sort(fieldName.age((a: any, b: any) => a.age > b.age ? 1 : -1))
- console.log(byField(fieldName))
+function byField(key: string, arr:any) {
+  if (typeof arr[0][key]=='number') {
+    return (a: any, b: any) => a[key]-b[key]
+  }
+  return (a: any, b: any) => a[key].localeCompare(b[key])
 }
-console.log(byField)
+
+users.sort(byField('name', users))
+console.log(users)
+
+users.sort(byField('age', users))
+console.log(users)
 
