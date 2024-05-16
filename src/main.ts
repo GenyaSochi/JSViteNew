@@ -2412,10 +2412,11 @@ let users = [
   { name: "Анна", age: 19, surname: "Каренина" }
 ]
 console.log(users)
-function byField(fieldName: any){
-users.sort(fieldName.name((a:any,b:any)=>a.name > b.name ?  1 : -1))
-users.sort(fieldName.age((a:any,b:any)=>a.age > b.age ?  1 : -1))
+
+function byField(fieldName: any) {
+  users.sort(fieldName.name((a: any, b: any) => a.name.localeCompare > b.name.localeCompare ? 1 : -1))
+  users.sort(fieldName.age((a: any, b: any) => a.age > b.age ? 1 : -1))
+ console.log(byField(fieldName))
 }
 console.log(byField)
-
 
