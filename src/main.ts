@@ -2413,9 +2413,9 @@ let users = [
 ]
 console.log(users)
 
-function byField(key: string, arr:any) {
-  if (typeof arr[0][key]=='number') {
-    return (a: any, b: any) => a[key]-b[key]
+function byField(key: string, arr: any) {
+  if (typeof arr[0][key] == 'number') {
+    return (a: any, b: any) => a[key] - b[key]
   }
   return (a: any, b: any) => a[key].localeCompare(b[key])
 }
@@ -2425,4 +2425,45 @@ console.log(users)
 
 users.sort(byField('age', users))
 console.log(users)
+
+//DZ_5.
+//Задание 1.Реализовать класс, описывающий простой маркер. В классе должны быть следующие компоненты:
+//■ поле, которое хранит цвет маркера;
+//■ поле, которое хранит количество чернил в маркере (в процентах);
+//■ метод для печати (метод принимает строку и выводит текст соответствующим цветом; текст выводится до тех
+//пор, пока в маркере есть чернила; один не пробельный символ – это 0,5% чернил в маркере).
+//Реализовать класс, описывающий заправляющийся маркер, унаследовав его от простого маркера и добавив метод для 
+//заправки маркера. Продемонстрировать работу написанных методов.
+
+class Marker {
+  colour: string
+  ink: number
+  text: string
+  constructor(colour: string, ink: number, text: string) {
+    this.colour = colour
+    this.ink = ink
+    this.text = text
+  }
+  print(str: string) {
+    for (let el of str) {
+      if (el != ' ') {
+        return this.text + this.ink + 0.5
+      }
+    }
+  }
+}
+console.log('Привет!!!')
+
+const markerDiv = document.getElementById('marker') as HTMLDivElement
+const freshMarker = new CssClass('freshMarker')
+freshMarker.setStyle("color", "blue")
+freshMarker.setStyle("font-size", "60px")
+freshMarker.setStyle("font-family", "Times New Roman")
+freshMarker.setStyle("opacity", "0.5%")
+console.log(freshMarker.getCss())
+console.log(markerDiv)
+
+markerDiv.innerHTML += freshMarker.getCss()
+console.log(Marker)
+
 
