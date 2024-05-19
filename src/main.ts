@@ -2447,23 +2447,33 @@ class Marker {
   print(str: string) {
     for (let el of str) {
       if (el != ' ') {
-        return this.text + this.ink + 0.5
-      }
+        return `${this.text} + ${this.ink} style="color: ${this.colour}"`  
+      }else if(el == str){
+        +this.text - this.ink
+        return `${this.text} + ${this.ink} style="opasity: 0.5; color: ${this.colour}"`
+      }else
+      return 'Заправьте чернила'    
     }
-  }
+  }    
 }
-console.log('Привет!!!')
-
+  
 const markerDiv = document.getElementById('marker') as HTMLDivElement
-const freshMarker = new CssClass('freshMarker')
-freshMarker.setStyle("color", "blue")
+const markerSpan = document.getElementById('mk') as HTMLDivElement
+const freshMarker = new HtmlElement('div')
+const spanMarker =  new HtmlElement('span','text')
 freshMarker.setStyle("font-size", "60px")
 freshMarker.setStyle("font-family", "Times New Roman")
-freshMarker.setStyle("opacity", "0.5%")
-console.log(freshMarker.getCss())
+spanMarker.setStyle("color", "blue")
+spanMarker.setStyle("opacity", "0.5")
+div.append(freshMarker)
+div.prepend(spanMarker)
+
+console.log(freshMarker)
+console.log(spanMarker)
 console.log(markerDiv)
+console.log(markerSpan)
+// markerDiv.innerHTML += freshMarker.setStyle
+// markerSpan.innerHTML += spanMarker.setStyle
 
-markerDiv.innerHTML += freshMarker.getCss()
+
 console.log(Marker)
-
-
