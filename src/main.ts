@@ -2445,17 +2445,17 @@ class Marker {
     this.ink = ink
     this.text = text
   }
-  // getPrint(str: string) {
-  //   for (let el of str) {
-  //     if (el != ' ') {
-  //       return `${this.text} + ${this.ink} style="color: ${this.colour}"`  
-  //     }else if(el == str){
-  //       +this.text - this.ink
-  //       return `${this.text} + ${this.ink} style="opasity: 0.5; color: ${this.colour}"`
-  //     }else
-  //     return 'Заправьте чернила'    
-  //   }
-  // }    
+  getPrint(str: string) {
+    for (let el of str) {
+      if (el != ' ') {
+        return `${this.text} + ${this.ink} style="color: ${this.colour}"`  
+      }else if(el == str){
+        +this.text - this.ink
+        return `${this.text} + ${this.ink} style="opasity: 0.5; color: ${this.colour}"`
+      }else
+      return 0 
+    }
+  }    
 }
 console.log('Marker')
 const markerDiv = document.getElementById('marker') as HTMLDivElement
