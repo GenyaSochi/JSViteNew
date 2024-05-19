@@ -2465,6 +2465,8 @@ freshMarker.setStyle("font-size", "60px")
 freshMarker.setStyle("font-family", "Times New Roman")
 spanMarker.setStyle("color", "blue")
 spanMarker.setStyle("opacity", "0.5")
+const span = new HtmlElement('span')
+span.setStyle('opacity', '1')
 div.append(freshMarker)
 div.prepend(spanMarker)
 
