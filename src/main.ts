@@ -1694,7 +1694,7 @@ function renderText(mass: ({ color: string; width?: undefined; height?: undefine
   throw new Error('Function not implemented.')
 }
 console.log(renderText)
-console.log(mass)
+
 
 //PZ.СТРОКИ.
 //1.Написать функцию, которая принимает 2 строки и сравнивает их длину. Функция возвращает 1, если в первой
@@ -2457,13 +2457,13 @@ class Marker {
     }
   }    
 }
-  
+console.log('Marker')
 const markerDiv = document.getElementById('marker') as HTMLDivElement
 const markerSpan = document.getElementById('mk') as HTMLDivElement
 const freshMarker = new HtmlElement('div')
 const spanMarker =  new HtmlElement('span','text')
 const mark = new CssClass('mark')
-mark.setStyle("color", "blue")
+spanMarker.setStyle("color", "pink")
 mark.setStyle("font-size", "60px")
 mark.setStyle("font-family", "Times New Roman")
 mark.setStyle("opacity", "0.5")
