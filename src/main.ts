@@ -2445,39 +2445,76 @@ class Marker {
     this.ink = ink
     this.text = text
   }
-  getPrint(str: string) {
+  markerPrint(str: string) {
     for (let el of str) {
       if (el != ' ') {
-        return `${this.text} + ${this.ink} style="color: ${this.colour}"`  
-      }else if(el == str){
-        +this.text - this.ink
-        return `${this.text} + ${this.ink} style="opasity: 0.5; color: ${this.colour}"`
-      }else
-      return 0 
+        return `${this.text} + ${this.colour}`
+      }
     }
-  }    
+  }
 }
-console.log('Marker')
-const markerDiv = document.getElementById('marker') as HTMLDivElement
-const markerSpan = document.getElementById('mk') as HTMLDivElement
-const freshMarker = new HtmlElement('div')
-const spanMarker =  new HtmlElement('span','text')
-const mark = new CssClass('mark')
-spanMarker.setStyle("color", "pink")
-mark.setStyle("font-size", "60px")
-mark.setStyle("font-family", "Times New Roman")
-mark.setStyle("opacity", "0.5")
-const span = new HtmlElement('span')
-span.setStyle('opacity', '1')
-div.append(freshMarker)
-div.prepend(spanMarker)
+class refuelMarker extends Marker {
+  refuelInk(){
+    if(this.ink == 0){
+      console.log(`${this.ink} + ${this.colour}`)  
+    }
+  }  
+}
+console.log(refuelMarker)
 
-markerDiv.innerHTML += freshMarker.setStyle
-markerSpan.innerHTML += spanMarker.setStyle
-console.log(freshMarker)
-console.log(spanMarker)
-console.log(markerDiv)
-console.log(markerSpan)
+const mark = document.getElementById('mark') as HTMLStyleElement
+console.log(mark)
 
-console.log(mark.getCss())
-console.log(Marker)
+
+
+
+
+
+
+
+// class Marker {
+//   colour: string
+//   ink: number
+//   text: string
+//   constructor(colour: string, ink: number, text: string) {
+//     this.colour = colour
+//     this.ink = ink
+//     this.text = text
+//   }
+//   markerPrint(str: string) {
+//     for (let el of str) {
+//       if (el != ' ') {
+//         return `${this.text} + ${this.ink} style="color: ${this.colour}"`
+//       }else if(el == str){
+//         +this.text - this.ink
+//         return `${this.text} + ${this.ink} style="opasity: 0.5; color: ${this.colour}"`
+//       }else
+//       return 0
+//     }
+//   }
+// }
+
+// console.log('Marker')
+// const markerDiv = document.getElementById('marker') as HTMLDivElement
+// const markerSpan = document.getElementById('mk') as HTMLDivElement
+// const freshMarker = new HtmlElement('div')
+// const spanMarker =  new HtmlElement('span','text')
+// const mark = new CssClass('mark')
+// spanMarker.setStyle("color", "pink")
+// mark.setStyle("font-size", "60px")
+// mark.setStyle("font-family", "Times New Roman")
+// mark.setStyle("opacity", "0.5")
+// const span = new HtmlElement('span')
+// span.setStyle('opacity', '1')
+// div.append(freshMarker)
+// div.prepend(spanMarker)
+
+// markerDiv.innerHTML += freshMarker.setStyle
+// markerSpan.innerHTML += spanMarker.setStyle
+// console.log(freshMarker)
+// console.log(spanMarker)
+// console.log(markerDiv)
+// console.log(markerSpan)
+
+// console.log(mark.getCss())
+// console.log(Marker)
