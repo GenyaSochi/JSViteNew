@@ -2465,56 +2465,22 @@ console.log(refuelMarker)
 const mark = document.getElementById('mark') as HTMLStyleElement
 console.log(mark)
 
+const markerDiv = document.getElementById('marker') as HTMLDivElement
+const markerSpan = document.getElementById('mk') as HTMLDivElement
+const freshMarker = new HtmlElement('div')
+const spanMarker =  new HtmlElement('span','text')
+const span = new HtmlElement('span')
+spanMarker.setStyle("color", "pink")
+span.setStyle('opacity', '1')
+div.append(freshMarker)
+div.prepend(spanMarker)
+
+markerDiv.innerHTML += freshMarker.setStyle
+markerSpan.innerHTML += spanMarker.setStyle
+console.log(freshMarker)
+console.log(spanMarker)
+console.log(markerDiv)
+console.log(markerSpan)
 
 
 
-
-
-
-
-// class Marker {
-//   colour: string
-//   ink: number
-//   text: string
-//   constructor(colour: string, ink: number, text: string) {
-//     this.colour = colour
-//     this.ink = ink
-//     this.text = text
-//   }
-//   markerPrint(str: string) {
-//     for (let el of str) {
-//       if (el != ' ') {
-//         return `${this.text} + ${this.ink} style="color: ${this.colour}"`
-//       }else if(el == str){
-//         +this.text - this.ink
-//         return `${this.text} + ${this.ink} style="opasity: 0.5; color: ${this.colour}"`
-//       }else
-//       return 0
-//     }
-//   }
-// }
-
-// console.log('Marker')
-// const markerDiv = document.getElementById('marker') as HTMLDivElement
-// const markerSpan = document.getElementById('mk') as HTMLDivElement
-// const freshMarker = new HtmlElement('div')
-// const spanMarker =  new HtmlElement('span','text')
-// const mark = new CssClass('mark')
-// spanMarker.setStyle("color", "pink")
-// mark.setStyle("font-size", "60px")
-// mark.setStyle("font-family", "Times New Roman")
-// mark.setStyle("opacity", "0.5")
-// const span = new HtmlElement('span')
-// span.setStyle('opacity', '1')
-// div.append(freshMarker)
-// div.prepend(spanMarker)
-
-// markerDiv.innerHTML += freshMarker.setStyle
-// markerSpan.innerHTML += spanMarker.setStyle
-// console.log(freshMarker)
-// console.log(spanMarker)
-// console.log(markerDiv)
-// console.log(markerSpan)
-
-// console.log(mark.getCss())
-// console.log(Marker)
