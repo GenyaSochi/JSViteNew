@@ -2439,48 +2439,27 @@ console.log(users)
 class Marker {
   colour: string
   ink: number
-  text: string
-  constructor(colour: string, ink: number, text: string) {
+  constructor(colour: string, ink: number) {
     this.colour = colour
     this.ink = ink
-    this.text = text
   }
   markerPrint(str: string) {
+    let html = ''
+    str = str.toUpperCase()
     for (let el of str) {
-      if (el != ' ') {
-        return `${this.text} + ${this.colour}`
-      }
+      html+=`<span style="color:${this.colour};opacity:${this.ink/100}">${el}</span>`
+      if (el != ' ') this.ink-=0.5
     }
+    return html
   }
 }
 class refuelMarker extends Marker {
   refuelInk(){
-    if(this.ink == 0){
-      console.log(`${this.ink} + ${this.colour}`)  
-    }
+    this.ink = 100
   }  
 }
-console.log(refuelMarker)
-
-const mark = document.getElementById('mark') as HTMLStyleElement
-console.log(mark)
-
+const refMarker = new refuelMarker('green',100)
 const markerDiv = document.getElementById('marker') as HTMLDivElement
-const markerSpan = document.getElementById('mk') as HTMLDivElement
-const freshMarker = new HtmlElement('div')
-const spanMarker =  new HtmlElement('span','text')
-const span = new HtmlElement('span')
-spanMarker.setStyle("color", "pink")
-span.setStyle('opacity', '1')
-div.append(freshMarker)
-div.prepend(spanMarker)
-
-markerDiv.innerHTML += freshMarker.setStyle
-markerSpan.innerHTML += spanMarker.setStyle
-console.log(freshMarker)
-console.log(spanMarker)
-console.log(markerDiv)
-console.log(markerSpan)
-
+markerDiv.innerHTML = refMarker.markerPrint('dgkjjfdkgjkfd dgkjjfdkgjkfd dgkjjfdkgjkfd dgkjjfdkgjkfd  dgkjjfdkgjkfddgkjjfdkgjkfd dgkjjfdkgjkfd')
 
 
