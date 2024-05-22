@@ -2447,19 +2447,39 @@ class Marker {
     let html = ''
     str = str.toUpperCase()
     for (let el of str) {
-      html+=`<span style="color:${this.colour};opacity:${this.ink/100}">${el}</span>`
-      if (el != ' ') this.ink-=0.5
+      html += `<span style="color:${this.colour};opacity:${this.ink / 100}">${el}</span>`
+      if (el != ' ') this.ink -= 0.5
     }
     return html
   }
 }
 class refuelMarker extends Marker {
-  refuelInk(){
+  refuelInk() {
     this.ink = 100
-  }  
+  }
 }
-const refMarker = new refuelMarker('green',100)
+const refMarker = new refuelMarker('green', 100)
 const markerDiv = document.getElementById('marker') as HTMLDivElement
 markerDiv.innerHTML = refMarker.markerPrint('dgkjjfdkgjkfd dgkjjfdkgjkfd dgkjjfdkgjkfd dgkjjfdkgjkfd  dgkjjfdkgjkfddgkjjfdkgjkfd dgkjjfdkgjkfd')
+
+
+//Реализуйте класс ExtendedDate, унаследовав его от стандартного класса Date и добавив следующие возможности:
+//■ метод для вывода даты (числа и месяца) текстом;
+//■ метод для проверки – это прошедшая дата или будущая
+//(если прошедшая, то метод возвращает false; если будущая или текущая, то true);
+//■ метод для проверки – високосный год или нет;
+//■ метод, возвращающий следующую дату.
+//Создайте объект класса ExtendedDate и выведите на экран результаты работы новых методов.
+
+class ExtendedDate extends Date {
+  textDate(date: Date) {
+    let day = ['первое', 'второе', 'третье', 'четвертое', 'пятое', 'шестое', 'седьмое']
+    let month = ['январь', 'февраль', 'март', 'апрель', 'май', 'июнь', 'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь']
+    return (day[date.getDate()] + month[date.getMonth()])
+  }
+}
+date = new Date
+console.log(ExtendedDate.toString())
+console.log(day.toString())
 
 
