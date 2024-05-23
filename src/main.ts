@@ -2472,17 +2472,14 @@ markerDiv.innerHTML = refMarker.markerPrint('dgkjjfdkgjkfd dgkjjfdkgjkfd dgkjjfd
 //Создайте объект класса ExtendedDate и выведите на экран результаты работы новых методов.
 
 class ExtendedDate extends Date {
-  textDate(date: Date) {
-    let day = ['первое', 'второе', 'третье', 'четвертое', 'пятое', 'шестое', 'седьмое','восьмое','девятое','десятое']
-   
-      return day[date.getDate()].toString()
-    
+  textDate(date: Date) {  
+    let days = ['первое', 'второе', 'третье', 'четвертое', 'пятое', 'шестое', 'седьмое', 'восьмое', 'девятое', 'десятое']
+    return days[date.getDate() + 1]   
   }
 }
-date = new Date()
 
+date = new Date()
 console.log(day.toString())
 console.log(day.toDateString())
-console.log(date.toDateString())
-
+console.log(ExtendedDate)
 
