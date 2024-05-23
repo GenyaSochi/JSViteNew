@@ -2289,7 +2289,7 @@ function getWeekDay(date: Date) {
   let dateWeek = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС']
   return dateWeek[date.getDate() + 1]
 }
-let date = new Date(2024, 5, 3)
+let date = new Date(2024, 5, 2)
 console.log(getWeekDay(date))
 
 //3.День недели в европейской нумерации.
@@ -2473,13 +2473,16 @@ markerDiv.innerHTML = refMarker.markerPrint('dgkjjfdkgjkfd dgkjjfdkgjkfd dgkjjfd
 
 class ExtendedDate extends Date {
   textDate(date: Date) {
-    let day = ['первое', 'второе', 'третье', 'четвертое', 'пятое', 'шестое', 'седьмое']
-    let month = ['январь', 'февраль', 'март', 'апрель', 'май', 'июнь', 'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь']
-    return (day[date.getDate()] + month[date.getMonth()])
+    let day = ['первое', 'второе', 'третье', 'четвертое', 'пятое', 'шестое', 'седьмое','восьмое','девятое','десятое']
+   
+      return day[date.getDate()].toString()
+    
   }
 }
-date = new Date
-console.log(ExtendedDate.toString())
+date = new Date()
+
 console.log(day.toString())
+console.log(day.toDateString())
+console.log(date.toDateString())
 
 
