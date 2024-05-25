@@ -2472,18 +2472,31 @@ markerDiv.innerHTML = refMarker.markerPrint('dgkjjfdkgjkfd dgkjjfdkgjkfd dgkjjfd
 //Создайте объект класса ExtendedDate и выведите на экран результаты работы новых методов.
 
 class ExtendedDate extends Date {
-  textDate() {  
+  textDate() {
     let days = [
       'первое', 'второе', 'третье', 'четвертое', 'пятое', 'шестое', 'седьмое', 'восьмое', 'девятое', 'десятое',
-      'первое', 'второе', '1третье', 'четвертое', '1пятое', 'шестое', 'седьмое', 'восьмое', 'девятое', 'десятое',
-      'первое', 'второе', '2третье', 'четвертое', '2пятое', 'шестое', 'седьмое', 'восьмое', 'девятое', 'десятое',
+      'одинадцатое', 'двенадцатое', 'тринадцатое', 'четырнадцатое', 'пятнадцатое', 'шестнадцатое', 'семнадцатое', 'восемнадцатое', 'девятнадцатое', 'двадцатое',
+      'двадцать первое', 'двадцать второе', 'двадцать трете', 'двадцать четвертое', 'двадцать пятое', 'двадцать шестое', 'двадцать седьмое', 'двадцать восьмое',
+      'двадцать девятое', 'тридцатое', 'тридцать первое'
     ]
-    return days[this.getDate() - 1]   
+    let month = [
+      'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря', 'января', 'февраля', 'марта', 'апреля', 'мая',
+    ]
+    return days[this.getDate() - 1] + ' ' + month[this.getMonth()]
+  }
+  checkDate() {
+    let day = new Date
+    if (day < this) { 
+      return false
+    } else {
+      return true
+    }
   }
 }
-
+const today = new ExtendedDate()
 const myDate = new ExtendedDate()
 console.log(date.toString())
 console.log(date.toDateString())
 console.log(myDate.textDate())
+console.log(today.checkDate())
 
