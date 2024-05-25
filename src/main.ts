@@ -2486,11 +2486,18 @@ class ExtendedDate extends Date {
   }
   checkDate() {
     let day = new Date
-    if (day < this) { 
+    if (day < this) {
       return false
     } else {
       return true
     }
+  }
+  leapYear() {
+    let year = 2024
+    console.log('Введите год', year)
+    if (year % 400 == 0 || year % 4 == 0 || year % 100 == 0) {
+      console.log('Год високосный')
+    } else console.log('Год не високосный')
   }
 }
 const today = new ExtendedDate()
