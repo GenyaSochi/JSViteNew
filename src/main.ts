@@ -1469,19 +1469,20 @@ myObj.innerHTML = 'Привет, пользователь!'
 type Employees = {
   name: string,
   department: string,
+  age: number
   salary: number,
 }
 const employees: Employees[] = [
-  { name: 'Федотова Арина Глебовна', department: 'ads', salary: 2100 },
-  { name: 'Голикова Мария Филипповна', department: 'prog', salary: 3500 },
-  { name: 'Панин Александр Германович', department: 'ads', salary: 2100 },
-  { name: 'Романов Эмиль Макарович', department: 'prog', salary: 3100 },
-  { name: 'Смирнов Никита Александрович', department: 'prog', salary: 3800 },
-  { name: 'Александрова Майя Вячеславовна', department: 'prog', salary: 4500 },
-  { name: 'Крылов Богдан Максимович', department: 'disign', salary: 2100 },
-  { name: 'Мухина Айша Константиновна', department: 'disign', salary: 2100 },
-  { name: 'Кошкин Богдан Максимович', department: 'buh', salary: 2200 },
-  { name: 'Муразова Айша Константиновна', department: 'buh', salary: 2300 },
+  { name: 'Федотова Арина Глебовна', department: 'ads', age: 20, salary: 2100 },
+  { name: 'Голикова Мария Филипповна', department: 'prog', age: 22, salary: 3500 },
+  { name: 'Панин Александр Германович', department: 'ads', age: 27, salary: 2100 },
+  { name: 'Романов Эмиль Макарович', department: 'prog', age: 20, salary: 3100 },
+  { name: 'Смирнов Никита Александрович', department: 'prog', age: 28, salary: 3800 },
+  { name: 'Александрова Майя Вячеславовна', department: 'prog', age: 22, salary: 4500 },
+  { name: 'Крылов Богдан Максимович', department: 'disign', age: 27, salary: 2100 },
+  { name: 'Мухина Айша Константиновна', department: 'disign', age: 30, salary: 2100 },
+  { name: 'Кошкин Богдан Максимович', department: 'buh', age: 29, salary: 2200 },
+  { name: 'Муразова Айша Константиновна', department: 'buh', age: 30, salary: 2300 },
 ]
 function showEmployees(arr: Employees[], i = -1) {
   if (i > -1 && i < arr.length) {
@@ -2522,3 +2523,46 @@ console.log(myNext.nextDate())
 //Реализовать класс EmpTable для генерации html кода таблицы со списком работников банка. Массив работников необходимо
 //передавать через конструктор, а получать html код с помощью метода getHtml().
 //Создать объект класса EmpTable и вывести на экран результат работы метода getHtml().
+
+class Employee {
+  name: string | undefined
+  department: string | undefined
+  age: number | undefined
+  salary: number | undefined
+  employees: Employees[] = [
+    { name: 'Федотова Арина Глебовна', department: 'ads', age: 20, salary: 2100 },
+    { name: 'Голикова Мария Филипповна', department: 'prog', age: 22, salary: 3500 },
+    { name: 'Панин Александр Германович', department: 'ads', age: 27, salary: 2100 },
+    { name: 'Романов Эмиль Макарович', department: 'prog', age: 20, salary: 3100 },
+    { name: 'Смирнов Никита Александрович', department: 'prog', age: 28, salary: 3800 },
+    { name: 'Александрова Майя Вячеславовна', department: 'prog', age: 22, salary: 4500 },
+    { name: 'Крылов Богдан Максимович', department: 'disign', age: 27, salary: 2100 },
+    { name: 'Мухина Айша Константиновна', department: 'disign', age: 30, salary: 2100 },
+    { name: 'Кошкин Богдан Максимович', department: 'buh', age: 29, salary: 2200 },
+    { name: 'Муразова Айша Константиновна', department: 'buh', age: 30, salary: 2300 },
+  ]
+  constructor(name: string, department: string, age: number, salary: number, employees: []) {
+    this.name = name
+    this.department = department
+    this.age = age
+    this.salary = salary
+    this.employees = employees
+  }
+  getHtml() {
+    for (let el of arr) {
+      html += `${this.name} ${this.department} ${this.age} ${this.salary} ${el}`
+    }
+    return html
+  }
+}
+class EmpTable {
+  employee = new Object()
+  html = ''
+  }
+
+
+
+
+
+
+
