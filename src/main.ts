@@ -2493,17 +2493,26 @@ class ExtendedDate extends Date {
     }
   }
   leapYear() {
-    let year = 2024
-    console.log('Введите год', year)
-    if (year % 400 == 0 || year % 4 == 0 || year % 100 == 0) {
+    let year = new Date()
+    if (year.getTime() % 1 == 0 || year.getTime() % 2 == 0 || year.getTime() % 3 == 0 || year.getTime() % 6 == 0 ||
+      year.getTime() % 6 == 0 || year.getTime() % 61 == 0 || year.getTime() % 122 == 0 || year.getTime() % 183 == 0 || year.getTime() % 366 == 0) {
       console.log('Год високосный')
-    } else console.log('Год не високосный')
+    } else
+      console.log('Год не високосный')
+  }
+  nextDate() {
+    date = new Date()
+    date.setDate(date.getDate() + 1)
+    console.log(date)
   }
 }
 const today = new ExtendedDate()
 const myDate = new ExtendedDate()
+const myYear = new ExtendedDate()
+const myNext = new ExtendedDate()
 console.log(date.toString())
 console.log(date.toDateString())
 console.log(myDate.textDate())
 console.log(today.checkDate())
-
+console.log(myYear.leapYear())
+console.log(myNext.nextDate()) 
