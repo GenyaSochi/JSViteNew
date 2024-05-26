@@ -2463,7 +2463,7 @@ const markerDiv = document.getElementById('marker') as HTMLDivElement
 markerDiv.innerHTML = refMarker.markerPrint('dgkjjfdkgjkfd dgkjjfdkgjkfd dgkjjfdkgjkfd dgkjjfdkgjkfd  dgkjjfdkgjkfddgkjjfdkgjkfd dgkjjfdkgjkfd')
 
 
-//Реализуйте класс ExtendedDate, унаследовав его от стандартного класса Date и добавив следующие возможности:
+//Задание 2.Реализуйте класс ExtendedDate, унаследовав его от стандартного класса Date и добавив следующие возможности:
 //■ метод для вывода даты (числа и месяца) текстом;
 //■ метод для проверки – это прошедшая дата или будущая
 //(если прошедшая, то метод возвращает false; если будущая или текущая, то true);
@@ -2515,4 +2515,10 @@ console.log(date.toDateString())
 console.log(myDate.textDate())
 console.log(today.checkDate())
 console.log(myYear.leapYear())
-console.log(myNext.nextDate()) 
+console.log(myNext.nextDate())
+
+
+//Задание 3.Реализовать класс Employee, описывающий работника, и создать массив работников банка.
+//Реализовать класс EmpTable для генерации html кода таблицы со списком работников банка. Массив работников необходимо
+//передавать через конструктор, а получать html код с помощью метода getHtml().
+//Создать объект класса EmpTable и вывести на экран результат работы метода getHtml().
