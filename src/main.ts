@@ -2558,8 +2558,15 @@ class Employee {
 class EmpTable {
   employee = new Object()
   html = ''
-  }
+}
+const emp = new EmpTable
+console.log(emp.html)
+console.log(emp.employee)
 
+//Задание 4.Реализовать класс StyledEmpTable, который наследуется от класса EmpTable. Добавить метод getStyles(), который возвращает
+//строку со стилями для таблицы в тегах style. Переопределить метод getHtml(), который добавляет стили к тому, что возвращает
+// метод getHtml() из родительского класса. Создать объект класса StyledEmpTable и вывести на экран
+//результат работы метода getHtml().
 
 
 
