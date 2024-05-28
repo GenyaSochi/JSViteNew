@@ -2557,7 +2557,7 @@ class EmpTable {
   }
   getHtml() {
     let html = '<table><thead>'
-    html += `<tr><th>Имя</th><th>department</th><th>age</th><th>salary</th></tr></thead><tbody>`
+    html += `<tr><th>Имя</th><th>Отдел</th><th>Возраст</th><th>Заработная плата</th></tr></thead><tbody>`
     for (let el of this.arr) {
       html += `<tr><td>${el.name}</td><td>${el.department}</td><td>${el.age}</td><td>${el.salary}</td></tr>`
     }
