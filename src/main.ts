@@ -2543,17 +2543,12 @@ const employees1 = [
   new Employee('Голикова Мария Филипповна', 'prog', 22, 3500),
   new Employee('Панин Александр Германович', 'ads', 27, 2100), 
   new Employee('Романов Эмиль Макарович', 'prog', 30, 3100),
-  { name: 'Смирнов Никита Александрович', department: 'prog', age: 28, salary: 3800 },
-  new Employee('Федотова Арина Глебовна', 'ads', 20, 2100),
-  { name: 'Александрова Майя Вячеславовна', department: 'prog', age: 22, salary: 4500 },
-  new Employee('Федотова Арина Глебовна', 'ads', 20, 2100),
-  { name: 'Крылов Богдан Максимович', department: 'disign', age: 27, salary: 2100 },
-  new Employee('Федотова Арина Глебовна', 'ads', 20, 2100),
-  { name: 'Мухина Айша Константиновна', department: 'disign', age: 30, salary: 2100 },
-  new Employee('Федотова Арина Глебовна', 'ads', 20, 2100),
-  { name: 'Кошкин Богдан Максимович', department: 'buh', age: 29, salary: 2200 },
-  new Employee('Федотова Арина Глебовна', 'ads', 20, 2100),
-  { name: 'Муразова Айша Константиновна', department: 'buh', age: 30, salary: 2300 },
+  new Employee('Смирнов Никита Александрович', 'prog', 28, 3800),
+  new Employee('Александрова Майя Вячеславовна', 'ads', 25, 2900),
+  new Employee('Крылов Богдан Максимович', 'disign', 27, 2500),
+  new Employee('Мухина Айша Константиновна', 'disign', 30, 2100), 
+  new Employee('Кошкин Богдан Максимович', 'buh', 29, 2200),
+  new Employee('Муразова Айша Константиновна', 'buh', 30, 2300),
 ]
 class EmpTable {
   arr:Employee[]
