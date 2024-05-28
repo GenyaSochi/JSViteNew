@@ -1511,7 +1511,7 @@ console.log(uniqueDepartment(employees))
 // 2.2. Написать функцию, принимающую массив работников и ключ объекта, по которому сделать сортировку массива
 // Учесть, что строковые параметры сортируются при помощи метода localeCompare, а числовые,- вычитанием
 
-function sortEmployees(arr: Employees[], key: 'name' | 'department' | 'salary') {
+function sortEmployees(arr: Employees[], key: 'name' | 'department' | 'age' | 'salary') {
   return arr.sort((a, b) => {
     if (a[key] > b[key]) return 1
     if (a[key] < b[key]) return -1
@@ -1520,10 +1520,11 @@ function sortEmployees(arr: Employees[], key: 'name' | 'department' | 'salary') 
 }
 console.log(sortEmployees(employees, 'name'))
 console.log(sortEmployees(employees, 'department'))
+console.log(sortEmployees(employees, 'age'))
 console.log(sortEmployees(employees, 'salary'))
 
 // 2.3. Написать функцию, аналогичную описанной в задании 2.2., но сортирующую в обратном порядке
-function sortReversEmployees(arr: Employees[], key: 'name' | 'department' | 'salary') {
+function sortReversEmployees(arr: Employees[], key: 'name' | 'department' | 'age' | 'salary') {
   return arr.sort((a, b) => {
     if (a[key] < b[key]) return 1
     if (a[key] > b[key]) return -1
@@ -1532,7 +1533,9 @@ function sortReversEmployees(arr: Employees[], key: 'name' | 'department' | 'sal
 }
 console.log(sortReversEmployees(employees, 'name'))
 console.log(sortReversEmployees(employees, 'department'))
+console.log(sortReversEmployees(employees, 'age'))
 console.log(sortReversEmployees(employees, 'salary'))
+
 
 // 2.4. Написать функцию, принимающую массив работников и имя, и возвращающую объект сотрудника или undefined
 
@@ -1589,7 +1592,7 @@ console.log(uniqueDep(employees))//Задание дублируется с 2.1
 // function sortEmpl(arr, key: 'name' | 'department' |'salary') {
 // }
 
-function sortEmpl(arr: Employees[], key: 'name' | 'department' | 'salary') {//дубль 2.2 + localeCompare
+function sortEmpl(arr: Employees[], key: 'name' | 'department' | 'age' | 'salary') {//дубль 2.2 + localeCompare
   if (key == 'name' || key == 'department') {
     arr.sort((a, b) => a[key].localeCompare(b[key]))
   } else {
@@ -1602,7 +1605,7 @@ sortEmpl(employees, 'department')
 
 // 3.3. Написать функцию, аналогичную описанной в задании 3.2., но сортирующую в обратном порядке
 
-function sortBackEmpl(arr: Employees[], key: 'name' | 'department' | 'salary') {
+function sortBackEmpl(arr: Employees[], key: 'name' | 'department' | 'age' | 'salary') {
   sortEmpl(arr, key)
   arr.reverse()
 }
@@ -2495,11 +2498,10 @@ class ExtendedDate extends Date {
   }
   leapYear() {
     let year = new Date()
-    if (year.getTime() % 1 == 0 || year.getTime() % 2 == 0 || year.getTime() % 3 == 0 || year.getTime() % 6 == 0 ||
-      year.getTime() % 6 == 0 || year.getTime() % 61 == 0 || year.getTime() % 122 == 0 || year.getTime() % 183 == 0 || year.getTime() % 366 == 0) {
-      console.log('Год високосный')
+    if (year.getFullYear() % 400 == 0 || (year.getFullYear() % 4 == 0 && year.getFullYear() % 100 != 0)) {
+      return true
     } else
-      console.log('Год не високосный')
+      return false
   }
   nextDate() {
     date = new Date()
@@ -2529,39 +2531,48 @@ class Employee {
   department: string | undefined
   age: number | undefined
   salary: number | undefined
-  employees: Employees[] = [
-    { name: 'Федотова Арина Глебовна', department: 'ads', age: 20, salary: 2100 },
-    { name: 'Голикова Мария Филипповна', department: 'prog', age: 22, salary: 3500 },
-    { name: 'Панин Александр Германович', department: 'ads', age: 27, salary: 2100 },
-    { name: 'Романов Эмиль Макарович', department: 'prog', age: 20, salary: 3100 },
-    { name: 'Смирнов Никита Александрович', department: 'prog', age: 28, salary: 3800 },
-    { name: 'Александрова Майя Вячеславовна', department: 'prog', age: 22, salary: 4500 },
-    { name: 'Крылов Богдан Максимович', department: 'disign', age: 27, salary: 2100 },
-    { name: 'Мухина Айша Константиновна', department: 'disign', age: 30, salary: 2100 },
-    { name: 'Кошкин Богдан Максимович', department: 'buh', age: 29, salary: 2200 },
-    { name: 'Муразова Айша Константиновна', department: 'buh', age: 30, salary: 2300 },
-  ]
-  constructor(name: string, department: string, age: number, salary: number, employees: []) {
+  constructor(name: string, department: string, age: number, salary: number) {
     this.name = name
     this.department = department
     this.age = age
     this.salary = salary
-    this.employees = employees
+  }
+}
+const employees1 = [
+  new Employee('Федотова Арина Глебовна', 'ads', 20, 2100),
+  new Employee('Голикова Мария Филипповна', 'prog', 22, 3500),
+  new Employee('Панин Александр Германович', 'ads', 27, 2100), 
+  new Employee('Романов Эмиль Макарович', 'prog', 30, 3100),
+  { name: 'Смирнов Никита Александрович', department: 'prog', age: 28, salary: 3800 },
+  new Employee('Федотова Арина Глебовна', 'ads', 20, 2100),
+  { name: 'Александрова Майя Вячеславовна', department: 'prog', age: 22, salary: 4500 },
+  new Employee('Федотова Арина Глебовна', 'ads', 20, 2100),
+  { name: 'Крылов Богдан Максимович', department: 'disign', age: 27, salary: 2100 },
+  new Employee('Федотова Арина Глебовна', 'ads', 20, 2100),
+  { name: 'Мухина Айша Константиновна', department: 'disign', age: 30, salary: 2100 },
+  new Employee('Федотова Арина Глебовна', 'ads', 20, 2100),
+  { name: 'Кошкин Богдан Максимович', department: 'buh', age: 29, salary: 2200 },
+  new Employee('Федотова Арина Глебовна', 'ads', 20, 2100),
+  { name: 'Муразова Айша Константиновна', department: 'buh', age: 30, salary: 2300 },
+]
+class EmpTable {
+  arr:Employee[]
+  constructor(arr:Employee[]) {
+    this.arr = arr
   }
   getHtml() {
-    for (let el of arr) {
-      html += `${this.name} ${this.department} ${this.age} ${this.salary} ${el}`
+    let html = '<table><thead>'
+    html += `<tr><th>Имя</th><th>department</th><th>age</th><th>salary</th></tr></thead><tbody>`
+    for (let el of this.arr) {
+      html += `<tr><td>${el.name}</td><td>${el.department}</td><td>${el.age}</td><td>${el.salary}</td></tr>`
     }
+    html += '</tbody></table>'
     return html
   }
 }
-class EmpTable {
-  employee = new Object()
-  html = ''
-}
-const emp = new EmpTable
-console.log(emp.html)
-console.log(emp.employee)
+const emp = new EmpTable(employees1)
+const empTableDiv = document.querySelector('#empTable') as HTMLDivElement
+empTableDiv.innerHTML = emp.getHtml()
 
 //Задание 4.Реализовать класс StyledEmpTable, который наследуется от класса EmpTable. Добавить метод getStyles(), который возвращает
 //строку со стилями для таблицы в тегах style. Переопределить метод getHtml(), который добавляет стили к тому, что возвращает
