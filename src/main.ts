@@ -2577,7 +2577,58 @@ empTableDiv.innerHTML = emp.getHtml()
 
 
 
+//Изменение документа./
+//Напишите интерфейс для создания списка.
 
-let www = 6
-console.dir(www)
+// Для каждого пункта:
+
+// Запрашивайте содержимое пункта у пользователя с помощью prompt.
+// Создавайте элемент <li> и добавляйте его к <ul>.
+// Продолжайте до тех пор, пока пользователь не отменит ввод (нажатием клавиши Esc или введя пустую строку).
+// Все элементы должны создаваться динамически.
+
+// Если пользователь вводит HTML-теги, они должны обрабатываться как текст.
+{
+  const input = document.querySelector('#toDo input') as HTMLInputElement
+  const button = document.querySelector('#toDo button') as HTMLInputElement
+  const list = document.querySelector('#toDo ul') as HTMLUListElement
+
+  button.addEventListener('click', ()=>{
+    list.insertAdjacentHTML('beforeend', `<li></li>`)
+    if (list.lastElementChild) list.lastElementChild.textContent = input.value.trim()
+    // const li = document.createElement('li')
+    // li.textContent = input.value.trim()
+    // list.append(li)
+    input.value = ''
+    input.focus()
+  })
+}
+
+//Напишите функцию createTree, которая создаёт вложенный список ul/li из объекта.
+
+let data = {
+  "Рыбы": {
+    "форель": {},
+    "лосось": {}
+  },
+
+  "Деревья": {
+    "Огромные": {
+      "секвойя": {},
+      "дуб": {}
+    },
+    "Цветковые": {
+      "яблоня": {},
+      "магнолия": {}
+    }
+  }
+} as Record<string,any>
+
+let container = document.querySelector('#tree ul') as HTMLUListElement
+
+function createTree(container:HTMLUListElement, data:Record<string,any>) {
+
+}
+
+createTree(container, data)
 
