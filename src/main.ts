@@ -2506,7 +2506,7 @@ class ExtendedDate extends Date {
   nextDate() {
     date = new Date()
     date.setDate(date.getDate() + 1)
-    console.log(date)
+    console.log(date)   
   }
 }
 const today = new ExtendedDate()
@@ -2519,6 +2519,7 @@ console.log(myDate.textDate())
 console.log(today.checkDate())
 console.log(myYear.leapYear())
 console.log(myNext.nextDate())
+
 
 
 //Задание 3.Реализовать класс Employee, описывающий работника, и создать массив работников банка.
@@ -2561,7 +2562,7 @@ class EmpTable {
     for (let el of this.arr) {
       html += `<tr><td>${el.name}</td><td>${el.department}</td><td>${el.age}</td><td>${el.salary}</td></tr>`
     }
-    html += '</tbody></table>'
+    html += '</tbody></table><br>'
     return html
   }
 }
@@ -2579,9 +2580,7 @@ empTableDiv.innerHTML = emp.getHtml()
 
 //Изменение документа./
 //Напишите интерфейс для создания списка.
-
 // Для каждого пункта:
-
 // Запрашивайте содержимое пункта у пользователя с помощью prompt.
 // Создавайте элемент <li> и добавляйте его к <ul>.
 // Продолжайте до тех пор, пока пользователь не отменит ввод (нажатием клавиши Esc или введя пустую строку).
@@ -2611,7 +2610,6 @@ let data = {
     "форель": {},
     "лосось": {}
   },
-
   "Деревья": {
     "Огромные": {
       "секвойя": {},
@@ -2622,13 +2620,24 @@ let data = {
       "магнолия": {}
     }
   }
-} as Record<string,any>
+} as Record<string, any>
 
-let container = document.querySelector('#tree ul') as HTMLUListElement
+let container = document.querySelector('#container ul') as HTMLUListElement
 
-function createTree(container:HTMLUListElement, data:Record<string,any>) {
-
+function createTree(container: HTMLUListElement, data: Record<string, any>) {
+  for (let key in data) {
+    if (Object.keys(data[key]).length) {
+      const li = document.createElement('li')
+      li.innerHTML = `${key}<ul></ul>`
+      container.append(li)
+      const ul = li.querySelector('ul') as HTMLUListElement
+      createTree(ul, data[key]) 
+    } else {
+      container.insertAdjacentHTML('beforeend', `<li>${key}</li>`)
+    }
+  }
 }
-
 createTree(container, data)
+
+console.log(data)
 
