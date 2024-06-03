@@ -2638,6 +2638,8 @@ function createTree(container: HTMLUListElement, data: Record<string, any>) {
   }
 }
 createTree(container, data)
-
 console.log(data)
 
+//Напишите код для выбора элемента с атрибутом data-widget-name из документа и прочитайте его значение.
+let elem = document.querySelector('[data-widget-name]')
+console.log(elem?.getAttribute('data-widget-name'))
