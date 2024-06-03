@@ -2645,7 +2645,6 @@ let elem = document.querySelector('[data-widget-name]')
 console.log(elem?.getAttribute('data-widget-name'))
 
 //Сделайте все внешние ссылки оранжевыми, изменяя их свойство style.
-
 // найти все ссылки, атрибут href у которых содержит :// и при этом href не начинается с http://internal.com
 
 let selector = 'a[href*="://"]:not([href^="http://internal.com"])'
