@@ -2506,7 +2506,7 @@ class ExtendedDate extends Date {
   nextDate() {
     date = new Date()
     date.setDate(date.getDate() + 1)
-    console.log(date)   
+    console.log(date)
   }
 }
 const today = new ExtendedDate()
@@ -2542,18 +2542,18 @@ class Employee {
 const employees1 = [
   new Employee('Федотова Арина Глебовна', 'ads', 20, 2100),
   new Employee('Голикова Мария Филипповна', 'prog', 22, 3500),
-  new Employee('Панин Александр Германович', 'ads', 27, 2100), 
+  new Employee('Панин Александр Германович', 'ads', 27, 2100),
   new Employee('Романов Эмиль Макарович', 'prog', 30, 3100),
   new Employee('Смирнов Никита Александрович', 'prog', 28, 3800),
   new Employee('Александрова Майя Вячеславовна', 'ads', 25, 2900),
   new Employee('Крылов Богдан Максимович', 'disign', 27, 2500),
-  new Employee('Мухина Айша Константиновна', 'disign', 30, 2100), 
+  new Employee('Мухина Айша Константиновна', 'disign', 30, 2100),
   new Employee('Кошкин Богдан Максимович', 'buh', 29, 2200),
   new Employee('Муразова Айша Константиновна', 'buh', 30, 2300),
 ]
 class EmpTable {
-  arr:Employee[]
-  constructor(arr:Employee[]) {
+  arr: Employee[]
+  constructor(arr: Employee[]) {
     this.arr = arr
   }
   getHtml() {
@@ -2592,7 +2592,7 @@ empTableDiv.innerHTML = emp.getHtml()
   const button = document.querySelector('#toDo button') as HTMLInputElement
   const list = document.querySelector('#toDo ul') as HTMLUListElement
 
-  button.addEventListener('click', ()=>{
+  button.addEventListener('click', () => {
     list.insertAdjacentHTML('beforeend', `<li></li>`)
     if (list.lastElementChild) list.lastElementChild.textContent = input.value.trim()
     // const li = document.createElement('li')
@@ -2631,7 +2631,7 @@ function createTree(container: HTMLUListElement, data: Record<string, any>) {
       li.innerHTML = `${key}<ul></ul>`
       container.append(li)
       const ul = li.querySelector('ul') as HTMLUListElement
-      createTree(ul, data[key]) 
+      createTree(ul, data[key])
     } else {
       container.insertAdjacentHTML('beforeend', `<li>${key}</li>`)
     }
@@ -2643,3 +2643,11 @@ console.log(data)
 //Напишите код для выбора элемента с атрибутом data-widget-name из документа и прочитайте его значение.
 let elem = document.querySelector('[data-widget-name]')
 console.log(elem?.getAttribute('data-widget-name'))
+
+//Сделайте все внешние ссылки оранжевыми, изменяя их свойство style.
+
+// найти все ссылки, атрибут href у которых содержит :// и при этом href не начинается с http://internal.com
+
+let selector = 'a[href*="://"]:not([href^="http://internal.com"])'
+let links = document.querySelectorAll(selector) as NodeListOf<HTMLAnchorElement>
+links.forEach(link => link.style.color = 'orange') 
