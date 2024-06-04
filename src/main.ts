@@ -2657,19 +2657,9 @@ links.forEach(link => link.style.color = 'orange')
 
 //Напишите функцию showNotification(options), которая создаёт уведомление: <div class="notification"> 
 //с заданным содержимым. Уведомление должно автоматически исчезнуть через 1,5 секунды.
-type options = {
-  top?: number,
-  right?: number,
-  html?: string,
-  className?: string
-}
 
 function showNotification({ top = 0, right = 0, className = '', html = '' }) {
-  // if (!options.top) options.top = 0
-  // if (!options.right) options.right = 0
-  // if (!options.html) options.html = ''
-  // if (!options.class) options.class = ''
-
+ 
   let notification = document.createElement('div')
   notification.className = "notification"
   notification.classList.add("notification")
@@ -2682,7 +2672,6 @@ function showNotification({ top = 0, right = 0, className = '', html = '' }) {
   document.body.append(notification)
   notification.innerHTML = html
   setTimeout(() => notification.remove(), 1500)
-
 }
 {
 let i = 1
