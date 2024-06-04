@@ -2685,7 +2685,7 @@ function showNotification({ top = 0, right = 0, className = '', html = '' }) {
 
 }
 {
-let i = 1;
+let i = 1
 setInterval(() => {
   showNotification({
     top: 30,
