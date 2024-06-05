@@ -2684,3 +2684,79 @@ setInterval(() => {
   })
 }, 2000)
 }
+
+
+let textNode = document.createTextNode('div')//Создаёт новый элемент с заданным тегом.
+document.createTextNode(text)//Создаёт новый текстовый узел с заданным текстом.
+textNode = document.createTextNode('А вот и я')
+console.log(textNode)
+
+{
+  let div = document.createElement('div')//div с классом alert и HTML в нём
+  div.className = "alert"
+  div.innerHTML = "<strong>Всем привет!</strong> Вы прочитали важное сообщение."
+  //Чтобы наш div появился, нам нужно вставить его где-нибудь в document. Например, в document.body.
+  //Для этого есть метод append.
+  document.body.append(div)
+  console.log(div.innerHTML)
+}
+//Вот методы для различных вариантов вставки:
+
+// node.append(...nodes or strings) – добавляет узлы или строки в конец node,
+// node.prepend(...nodes or strings) – вставляет узлы или строки в начало node,
+// node.before(...nodes or strings) –- вставляет узлы или строки до node,
+// node.after(...nodes or strings) –- вставляет узлы или строки после node,
+// node.replaceWith(...nodes or strings) –- заменяет node заданными узлами или строками.
+
+//Пример:
+{
+  let ol= document.createElement('ol')
+  ol.before('before'); // вставить строку "before" перед <ol>
+  ol.after('after'); // вставить строку "after" после <ol>
+  let liFirst = document.createElement('li');
+  liFirst.innerHTML = 'prepend';
+  ol.prepend(liFirst); // вставить liFirst в начало <ol>
+
+  let liLast = document.createElement('li');
+  liLast.innerHTML = 'append';
+  ol.append(liLast); // вставить liLast в конец <ol>
+}
+
+//?если мы хотим вставить HTML именно «как html», со всеми тегами и прочим, как делает это elem.innerHTML
+
+//elem.insertAdjacentHTML(where, html)
+//Первый параметр – это специальное слово, указывающее, куда по отношению к elem производить вставку. Значение должно быть одним из следующих:
+"beforebegin" //вставить html непосредственно перед elem,
+"afterbegin" // вставить html в начало elem,
+"beforeend" // вставить html в конец elem,
+"afterend" // вставить html непосредственно после elem.
+//Второй параметр – это HTML-строка, которая будет вставлена именно «как HTML».
+//У метода есть два брата:
+//elem.insertAdjacentText(where, text) – такой же синтаксис, но строка text вставляется «как текст», вместо HTML,
+//elem.insertAdjacentElement(where, elem) – такой же синтаксис, но вставляет элемент elem.
+//Они существуют, в основном, чтобы унифицировать синтаксис. На практике часто используется только insertAdjacentHTML.
+// Потому что для элементов и текста у нас есть методы //?append/prepend/before/after – их быстрее написать, и они могут вставлять как узлы, так и текст.
+
+//Для удаления узла есть //? методы node.remove()
+
+//document.body.append(div);
+//setTimeout(() => div.remove(), 1000) сообщение удаляется через секунду.
+
+//? давайте поменяем местами элементы:
+//second.after(first); // берёт #second и после него вставляет #first
+
+//?Клонирование узлов
+//elem.cloneNode(true)лон элемента – со всеми атрибутами и дочерними элементами
+//elem.cloneNode(false), тогда клон будет без дочерних элементов.
+
+//?DocumentFragment является специальным DOM-узлом, который служит обёрткой для передачи списков узлов. Редко используется.
+// let fragment = new DocumentFragment()
+
+//Методы для создания узлов:
+
+//?document.createElement(tag) – создаёт элемент с заданным тегом,
+//?document.createTextNode(value) – создаёт текстовый узел (редко используется),
+//?elem.cloneNode(deep) – клонирует элемент, если deep==true, то со всеми дочерними элементами.
+
+// добавить HTML на страницу до завершения её загрузки:
+//document.write(html)
