@@ -2659,7 +2659,7 @@ links.forEach(link => link.style.color = 'orange')
 //с заданным содержимым. Уведомление должно автоматически исчезнуть через 1,5 секунды.
 
 function showNotification({ top = 0, right = 0, className = '', html = '' }) {
- 
+
   let notification = document.createElement('div')
   notification.className = "notification"
   notification.classList.add("notification")
@@ -2674,15 +2674,15 @@ function showNotification({ top = 0, right = 0, className = '', html = '' }) {
   setTimeout(() => notification.remove(), 1500)
 }
 {
-let i = 1
-setInterval(() => {
-  showNotification({
-    top: 30,
-    right: 30,
-    html: 'Hello ' + i++,
-    className: "welcome"
-  })
-}, 2000)
+  let i = 1
+  setInterval(() => {
+    showNotification({
+      top: 30,
+      right: 30,
+      html: 'Hello ' + i++,
+      className: "welcome"
+    })
+  }, 2000)
 }
 
 
@@ -2700,7 +2700,7 @@ console.log(textNode)
   document.body.append(div)
   console.log(div.innerHTML)
 }
-//Вот методы для различных вариантов вставки:
+//?Вот методы для различных вариантов вставки:
 
 // node.append(...nodes or strings) – добавляет узлы или строки в конец node,
 // node.prepend(...nodes or strings) – вставляет узлы или строки в начало node,
@@ -2710,7 +2710,7 @@ console.log(textNode)
 
 //Пример:
 {
-  let ol= document.createElement('ol')
+  let ol = document.createElement('ol')
   ol.before('before'); // вставить строку "before" перед <ol>
   ol.after('after'); // вставить строку "after" после <ol>
   let liFirst = document.createElement('li');
@@ -2760,3 +2760,56 @@ console.log(textNode)
 
 // добавить HTML на страницу до завершения её загрузки:
 //document.write(html)
+
+
+//Напишите код, который добавит каждому элементу списка <li> количество вложенных в него элементов. Узлы нижнего уровня, без детей – пропускайте.
+
+  data = {
+    "Животные": {
+      "Млекопитающие": {
+        "Коровы": {},
+        "Ослы": {},
+        "Собаки": {},
+        "Тигры": {}
+      },
+      "Другие": {
+        "Змеи": {},
+        "Птицы": {},
+        "Ящерицы": {}
+      }
+    },
+    "Рыбы": {
+      "Аквариумные": {
+        "Гуппи": {},
+        "Скалярии": {}
+      },
+      "Морские": {
+        "Морская форель": {}
+      }
+    }
+
+  } as Record<string, any>
+
+  let animals = document.querySelector('#animals ul') as HTMLUListElement
+
+  function createAnimals(animals: HTMLUListElement, data: Record<string, any>) {
+    for (let key in data) {
+      if (Object.keys(data[key]).length) {
+        const li = document.createElement('li')
+        li.innerHTML = `${key}<ul></ul>`
+        animals.append(li)
+        const ul = li.querySelector('ul') as HTMLUListElement
+        createAnimals(ul, data[key])
+
+      } else {
+        container.insertAdjacentHTML('beforeend', `<li>${key}</li>`)
+      }
+    }
+    
+  }
+
+  createAnimals(animals, data)
+
+
+
+
