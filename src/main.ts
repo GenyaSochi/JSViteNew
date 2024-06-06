@@ -2805,8 +2805,9 @@ function createAnimals(container: HTMLUListElement, data: Record<string, any>) {
   for (let key in data)
     if (key == `li`) {
       let descendantsCount = data.getElementsByTagName('li').length//descendantsCount считаем потомков
-      if (!descendantsCount) continue //продолжаем
-      console.log(descendantsCount)
+      if (!descendantsCount) continue //продолжаем          
+      data.firstChild.li += ' [' + descendantsCount + ']' // добавить непосредственно к текстовому узлу (добавить к тексту)
+      // li.firstChild.data += ' [' + descendantsCount + ']'       
     }
 }
 createAnimals(container, data)
