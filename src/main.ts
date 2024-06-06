@@ -2764,52 +2764,49 @@ console.log(textNode)
 
 //Напишите код, который добавит каждому элементу списка <li> количество вложенных в него элементов. Узлы нижнего уровня, без детей – пропускайте.
 
-  data = {
-    "Животные": {
-      "Млекопитающие": {
-        "Коровы": {},
-        "Ослы": {},
-        "Собаки": {},
-        "Тигры": {}
-      },
-      "Другие": {
-        "Змеи": {},
-        "Птицы": {},
-        "Ящерицы": {}
-      }
+data = {
+  "Животные": {
+    "Млекопитающие": {
+      "Коровы": {},
+      "Ослы": {},
+      "Собаки": {},
+      "Тигры": {}
     },
-    "Рыбы": {
-      "Аквариумные": {
-        "Гуппи": {},
-        "Скалярии": {}
-      },
-      "Морские": {
-        "Морская форель": {}
-      }
+    "Другие": {
+      "Змеи": {},
+      "Птицы": {},
+      "Ящерицы": {}
     }
-
-  } as Record<string, any>
-
-  let animals = document.querySelector('#animals ul') as HTMLUListElement
-
-  function createAnimals(animals: HTMLUListElement, data: Record<string, any>) {
-    for (let key in data) {
-      if (Object.keys(data[key]).length) {
-        const li = document.createElement('li')
-        li.innerHTML = `${key}<ul></ul>`
-        animals.append(li)
-        const ul = li.querySelector('ul') as HTMLUListElement
-        createAnimals(ul, data[key])
-
-      } else {
-        container.insertAdjacentHTML('beforeend', `<li>${key}</li>`)
-      }
+  },
+  "Рыбы": {
+    "Аквариумные": {
+      "Гуппи": {},
+      "Скалярии": {}
+    },
+    "Морские": {
+      "Морская форель": {}
     }
-    
   }
+} as Record<string, any>
 
-  createAnimals(animals, data)
-
-
-
-
+container = document.querySelector('#animals ul') as HTMLUListElement
+function createAnimals(container: HTMLUListElement, data: Record<string, any>) {
+  for (let key in data) {
+    if (Object.keys(data[key]).length) {
+      const li = document.createElement('li')
+      li.innerHTML = `${key}<ul></ul>`
+      container.append(li)
+      const ul = li.querySelector('ul') as HTMLUListElement
+      createAnimals(ul, data[key])
+    } else {
+      container.insertAdjacentHTML('beforeend', `<li>${key}</li>`)
+    }
+  }
+  for (let key in data)
+    if (key == `li`) {
+      let descendantsCount = data.getElementsByTagName('li').length//descendantsCount считаем потомков
+      if (!descendantsCount) continue //продолжаем
+      console.log(descendantsCount)
+    }
+}
+createAnimals(container, data)
