@@ -2790,11 +2790,25 @@ data = {
 } as Record<string, any>
 
 container = document.querySelector('#animals ul') as HTMLUListElement
+
+function countObjects(data:any):number {
+  let sum = 0
+  for (let key in data) {
+    if (Object.keys(data[key]).length) {
+      sum += countObjects(data[key])
+    } else {
+      sum++
+    }
+  }
+  return sum
+}
+
 function createAnimals(container: HTMLUListElement, data: Record<string, any>) {
   for (let key in data) {
     if (Object.keys(data[key]).length) {
       const li = document.createElement('li')
-      li.innerHTML = `${key}<ul></ul>`
+      const count = countObjects(data[key])
+      li.innerHTML = `${key} [${count}]<ul></ul>`
       container.append(li)
       const ul = li.querySelector('ul') as HTMLUListElement
       createAnimals(ul, data[key])
@@ -2802,12 +2816,12 @@ function createAnimals(container: HTMLUListElement, data: Record<string, any>) {
       container.insertAdjacentHTML('beforeend', `<li>${key}</li>`)
     }
   }
-  for (let key in data)
-    if (key == `li`) {
-      let descendantsCount = data.getElementsByTagName('li').length//descendantsCount считаем потомков
-      if (!descendantsCount) continue //продолжаем          
-      data.firstChild.li += ' [' + descendantsCount + ']' // добавить непосредственно к текстовому узлу (добавить к тексту)
-      // li.firstChild.data += ' [' + descendantsCount + ']'       
-    }
 }
 createAnimals(container, data)
+const descendants = document.querySelectorAll('#animals li') as NodeListOf<HTMLLIElement>
+console.log(descendants.length)
+for (let li of descendants) {
+  const descendantsCount = li.querySelectorAll('li').length
+  if (!descendantsCount) continue //продолжаем          
+  li.firstChild!.textContent = li.firstChild!.textContent + ' [' + descendantsCount + ']'// добавить непосредственно к текстовому узлу (добавить к тексту)    
+}
