@@ -2075,6 +2075,9 @@ PrintMachine
 // и добавить его на страницу с помощью document.write().
 
 class HtmlElement {
+  innerHTML(innerHTML: any) {
+    throw new Error('Method not implemented.')
+  }
   tag: string
   isSingle: boolean
   text: string
@@ -2791,7 +2794,7 @@ data = {
 
 container = document.querySelector('#animals ul') as HTMLUListElement
 
-function countObjects(data:any):number {
+function countObjects(data: any): number {
   let sum = 0
   for (let key in data) {
     if (Object.keys(data[key]).length) {
@@ -2827,9 +2830,43 @@ for (let li of descendants) {
 }
 
 //Вариант 2.
-let liElement = document.querySelectorAll('#animals2 li')
-for (let li of liElement) {
-  if (li.querySelectorAll('li').length > 0) {
+{
+  let liElement = document.querySelectorAll('#animals2 li')
+  for (let li of liElement) {
+    if (li.querySelectorAll('li').length > 0) {
       li.firstChild!.nodeValue = `${li.firstChild!.textContent} [${li.querySelectorAll('li').length}]`
+    }
   }
 }
+//Создать каледарь в виде таблицы
+
+{
+let tableElem = document.querySelectorAll('#calendar')
+function createCalendar(elem:number, year: number, month: number){
+ const d = new Date(year, month-1)
+ d.getDay()
+}
+
+}
+
+
+
+
+
+// let html = '<table><thead>'
+// html += `<tr><th>Имя</th><th>Отдел</th><th>Возраст</th><th>Заработная плата</th></tr></thead><tbody>`
+// for (let el of this.arr) {
+//   html += `<tr><td>${el.name}</td><td>${el.department}</td><td>${el.age}</td><td>${el.salary}</td></tr>`
+// }
+// html += '</tbody></table><br>'
+// return html
+
+
+// let elemCal = document.querySelectorAll('#calendar')
+// let html = '<table><thead>'
+// html += `<tr><td>ПН</td><td>ВТ</td><td>СР</td><td>ЧТ</td><td>ПТ</td><td>СБ</td><td>ВС</td></tr></thead><tbody>`
+
+// html += '</tbody></table><br>'
+// elem.insertAdjacentHTML(elem, html)
+// return html
+// // 
