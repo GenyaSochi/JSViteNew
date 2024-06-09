@@ -38,6 +38,7 @@
   }
 </style>
 
+
 <body>
   <p class="bigGreen">test-test</p>
   <p class="bigRed">test</p>
@@ -156,6 +157,17 @@
     </ul>
   </div>
   <div id="calendar"></div>
+  <br>
+  <br>
+  <br>
+  
+  <div id="clock"> 
+  <!-- клик по этой кнопке вызовет clockStart() -->
+  <input id="start" type="button" onclick="clockStart()" value="Старт" style="width: 60px;">
+
+  <!-- клик по этой кнопке вызовет clockStop() -->
+  <input id="end" type="button" onclick="clockStop()" value="Стоп" style="width: 60px;">
+  </div>
 
 </body>
 

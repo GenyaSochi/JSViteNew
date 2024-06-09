@@ -2842,7 +2842,7 @@ for (let li of descendants) {
 //Создать каледарь в виде таблицы
 {
   let tableElem = document.getElementById('calendar') as HTMLTableElement
-  function createCalendar(elem: any, year: number, month: number) {  
+  function createCalendar(elem: any, year: number, month: number) {
     let mon = month - 1 // месяцы в JS идут от 0 до 11, а не от 1 до 12
     let d = new Date(year, mon)
     let table = '<table><tr><th>пн</th><th>вт</th><th>ср</th><th>чт</th><th>пт</th><th>сб</th><th>вс</th></tr><tr>'
@@ -2865,7 +2865,7 @@ for (let li of descendants) {
     }
     table += '</tr></table>'
     elem.innerHTML = table
-  }  
+  }
   function getDay(date: Date) { // получить номер дня недели, от 0 (пн) до 6 (вс)
     let day = date.getDay()
     if (day == 0) day = 7 // сделать воскресенье (0) последним днем
@@ -2874,5 +2874,23 @@ for (let li of descendants) {
   createCalendar(tableElem, 2024, 6)
 }
 
+//Создайте цветные часы.
 
+const newClock = document.getElementById('clock') as HTMLDivElement
+const buttonStart = document.getElementById('start') as HTMLButtonElement
+const buttonEnd = document.getElementById('end') as HTMLButtonElement
+
+function currentTime() {
+  let now = new Date()
+  let hours = new Date().getHours() 
+  let minutes = new Date().getMinutes() 
+  let seconds = new Date().getSeconds()
+
+  newClock.innerHTML = `<span id="hours" style="color: red"><b>${hours}</b></span>:
+  <span id="minutes" style="color: green"><b>${minutes}</b></span>:
+  <span id="seconds" style="color: blue"><b>${seconds}</b></span>`
+
+  setTimeout(currentTime, 1000)
+}
+currentTime()
 
