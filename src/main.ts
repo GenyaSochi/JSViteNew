@@ -2838,35 +2838,41 @@ for (let li of descendants) {
     }
   }
 }
+
 //Создать каледарь в виде таблицы
-
 {
-let tableElem = document.querySelectorAll('#calendar')
-function createCalendar(elem:number, year: number, month: number){
- const d = new Date(year, month-1)
- d.getDay()
+  let tableElem = document.getElementById('calendar') as HTMLTableElement
+  function createCalendar(elem: any, year: number, month: number) {  
+    let mon = month - 1 // месяцы в JS идут от 0 до 11, а не от 1 до 12
+    let d = new Date(year, mon)
+    let table = '<table><tr><th>пн</th><th>вт</th><th>ср</th><th>чт</th><th>пт</th><th>сб</th><th>вс</th></tr><tr>'
+    for (let i = 0; i < getDay(d); i++) {
+      table += '<td></td>'
+    }
+    while (d.getMonth() == mon) {
+      table += '<td>' + d.getDate() + '</td>'  // <td> ячейки календаря с датами
+
+      if (getDay(d) % 7 == 6) { // вс, последний день - перевод строки
+        table += '</tr><tr>'
+      }
+
+      d.setDate(d.getDate() + 1);
+    }
+    if (getDay(d) != 0) {
+      for (let i = getDay(d); i < 7; i++) {
+        table += '<td></td>'
+      }
+    }
+    table += '</tr></table>'
+    elem.innerHTML = table
+  }  
+  function getDay(date: Date) { // получить номер дня недели, от 0 (пн) до 6 (вс)
+    let day = date.getDay()
+    if (day == 0) day = 7 // сделать воскресенье (0) последним днем
+    return day - 1
+  }
+  createCalendar(tableElem, 2024, 6)
 }
 
-}
 
 
-
-
-
-// let html = '<table><thead>'
-// html += `<tr><th>Имя</th><th>Отдел</th><th>Возраст</th><th>Заработная плата</th></tr></thead><tbody>`
-// for (let el of this.arr) {
-//   html += `<tr><td>${el.name}</td><td>${el.department}</td><td>${el.age}</td><td>${el.salary}</td></tr>`
-// }
-// html += '</tbody></table><br>'
-// return html
-
-
-// let elemCal = document.querySelectorAll('#calendar')
-// let html = '<table><thead>'
-// html += `<tr><td>ПН</td><td>ВТ</td><td>СР</td><td>ЧТ</td><td>ПТ</td><td>СБ</td><td>ВС</td></tr></thead><tbody>`
-
-// html += '</tbody></table><br>'
-// elem.insertAdjacentHTML(elem, html)
-// return html
-// // 
