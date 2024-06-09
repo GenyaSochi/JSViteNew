@@ -2825,3 +2825,11 @@ for (let li of descendants) {
   if (!descendantsCount) continue //продолжаем          
   li.firstChild!.textContent = li.firstChild!.textContent + ' [' + descendantsCount + ']'// добавить непосредственно к текстовому узлу (добавить к тексту)    
 }
+
+//Вариант 2.
+let liElement = document.querySelectorAll('#animals2 li')
+for (let li of liElement) {
+  if (li.querySelectorAll('li').length > 0) {
+      li.firstChild!.nodeValue = `${li.firstChild!.textContent} [${li.querySelectorAll('li').length}]`
+  }
+}
