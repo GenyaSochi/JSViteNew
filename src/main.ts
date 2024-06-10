@@ -2876,8 +2876,10 @@ for (let li of descendants) {
 
 //Создайте цветные часы.
 
+const clock = document.getElementById('clock') as HTMLDivElement
+const buttonStart = document.getElementById('start') as HTMLButtonElement
+const buttonEnd = document.getElementById('end') as HTMLButtonElement
 function newDate() {
-  let clock = document.getElementById('clock') as HTMLDivElement
   let date = new Date()
   let hours = date.getHours()
   let minutes = date.getMinutes()
@@ -2892,8 +2894,6 @@ function newDate() {
     seconds = +'0' + seconds
   clock.children[2].innerHTML = seconds
 }
-const buttonStart = document.getElementById('start') as HTMLButtonElement
-const buttonEnd = document.getElementById('end') as HTMLButtonElement
 setInterval(newDate, 1000)
 buttonStart.onclick = function () {
   newDate()
