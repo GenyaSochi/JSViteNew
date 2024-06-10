@@ -2888,20 +2888,20 @@ function currentTime() {
   if (hours < 10) {
     hours = date.getHours()
     hours = +'0' + hours
-    newClock.children[0].innerHTML += hours
+    // newClock.children[0].innerHTML += hours
   }
   if (minutes < 10) {
     minutes = date.getMinutes()
     minutes = +'0' + minutes
-    newClock.children[1].innerHTML += minutes
+    // newClock.children[1].innerHTML += minutes
   }
   if (seconds < 10) {
     seconds = date.getSeconds()
     seconds = +'0' + seconds
-    newClock.children[2].innerHTML += seconds
+    // newClock.children[2].innerHTML += seconds
   }
   newClock.innerHTML =
-    `<span style="color: red"><b>${hours}</b></span>:<span style="color: green"><b>${minutes}</b></span>:<span style="color: blue"><b>${seconds}</b></span>`
+    `<span style="color:red"><b>${hours}</b></span>:<span style="color:green"><b>${minutes}</b></span>:<span style="color:blue"><b>${seconds}</b></span>`
   setTimeout(currentTime, 1000)
   buttonStart.innerHTML = `<span>${buttonStart}start</span>`
   buttonEnd.innerHTML = `<span>${buttonEnd}end</span>`
