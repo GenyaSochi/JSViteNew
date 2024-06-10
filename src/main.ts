@@ -2905,6 +2905,7 @@ function currentTime() {
   setTimeout(currentTime, 1000)
   buttonStart.innerHTML = `<span>${buttonStart}start</span>`
   buttonEnd.innerHTML = `<span>${buttonEnd}end</span>`
+
 }
 buttonStart.onclick = function () {
   currentTime()
@@ -2912,4 +2913,6 @@ buttonStart.onclick = function () {
 buttonEnd.onclick = function () {
   currentTime()
 }
+
+
 
