@@ -2075,7 +2075,7 @@ PrintMachine
 // и добавить его на страницу с помощью document.write().
 
 class HtmlElement {
-  innerHTML(innerHTML: any) {
+  innerHTML() {
     throw new Error('Method not implemented.')
   }
   tag: string
@@ -2876,43 +2876,32 @@ for (let li of descendants) {
 
 //Создайте цветные часы.
 
-const newClock = document.getElementById('clock') as HTMLDivElement
+function newDate() {
+  let clock = document.getElementById('clock') as HTMLDivElement
+  let date = new Date()
+  let hours = date.getHours()
+  let minutes = date.getMinutes()
+  let seconds = date.getSeconds()
+  if (hours < 10)
+    hours = +'0' + hours
+  clock.children[0].innerHTML = hours
+  if (minutes < 10)
+    minutes = +'0' + minutes
+  clock.children[1].innerHTML = minutes
+  if (seconds < 10)
+    seconds = +'0' + seconds
+  clock.children[2].innerHTML = seconds
+}
 const buttonStart = document.getElementById('start') as HTMLButtonElement
 const buttonEnd = document.getElementById('end') as HTMLButtonElement
-
-function currentTime() {
-  let date = new Date()
-  let hours = new Date().getHours()
-  let minutes = new Date().getMinutes()
-  let seconds = new Date().getSeconds()
-  if (hours < 10) {
-    hours = date.getHours()
-    hours = +'0' + hours
-    // newClock.children[0].innerHTML += hours
-  }
-  if (minutes < 10) {
-    minutes = date.getMinutes()
-    minutes = +'0' + minutes
-    // newClock.children[1].innerHTML += minutes
-  }
-  if (seconds < 10) {
-    seconds = date.getSeconds()
-    seconds = +'0' + seconds
-    // newClock.children[2].innerHTML += seconds
-  }
-  newClock.innerHTML =
-    `<span style="color:red"><b>${hours}</b></span>:<span style="color:green"><b>${minutes}</b></span>:<span style="color:blue"><b>${seconds}</b></span>`
-  setTimeout(currentTime, 1000)
-  buttonStart.innerHTML = `<span>${buttonStart}start</span>`
-  buttonEnd.innerHTML = `<span>${buttonEnd}end</span>`
-
-}
+setInterval(newDate, 1000)
 buttonStart.onclick = function () {
-  currentTime()
+  newDate()
 }
 buttonEnd.onclick = function () {
-  currentTime()
+  newDate()
 }
+
 
 
 
