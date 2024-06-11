@@ -2884,23 +2884,31 @@ function newDate() {
   let hours = date.getHours()
   let minutes = date.getMinutes()
   let seconds = date.getSeconds()
-  if (hours < 10)
-    hours = + '0' + hours
-  clock.children[0].innerHTML = hours + ""
-  if (minutes < 10)
-    minutes = + '0' + minutes
-  clock.children[1].innerHTML = minutes + ""
-  if (seconds < 10)
-    seconds = + '0' + seconds
-  clock.children[2].innerHTML = seconds + ""
+  clock.children[0].innerHTML = hours.toString().padStart(2, '0')
+  clock.children[1].innerHTML = minutes.toString().padStart(2, '0')
+  clock.children[2].innerHTML = seconds.toString().padStart(2, '0')
 }
-let timer = 0
-timer = setInterval(newDate, 1000)
+let timer = setInterval(newDate, 1000)
 buttonStart.onclick = function clockStart() {
-  newDate()
+  clearInterval(timer)
+  timer = setInterval(newDate, 1000)
 }
 buttonEnd.onclick = function clockStop() {
-  newDate()
+  clearInterval(timer)
 }
 
 
+//?Чтобы получить ширину/высоту окна, можно взять свойства clientWidth/clientHeight из document.documentElement
+//?window.innerWidth/Height Включают в себя полосу прокрутки.
+//?корневой элемент документа document.documentElement, который соответствует тегу <html>.
+//?Если есть полоса прокрутки, и она занимает какое-то место, то свойства clientWidth/clientHeight
+//? указывают на ширину/высоту документа без неё (за её вычетом).
+//? Ширина и высота документа.
+//let scrollHeight = Math.max(
+// document.body.scrollHeight, document.documentElement.scrollHeight,
+//document.body.offsetHeight, document.documentElement.offsetHeight,
+//  document.body.clientHeight, document.documentElement.clientHeight
+//)
+//?текущую прокрутку можно прочитать из свойств window.pageXOffset/pageYOffset То, где мы сейчас находимся.
+//?Обычные элементы хранят текущее состояние прокрутки в elem.scrollLeft/scrollTop, все окно.
+//?Обычные элементы можно прокручивать, изменяя scrollTop/scrollLeft
