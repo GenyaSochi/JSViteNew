@@ -2894,15 +2894,13 @@ function newDate() {
     seconds = + '0' + seconds
   clock.children[2].innerHTML = seconds + ""
 }
-let timer
+let timer = 0
 timer = setInterval(newDate, 1000)
-buttonStart.onclick = function () {
+buttonStart.onclick = function clockStart() {
   newDate()
 }
-buttonEnd.onclick = function () {
+buttonEnd.onclick = function clockStop() {
   newDate()
 }
-
-
 
 
