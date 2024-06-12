@@ -2905,9 +2905,9 @@ buttonEnd.onclick = function clockStop() {
 //? указывают на ширину/высоту документа без неё (за её вычетом).
 //? Ширина и высота документа.
 //let scrollHeight = Math.max(
-// document.body.scrollHeight, document.documentElement.scrollHeight,
+//document.body.scrollHeight, document.documentElement.scrollHeight,
 //document.body.offsetHeight, document.documentElement.offsetHeight,
-//  document.body.clientHeight, document.documentElement.clientHeight
+//document.body.clientHeight, document.documentElement.clientHeight
 //)
 //?текущую прокрутку можно прочитать из свойств window.pageXOffset/pageYOffset То, где мы сейчас находимся.
 //?Обычные элементы хранят текущее состояние прокрутки в elem.scrollLeft/scrollTop, все окно.
