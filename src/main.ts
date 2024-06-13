@@ -2980,12 +2980,33 @@ document.addEventListener('scroll', () => {
 
 
 //Скрыть элемент по нажатию кнопки.
+//Добавьте JavaScript к кнопке button, чтобы при нажатии элемент <div id="text"> исчезал.
 {
   const but = document.querySelector('#but') as HTMLButtonElement
   const butText = document.querySelector('#text') as HTMLDivElement
-  but.addEventListener('click', ()=>{
+  but.addEventListener('click', () => {
     butText.hidden = true
   })
 }
 
 //Спрятать себя.
+//Создайте кнопку, которая будет скрывать себя по нажатию.
+{
+  const hideBut = document.querySelector('#hideButton') as HTMLButtonElement
+  hideBut.addEventListener('click', () => {
+    hideBut.hidden = true
+  })
+}
+
+//Передвиньте мяч по полю.
+//Требования:
+
+//Центр мяча должен совпадать с местом нажатия мыши (если это возможно без пересечения краёв поля);
+//CSS-анимация желательна, но не обязательна;
+//Мяч ни в коем случае не должен пересекать границы поля;
+//При прокрутке страницы ничего не должно ломаться;
+
+//Заметки:
+
+//Код должен уметь работать с различными размерами мяча и поля, не привязываться к каким-либо фиксированным значениям.
+//Используйте свойства event.clientX/event.clientY для определения координат мыши при клике.
