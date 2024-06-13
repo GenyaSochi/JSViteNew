@@ -2967,3 +2967,12 @@ document.addEventListener('scroll', ()=>{
   client: (${Math.round(rect.right - borderRight)}, ${Math.round(rect.bottom - borderBottom)}), 
   page: (${Math.round(rect.right - borderRight + window.scrollX)}, ${Math.round(rect.bottom - borderBottom + window.scrollY)})</p>`
 })
+
+
+//Найти размер прокрутки снизу.
+{
+  const elem = document.querySelector('example') as HTMLDivElement
+  let scrollBottom = elem.scrollHeight - elem.scrollTop - elem.clientHeight
+  console.log(scrollBottom)
+
+}
