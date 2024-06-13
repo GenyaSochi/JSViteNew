@@ -2952,7 +2952,7 @@ const borderRight = parseFloat(fieldStyles.borderRightWidth)
 const borderBottom = parseFloat(fieldStyles.borderBottomWidth)
 const borderTop = parseFloat(fieldStyles.borderTopWidth)
 const borderLeft = parseFloat(fieldStyles.borderLeftWidth)
-document.addEventListener('scroll', ()=>{
+document.addEventListener('scroll', () => {
   const rect = fieldElement.getBoundingClientRect()
   fieldDataElement.innerHTML = `<p>1. 
   client: (${Math.round(rect.left)}, ${Math.round(rect.top)}), 
@@ -2970,9 +2970,10 @@ document.addEventListener('scroll', ()=>{
 
 
 //Найти размер прокрутки снизу.
-{
-  const elem = document.querySelector('example') as HTMLDivElement
-  let scrollBottom = elem.scrollHeight - elem.scrollTop - elem.clientHeight
-  console.log(scrollBottom)
-
-}
+// {
+//   const elem = document.querySelector('#example') as HTMLDivElement
+//   elem.addEventListener('scroll', () => {
+//     let scrollBottom = elem.scrollHeight - elem.scrollTop - elem.clientHeight
+//     console.log(scrollBottom)
+//   })
+// }
