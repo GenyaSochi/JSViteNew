@@ -2977,3 +2977,15 @@ document.addEventListener('scroll', () => {
 //     console.log(scrollBottom)
 //   })
 // }
+
+
+//Скрыть элемент по нажатию кнопки.
+{
+  const but = document.querySelector('#but') as HTMLButtonElement
+  const butText = document.querySelector('#text') as HTMLDivElement
+  but.addEventListener('click', ()=>{
+    butText.hidden = true
+  })
+}
+
+//Спрятать себя.
