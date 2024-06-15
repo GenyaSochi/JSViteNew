@@ -2970,17 +2970,25 @@ document.addEventListener('scroll', () => {
 
 
 //Найти размер прокрутки снизу.
-// {
-//   const elem = document.querySelector('#example') as HTMLDivElement
-//   elem.addEventListener('scroll', () => {
-//     let scrollBottom = elem.scrollHeight - elem.scrollTop - elem.clientHeight
-//     console.log(scrollBottom)
-//   })
-// }
+{
+  const elem = document.querySelector('#example') as HTMLDivElement
+  elem.addEventListener('scroll', () => {
+    let scrollBottom = elem.scrollHeight - elem.scrollTop - elem.clientHeight
+    console.log(scrollBottom)
+  })
+}
+
+//Напишите код, который возвращает ширину стандартной полосы прокрутки.
+elem = document.querySelector('#example') as HTMLDivElement
+elem.addEventListener('scroll', ()=> {
+  
+})
+
 
 
 //Скрыть элемент по нажатию кнопки.
 //Добавьте JavaScript к кнопке button, чтобы при нажатии элемент <div id="text"> исчезал.
+
 {
   const but = document.querySelector('#but') as HTMLButtonElement
   const butText = document.querySelector('#text') as HTMLDivElement
@@ -2991,6 +2999,7 @@ document.addEventListener('scroll', () => {
 
 //Спрятать себя.
 //Создайте кнопку, которая будет скрывать себя по нажатию.
+
 {
   const hideBut = document.querySelector('#hideButton') as HTMLButtonElement
   hideBut.addEventListener('click', () => {
