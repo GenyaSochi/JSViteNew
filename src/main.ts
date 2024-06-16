@@ -2075,6 +2075,8 @@ PrintMachine
 // и добавить его на страницу с помощью document.write().
 
 class HtmlElement {
+  offsetWidth: any
+  clientWidth: any
   innerHTML() {
     throw new Error('Method not implemented.')
   }
@@ -2943,8 +2945,6 @@ buttonEnd.onclick = function clockStop() {
 
 // Каждая из систем координат имеет свои преимущества и недостатки.Иногда будет лучше применить одну, а иногда – другую, как это и происходит с позиционированием в CSS, где мы выбираем между absolute и fixed.
 
-
-
 const fieldDataElement = document.querySelector('#fieldData') as HTMLDivElement
 const fieldElement = document.querySelector('#field') as HTMLDivElement
 const fieldStyles = getComputedStyle(fieldElement)
@@ -2968,6 +2968,22 @@ document.addEventListener('scroll', () => {
   page: (${Math.round(rect.right - borderRight + window.scrollX)}, ${Math.round(rect.bottom - borderBottom + window.scrollY)})</p>`
 })
 
+//?offsetWidth/Height
+// Они содержат «внешнюю» ширину/высоту элемента, то есть его полный размер, включая рамки.
+//?clientWidth/Height
+//Эти свойства – размер области внутри рамок элемента.
+//Они включают в себя ширину области содержимого вместе с внутренними отступами padding, но без прокрутки.
+//Если нет внутренних отступов padding, то clientWidth/Height в точности равны размеру области содержимого внутри рамок за вычетом полосы прокрутки (если она есть).
+//?clientTop/Left
+// отступы внутренней части элемента от внешней.Они возникают, когда документ располагается справа налево. 
+//?scrollWidth/Height
+//Эти свойства – как clientWidth/clientHeight, но также включают в себя прокрученную (которую не видно) часть элемента.
+//Эти свойства можно использовать, чтобы «распахнуть» элемент на всю ширину/высоту. 
+//?element.style.height = `${element.scrollHeight}px`
+
+//?scrollLeft/scrollTop
+//ширина/высота невидимой, прокрученной в данный момент, части элемента слева и сверху.
+//Другими словами, свойство scrollTop – это «сколько уже прокручено вверх».
 
 //Найти размер прокрутки снизу.
 {
@@ -2978,12 +2994,14 @@ document.addEventListener('scroll', () => {
   })
 }
 
-//Напишите код, который возвращает ширину стандартной полосы прокрутки.
-elem = document.querySelector('#example') as HTMLDivElement
-elem.addEventListener('scroll', ()=> {
-  
-})
-
+//!Напишите код, который возвращает ширину стандартной полосы прокрутки.
+{
+  let elem = document.querySelector('#example') as HTMLDivElement
+  elem.addEventListener('scroll', () => {
+    let scrollWidth = elem.offsetWidth - elem.clientWidth - (elem.clientLeft * 2)
+    console.log(scrollWidth)
+  })
+}
 
 
 //Скрыть элемент по нажатию кнопки.
