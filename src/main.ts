@@ -2984,6 +2984,11 @@ document.addEventListener('scroll', () => {
 //?scrollLeft/scrollTop
 //ширина/высота невидимой, прокрученной в данный момент, части элемента слева и сверху.
 //Другими словами, свойство scrollTop – это «сколько уже прокручено вверх».
+//можно изменять elem.scrollTop += 10
+
+//?getComputedStyle
+//можно извлечь CSS-высоту и ширину. consol.log(getComputedStyle(elem).width), Но нужно учитывать, что getComputedStyle зависят от другого свойства – box-sizing.
+//Его лучше не использовать, для того. чтобы узнать размер элемента. 
 
 //Найти размер прокрутки снизу.
 {
@@ -3027,13 +3032,20 @@ document.addEventListener('scroll', () => {
 
 //Передвиньте мяч по полю.
 //Требования:
-
 //Центр мяча должен совпадать с местом нажатия мыши (если это возможно без пересечения краёв поля);
 //CSS-анимация желательна, но не обязательна;
 //Мяч ни в коем случае не должен пересекать границы поля;
 //При прокрутке страницы ничего не должно ломаться;
 
 //Заметки:
-
 //Код должен уметь работать с различными размерами мяча и поля, не привязываться к каким-либо фиксированным значениям.
 //Используйте свойства event.clientX/event.clientY для определения координат мыши при клике.
+
+{
+  const ball = document.querySelector('#ball') as HTMLImageElement
+  const field = document.querySelector('#field') as HTMLDivElement
+  ball.style.left = Math.round(field.clientWidth / 2 - ball.offsetWidth / 2) + 'px'
+  ball.style.top = Math.round(field.clientHeight / 2 - ball.offsetHeight / 2) + 'px'
+}
+
+
