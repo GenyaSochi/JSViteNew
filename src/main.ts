@@ -3088,7 +3088,6 @@ document.addEventListener('scroll', () => {
 //   }
 // }
 
-
 //*Модифицированная функция createMessageUnder:
 // function createMessageUnder(elem, html) {
 //   let message = document.createElement('div');
