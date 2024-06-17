@@ -3048,4 +3048,58 @@ document.addEventListener('scroll', () => {
   ball.style.top = Math.round(field.clientHeight / 2 - ball.offsetHeight / 2) + 'px'
 }
 
+//Координаты.
+//Относительно окна браузера – как position:fixed,  будем обозначать эти координаты как clientX/clientY.
 
+//Относительно документа – как position:absolute, будем обозначать эти координаты как pageX/pageY.
+
+//?elem.getBoundingClientRect() возвращает координаты в контексте окна для минимального по размеру прямоугольника.
+//x/y – X/Y-координаты начала прямоугольника относительно окна,
+//width/height – ширина/высота прямоугольника (могут быть отрицательными).
+//top/bottom – Y-координата верхней/нижней границы прямоугольника,
+//left/right – X-координата левой/правой границы прямоугольника.
+//?left = x
+//?top = y
+//?right = x + width
+//?bottom = y + height
+
+//document.elementFromPoint(x, y) возвращает самый глубоко вложенный элемент в окне, находящийся по координатам (x, y)
+//?Синтаксис: let elem = document.elementFromPoint(x, y)
+
+//Метод document.elementFromPoint(x,y) работает, только если координаты (x,y) относятся к видимой части содержимого окна.
+//*Чтобы показать что-то около нужного элемента, мы можем вызвать getBoundingClientRect - текущая позиция в окне.
+//*функция createMessageUnder(elem, html) ниже показывает сообщение под элементом
+
+//*Две системы координат связаны следующими формулами:
+//?pageY = clientY + высота вертикально прокрученной части документа.
+//?pageX = clientX + ширина горизонтально прокрученной части документа.
+
+//Функция getCoords(elem) берёт координаты в контексте окна с помощью elem.getBoundingClientRect() и добавляет к ним значение соответствующей прокрутки:
+
+// получаем координаты элемента в контексте документа
+// function getCoords(elem) {
+//   let box = elem.getBoundingClientRect()
+
+//   return {
+//     top: box.top + window.pageYOffset,
+//     right: box.right + window.pageXOffset,
+//     bottom: box.bottom + window.pageYOffset,
+//     left: box.left + window.pageXOffset
+//   }
+// }
+
+
+//*Модифицированная функция createMessageUnder:
+// function createMessageUnder(elem, html) {
+//   let message = document.createElement('div');
+//   message.style.cssText = "position:absolute; color: red";
+
+//   let coords = getCoords(elem);
+
+//   message.style.left = coords.left + "px";
+//   message.style.top = coords.bottom + "px";
+
+//   message.innerHTML = html;
+
+//   return message;
+// }
