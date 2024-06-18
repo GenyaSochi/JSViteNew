@@ -3032,10 +3032,10 @@ document.addEventListener('scroll', () => {
 
 //Передвиньте мяч по полю.
 //Требования:
-//Центр мяча должен совпадать с местом нажатия мыши (если это возможно без пересечения краёв поля);
-//CSS-анимация желательна, но не обязательна;
-//Мяч ни в коем случае не должен пересекать границы поля;
-//При прокрутке страницы ничего не должно ломаться;
+//Центр мяча должен совпадать с местом нажатия мыши (если это возможно без пересечения краёв поля).
+//CSS-анимация желательна, но не обязательна.
+//Мяч ни в коем случае не должен пересекать границы поля.
+//При прокрутке страницы ничего не должно ломаться.
 
 //Заметки:
 //Код должен уметь работать с различными размерами мяча и поля, не привязываться к каким-либо фиксированным значениям.
@@ -3046,7 +3046,37 @@ document.addEventListener('scroll', () => {
   const field = document.querySelector('#field') as HTMLDivElement
   ball.style.left = Math.round(field.clientWidth / 2 - ball.offsetWidth / 2) + 'px'
   ball.style.top = Math.round(field.clientHeight / 2 - ball.offsetHeight / 2) + 'px'
+
+  field.addEventListener('click', (event) => {
+    let fieldCoords = field.getBoundingClientRect()
+    let ballCoords = {
+      top: event.clientY - fieldCoords.top - field.clientTop - ball.clientHeight / 2,
+      left: event.clientX - fieldCoords.left - field.clientLeft - ball.clientWidth / 2
+    }
+    if (ballCoords.top < 0) ballCoords.top = 0
+    if (ballCoords.left < 0) ballCoords.left = 0
+    if (ballCoords.left + ball.clientWidth > field.clientWidth) {
+      ballCoords.left = field.clientWidth - ball.clientWidth
+    }
+    if (ballCoords.left + ball.clientWidth > field.clientWidth) {
+      ballCoords.left = field.clientWidth - ball.clientWidth
+    }
+    if (ballCoords.top + ball.clientHeight > field.clientHeight) {
+      ballCoords.top = field.clientHeight - ball.clientHeight
+    }
+  
+  
+   
+  })
+
 }
+
+
+
+
+
+
+
 
 //Координаты.
 //Относительно окна браузера – как position:fixed,  будем обозначать эти координаты как clientX/clientY.
