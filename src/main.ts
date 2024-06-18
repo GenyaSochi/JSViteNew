@@ -3063,9 +3063,7 @@ document.addEventListener('scroll', () => {
     }
     if (ballCoords.top + ball.clientHeight > field.clientHeight) {
       ballCoords.top = field.clientHeight - ball.clientHeight
-    }
-  
-  
+    }  
    
   })
 
