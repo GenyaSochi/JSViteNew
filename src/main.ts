@@ -3065,6 +3065,11 @@ document.addEventListener('scroll', () => {
       ballCoords.top = field.clientHeight - ball.clientHeight
     }  
    
+    MouseEvent{
+      ball.onmousedown{
+        ball
+      }
+    }
   })
 
 }
