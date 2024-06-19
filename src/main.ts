@@ -3047,33 +3047,42 @@ document.addEventListener('scroll', () => {
   ball.style.left = Math.round(field.clientWidth / 2 - ball.offsetWidth / 2) + 'px'
   ball.style.top = Math.round(field.clientHeight / 2 - ball.offsetHeight / 2) + 'px'
 
-  field.addEventListener('click', (event) => {
+  document.body.addEventListener('click', (event) => {
     let fieldCoords = field.getBoundingClientRect()
     let ballCoords = {
       top: event.clientY - fieldCoords.top - field.clientTop - ball.clientHeight / 2,
       left: event.clientX - fieldCoords.left - field.clientLeft - ball.clientWidth / 2
     }
+
     if (ballCoords.top < 0) ballCoords.top = 0
     if (ballCoords.left < 0) ballCoords.left = 0
     if (ballCoords.left + ball.clientWidth > field.clientWidth) {
       ballCoords.left = field.clientWidth - ball.clientWidth
     }
-    if (ballCoords.left + ball.clientWidth > field.clientWidth) {
-      ballCoords.left = field.clientWidth - ball.clientWidth
-    }
     if (ballCoords.top + ball.clientHeight > field.clientHeight) {
       ballCoords.top = field.clientHeight - ball.clientHeight
-    }  
-   
-    MouseEvent{
-      ball.onmousedown{
-        ball
-      }
     }
-  })
 
+    ball.style.top = event.clientY + 'px'
+    ball.style.left = event.clientX + 'px'
+  })  
 }
 
+
+//Существует два способа обработать события:
+//?с помощью on-свойств DOM-элементов;
+//?методом addEventListener().
+//Каждый DOM-элемент имеет большой набор свойств, которые начинаются на on:
+//onclick;
+//onscroll;
+//onkeypress;
+//onmouseenter;
+//и так далее.Если в это свойство записать анонимную функцию, то эта функция
+//будет вызываться каждый раз, когда браузер будет создавать событие, связанное с этим элементом.
+//Такие функции называют функциями-обработчиками события.
+
+//*Если обрабатывать события с помощью on-свойств, то получится добавить только одну функцию-обработчик на каждый элемент.
+//*Часто одного обработчика недостаточно. Чтобы не создавать ограничение на пустом месте, используют альтернативный метод подписки на события — метод addEventListener().
 
 
 
