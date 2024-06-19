@@ -2999,7 +2999,7 @@ document.addEventListener('scroll', () => {
   })
 }
 
-//!Напишите код, который возвращает ширину стандартной полосы прокрутки.
+//Напишите код, который возвращает ширину стандартной полосы прокрутки.
 {
   let elem = document.querySelector('#example') as HTMLDivElement
   elem.addEventListener('scroll', () => {
@@ -3065,8 +3065,9 @@ document.addEventListener('scroll', () => {
 
     ball.style.top = event.clientY + 'px'
     ball.style.left = event.clientX + 'px'
-  })  
+  })
 }
+
 
 
 //Существует два способа обработать события:
