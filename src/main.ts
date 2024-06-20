@@ -3151,8 +3151,7 @@ document.addEventListener('scroll', () => {
 //При помощи JavaScript для каждого сообщения добавьте в верхний правый угол кнопку закрытия.
 
 {
-  const btns = document.querySelectorAll('.remove-button')
-   
+  const btns = document.querySelectorAll('.remove-button')   
   for (let btn of btns) {
     btn.addEventListener('click', (e)=>{
       const t = e.target as HTMLElement
