@@ -3051,7 +3051,7 @@ document.addEventListener('scroll', () => {
     let fieldCoords = field.getBoundingClientRect()
     let ballCoords = {
       top: event.clientY - fieldCoords.top - field.clientTop - ball.clientHeight / 2,
-      left: event.clientX - fieldCoords.left - field.clientLeft - ball.clientWidth / 2
+      left: event.clientX - fieldCoords.left - field.clientLeft - ball.clientWidth / 2   
     }
 
     if (ballCoords.top < 0) ballCoords.top = 0
@@ -3084,11 +3084,6 @@ document.addEventListener('scroll', () => {
 
 //*Если обрабатывать события с помощью on-свойств, то получится добавить только одну функцию-обработчик на каждый элемент.
 //*Часто одного обработчика недостаточно. Чтобы не создавать ограничение на пустом месте, используют альтернативный метод подписки на события — метод addEventListener().
-
-
-
-
-
 
 
 //Координаты.
@@ -3137,11 +3132,19 @@ document.addEventListener('scroll', () => {
 //   message.style.cssText = "position:absolute; color: red";
 
 //   let coords = getCoords(elem);
-
 //   message.style.left = coords.left + "px";
 //   message.style.top = coords.bottom + "px";
-
 //   message.innerHTML = html;
-
 //   return message;
 // }
+
+//Создать меню, которое по нажатию открывается либо закрывается:
+{
+  const sweet = document.querySelector('#sweeties') as HTMLButtonElement
+  const sweetTitle = sweet.querySelector('.title') as HTMLSpanElement
+  
+  sweetTitle.addEventListener('click', () => { 
+    sweet.classList.toggle('open')
+  
+  })
+}
