@@ -3051,7 +3051,7 @@ document.addEventListener('scroll', () => {
     let fieldCoords = field.getBoundingClientRect()
     let ballCoords = {
       top: event.clientY - fieldCoords.top - field.clientTop - ball.clientHeight / 2,
-      left: event.clientX - fieldCoords.left - field.clientLeft - ball.clientWidth / 2   
+      left: event.clientX - fieldCoords.left - field.clientLeft - ball.clientWidth / 2
     }
 
     if (ballCoords.top < 0) ballCoords.top = 0
@@ -3142,12 +3142,19 @@ document.addEventListener('scroll', () => {
 {
   const sweet = document.querySelector('#sweeties') as HTMLButtonElement
   const sweetTitle = sweet.querySelector('.title') as HTMLSpanElement
-  
-  sweetTitle.addEventListener('click', () => { 
+  sweetTitle.addEventListener('click', () => {
     sweet.classList.toggle('open')
-  
   })
 }
 
 //Есть список сообщений.
 //При помощи JavaScript для каждого сообщения добавьте в верхний правый угол кнопку закрытия.
+
+{
+  const animal = document.querySelector('.pane') as HTMLDivElement
+  const btn = document.querySelector('.remove-button') as HTMLButtonElement
+   
+    animal.addEventListener('click', ()=>{
+      btn.classList.toggle = 
+    })
+}
