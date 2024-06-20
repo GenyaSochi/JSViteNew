@@ -3053,7 +3053,7 @@ document.addEventListener('scroll', () => {
       top: event.clientY - fieldCoords.top - field.clientTop - ball.clientHeight / 2,
       left: event.clientX - fieldCoords.left - field.clientLeft - ball.clientWidth / 2
     }
-    
+
     if (ballCoords.top < 0) ballCoords.top = 0
     if (ballCoords.left < 0) ballCoords.left = 0
     if (ballCoords.left + ball.clientWidth > field.clientWidth) {
@@ -3151,11 +3151,30 @@ document.addEventListener('scroll', () => {
 //При помощи JavaScript для каждого сообщения добавьте в верхний правый угол кнопку закрытия.
 
 {
-  const btns = document.querySelectorAll('.remove-button')   
+  const btns = document.querySelectorAll('.remove-button')
   for (let btn of btns) {
-    btn.addEventListener('click', (e)=>{
+    btn.addEventListener('click', (e) => {
       const t = e.target as HTMLElement
       t.closest('.pane')?.remove()
     })
   }
 }
+
+//Сделайте так, чтобы при клике на ссылки внутри элемента id="contents" пользователю выводился вопрос о том,
+//действительно ли он хочет покинуть страницу, и если он не хочет, то прерывать переход по ссылке.
+//Содержимое #contents может быть загружено динамически и присвоено при помощи innerHTML. 
+//Так что найти все ссылки и поставить на них обработчики нельзя. Используйте делегирование.
+//Содержимое может иметь вложенные теги, в том числе внутри ссылок, например, <a href=".."><i>...</i></a>.
+
+const viki = document.querySelector('#contents') as HTMLFieldSetElement
+viki.addEventListener('click', (e) => {
+  const target = e.target as Element
+  const el = target.closest('a')
+  if (el) {
+    const answer = confirm('move to '+ el.href + '?')
+    if (!answer) {
+      e.preventDefault()
+    }
+  }
+})
+
