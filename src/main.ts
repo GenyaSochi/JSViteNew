@@ -3043,17 +3043,17 @@ document.addEventListener('scroll', () => {
 
 {
   const ball = document.querySelector('#ball') as HTMLImageElement
-  const field = document.querySelector('#field') as HTMLDivElement
+  const field = document.querySelector('#field1') as HTMLDivElement
   ball.style.left = Math.round(field.clientWidth / 2 - ball.offsetWidth / 2) + 'px'
   ball.style.top = Math.round(field.clientHeight / 2 - ball.offsetHeight / 2) + 'px'
 
-  document.body.addEventListener('click', (event) => {
+  field.addEventListener('click', (event) => {
     let fieldCoords = field.getBoundingClientRect()
     let ballCoords = {
       top: event.clientY - fieldCoords.top - field.clientTop - ball.clientHeight / 2,
       left: event.clientX - fieldCoords.left - field.clientLeft - ball.clientWidth / 2
     }
-
+    
     if (ballCoords.top < 0) ballCoords.top = 0
     if (ballCoords.left < 0) ballCoords.left = 0
     if (ballCoords.left + ball.clientWidth > field.clientWidth) {
@@ -3063,8 +3063,8 @@ document.addEventListener('scroll', () => {
       ballCoords.top = field.clientHeight - ball.clientHeight
     }
 
-    ball.style.top = event.clientY + 'px'
-    ball.style.left = event.clientX + 'px'
+    ball.style.top = ballCoords.top + 'px'
+    ball.style.left = ballCoords.left + 'px'
   })
 }
 
@@ -3151,10 +3151,12 @@ document.addEventListener('scroll', () => {
 //При помощи JavaScript для каждого сообщения добавьте в верхний правый угол кнопку закрытия.
 
 {
-  const animal = document.querySelector('.pane') as HTMLDivElement
-  const btn = document.querySelector('.remove-button') as HTMLButtonElement
+  const btns = document.querySelectorAll('.remove-button')
    
-    animal.addEventListener('click', ()=>{
-      btn.classList.toggle = 
+  for (let btn of btns) {
+    btn.addEventListener('click', (e)=>{
+      const t = e.target as HTMLElement
+      t.closest('.pane')?.remove()
     })
+  }
 }
