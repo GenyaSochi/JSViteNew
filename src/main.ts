@@ -1385,23 +1385,23 @@ console.log(averageCheck(descriptionCheck))
 //текст, и выводит этот текст с помощью document.write() в тегах <p></p>, добавив в открывающий тег атрибут style со всеми
 //стилями, перечисленными в массиве.
 
-const mass = [
-  { 'color': 'red' },
-  { 'font-size': '20px' },
-  { 'text-align': 'left' },
-  { 'margin': '20px' },
-]
-function renderText1(styles: any[], text: string) {
-  let styleText = ''
-  for (let el of styles) {
-    for (let key in el) {
-      styleText += `${key}:${el[key]};`
-    }
-  }
-  const tagString = `<p style="${styleText}"> ${text}</p>`
-  document.body.insertAdjacentHTML('beforeend', tagString)
-}
-renderText1(mass, 'Привет!')
+// const mass = [
+//   { 'color': 'red' },
+//   { 'font-size': '20px' },
+//   { 'text-align': 'left' },
+//   { 'margin': '20px' },
+// ]
+// function renderText1(styles: any[], text: string) {
+//   let styleText = ''
+//   for (let el of styles) {
+//     for (let key in el) {
+//       styleText += `${key}:${el[key]};`
+//     }
+//   }
+//   const tagString = `<p style="${styleText}"> ${text}</p>`
+//   document.body.insertAdjacentHTML('beforeend', tagString)
+// }
+// renderText1(mass, 'Привет!')
 
 //4.Создать массив аудиторий академии. Объект-аудитория состоит из названия, количества посадочных мест (от 10 до 20) и
 //названия факультета, для которого она предназначена. Написать несколько функций для работы с ним.
@@ -2697,13 +2697,13 @@ textNode = document.createTextNode('А вот и я')
 console.log(textNode)
 
 {
-  let div = document.createElement('div')//div с классом alert и HTML в нём
-  div.className = "alert"
-  div.innerHTML = "<strong>Всем привет!</strong> Вы прочитали важное сообщение."
+  // let div = document.createElement('div')//div с классом alert и HTML в нём
+  // div.className = "alert"
+  // div.innerHTML = "<strong>Всем привет!</strong> Вы прочитали важное сообщение."
   //Чтобы наш div появился, нам нужно вставить его где-нибудь в document. Например, в document.body.
   //Для этого есть метод append.
-  document.body.append(div)
-  console.log(div.innerHTML)
+  // document.body.append(div)
+  // console.log(div.innerHTML)
 }
 //?Вот методы для различных вариантов вставки:
 
@@ -3179,3 +3179,37 @@ viki.addEventListener('click', (e) => {
 })
 
 //Создайте галерею изображений, в которой основное изображение изменяется при клике на уменьшенный вариант.
+
+
+
+//Генерация пользовательских событий
+//let event = new Event(type[, options]);
+//Где: type – тип события, строка, например "click" или же любой придуманный нами – "my-event".
+//options – объект с тремя необязательными свойствами:
+//bubbles: true/false – если true, тогда событие всплывает.
+//cancelable: true/false – если true, тогда можно отменить действие по умолчанию. Позже мы разберём, что это значит для пользовательских событий.
+//composed: true/false – если true
+
+//После того, как объект события создан, мы должны запустить его на элементе, 
+//?вызвав метод elem.dispatchEvent(event)
+
+//event.isTrusted
+//Можно легко отличить «настоящее» событие от сгенерированного кодом.
+//Свойство event.isTrusted принимает значение true для событий, порождаемых реальными действиями пользователя, и false для генерируемых кодом.
+
+
+//Для некоторых конкретных типов событий есть свои специфические конструкторы
+//UIEvent
+//FocusEvent
+//MouseEvent
+//WheelEvent
+//KeyboardEvent
+
+
+//Пользовательские события
+//Для генерации событий совершенно новых типов, таких как "hello", следует использовать конструктор new CustomEvent. 
+//Технически CustomEvent абсолютно идентичен Event за исключением одной небольшой детали.
+//У второго аргумента-объекта есть дополнительное свойство detail, в котором можно указывать информацию для передачи в событие.
+
+//*Вызов event.preventDefault() является возможностью для обработчика события сообщить в сгенерировавший событие код, что эти действия надо отменить.
+//?событие должно содержать флаг cancelable: true. Иначе, вызов event.preventDefault() будет проигнорирован.
