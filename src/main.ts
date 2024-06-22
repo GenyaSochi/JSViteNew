@@ -3180,6 +3180,18 @@ viki.addEventListener('click', (e) => {
 
 //Создайте галерею изображений, в которой основное изображение изменяется при клике на уменьшенный вариант.
 
+const gallery = document.querySelector('#thumbs') as HTMLLIElement
+gallery.addEventListener('click', (e) => {
+const galleryMove = e.target as Element
+const galleryMini = galleryMove.closest('a')
+if(galleryMini){
+const rep = confirm(galleryMini.href)
+if(!rep){
+  e.preventDefault()
+}
+}
+})
+
 
 
 //Генерация пользовательских событий
