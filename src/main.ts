@@ -3186,12 +3186,11 @@ document.addEventListener('click', (e) => {
   const target = e.target as HTMLElement
   let galleryMini = target.closest('a') as HTMLAnchorElement
   if (galleryMini) {
-    galleryLarge.src = galleryMini.href 
+    galleryLarge.src = galleryMini.href
   }
   if (!galleryMini) return
   e.preventDefault()
 })
-
 
 
 //Генерация пользовательских событий
