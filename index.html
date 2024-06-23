@@ -141,7 +141,7 @@
     width: 760px;
   }
 
-  #thumbs,  #img  {
+  #thumbs {
     padding: 0;
     margin: 0;
   }
@@ -155,10 +155,22 @@
   #thumbs a {
     width: 140px;
   }
+
+  #img {
+    border: 1px grey;
+    border-style: double;
+    padding: 5px;
+  }
+  
+  #largeImg {
+    border: 1px grey;
+    border-style: double;
+    padding: 3px;
+  }
+ 
 </style>
 
 <body>
-
   <p class="bigGreen">test-test</p>
   <p class="bigRed">test</p>
   <img src="vite.svg" alt="">
@@ -382,27 +394,26 @@
   <div>
   <p><img id="largeImg" src="https://en.js.cx/gallery/img1-lg.jpg" alt="Large image"></p>
 
-  <ul id="thumbs">
-    <!-- браузер показывает небольшую встроенную подсказку из атрибута "title" при наведении курсора на текст -->
+  <ul id="thumbs">  
     <li>
-      <a href="https://en.js.cx/gallery/img2-lg.jpg" title="Image 2"><img
-          src="https://en.js.cx/gallery/img2-thumb.jpg"></a>
+      <a href="https://en.js.cx/gallery/img2-lg.jpg" title="Image 2">
+        <img id="img" src="https://en.js.cx/gallery/img2-thumb.jpg"></a>
     </li>
     <li>
-      <a href="https://en.js.cx/gallery/img3-lg.jpg" title="Image 3"><img
-          src="https://en.js.cx/gallery/img3-thumb.jpg"></a>
+      <a href="https://en.js.cx/gallery/img3-lg.jpg" title="Image 3">
+        <img id="img" src="https://en.js.cx/gallery/img3-thumb.jpg"></a>
     </li>
     <li>
-      <a href="https://en.js.cx/gallery/img4-lg.jpg" title="Image 4"><img
-          src="https://en.js.cx/gallery/img4-thumb.jpg"></a>
+      <a href="https://en.js.cx/gallery/img4-lg.jpg" title="Image 4">
+        <img id="img" src="https://en.js.cx/gallery/img4-thumb.jpg"></a>
     </li>
     <li>
-      <a href="https://en.js.cx/gallery/img5-lg.jpg" title="Image 5"><img
-          src="https://en.js.cx/gallery/img5-thumb.jpg"></a>
+      <a href="https://en.js.cx/gallery/img5-lg.jpg" title="Image 5">
+        <img id="img" src="https://en.js.cx/gallery/img5-thumb.jpg"></a>
     </li>
     <li>
-      <a href="https://en.js.cx/gallery/img6-lg.jpg" title="Image 6"><img
-          src="https://en.js.cx/gallery/img6-thumb.jpg"></a>
+      <a href="https://en.js.cx/gallery/img6-lg.jpg" title="Image 6">
+        <img id="img" src="https://en.js.cx/gallery/img6-thumb.jpg"></a>
     </li>
   </ul>
 </div>
