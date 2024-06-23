@@ -3179,7 +3179,7 @@ viki.addEventListener('click', (e) => {
 })
 
 //Создайте галерею изображений, в которой основное изображение изменяется при клике на уменьшенный вариант.
-//Метод elem.closest(selector) возвращает ближайшего предка, соответствующего селектору. 
+//!Метод elem.closest(selector) возвращает ближайшего предка, соответствующего селектору. 
 
 const galleryLarge = document.querySelector('#largeImg') as HTMLImageElement
 document.addEventListener('click', (e) => {
