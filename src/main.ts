@@ -1385,23 +1385,23 @@ console.log(averageCheck(descriptionCheck))
 //текст, и выводит этот текст с помощью document.write() в тегах <p></p>, добавив в открывающий тег атрибут style со всеми
 //стилями, перечисленными в массиве.
 
-// const mass = [
-//   { 'color': 'red' },
-//   { 'font-size': '20px' },
-//   { 'text-align': 'left' },
-//   { 'margin': '20px' },
-// ]
-// function renderText1(styles: any[], text: string) {
-//   let styleText = ''
-//   for (let el of styles) {
-//     for (let key in el) {
-//       styleText += `${key}:${el[key]};`
-//     }
-//   }
-//   const tagString = `<p style="${styleText}"> ${text}</p>`
-//   document.body.insertAdjacentHTML('beforeend', tagString)
-// }
-// renderText1(mass, 'Привет!')
+const mass = [
+  { 'color': 'red' },
+  { 'font-size': '20px' },
+  { 'text-align': 'left' },
+  { 'margin': '20px' },
+]
+function renderText1(styles: any[], text: string) {
+  let styleText = ''
+  for (let el of styles) {
+    for (let key in el) {
+      styleText += `${key}:${el[key]};`
+    }
+  }
+  const tagString = `<p style="${styleText}"> ${text}</p>`
+  document.body.insertAdjacentHTML('beforeend', tagString)
+}
+renderText1(mass, 'Привет!')
 
 //4.Создать массив аудиторий академии. Объект-аудитория состоит из названия, количества посадочных мест (от 10 до 20) и
 //названия факультета, для которого она предназначена. Написать несколько функций для работы с ним.
@@ -2697,13 +2697,13 @@ textNode = document.createTextNode('А вот и я')
 console.log(textNode)
 
 {
-  // let div = document.createElement('div')//div с классом alert и HTML в нём
-  // div.className = "alert"
-  // div.innerHTML = "<strong>Всем привет!</strong> Вы прочитали важное сообщение."
+  let div = document.createElement('div')//div с классом alert и HTML в нём
+  div.className = "alert"
+  div.innerHTML = "<strong>Всем привет!</strong> Вы прочитали важное сообщение."
   //Чтобы наш div появился, нам нужно вставить его где-нибудь в document. Например, в document.body.
   //Для этого есть метод append.
-  // document.body.append(div)
-  // console.log(div.innerHTML)
+  document.body.append(div)
+  console.log(div.innerHTML)
 }
 //?Вот методы для различных вариантов вставки:
 
@@ -3171,7 +3171,7 @@ viki.addEventListener('click', (e) => {
   const target = e.target as Element
   const el = target.closest('a')
   if (el) {
-    const answer = confirm('move to '+ el.href + '?')
+    const answer = confirm('move to ' + el.href + '?')
     if (!answer) {
       e.preventDefault()
     }
@@ -3179,19 +3179,17 @@ viki.addEventListener('click', (e) => {
 })
 
 //Создайте галерею изображений, в которой основное изображение изменяется при клике на уменьшенный вариант.
-
-const gallery = document.querySelector('#largeImg') as HTMLImageElement
-gallery.addEventListener('click', (e) => {
-const galleryMove = e.target as HTMLElement
-const galleryMini = galleryMove.closest('img') as HTMLImageElement
-if(!galleryMini) return
-if(galleryMini)
-  // gallery.src = galleryMini.src
-
-
-
+//Метод elem.closest(selector) возвращает ближайшего предка, соответствующего селектору. 
+const galleryLarge = document.querySelector('#largeImg') as HTMLImageElement
+document.addEventListener('click', (e) => {
+  const target = e.target as HTMLElement
+  e.preventDefault()
+  let galleryMini = target.closest('img') as HTMLImageElement
+  if (galleryMini) {
+    galleryLarge.src = galleryMini.src
+  }
+  if (!galleryMini) return
 })
-
 
 
 //Генерация пользовательских событий
@@ -3202,7 +3200,7 @@ if(galleryMini)
 //cancelable: true/false – если true, тогда можно отменить действие по умолчанию. Позже мы разберём, что это значит для пользовательских событий.
 //composed: true/false – если true
 
-//После того, как объект события создан, мы должны запустить его на элементе, 
+//После того, как объект события создан, мы должны запустить его на элементе,
 //?вызвав метод elem.dispatchEvent(event)
 
 //event.isTrusted
@@ -3219,7 +3217,7 @@ if(galleryMini)
 
 
 //Пользовательские события
-//Для генерации событий совершенно новых типов, таких как "hello", следует использовать конструктор new CustomEvent. 
+//Для генерации событий совершенно новых типов, таких как "hello", следует использовать конструктор new CustomEvent.
 //Технически CustomEvent абсолютно идентичен Event за исключением одной небольшой детали.
 //У второго аргумента-объекта есть дополнительное свойство detail, в котором можно указывать информацию для передачи в событие.
 
