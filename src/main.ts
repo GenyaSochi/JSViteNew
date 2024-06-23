@@ -1694,11 +1694,16 @@ buttonAds.addEventListener('click', function (e) {
     // в div (3.8) выводить сумму зарплат
   }
 })
-function renderText(mass: ({ color: string; width?: undefined; height?: undefined; 'font-size'?: undefined; 'text-align'?: undefined } | { width: string; color?: undefined; height?: undefined; 'font-size'?: undefined; 'text-align'?: undefined } | { height: string; color?: undefined; width?: undefined; 'font-size'?: undefined; 'text-align'?: undefined } | { 'font-size': string; color?: undefined; width?: undefined; height?: undefined; 'text-align'?: undefined } | { 'text-align': string; color?: undefined; width?: undefined; height?: undefined; 'font-size'?: undefined })[], arg1: string) {
+// @ts-ignore
+function renderText(mass: ({ color: string; width?: undefined; height?: undefined; 'font-size'?: undefined; 'text-align'?: undefined }
+   | { width: string; color?: undefined; height?: undefined; 'font-size'?: undefined; 'text-align'?: undefined } 
+   | { height: string; color?: undefined; width?: undefined; 'font-size'?: undefined; 'text-align'?: undefined } 
+   | { 'font-size': string; color?: undefined; width?: undefined; height?: undefined; 'text-align'?: undefined }
+    | { 'text-align': string; color?: undefined; width?: undefined; height?: undefined; 'font-size'?: undefined })[], _arg1: string) {
   throw new Error('Function not implemented.')
 }
-console.log(renderText)
 
+console.log(renderText)
 
 //PZ.СТРОКИ.
 //1.Написать функцию, которая принимает 2 строки и сравнивает их длину. Функция возвращает 1, если в первой
