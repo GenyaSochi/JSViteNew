@@ -3184,7 +3184,7 @@ viki.addEventListener('click', (e) => {
 const galleryLarge = document.querySelector('#largeImg') as HTMLImageElement
 document.addEventListener('click', (e) => {
   const target = e.target as HTMLElement
-  let galleryMini = target.closest('a') as Element
+  let galleryMini = target.closest('a') as HTMLAnchorElement
   if (galleryMini) {
     galleryLarge.src = galleryMini.href 
   }
