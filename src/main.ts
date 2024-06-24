@@ -1696,10 +1696,10 @@ buttonAds.addEventListener('click', function (e) {
 })
 // @ts-ignore
 function renderText(mass: ({ color: string; width?: undefined; height?: undefined; 'font-size'?: undefined; 'text-align'?: undefined }
-   | { width: string; color?: undefined; height?: undefined; 'font-size'?: undefined; 'text-align'?: undefined } 
-   | { height: string; color?: undefined; width?: undefined; 'font-size'?: undefined; 'text-align'?: undefined } 
-   | { 'font-size': string; color?: undefined; width?: undefined; height?: undefined; 'text-align'?: undefined }
-    | { 'text-align': string; color?: undefined; width?: undefined; height?: undefined; 'font-size'?: undefined })[], _arg1: string) {
+  | { width: string; color?: undefined; height?: undefined; 'font-size'?: undefined; 'text-align'?: undefined }
+  | { height: string; color?: undefined; width?: undefined; 'font-size'?: undefined; 'text-align'?: undefined }
+  | { 'font-size': string; color?: undefined; width?: undefined; height?: undefined; 'text-align'?: undefined }
+  | { 'text-align': string; color?: undefined; width?: undefined; height?: undefined; 'font-size'?: undefined })[], _arg1: string) {
   throw new Error('Function not implemented.')
 }
 
