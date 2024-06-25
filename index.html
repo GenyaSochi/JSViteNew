@@ -144,11 +144,10 @@
   #thumbs {
     padding: 0;
     margin: 0;
+    display: flex ;
   }
 
   #thumbs li {
-    float: left;
-    text-align: center;
     margin: 0;
   }
 
@@ -171,6 +170,13 @@
   .p {
     margin: 0;
   }
+  .selected {
+      background: #0f0;
+    }
+
+    li {
+      cursor: pointer;
+    }
 </style>
 
 <body>
@@ -418,6 +424,15 @@
         <a href="https://en.js.cx/gallery/img6-lg.jpg" title="Image 6">
           <img id="img" src="https://en.js.cx/gallery/img6-thumb.jpg"></a>
       </li>
+    </ul>
+  </div>
+  <div>
+    <ul id="ul">
+      <li>Кристофер Робин</li>
+      <li>Винни Пух</li>
+      <li>Тигра</li>
+      <li>Кенга</li>
+      <li>Кролик. Просто Кролик.</li>
     </ul>
   </div>
 </body>

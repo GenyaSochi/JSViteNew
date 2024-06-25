@@ -3229,3 +3229,18 @@ document.addEventListener('click', (e) => {
 
 //*Вызов event.preventDefault() является возможностью для обработчика события сообщить в сгенерировавший событие код, что эти действия надо отменить.
 //?событие должно содержать флаг cancelable: true. Иначе, вызов event.preventDefault() будет проигнорирован.
+
+//Кликни на элемент списка, чтобы выделить его.
+const mults = document.querySelector('#ul') as HTMLUListElement
+mults.onclick = function (event) {
+  const mult = document.querySelector('#li') as HTMLLIElement
+  if (!mult) return
+  if (mult.onmousedown) return false
+  if (event.ctrlKey || event.metaKey) {
+    mult.classList.toggle(".selected")
+  }
+
+}
+
+
+
