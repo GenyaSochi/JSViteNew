@@ -3229,18 +3229,38 @@ document.addEventListener('click', (e) => {
 
 //*Вызов event.preventDefault() является возможностью для обработчика события сообщить в сгенерировавший событие код, что эти действия надо отменить.
 //?событие должно содержать флаг cancelable: true. Иначе, вызов event.preventDefault() будет проигнорирован.
+//__________________________________________________________________________________________________________________________________________________
+//!Движение мыши: mouseover/out, mouseenter/leave
+//Для события mouseover:
+
+//event.target – это элемент, на который курсор перешёл.
+//event.relatedTarget – это элемент, с которого курсор ушёл (relatedTarget → target).
+//Для события mouseout наоборот:
+
+//event.target – это элемент, с которого курсор ушёл.
+//event.relatedTarget – это элемент, на который курсор перешёл (target → relatedTarget).
+
+//Свойство tagName объекта Element в JavaScript возвращает имя тега элемента, на котором оно вызывается.
+
+//События mouseenter/mouseleave не всплывают.
+//Когда указатель появляется над элементом – генерируется mouseenter, причём не имеет значения, где именно указатель: на самом элементе или на его потомке.
+//Событие mouseleave происходит, когда курсор покидает элемент.
+
+
 
 //Кликни на элемент списка, чтобы выделить его.
 const mults = document.querySelector('#ul') as HTMLUListElement
 mults.onclick = function (event) {
   const mult = document.querySelector('#li') as HTMLLIElement
   if (!mult) return
-  if (mult.onmousedown) return false
+ 
   if (event.ctrlKey || event.metaKey) {
-    mult.classList.toggle(".selected")
-  }
+    mult.classList.toggle('.selected')
+  // }else {
+  //   for (let el of mults){
+  //     el.classList.remove("selected")
+  //   }
+  // }
 
 }
-
-
-
+}
