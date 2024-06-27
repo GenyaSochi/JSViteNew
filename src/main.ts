@@ -3255,12 +3255,8 @@ mults.onclick = function (event) {
   if (!mult) return
 
   if (event.ctrlKey || event.metaKey) {
-    mult.classList.toggle('.selected')
-    // }else {
-    //   for (let el of mults){
-    //     el.classList.remove("selected")
-    //   }
-    // }
+    mult.onmousedown
+
 
 
   }
