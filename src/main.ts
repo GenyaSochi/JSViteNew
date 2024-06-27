@@ -3253,14 +3253,15 @@ const mults = document.querySelector('#ul') as HTMLUListElement
 mults.onclick = function (event) {
   const mult = document.querySelector('#li') as HTMLLIElement
   if (!mult) return
- 
+
   if (event.ctrlKey || event.metaKey) {
     mult.classList.toggle('.selected')
-  // }else {
-  //   for (let el of mults){
-  //     el.classList.remove("selected")
-  //   }
-  // }
+    // }else {
+    //   for (let el of mults){
+    //     el.classList.remove("selected")
+    //   }
+    // }
 
-}
+
+  }
 }
