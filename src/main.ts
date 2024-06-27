@@ -3253,6 +3253,7 @@ const mults = document.querySelector('#ul') as HTMLUListElement
 mults.onclick = function (event) {
   const mult = document.querySelector('#li') as HTMLLIElement
   if (!mult) return
+  event.preventDefault()
 
   if (event.ctrlKey || event.metaKey) {
     mult.onmousedown
