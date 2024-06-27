@@ -3251,14 +3251,16 @@ document.addEventListener('click', (e) => {
 //Кликни на элемент списка, чтобы выделить его.
 const mults = document.querySelector('#ul') as HTMLUListElement
 mults.onclick = function (event) {
-  const mult = document.querySelector('#li') as HTMLLIElement
-  if (!mult) return
-  event.preventDefault()
-
+  const mTarget = event.target as HTMLElement
+  const target = mTarget.closest('li')
+  if (!target) return
   if (event.ctrlKey || event.metaKey) {
-    mult.onmousedown
-
-
-
+    target.classList.toggle('selected')
+  } else {
+    for (let li of mults.children) {
+      if (li==target) continue
+      li.classList.remove('selected')
+    }
+    target.classList.toggle('selected')
   }
 }
