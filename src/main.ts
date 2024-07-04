@@ -3357,7 +3357,7 @@ thumb.onmousedown = function (event) {
     event.preventDefault()
     let thambLeft = event.clientX - shiftX - thumb.getBoundingClientRect().left
 
-    
+    //использовать пойнтер
   }
 
 
