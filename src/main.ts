@@ -3348,7 +3348,17 @@ mults.onclick = function (event) {
 
 //Создайте слайдер.
 
-const thumb = docCss.querySelector('.thumb') as HTMLDivElement
+const thumb = document.querySelector('.thumb') as HTMLDivElement
 thumb.onmousedown = function (event) {
   event.preventDefault()
+  let shiftX = event.clientX - thumb.getBoundingClientRect().left
+
+ document.onmousemove = function (event) {
+    event.preventDefault()
+    let thambLeft = event.clientX - shiftX - thumb.getBoundingClientRect().left
+
+    
+  }
+
+
 }
