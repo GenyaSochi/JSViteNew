@@ -3349,16 +3349,26 @@ mults.onclick = function (event) {
 //Создайте слайдер.
 
 const thumb = document.querySelector('.thumb') as HTMLDivElement
-thumb.onmousedown = function (event) {
-  event.preventDefault()
-  let shiftX = event.clientX - thumb.getBoundingClientRect().left
+thumb.onpointerdown = function (event) {
+  thumb.setPointerCapture(event.pointerId)
+  thumb.onpointermove = function(event) {
+    // перемещение слайдера: отслеживание thumb, т.к все события указателя перенацелены на него
+    let shiftX = event.clientX - thumb.getBoundingClientRect().left
+    thumb.style.left = shiftX + 'px';
+  }
+  thumb.onpointerup = function(event) {
+    thumb.onpointermove = null
+    thumb.onpointerup = null
+    // ...при необходимости также обработайте "конец перемещения"
+  }
+//   event.preventDefault()
+//   let shiftX = event.clientX - thumb.getBoundingClientRect().left
 
- document.onmousemove = function (event) {
-    event.preventDefault()
-    let thambLeft = event.clientX - shiftX - thumb.getBoundingClientRect().left
+//  document.onmousemove = function (event) {
+//     event.preventDefault()
+//     let thambLeft = event.clientX - shiftX - thumb.getBoundingClientRect().left
 
-    //использовать пойнтер
+//     //использовать пойнтер
   }
 
 
-}
