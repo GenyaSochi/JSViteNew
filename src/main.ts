@@ -3349,16 +3349,20 @@ mults.onclick = function (event) {
 //Создайте слайдер.
 
 const thumb = document.querySelector('.thumb') as HTMLDivElement
-thumb.onmousedown = function (event) {
-  event.preventDefault()
-  let shiftX = event.clientX - thumb.getBoundingClientRect().left
-
- document.onmousemove = function (event) {
-    event.preventDefault()
-    let thambLeft = event.clientX - shiftX - thumb.getBoundingClientRect().left
-
-    //использовать пойнтер
+const slider = document.querySelector('#slider') as HTMLDivElement
+thumb.onpointerdown = function (event) {
+  thumb.setPointerCapture(event.pointerId)
+  thumb.onpointermove = function (event) {
+    let shiftX = event.clientX - slider.getBoundingClientRect().left
+    thumb.style.left = shiftX + 'px'
   }
+  //   event.preventDefault()
+  //   let shiftX = event.clientX - thumb.getBoundingClientRect().left
 
+  //  document.onmousemove = function (event) {
+  //     event.preventDefault()
+  //     let thambLeft = event.clientX - shiftX - thumb.getBoundingClientRect().left
 
 }
+
+
