@@ -3348,21 +3348,20 @@ mults.onclick = function (event) {
 
 //Создайте слайдер.
 
-const thumb = document.querySelector('.thumb') as HTMLDivElement
 const slider = document.querySelector('#slider') as HTMLDivElement
+const thumb = slider.querySelector('.thumb') as HTMLDivElement
 thumb.onpointerdown = function (event) {
+  const target = event.target as HTMLElement
+  event.preventDefault()
   thumb.setPointerCapture(event.pointerId)
   thumb.onpointermove = function (event) {
     let shiftX = event.clientX - slider.getBoundingClientRect().left
     thumb.style.left = shiftX + 'px'
+    thumb.setPointerCapture(event.pointerId)
   }
-  //   event.preventDefault()
-  //   let shiftX = event.clientX - thumb.getBoundingClientRect().left
-
-  //  document.onmousemove = function (event) {
-  //     event.preventDefault()
-  //     let thambLeft = event.clientX - shiftX - thumb.getBoundingClientRect().left
-
 }
-
+thumb.onpointerup = function (_event) {
+  thumb.onpointermove = null
+  thumb.onpointerup = null
+}
 
