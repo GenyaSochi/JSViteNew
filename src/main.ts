@@ -3351,17 +3351,19 @@ mults.onclick = function (event) {
 const slider = document.querySelector('#slider') as HTMLDivElement
 const thumb = slider.querySelector('.thumb') as HTMLDivElement
 thumb.onpointerdown = function (event) {
-  const target = event.target as HTMLElement
   event.preventDefault()
   thumb.setPointerCapture(event.pointerId)
   thumb.onpointermove = function (event) {
     let shiftX = event.clientX - slider.getBoundingClientRect().left
-    thumb.style.left = shiftX + 'px'
+    let x = shiftX
+    if (event.clientX<slider.getBoundingClientRect().left) x=0
+    if (event.clientX+thumb.clientWidth>(slider.clientWidth+slider.getBoundingClientRect().left)) x=slider.clientWidth-thumb.clientWidth
+    thumb.style.left = x + 'px'
     thumb.setPointerCapture(event.pointerId)
   }
-}
-thumb.onpointerup = function (_event) {
-  thumb.onpointermove = null
-  thumb.onpointerup = null
+  thumb.onpointerup = function (_event) {
+    thumb.onpointermove = null
+    thumb.onpointerup = null
+  }
 }
 
