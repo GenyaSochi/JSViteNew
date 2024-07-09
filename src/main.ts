@@ -3367,3 +3367,20 @@ thumb.onpointerdown = function (event) {
   }
 }
 
+//Создайте <div>, который превращается в <textarea>, если на него кликнуть.
+
+const view = document.querySelector('#view') as HTMLDivElement
+view.style.padding = '0'
+view.addEventListener('click', ()=>{
+  const data = view.innerHTML
+  view.innerHTML = `<textarea style="width:100%; height:100%">${data}</textarea>`
+  const area = view.children[0] as HTMLTextAreaElement
+  area.focus()
+  area.onblur = ()=>{
+    area.onblur = null
+    view.innerHTML = area.value
+  }
+})
+
+//Сделайте ячейки таблицы редактируемыми по клику.
+
