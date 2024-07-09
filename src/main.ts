@@ -3384,3 +3384,16 @@ view.addEventListener('click', ()=>{
 
 //Сделайте ячейки таблицы редактируемыми по клику.
 
+let currentTD = null as HTMLTableCellElement|null
+let currentTDColor = null as string|null
+const baguaTable = document.querySelector('#bagua-table') as HTMLTableElement
+baguaTable.addEventListener('click', (e)=>{
+  const target = e.target as HTMLElement
+  const td = target.closest('td')
+  if (!td) return
+  td.style.padding = '0'
+  td.style.backgroundColor = 'white'
+  const data = td.innerHTML
+  td.innerHTML = `<textarea style="width:96%; height:95%">${data}</textarea>`
+
+})
