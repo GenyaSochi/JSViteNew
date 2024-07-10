@@ -3394,6 +3394,8 @@ baguaTable.addEventListener('click', (e)=>{
   td.style.padding = '0'
   td.style.backgroundColor = 'white'
   const data = td.innerHTML
-  td.innerHTML = `<textarea style="width:96%; height:95%">${data}</textarea>`
+  td.innerHTML = `<textarea style="width:96%; height:94%">${data}</textarea>`
 
 })
+
+//Добавьте пункт к выпадающему списку.
