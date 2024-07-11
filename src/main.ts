@@ -3370,6 +3370,7 @@ thumb.onpointerdown = function (event) {
 //Создайте <div>, который превращается в <textarea>, если на него кликнуть.
 
 const view = document.querySelector('#view') as HTMLDivElement
+view.innerHTML = localStorage.text
 view.style.padding = '0'
 view.addEventListener('click', ()=>{
   const data = view.innerHTML
@@ -3379,6 +3380,7 @@ view.addEventListener('click', ()=>{
   area.onblur = ()=>{
     area.onblur = null
     view.innerHTML = area.value
+    localStorage.text = area.value
   }
 })
 
