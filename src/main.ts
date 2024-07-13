@@ -3356,8 +3356,8 @@ thumb.onpointerdown = function (event) {
   thumb.onpointermove = function (event) {
     let shiftX = event.clientX - slider.getBoundingClientRect().left
     let x = shiftX
-    if (event.clientX<slider.getBoundingClientRect().left) x=0
-    if (event.clientX+thumb.clientWidth>(slider.clientWidth+slider.getBoundingClientRect().left)) x=slider.clientWidth-thumb.clientWidth
+    if (event.clientX < slider.getBoundingClientRect().left) x = 0
+    if (event.clientX + thumb.clientWidth > (slider.clientWidth + slider.getBoundingClientRect().left)) x = slider.clientWidth - thumb.clientWidth
     thumb.style.left = x + 'px'
     thumb.setPointerCapture(event.pointerId)
   }
@@ -3372,12 +3372,12 @@ thumb.onpointerdown = function (event) {
 const view = document.querySelector('#view') as HTMLDivElement
 view.innerHTML = localStorage.text
 view.style.padding = '0'
-view.addEventListener('click', ()=>{
+view.addEventListener('click', () => {
   const data = view.innerHTML
   view.innerHTML = `<textarea style="width:100%; height:100%">${data}</textarea>`
   const area = view.children[0] as HTMLTextAreaElement
   area.focus()
-  area.onblur = ()=>{
+  area.onblur = () => {
     area.onblur = null
     view.innerHTML = area.value
     localStorage.text = area.value
@@ -3386,10 +3386,10 @@ view.addEventListener('click', ()=>{
 
 //Сделайте ячейки таблицы редактируемыми по клику.
 
-let currentTD = null as HTMLTableCellElement|null
-let currentTDColor = null as string|null
+let currentTD = null as HTMLTableCellElement | null
+let currentTDColor = null as string | null
 const baguaTable = document.querySelector('#bagua-table') as HTMLTableElement
-baguaTable.addEventListener('click', (e)=>{
+baguaTable.addEventListener('click', (e) => {
   const target = e.target as HTMLElement
   const td = target.closest('td')
   if (!td) return
@@ -3397,7 +3397,19 @@ baguaTable.addEventListener('click', (e)=>{
   td.style.backgroundColor = 'white'
   const data = td.innerHTML
   td.innerHTML = `<textarea style="width:96%; height:94%">${data}</textarea>`
+  td.classList.add('edit-td')
+  let textArea = document.createElement('textarea')
+  textArea.style.width = td.clientWidth + 'px'
+  textArea.style.height = td.clientHeight + 'px'
+  textArea.className = 'edit-area'
+  textArea.value = td.innerHTML
+  td.innerHTML = ''
+  td.appendChild(textArea)
+  textArea.focus()
+
+ 
 
 })
 
 //Добавьте пункт к выпадающему списку.
+//resize: none;
