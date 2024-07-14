@@ -306,6 +306,15 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
   }
 
+  #mouse {
+    display: inline-block;
+    cursor: pointer;
+    margin: 0;
+  }
+
+  #mouse:focus {
+    outline: 1px dashed black;
+  }
 </style>
 
 <body>
@@ -582,13 +591,13 @@
     <table id="bagua-table">
       <tr>
         <th colspan="3">Квадрат <em>Bagua</em>: Направление, Элемент, Цвет, Значение</th>
-      </tr> 
-      <tr>       
-        <td class="nw">       
+      </tr>
+      <tr>
+        <td class="nw">
           <strong>Северо-Запад</strong>
           <br>Металл
           <br>Серебро
-          <br>Старейшины         
+          <br>Старейшины
         </td>
         <td class="n">
           <strong>Север</strong>
@@ -601,7 +610,7 @@
           <br>Земля
           <br>Жёлтый
           <br>Направление
-        </td>     
+        </td>
       </tr>
       <tr>
         <td class="w">
@@ -638,8 +647,8 @@
           <br>Роман
         </td>
       </tr>
-    </div>
-  </table> 
+  </div>
+  </table>
   <br>
   <br>
   <div>
@@ -647,6 +656,19 @@
   </div>
   <br>
   <br>
+  <div>
+    <pre id="mouse">
+      _   _
+     (q\_/p)
+      /. .\
+     =\_t_/=   __
+      /   \   (
+     ((   ))   )
+     /\) (/\  /
+     \  Y  /-'
+      nn^nn
+     </pre>
+  </div>
 </body>
 
 </html>

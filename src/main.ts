@@ -3453,3 +3453,34 @@ function finishTdEdit(td: any, isOk: any) {
   td.classList.remove('edit-td')
   editingTd = null
 }
+
+//Установите фокус на мышь. Затем используйте клавиши со стрелками, чтобы её двигать.
+
+const mouse = document.querySelector('#mouse') as HTMLPreElement
+let lastTopCoords = parseFloat(mouse.style.top);
+let lastLeftCoords = parseFloat(mouse.style.left);
+if (isNaN(lastTopCoords)) lastTopCoords = 100;
+if (isNaN(lastLeftCoords)) lastLeftCoords = 100;
+window.addEventListener('key', (e)=>{
+  switch(e.key) {
+ 
+    case 40: {
+      mouse.style.top = `${lastTopCoords + 5}px`
+      break
+    }
+    case 38: {
+      mouse.style.top = `${lastTopCoords - 5}px`
+      break
+    }
+    case 37: {
+      mouse.style.left = `${lastLeftCoords - 5}px`
+      break
+    }
+    case 39: {
+      mouse.style.left = `${lastLeftCoords + 5}px`
+      break
+    }
+    default: break
+  }
+
+})
