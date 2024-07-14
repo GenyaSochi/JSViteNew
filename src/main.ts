@@ -3462,7 +3462,7 @@ let lastLeftCoords = parseFloat(mouse.style.left);
 if (isNaN(lastTopCoords)) lastTopCoords = 100;
 if (isNaN(lastLeftCoords)) lastLeftCoords = 100;
 window.addEventListener('key', (e)=>{
-  switch(e.key) {
+  switch(e) {
  
     case 40: {
       mouse.style.top = `${lastTopCoords + 5}px`
