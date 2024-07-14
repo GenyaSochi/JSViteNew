@@ -3385,87 +3385,73 @@ view.addEventListener('click', () => {
 })
 
 //Сделайте ячейки таблицы редактируемыми по клику.
+//По клику – ячейка должна стать «редактируемой» (textarea появляется внутри), мы можем изменять HTML. Изменение размера ячейки должно быть отключено.
+//Кнопки OK и ОТМЕНА появляются ниже ячейки и, соответственно, завершают/отменяют редактирование.
+//Только одну ячейку можно редактировать за один раз. Пока <td> в «режиме редактирования», клики по другим ячейкам игнорируются.
+//Таблица может иметь множество ячеек. Используйте делегирование событий.
 
 // let currentTD = null as HTMLTableCellElement | null | string
 // let currentTDColor = null as string | null
 // const baguaTable = document.querySelector('#bagua-table') as HTMLTableElement
 // baguaTable.addEventListener('click', (e) => {
 //   const target = e.target as HTMLElement
-//   const td = target.closest('td')
-//   if (!td) return
-//   td.style.padding = '0'
-//   td.style.backgroundColor = 'white'
+//   const td = target.closest('.edit-cancel,.edit-ok,td') 
+  // const editingTd  = document.querySelector('#bagua-table') as HTMLTableElement
+//   if (!td) return 
+  // td.style.padding = '0'
+  // td.style.backgroundColor = 'white'
 //   const data = td.innerHTML
 //   td.innerHTML = `<textarea style="width:96%; height:94%">${data}</textarea>`
-//   td.classList.add('edit-td')//редактирование
-//   let textArea = document.createElement('textarea')
-//   textArea.style.width = td.clientWidth + 'px'
-//   textArea.style.height = td.clientHeight + 'px'
-//   textArea.className = 'edit-area'
-//   textArea.value = td.innerHTML
-//   td.innerHTML = ''
-//   td.appendChild(textArea)
-//   textArea.focus()
-//   e.preventDefault()
 
-//   //insertAdjacentHTML позволяет вставитьстроку HTML кода в любое место страницы.
-//   // @ts-ignore
-//   td.insertAdjacentHTML("beforeEnd",
-//     '<div class="edit-controls"><button class="edit-ok">OK</button><button class="edit-cancel">CANCEL</button></div>'
-//   )  
-// })
-// function applyBtn(td, OK){
-//   if(!OK)
-//     return
-  
-let table = document.getElementById('bagua-table');
-let editingTd;
+//   })
 
-table.onclick = function(event) {
-  // 3 возможных цели
-  let target = event.target.closest('.edit-cancel,.edit-ok,td');
-  if (!table.contains(target)) return;
-  if (target.className == 'edit-cancel') {
-    finishTdEdit(editingTd.elem, false);
-  } else if (target.className == 'edit-ok') {
-    finishTdEdit(editingTd.elem, true);
-  } else if (target.nodeName == 'TD') {
-    if (editingTd) return; // уже редактируется
 
-    makeTdEditable(target);
+
+let editingTd = null as HTMLTableCellElement | null | string
+const baguaTable = document.querySelector('#bagua-table') as HTMLTableElement
+baguaTable.addEventListener('click', (e) => {
+  let target = e.target as HTMLElement
+  let td = target.closest('.edit-cancel,.edit-ok,td')
+  if (!td) return
+  if (target.className == 'edit-cancel'){
+    finishTdEdit(editingTd.elem, false)
+  }else if (target.className == 'edit-ok'){
+    finishTdEdit(editingTd.elem, true)
+  }else if (target.nodeName == 'TD'){
+    if (editingTd) return // уже редактируется
+
+    makeTdEditable(target)
   }
+})
 
-};
-
-function makeTdEditable(td) {
+function makeTdEditable(td: HTMLElement) {
   editingTd = {
+    // @ts-ignore
     elem: td,
     data: td.innerHTML
-  };
+  }
 
-  td.classList.add('edit-td'); // td в состоянии редактирования, CSS применятся к textarea внутри ячейки
+  td.classList.add('edit-td')// td в состоянии редактирования, CSS применятся к textarea внутри ячейки
+  let textArea = document.createElement('textarea')
+  textArea.style.width = td.clientWidth + 'px'
+  textArea.style.height = td.clientHeight + 'px'
+  textArea.className = 'edit-area'
 
-  let textArea = document.createElement('textarea');
-  textArea.style.width = td.clientWidth + 'px';
-  textArea.style.height = td.clientHeight + 'px'; 
-  textArea.className = 'edit-area';
+  textArea.value = td.innerHTML
+  td.innerHTML = ''
+  td.appendChild(textArea)
+  textArea.focus()
 
-  textArea.value = td.innerHTML;
-  td.innerHTML = '';
-  td.appendChild(textArea);
-  textArea.focus();
-
-  td.insertAdjacentHTML("beforeEnd",
+  td.insertAdjacentHTML("beforeend",
     '<div class="edit-controls"><button class="edit-ok">OK</button><button class="edit-cancel">CANCEL</button></div>'
-  );
+  )
 }
-
 function finishTdEdit(td, isOk) {
   if (isOk) {
-    td.innerHTML = td.firstChild.value;
+    td.innerHTML = td.firstChild.value
   } else {
-    td.innerHTML = editingTd.data;
+    td.innerHTML = editingTd.data
   }
-  td.classList.remove('edit-td');
-  editingTd = null;
+  td.classList.remove('edit-td')
+  editingTd = null
 }
