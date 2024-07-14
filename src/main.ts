@@ -3396,10 +3396,10 @@ view.addEventListener('click', () => {
 // baguaTable.addEventListener('click', (e) => {
 //   const target = e.target as HTMLElement
 //   const td = target.closest('.edit-cancel,.edit-ok,td') 
-  // const editingTd  = document.querySelector('#bagua-table') as HTMLTableElement
+// const editingTd  = document.querySelector('#bagua-table') as HTMLTableElement
 //   if (!td) return 
-  // td.style.padding = '0'
-  // td.style.backgroundColor = 'white'
+// td.style.padding = '0'
+// td.style.backgroundColor = 'white'
 //   const data = td.innerHTML
 //   td.innerHTML = `<textarea style="width:96%; height:94%">${data}</textarea>`
 
@@ -3413,24 +3413,22 @@ baguaTable.addEventListener('click', (e) => {
   let target = e.target as HTMLElement
   let td = target.closest('.edit-cancel,.edit-ok,td')
   if (!td) return
-  if (target.className == 'edit-cancel'){
-    finishTdEdit(editingTd.elem, false)
-  }else if (target.className == 'edit-ok'){
-    finishTdEdit(editingTd.elem, true)
-  }else if (target.nodeName == 'TD'){
+  if (target.className == 'edit-cancel') {
+    finishTdEdit(editingTd?.elem, false)
+  } else if (target.className == 'edit-ok') {
+    finishTdEdit(editingTd?.elem, true)
+  } else if (target.nodeName == 'TD') {
     if (editingTd) return // уже редактируется
 
     makeTdEditable(target)
   }
 })
-
 function makeTdEditable(td: HTMLElement) {
   editingTd = {
     // @ts-ignore
     elem: td,
     data: td.innerHTML
   }
-
   td.classList.add('edit-td')// td в состоянии редактирования, CSS применятся к textarea внутри ячейки
   let textArea = document.createElement('textarea')
   textArea.style.width = td.clientWidth + 'px'
@@ -3446,11 +3444,11 @@ function makeTdEditable(td: HTMLElement) {
     '<div class="edit-controls"><button class="edit-ok">OK</button><button class="edit-cancel">CANCEL</button></div>'
   )
 }
-function finishTdEdit(td, isOk) {
+function finishTdEdit(td: any, isOk: any) {
   if (isOk) {
     td.innerHTML = td.firstChild.value
   } else {
-    td.innerHTML = editingTd.data
+    td.innerHTML = data.editingTd
   }
   td.classList.remove('edit-td')
   editingTd = null
