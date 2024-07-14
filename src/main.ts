@@ -3407,14 +3407,14 @@ view.addEventListener('click', () => {
 
 
 
-let editingTd = null as HTMLTableCellElement | null | string
+let editingTd = null as HTMLTableCellElement | null | string | boolean
 const baguaTable = document.querySelector('#bagua-table') as HTMLTableElement
 baguaTable.addEventListener('click', (e) => {
   let target = e.target as HTMLElement
   let td = target.closest('.edit-cancel,.edit-ok,td')
   if (!td) return
   if (target.className == 'edit-cancel') {
-    finishTdEdit(editingTd?.elem, false)
+    finishTdEdit(editingTd?.elem , false)   
   } else if (target.className == 'edit-ok') {
     finishTdEdit(editingTd?.elem, true)
   } else if (target.nodeName == 'TD') {
