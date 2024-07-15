@@ -3468,6 +3468,5 @@ document.onkeydown = function(event){
   }
   if(event.key == "ArrowDown"){
     mouse.style.right =  mouseY + 'px'  
-  }
- 
+  } 
 }
