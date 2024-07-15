@@ -3464,17 +3464,10 @@ let mouseY = mouseCharsCoords.y
 document.onkeydown = function(event){
   console.log(event)
   if(event.key == "ArrowRight"){
-    mouse.style.left + mouseX + 'px'
-    // mouseX += 50    
-  }
-  if(event.key == "ArrowLeft"){
-    mouse.style.right + mouseX + 'px'
-    // mouseX -= 50
-  }
-  if(event.key == "ArrowUp"){
-    mouseY += 50
+    mouse.style.left =  mouseX + 'px'     
   }
   if(event.key == "ArrowDown"){
-    mouseY -= 50
+    mouse.style.right =  mouseY + 'px'  
   }
+ 
 }
