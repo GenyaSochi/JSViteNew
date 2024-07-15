@@ -3456,31 +3456,25 @@ function finishTdEdit(td: any, isOk: any) {
 
 //Установите фокус на мышь. Затем используйте клавиши со стрелками, чтобы её двигать.
 
-const mouse = document.querySelector('#mouse') as HTMLPreElement
-let lastTopCoords = parseFloat(mouse.style.top);
-let lastLeftCoords = parseFloat(mouse.style.left);
-if (isNaN(lastTopCoords)) lastTopCoords = 100;
-if (isNaN(lastLeftCoords)) lastLeftCoords = 100;
-window.addEventListener('key', (e)=>{
-  switch(e) {
- 
-    case 40: {
-      mouse.style.top = `${lastTopCoords + 5}px`
-      break
-    }
-    case 38: {
-      mouse.style.top = `${lastTopCoords - 5}px`
-      break
-    }
-    case 37: {
-      mouse.style.left = `${lastLeftCoords - 5}px`
-      break
-    }
-    case 39: {
-      mouse.style.left = `${lastLeftCoords + 5}px`
-      break
-    }
-    default: break
-  }
+const mouse = document.getElementById('mouse') as HTMLPreElement
+let mouseCharsCoords = mouse.getBoundingClientRect()
+let mouseX = mouseCharsCoords.x
+let mouseY = mouseCharsCoords.y
 
-})
+document.onkeydown = function(event){
+  console.log(event)
+  if(event.key == "ArrowRight"){
+    mouse.style.left + mouseX + 'px'
+    // mouseX += 50    
+  }
+  if(event.key == "ArrowLeft"){
+    mouse.style.right + mouseX + 'px'
+    // mouseX -= 50
+  }
+  if(event.key == "ArrowUp"){
+    mouseY += 50
+  }
+  if(event.key == "ArrowDown"){
+    mouseY -= 50
+  }
+}
