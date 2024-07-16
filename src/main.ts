@@ -3414,7 +3414,7 @@ baguaTable.addEventListener('click', (e) => {
   let td = target.closest('.edit-cancel,.edit-ok,td')
   if (!td) return
   if (target.className == 'edit-cancel') {
-    finishTdEdit(editingTd?.elem , false)   
+    finishTdEdit(editingTd?.elem, false)
   } else if (target.className == 'edit-ok') {
     finishTdEdit(editingTd?.elem, true)
   } else if (target.nodeName == 'TD') {
@@ -3456,17 +3456,24 @@ function finishTdEdit(td: any, isOk: any) {
 
 //Установите фокус на мышь. Затем используйте клавиши со стрелками, чтобы её двигать.
 
-const mouse = document.getElementById('mouse') as HTMLPreElement
-let mouseCharsCoords = mouse.getBoundingClientRect()
-let mouseX = mouseCharsCoords.x
-let mouseY = mouseCharsCoords.y
+const mouse = document.getElementById('#mouse') as HTMLPreElement
+document.onkeydown = function (event) {
+  let mouseCharsCoords = mouse.getBoundingClientRect()
+  let mouseX = mouseCharsCoords.x
+  let mouseY = mouseCharsCoords.y
 
-document.onkeydown = function(event){
-  console.log(event)
-  if(event.key == "ArrowRight"){
-    mouse.style.left =  mouseX + 'px'     
+   console.log(event)
+  if (event.key == "ArrowRight") {
+    mouse.style.left = mouseX + 'px'
   }
-  if(event.key == "ArrowDown"){
-    mouse.style.right =  mouseY + 'px'  
-  } 
+  if (event.key == "ArrowDown") {
+    mouse.style.top = mouseY + 'px'
+  }
+  if (event.key == "ArrowUp"){
+
+  }
+  if (event.key =="ArrowLeft"){
+
+  }
 }
+
