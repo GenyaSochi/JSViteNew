@@ -3407,25 +3407,26 @@ view.addEventListener('click', () => {
 
 
 
-let editingTd = null as HTMLTableCellElement | null | string | boolean
+let editingTd = {
+  elem: null as HTMLTableCellElement|null,
+  data: ''
+}
 const baguaTable = document.querySelector('#bagua-table') as HTMLTableElement
 baguaTable.addEventListener('click', (e) => {
   let target = e.target as HTMLElement
-  let td = target.closest('.edit-cancel,.edit-ok,td')
-  if (!td) return
+  let td = target.closest('td')
   if (target.className == 'edit-cancel') {
-    finishTdEdit(editingTd?.elem, false)
+    finishTdEdit(editingTd.elem, false)
   } else if (target.className == 'edit-ok') {
-    finishTdEdit(editingTd?.elem, true)
-  } else if (target.nodeName == 'TD') {
-    if (editingTd) return // уже редактируется
-
-    makeTdEditable(target)
-  }
+    finishTdEdit(editingTd.elem, true)
+  } else {
+    if (!td) return
+    if (editingTd.elem) return
+    makeTdEditable(td)
+  } 
 })
-function makeTdEditable(td: HTMLElement) {
+function makeTdEditable(td: HTMLTableCellElement) {
   editingTd = {
-    // @ts-ignore
     elem: td,
     data: td.innerHTML
   }
@@ -3444,36 +3445,39 @@ function makeTdEditable(td: HTMLElement) {
     '<div class="edit-controls"><button class="edit-ok">OK</button><button class="edit-cancel">CANCEL</button></div>'
   )
 }
-function finishTdEdit(td: any, isOk: any) {
-  if (isOk) {
-    td.innerHTML = td.firstChild.value
-  } else {
-    td.innerHTML = data.editingTd
-  }
-  td.classList.remove('edit-td')
-  editingTd = null
+function finishTdEdit(td: HTMLTableCellElement|null, isOk: boolean) {
+  if (td) {
+    if (isOk) {
+      const ta = td.firstElementChild as HTMLTextAreaElement
+      td.innerHTML = ta.value
+    } else {
+      td.innerHTML = editingTd.data
+    }
+    td.classList.remove('edit-td')
+    editingTd.elem = null
+    editingTd.data = ''
+  } 
 }
 
 //Установите фокус на мышь. Затем используйте клавиши со стрелками, чтобы её двигать.
 
-const mouse = document.getElementById('#mouse') as HTMLPreElement
+const mouse = document.getElementById('mouse') as HTMLPreElement
 document.onkeydown = function (event) {
   let mouseCharsCoords = mouse.getBoundingClientRect()
   let mouseX = mouseCharsCoords.x
   let mouseY = mouseCharsCoords.y
 
-   console.log(event)
   if (event.key == "ArrowRight") {
-    mouse.style.left = mouseX + 'px'
+    mouse.style.left = mouseX + 50 + 'px'
   }
   if (event.key == "ArrowDown") {
-    mouse.style.top = mouseY + 'px'
+    mouse.style.top = mouseY + 50 + 'px'
   }
   if (event.key == "ArrowUp"){
-
+    mouse.style.top = mouseY - 50 + 'px'    
   }
   if (event.key =="ArrowLeft"){
-
+    mouse.style.left = mouseX - 50 + 'px'
   }
 }
 
