@@ -3481,3 +3481,20 @@ document.onkeydown = function (event) {
   }
 }
 
+//Анимация круга с помощью промиса.
+const btnCircle = document.createElement('button')
+function showCircle(circleX: number, circleY: number, radius: number){
+  let div = document.createElement('div')
+    div.style.width = 0 + 'px'
+    div.style.height = 0 + 'px'   
+    div.style.left = circleX + 'px'
+    div.style.top = circleY + 'px'
+    div.className = 'circle'
+    document.body.append(div)
+
+    setTimeout(() => {
+      div.style.width = radius * 2 + 'px'
+      div.style.height = radius * 2 + 'px'
+    }, 0)
+}
+// <!-- onclick="showCircle(150, 150, 100)">showCircle(150, 150, 100) -->

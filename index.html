@@ -316,6 +316,16 @@
   #mouse:focus {
     outline: 1px dashed black;
   }
+
+  .circle {
+      transition-property: width, height;
+      transition-duration: 2s;
+      position: fixed;
+      transform: translateX(-50%) translateY(-50%);
+      background-color: red;
+      border-radius: 50%;
+    }
+ 
 </style>
 
 <body>
@@ -670,6 +680,9 @@
       nn^nn
      </pre>
   </div>
+  <div class="circle"></div>
+    <button>showCircle(150, 150, 100) </button>
+  
 </body>
 
 </html>
