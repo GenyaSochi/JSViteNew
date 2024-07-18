@@ -3485,6 +3485,7 @@ document.onkeydown = function (event) {
 const btnCircle = document.getElementById('#btn') as HTMLButtonElement
 document.onclick = function(event) {
   let target = event.target as HTMLElement
+  if(event.target == btnCircle)
  
 }
 
