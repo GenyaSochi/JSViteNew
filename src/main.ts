@@ -3381,6 +3381,7 @@ view.addEventListener('click', () => {
     area.onblur = null
     view.innerHTML = area.value
     localStorage.text = area.value
+    text = ''
   }
 })
 
@@ -3485,9 +3486,9 @@ document.onkeydown = function (event) {
 // const btnCircle = document.getElementById('#btn') as HTMLButtonElement
 // document.onclick = function(event) {
 //   let target = event.target as HTMLElement
-//   if(event.target == btnCircle)
-//   showCircle
-// }
+//   const el = target.closest('button')
+//  
+//}
 
 function showCircle(circleX: number, circleY: number, radius: number) {
   let div = document.createElement('div')
@@ -3503,3 +3504,4 @@ function showCircle(circleX: number, circleY: number, radius: number) {
     div.style.height = radius * 2 + 'px'
   }, 1000)
 }
+console.log(showCircle)
