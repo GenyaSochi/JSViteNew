@@ -3482,12 +3482,12 @@ document.onkeydown = function (event) {
 }
 
 //Анимация круга с помощью промиса.
-const btnCircle = document.getElementById('#btn') as HTMLButtonElement
-document.onclick = function(event) {
-  let target = event.target as HTMLElement
-  if(event.target == btnCircle)
- 
-}
+// const btnCircle = document.getElementById('#btn') as HTMLButtonElement
+// document.onclick = function(event) {
+//   let target = event.target as HTMLElement
+//   if(event.target == btnCircle)
+//   showCircle
+// }
 
 function showCircle(circleX: number, circleY: number, radius: number) {
   let div = document.createElement('div')
