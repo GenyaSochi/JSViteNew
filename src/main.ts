@@ -3408,7 +3408,7 @@ view.addEventListener('click', () => {
 
 
 let editingTd = {
-  elem: null as HTMLTableCellElement|null,
+  elem: null as HTMLTableCellElement | null,
   data: ''
 }
 const baguaTable = document.querySelector('#bagua-table') as HTMLTableElement
@@ -3423,7 +3423,7 @@ baguaTable.addEventListener('click', (e) => {
     if (!td) return
     if (editingTd.elem) return
     makeTdEditable(td)
-  } 
+  }
 })
 function makeTdEditable(td: HTMLTableCellElement) {
   editingTd = {
@@ -3445,7 +3445,7 @@ function makeTdEditable(td: HTMLTableCellElement) {
     '<div class="edit-controls"><button class="edit-ok">OK</button><button class="edit-cancel">CANCEL</button></div>'
   )
 }
-function finishTdEdit(td: HTMLTableCellElement|null, isOk: boolean) {
+function finishTdEdit(td: HTMLTableCellElement | null, isOk: boolean) {
   if (td) {
     if (isOk) {
       const ta = td.firstElementChild as HTMLTextAreaElement
@@ -3456,7 +3456,7 @@ function finishTdEdit(td: HTMLTableCellElement|null, isOk: boolean) {
     td.classList.remove('edit-td')
     editingTd.elem = null
     editingTd.data = ''
-  } 
+  }
 }
 
 //Установите фокус на мышь. Затем используйте клавиши со стрелками, чтобы её двигать.
@@ -3473,28 +3473,32 @@ document.onkeydown = function (event) {
   if (event.key == "ArrowDown") {
     mouse.style.top = mouseY + 50 + 'px'
   }
-  if (event.key == "ArrowUp"){
-    mouse.style.top = mouseY - 50 + 'px'    
+  if (event.key == "ArrowUp") {
+    mouse.style.top = mouseY - 50 + 'px'
   }
-  if (event.key =="ArrowLeft"){
+  if (event.key == "ArrowLeft") {
     mouse.style.left = mouseX - 50 + 'px'
   }
 }
 
 //Анимация круга с помощью промиса.
-const btnCircle = document.createElement('button')
-function showCircle(circleX: number, circleY: number, radius: number){
-  let div = document.createElement('div')
-    div.style.width = 0 + 'px'
-    div.style.height = 0 + 'px'   
-    div.style.left = circleX + 'px'
-    div.style.top = circleY + 'px'
-    div.className = 'circle'
-    document.body.append(div)
-
-    setTimeout(() => {
-      div.style.width = radius * 2 + 'px'
-      div.style.height = radius * 2 + 'px'
-    }, 0)
+const btnCircle = document.getElementById('#btn') as HTMLButtonElement
+document.onclick = function(event) {
+  let target = event.target as HTMLElement
+ 
 }
-// <!-- onclick="showCircle(150, 150, 100)">showCircle(150, 150, 100) -->
+
+function showCircle(circleX: number, circleY: number, radius: number) {
+  let div = document.createElement('div')
+  div.style.width = 0 + 'px'
+  div.style.height = 0 + 'px'
+  div.style.left = circleX + 'px'
+  div.style.top = circleY + 'px'
+  div.className = 'circle'
+  document.body.append(div)
+  
+  setTimeout(() => {
+    div.style.width = radius * 2 + 'px'
+    div.style.height = radius * 2 + 'px'
+  }, 1000)
+}
