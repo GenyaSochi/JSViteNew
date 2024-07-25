@@ -3507,3 +3507,17 @@ function showCircle(circleX: number, circleY: number, radius: number) {
   }, 1000)
 }
 
+//Промисы.
+{
+  let a = 11
+  console.log(a)
+  let b = new Promise(function(resolve, _reject){
+      setTimeout(()=>{
+        resolve(a = 22)
+      },5000) 
+  })
+  b.then(function(){
+    console.log(a)
+  })
+  
+}
