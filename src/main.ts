@@ -3484,40 +3484,54 @@ document.onkeydown = function (event) {
 
 //Анимация круга с помощью промиса.
 
-const circle = document.querySelector('.circle') as HTMLDivElement
-document.onclick = function (event) {
-  let target = event.target as HTMLElement
-  
-}
-function move() {
-showCircle(150,150,100)      
-}
-function showCircle(circleX: number, circleY: number, radius: number) {
-  let div = document.createElement('div')
-  div.style.width = 0 + 'px'
-  div.style.height = 0 + 'px'
-  div.style.left = circleX + 'px'
-  div.style.top = circleY + 'px'
-  // div.className = 'circle'
-  // document.body.append(div)
-
+const circleDiv = document.querySelector('.circle') as HTMLDivElement
+async function showCircle(top: number, left: number, r: number) {
+  circleDiv.style.width = '0px'
+  circleDiv.style.height = '0px'
+  circleDiv.style.left = left + 'px'
+  circleDiv.style.top = top + 'px'
   setTimeout(() => {
-    div.style.width = radius * 2 + 'px'
-    div.style.height = radius * 2 + 'px'
-  }, 1000)
+    circleDiv.style.width = r * 2 + 'px'
+    circleDiv.style.height = r * 2 + 'px'
+  }, 0)
+  return new Promise((resolve, reject) => {
+    setTimeout(() => resolve(circleDiv), 2000)
+  })
 }
 
+// showCircle(150, 150, 100).then(div=>{
+//   div.classList.add('massage-ball')
+//   div.insertAdjacentHTML('beforeend',"<p>Hello, world!</p>")
+// })
+async function circleNew() {
+  const div = await showCircle(150, 150, 100) as HTMLDivElement
+  div.classList.add('massage-ball')
+  div.insertAdjacentHTML('beforeend', "<p>Hello, world!</p>")
+}
+circleNew()
 //Промисы.
 {
   let a = 11
   console.log(a)
-  let b = new Promise(function(resolve, _reject){
-      setTimeout(()=>{
-        resolve(a = 22)
-      },5000) 
+  let b = new Promise(function (resolve, _reject) {
+    setTimeout(() => {
+      resolve(a = 22)
+    }, 5000)
   })
-  b.then(function(){
+  b.then(function () {
     console.log(a)
   })
-  
+
+}
+
+//Асинхронные функции.
+//При асинхронной функции, обязательно используем try/catch, чтобы все работало.
+//Ключевое слово async обязывает функции возвращать промис.
+async function f() {
+  try {
+    return 1
+  }
+  catch {
+    return 2
+  }
 }
