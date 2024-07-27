@@ -3494,15 +3494,10 @@ async function showCircle(top: number, left: number, r: number) {
     circleDiv.style.width = r * 2 + 'px'
     circleDiv.style.height = r * 2 + 'px'
   }, 0)
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve, _reject) => {
     setTimeout(() => resolve(circleDiv), 2000)
   })
 }
-
-// showCircle(150, 150, 100).then(div=>{
-//   div.classList.add('massage-ball')
-//   div.insertAdjacentHTML('beforeend',"<p>Hello, world!</p>")
-// })
 async function circleNew() {
   const div = await showCircle(150, 150, 100) as HTMLDivElement
   div.classList.add('massage-ball')
