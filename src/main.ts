@@ -1,4 +1,6 @@
 import './style.css'
+import axios from 'axios'
+
 //console.log('Привет!')
 //console.log(100) 
 
@@ -3530,3 +3532,35 @@ async function f() {
     return 2
   }
 }
+
+//Перепишите один из примеров раздела Цепочка промисов, используя async/await вместо .then/catch.
+
+async function loadJson() {
+  let response = await fetch('https://learn.javascript.ru')
+  if (response.status == 200) {
+    console.log(response.status)
+    return response.json()
+  } else {
+    console.log(response.status)
+    throw new Error(String(response.status))
+  }
+}
+loadJson().then(user => console.log(user)).catch(e => console.log(e))
+
+
+//async
+
+function f1(){
+  console.log(1)
+}
+function f2(){
+  console.log(2)
+}
+function f3(){
+  console.log(3)
+}
+f1()
+f2()
+f3()
+
+axios('http://localhost:5173/WEB36JS').then((resp)=>console.log(resp))
