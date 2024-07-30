@@ -3563,4 +3563,4 @@ f1()
 f2()
 f3()
 
-axios('http://localhost:5173/WEB36JS').then((resp)=>console.log(resp))
+axios('http://localhost:5173/JSViteNew/').then((resp)=>console.log(resp))
