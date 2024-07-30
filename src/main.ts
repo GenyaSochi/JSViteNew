@@ -3254,7 +3254,8 @@ viki.addEventListener('click', (e) => {
 //!Метод elem.closest(selector) возвращает ближайшего предка, соответствующего селектору. 
 
 const galleryLarge = document.querySelector('#largeImg') as HTMLImageElement
-document.addEventListener('click', (e) => {
+const thumbs = document.querySelector('#thumbs') as HTMLImageElement
+thumbs.addEventListener('click', (e) => {
   const target = e.target as HTMLElement
   let galleryMini = target.closest('a') as HTMLAnchorElement
   if (galleryMini) {
