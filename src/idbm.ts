@@ -6,7 +6,7 @@ const titleInput = form.children[0] as HTMLInputElement
 const select = form.children[1] as HTMLSelectElement
 let data = {} as any
 
-form.addEventListener('submit', async (e)=>{
+form.addEventListener('submit', async (e) => {
   e.preventDefault()
   if (!titleInput.value) {
     alert('Input title')
@@ -19,7 +19,7 @@ form.addEventListener('submit', async (e)=>{
   // if (data?.Search) {
   //   data?.Search.push(...resp.data.Search)
   // } else {
-    data = resp.data
+  data = resp.data
   // }
   renderWithPagination(data, 0)
   // render(resp.data.Search)
@@ -28,47 +28,45 @@ form.addEventListener('submit', async (e)=>{
 const paginationDiv = document.querySelector('#pagination') as HTMLDivElement
 const contentDiv = document.querySelector('#content') as HTMLDivElement
 
-paginationDiv.addEventListener('click', (e)=>{
+paginationDiv.addEventListener('click', (e) => {
   const target = e.target as HTMLElement
   if (!target.dataset.page) return false
-  renderWithPagination(data, +target.dataset.page*3)
+  renderWithPagination(data, +target.dataset.page * 3)
 })
 
-let div : HTMLDivElement
+let div: HTMLDivElement
 
-document.addEventListener('click', (e)=>{
+document.addEventListener('click', (e) => {
   const target = e.target as HTMLElement
   if (target.className != 'overlay') return false
   document.body.style.overflow = ''
   div.remove()
 })
 
-contentDiv.addEventListener('click', (e)=>{
+contentDiv.addEventListener('click', (e) => {
   const target = e.target as HTMLElement
   if (!target.dataset.id) return false
   div = document.createElement('div')
   div.className = 'overlay'
-  div.innerHTML = `
-    <div class="modal">text</div>
-  `
+  div.innerHTML = `<div class="modal">text</div>`
   document.body.style.overflow = 'hidden'
   console.log(div)
   document.body.append(div)
 })
 
-function renderWithPagination(data:any, start:number) {
-  render(data.Search?.slice(start, start+3))
-  const count = Math.ceil(data.Search.length/3)
+function renderWithPagination(data: any, start: number) {
+  render(data.Search?.slice(start, start + 3))
+  const count = Math.ceil(data.Search.length / 3)
   paginationDiv.innerHTML = ''
-  for (let i=0; i<count;i++) {
-    paginationDiv.innerHTML += `<button data-page="${i}">${i+1}</button>`
+  for (let i = 0; i < count; i++) {
+    paginationDiv.innerHTML += `<button data-page="${i}">${i + 1}</button>`
   }
 }
 
-function render(arr:any[]) {
+function render(arr: any[]) {
   contentDiv.innerHTML = ''
-  
-  arr?.forEach((el:any)=>{
+
+  arr?.forEach((el: any) => {
     const content = `
     <div>
       <img src="${el.Poster}" alt="${el.Title}">
@@ -82,5 +80,20 @@ function render(arr:any[]) {
     `
     contentDiv.insertAdjacentHTML('beforeend', content)
   })
-
 }
+
+const url1 = `https://developers.themoviedb.org/3/search/search-movies.i=id="content"`
+const resp1 = await axios(url1)
+data = resp1.data
+
+document.addEventListener('click', (e) => {
+  let but1 = '<div> <button data-id="${el.imdbID}">Details</button> </div>'
+  if (!but1) return
+  div.innerHTML = ''
+  but1 == url1
+
+})
+
+
+
+
